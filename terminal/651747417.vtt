@@ -1,0 +1,742 @@
+﻿WEBVTT
+
+1
+00:00:03.032 --> 00:00:07.128
+<v ->Okay, so last up in the ways to instal programmes</v>
+
+2
+00:00:07.128 --> 00:00:10.229
+is npm and Node.
+
+3
+00:00:10.229 --> 00:00:13.479
+So myself, I am a Javascript developer.
+
+4
+00:00:15.493 --> 00:00:18.817
+I use Javascript in the client side and on the service side,
+
+5
+00:00:18.817 --> 00:00:21.817
+and Node is the programme I use to run
+
+6
+00:00:23.039 --> 00:00:25.977
+service side Javascript, and the package manager
+
+7
+00:00:25.977 --> 00:00:29.508
+that's become kind of the default is npm.
+
+8
+00:00:29.508 --> 00:00:32.525
+npm doesn't actually stand for Node package manager,
+
+9
+00:00:32.525 --> 00:00:36.541
+it's one of those kind of, it doesn't stand for anything.
+
+10
+00:00:36.541 --> 00:00:41.290
+And the way that you get npm, or the default way
+
+11
+00:00:41.290 --> 00:00:44.299
+of getting npm, is going to nodejs.org
+
+12
+00:00:44.299 --> 00:00:47.424
+and installing from the landing page.
+
+13
+00:00:47.424 --> 00:00:51.022
+So it's detected, the website detects that I have a Mac,
+
+14
+00:00:51.022 --> 00:00:53.824
+it's offering the two versions available.
+
+15
+00:00:53.824 --> 00:00:58.102
+So there's the LTS, which means long-term support,
+
+16
+00:00:58.102 --> 00:01:00.933
+which means that this will be supported for several years.
+
+17
+00:01:00.933 --> 00:01:05.100
+They do have a road map on, oh yeah, you go to LTS schedule,
+
+18
+00:01:06.659 --> 00:01:09.627
+so it'll give you an idea when it'll stop supporting LTS.
+
+19
+00:01:09.627 --> 00:01:11.008
+And you have the current version as well,
+
+20
+00:01:11.008 --> 00:01:12.925
+which is version seven.
+
+21
+00:01:13.787 --> 00:01:16.509
+So I've already gone ahead and installed this.
+
+22
+00:01:16.509 --> 00:01:18.178
+I basically clicked on this link.
+
+23
+00:01:18.178 --> 00:01:20.928
+It downloaded a Mac installable package,
+
+24
+00:01:20.928 --> 00:01:24.149
+one I had to double click, open it up,
+
+25
+00:01:24.149 --> 00:01:26.156
+I went through the different, go next, next, next,
+
+26
+00:01:26.156 --> 00:01:28.357
+and installed Node six.
+
+27
+00:01:28.357 --> 00:01:32.318
+But with Node, so if I go into the terminal,
+
+28
+00:01:32.318 --> 00:01:35.318
+I have Node six, but I also get npm,
+
+29
+00:01:36.359 --> 00:01:38.936
+and I get the npm version 3.10,
+
+30
+00:01:38.936 --> 00:01:40.695
+and that keeps upgrading as well.
+
+31
+00:01:40.695 --> 00:01:43.239
+And you can upgrade npm separately,
+
+32
+00:01:43.239 --> 00:01:45.225
+and you might already have Node installed and so on,
+
+33
+00:01:45.225 --> 00:01:49.729
+but npm is the way that I would instal packages.
+
+34
+00:01:49.729 --> 00:01:53.229
+So npm's registry, like Rubygems and Brew,
+
+35
+00:01:54.607 --> 00:01:57.607
+is on a different URL, so npmjs.com.
+
+36
+00:02:00.496 --> 00:02:04.196
+And this is the repository for all of the,
+
+37
+00:02:04.196 --> 00:02:05.847
+where you publish an npm package
+
+38
+00:02:05.847 --> 00:02:07.387
+and where you download them from.
+
+39
+00:02:07.387 --> 00:02:10.727
+So I think, certainly when I'm signed in,
+
+40
+00:02:10.727 --> 00:02:14.079
+there's kind of a list of popular packages.
+
+41
+00:02:14.079 --> 00:02:16.908
+You don't need to pay for an account to use it.
+
+42
+00:02:16.908 --> 00:02:19.188
+This is just for private packages
+
+43
+00:02:19.188 --> 00:02:22.593
+if you don't want people to be able to instal them.
+
+44
+00:02:22.593 --> 00:02:26.760
+There is a large number of users that exclusively use npm
+
+45
+00:02:28.264 --> 00:02:29.753
+and do not publish to npm.
+
+46
+00:02:29.753 --> 00:02:32.965
+Like, Brew, for instance, I can see in Brew
+
+47
+00:02:32.965 --> 00:02:35.653
+but I publish back into Brew.
+
+48
+00:02:35.653 --> 00:02:39.820
+So here's some npm packages that people use a lot.
+
+49
+00:02:40.922 --> 00:02:43.525
+Funny enough, npm is one of them,
+
+50
+00:02:43.525 --> 00:02:44.955
+and Grunt you've probably heard of,
+
+51
+00:02:44.955 --> 00:02:48.435
+Bower maybe as well, Express, Cordova,
+
+52
+00:02:48.435 --> 00:02:51.144
+Cordova is PhoneGap, and Gulp as well.
+
+53
+00:02:51.144 --> 00:02:53.765
+There's a lot, I think there's kind of,
+
+54
+00:02:53.765 --> 00:02:57.075
+300,000 or something like that, they're (mumbles).
+
+55
+00:02:57.075 --> 00:02:58.492
+350,000 packages.
+
+56
+00:03:00.893 --> 00:03:04.765
+So I'm going to instal a package from npm.
+
+57
+00:03:04.765 --> 00:03:07.154
+Again, it wasn't something, you don't know,
+
+58
+00:03:07.154 --> 00:03:08.125
+like, you can search for things,
+
+59
+00:03:08.125 --> 00:03:09.805
+but there's so many packages that you kind of end up
+
+60
+00:03:09.805 --> 00:03:11.005
+with a lot of results.
+
+61
+00:03:11.005 --> 00:03:13.093
+We're going to instal (mumbles) with JSON,
+
+62
+00:03:13.093 --> 00:03:17.260
+JSON, as in the Javascript object notation, (mumbles).
+
+63
+00:03:20.085 --> 00:03:23.264
+We have one called JSON in capitals and one in lowercase,
+
+64
+00:03:23.264 --> 00:03:26.533
+which is kind of scary, didn't expect that.
+
+65
+00:03:26.533 --> 00:03:29.984
+But I searched for JSON, you can see the results,
+
+66
+00:03:29.984 --> 00:03:33.567
+there's a lot, what's that, 12,000 results.
+
+67
+00:03:34.564 --> 00:03:37.285
+Actually, I want this one.
+
+68
+00:03:37.285 --> 00:03:39.965
+I have no idea what this one is.
+
+69
+00:03:39.965 --> 00:03:43.315
+I mean, I can read, but it's not the one I want.
+
+70
+00:03:43.315 --> 00:03:45.595
+So this is a little command line utility
+
+71
+00:03:45.595 --> 00:03:48.503
+that allows me to pipe JSON into it,
+
+72
+00:03:48.503 --> 00:03:50.005
+and it kind of structures it in a way
+
+73
+00:03:50.005 --> 00:03:52.696
+that I can process the data.
+
+74
+00:03:52.696 --> 00:03:55.005
+So if you look at the readme, I can encode
+
+75
+00:03:55.005 --> 00:03:57.502
+plain text into it, and I guess it formats it
+
+76
+00:03:57.502 --> 00:03:59.795
+for me to be able to read, but I can also
+
+77
+00:03:59.795 --> 00:04:04.060
+query particular properties, I can do some manipulation.
+
+78
+00:04:04.060 --> 00:04:08.227
+I also find it very useful for kind of querying APIs
+
+79
+00:04:10.195 --> 00:04:12.185
+and then just kind of putting out one piece of the data.
+
+80
+00:04:12.185 --> 00:04:16.572
+So let me show you how to instal that, for starters.
+
+81
+00:04:16.572 --> 00:04:17.964
+So I'm trying to see on this page
+
+82
+00:04:17.964 --> 00:04:19.742
+if it actually shows you how to instal,
+
+83
+00:04:19.742 --> 00:04:22.393
+and we have installation one, get Node, which we've done.
+
+84
+00:04:22.393 --> 00:04:24.983
+Step two, npm instal dash g, so we're going
+
+85
+00:04:24.983 --> 00:04:27.411
+to do that on our command line.
+
+86
+00:04:27.411 --> 00:04:30.994
+So npm instal dash g, or dash dash global.
+
+87
+00:04:33.912 --> 00:04:35.009
+And this is important.
+
+88
+00:04:35.009 --> 00:04:37.069
+If you don't include the dash dash global,
+
+89
+00:04:37.069 --> 00:04:41.052
+it will instal the npm package into your working directory,
+
+90
+00:04:41.052 --> 00:04:43.772
+which is not what we want for utility.
+
+91
+00:04:43.772 --> 00:04:47.332
+Something that we're going to reuse on our command line,
+
+92
+00:04:47.332 --> 00:04:50.900
+like the Pony, say, or the (mumbles) Fire.
+
+93
+00:04:50.900 --> 00:04:54.441
+We want a global instal package,
+
+94
+00:04:54.441 --> 00:04:56.411
+and there's a bunch of shortcuts that we use,
+
+95
+00:04:56.411 --> 00:04:58.161
+that we can use, which you can see here.
+
+96
+00:04:58.161 --> 00:05:01.744
+Dash g means global, I can do npm i dash g,
+
+97
+00:05:03.631 --> 00:05:05.151
+but just for your sake, I'm going to do
+
+98
+00:05:05.151 --> 00:05:06.901
+global and then json.
+
+99
+00:05:09.881 --> 00:05:14.048
+So that's going to go off, and I have permission, terrific.
+
+100
+00:05:16.860 --> 00:05:20.443
+And, let's see, so I think it's conflicting
+
+101
+00:05:21.801 --> 00:05:23.369
+with a previous instal I have.
+
+102
+00:05:23.369 --> 00:05:25.569
+So I'm just going to pause and fix this.
+
+103
+00:05:25.569 --> 00:05:27.700
+Okay, so I fixed that and reinstalled it,
+
+104
+00:05:27.700 --> 00:05:31.283
+and now, if you have a fresh instal of npm
+
+105
+00:05:33.001 --> 00:05:36.020
+or a Node and npm, you shouldn't get permission errors.
+
+106
+00:05:36.020 --> 00:05:38.441
+It is possible that you do get permission errors,
+
+107
+00:05:38.441 --> 00:05:41.860
+and the temptation then might be to use Sedu,
+
+108
+00:05:41.860 --> 00:05:45.193
+that we met earlier in the Gems example.
+
+109
+00:05:46.441 --> 00:05:50.300
+Now it's generally recommended you don't do that,
+
+110
+00:05:50.300 --> 00:05:53.560
+and there are directions on the npm help
+
+111
+00:05:53.560 --> 00:05:55.749
+on how to fix those kind of things.
+
+112
+00:05:55.749 --> 00:05:57.369
+The reason I actually had it is because
+
+113
+00:05:57.369 --> 00:06:00.241
+I have two users on this machine,
+
+114
+00:06:00.241 --> 00:06:03.100
+this Screencast user and my personal user.
+
+115
+00:06:03.100 --> 00:06:06.100
+But I've gone ahead and fixed that.
+
+116
+00:06:06.100 --> 00:06:09.401
+And like I said, I'll include a link in the notes
+
+117
+00:06:09.401 --> 00:06:12.348
+on how to fix in a Sedu problem,
+
+118
+00:06:12.348 --> 00:06:15.561
+but now, after I've already installed npm,
+
+119
+00:06:15.561 --> 00:06:20.220
+sorry, JSON globally, I have this utility, JSON.
+
+120
+00:06:20.220 --> 00:06:21.500
+And when I run it, nothing happens,
+
+121
+00:06:21.500 --> 00:06:22.909
+cause I have to give it some content.
+
+122
+00:06:22.909 --> 00:06:26.030
+So I'm going to just do echo,
+
+123
+00:06:26.030 --> 00:06:29.321
+in fact, I'm just going to grab the example up here,
+
+124
+00:06:29.321 --> 00:06:32.821
+echo, and just pipe that string into JSON.
+
+125
+00:06:38.588 --> 00:06:39.838
+So echo age 10.
+
+126
+00:06:40.897 --> 00:06:43.599
+Like I said, what I use it for is plucking out
+
+127
+00:06:43.599 --> 00:06:46.425
+particular properties, so here I've pulled out the age,
+
+128
+00:06:46.425 --> 00:06:48.406
+and I think you can see the kind of manipulation,
+
+129
+00:06:48.406 --> 00:06:52.489
+which may not be, oh gosh, it doesn't work today.
+
+130
+00:06:54.359 --> 00:06:56.084
+This dot age, I think it is, yeah.
+
+131
+00:06:56.084 --> 00:06:58.334
+So you can do manipulation.
+
+132
+00:06:59.850 --> 00:07:01.328
+There's a whole bunch of other things that you can do,
+
+133
+00:07:01.328 --> 00:07:04.808
+but I tend to use it for formatting,
+
+134
+00:07:04.808 --> 00:07:07.808
+so I actually can read large blocks of JSON,
+
+135
+00:07:07.808 --> 00:07:10.488
+or just pulling out one specific property.
+
+136
+00:07:10.488 --> 00:07:12.320
+In this case, I'm using age, but maybe
+
+137
+00:07:12.320 --> 00:07:16.299
+you want to (mumbles) some kind of API,
+
+138
+00:07:16.299 --> 00:07:20.466
+for instance, here's some, I think Javascript registry.
+
+139
+00:07:22.239 --> 00:07:23.854
+I think it's the right URL.
+
+140
+00:07:23.854 --> 00:07:25.006
+So here's a bunch of Javascript.
+
+141
+00:07:25.006 --> 00:07:29.538
+This is basically the JSON behind this page here,
+
+142
+00:07:29.538 --> 00:07:31.439
+the MPM page.
+
+143
+00:07:31.439 --> 00:07:35.439
+If I do curl and the URL and then pipe the JSON.
+
+144
+00:07:37.468 --> 00:07:39.286
+So curl is going to go and grab the URL
+
+145
+00:07:39.286 --> 00:07:43.453
+and then pipe the output string into the JSON command,
+
+146
+00:07:45.508 --> 00:07:48.588
+and then I should be able to just read,
+
+147
+00:07:48.588 --> 00:07:51.255
+if I wanted the readme filename,
+
+148
+00:07:52.378 --> 00:07:55.087
+it just gives me that one bit.
+
+149
+00:07:55.087 --> 00:07:59.279
+So without the json part, I'm just grabbing that URL
+
+150
+00:07:59.279 --> 00:08:01.039
+and just spitting it out on the screen,
+
+151
+00:08:01.039 --> 00:08:02.567
+and then with the json part, I'm able
+
+152
+00:08:02.567 --> 00:08:06.287
+to kind of see it formatted properly,
+
+153
+00:08:06.287 --> 00:08:08.586
+make it a bit more readable, look through the properties,
+
+154
+00:08:08.586 --> 00:08:11.394
+maybe I want all the contributors.
+
+155
+00:08:11.394 --> 00:08:14.207
+So I go ahead and just put json contributors,
+
+156
+00:08:14.207 --> 00:08:15.575
+and there I've got them.
+
+157
+00:08:15.575 --> 00:08:18.116
+And I can do things like dash a, which tricks it
+
+158
+00:08:18.116 --> 00:08:22.247
+as an array, and then I can get out the name, I think, yeah.
+
+159
+00:08:22.247 --> 00:08:24.266
+I kind of think, oh, it didn't quite work.
+
+160
+00:08:24.266 --> 00:08:27.599
+But still, there's lots of npm programmes.
+
+161
+00:08:29.196 --> 00:08:31.495
+Once, I mean, I work with one quick load,
+
+162
+00:08:31.495 --> 00:08:36.185
+one is the free Node development, it automatically restarts.
+
+163
+00:08:36.185 --> 00:08:38.847
+Know when you make file changes, and there's a tonne
+
+164
+00:08:38.847 --> 00:08:41.358
+of utilities on there.
+
+165
+00:08:41.358 --> 00:08:42.800
+Obviously I can't think of any off the top of my head
+
+166
+00:08:42.800 --> 00:08:45.488
+right this second, but I'm also intending
+
+167
+00:08:45.488 --> 00:08:48.155
+to record some videos on kind of
+
+168
+00:08:49.578 --> 00:08:52.027
+front end development and tools that can help you.
+
+169
+00:08:52.027 --> 00:08:54.637
+So, like I said, Nodemon is one of those,
+
+170
+00:08:54.637 --> 00:08:58.448
+so you can do npm instal dash g nodemon,
+
+171
+00:08:58.448 --> 00:09:00.579
+and it'll give you this programme
+
+172
+00:09:00.579 --> 00:09:04.776
+that will auto restart your server when files change.
+
+173
+00:09:04.776 --> 00:09:08.577
+This thing can check dependencies, that's linting.
+
+174
+00:09:08.577 --> 00:09:12.049
+If you use Sublime or Atom, typically they want you
+
+175
+00:09:12.049 --> 00:09:15.466
+to instal things like ESLint or CSSLint,
+
+176
+00:09:17.082 --> 00:09:18.529
+or anything like that.
+
+177
+00:09:18.529 --> 00:09:21.308
+And it'll be through npm.
+
+178
+00:09:21.308 --> 00:09:23.228
+So that's all of our installers.
+
+179
+00:09:23.228 --> 00:09:24.938
+Hopefully you can go ahead and you now know
+
+180
+00:09:24.938 --> 00:09:28.978
+how to run programmes locally, they're in your path,
+
+181
+00:09:28.978 --> 00:09:31.628
+you can instal new programmes through Gems,
+
+182
+00:09:31.628 --> 00:09:33.890
+through Brew, and through npm.
+
+183
+00:09:33.890 --> 00:09:36.930
+If you want to try Python, please do, go ahead.
+
+184
+00:09:36.930 --> 00:09:41.097
+I've never been successful at it, it's very tricky.
+
+185
+00:09:42.058 --> 00:09:43.475
+So there you are.
+

@@ -1,0 +1,13 @@
+{
+  "name": "training-captions",
+  "version": "1.0.0",
+  "description": "Closed captions for Left Logic training material",
+  "main": "/dev/null",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "private": true,
+  "author": "Remy Sharp",
+  "license": "MIT"
+}

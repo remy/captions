@@ -1,0 +1,770 @@
+﻿WEBVTT
+
+1
+00:00:01.233 --> 00:00:02.066
+<v ->Okay.</v>
+
+2
+00:00:02.066 --> 00:00:04.257
+So the last two tools I wanna show you
+
+3
+00:00:04.257 --> 00:00:06.414
+are sort and unique.
+
+4
+00:00:06.414 --> 00:00:09.831
+So what sort would do is take a stream of
+
+5
+00:00:11.150 --> 00:00:15.058
+file or the text and it will sort it alphanumerically
+
+6
+00:00:15.058 --> 00:00:18.141
+and unique will find the unique lines
+
+7
+00:00:19.272 --> 00:00:22.471
+and strip away all the duplicates,
+
+8
+00:00:22.471 --> 00:00:26.668
+but also very handy for counting the number of times
+
+9
+00:00:26.668 --> 00:00:30.984
+a particular line or a particular word occurs.
+
+10
+00:00:30.984 --> 00:00:35.524
+So an example of this combining this thing together using
+
+11
+00:00:35.524 --> 00:00:38.941
+tail dash f which we saw in the previous video.
+
+12
+00:00:38.941 --> 00:00:40.958
+I will, on a web log,
+
+13
+00:00:40.958 --> 00:00:42.375
+I will tail a log
+
+14
+00:00:43.761 --> 00:00:47.250
+and then I will grab for a specific
+
+15
+00:00:47.250 --> 00:00:49.435
+either an IP address
+
+16
+00:00:49.435 --> 00:00:50.935
+or typically a URL
+
+17
+00:00:54.306 --> 00:00:57.004
+that's being accessed on a website.
+
+18
+00:00:57.004 --> 00:00:57.921
+I will then
+
+19
+00:01:00.018 --> 00:01:02.380
+pass this into another string manipulation programme
+
+20
+00:01:02.380 --> 00:01:04.776
+called Cut or another one called Orch,
+
+21
+00:01:04.776 --> 00:01:07.821
+which would just give me the IP address.
+
+22
+00:01:07.821 --> 00:01:12.299
+I will then sort all those and then get the unique count
+
+23
+00:01:12.299 --> 00:01:16.348
+so I can see which IP address is hitting
+
+24
+00:01:16.348 --> 00:01:18.515
+a particular URL the most.
+
+25
+00:01:19.466 --> 00:01:20.817
+So that might sound complicated,
+
+26
+00:01:20.817 --> 00:01:22.375
+but once you know
+
+27
+00:01:22.375 --> 00:01:24.167
+how each little tool works,
+
+28
+00:01:24.167 --> 00:01:28.355
+you can compose these more complicated kind of commands
+
+29
+00:01:28.355 --> 00:01:30.188
+to kind of do a bit of
+
+30
+00:01:31.062 --> 00:01:33.778
+either data manipulation or data science
+
+31
+00:01:33.778 --> 00:01:35.778
+to understand or look at
+
+32
+00:01:37.053 --> 00:01:40.296
+some file or some data in a particular way.
+
+33
+00:01:40.296 --> 00:01:41.614
+Now,
+
+34
+00:01:41.614 --> 00:01:43.666
+kind of reversing back,
+
+35
+00:01:43.666 --> 00:01:48.501
+looking at the freezing tweets that I've been collecting,
+
+36
+00:01:48.501 --> 00:01:50.822
+I've stopped the feed now.
+
+37
+00:01:50.822 --> 00:01:54.475
+And this is just a snapshot of the tweets
+
+38
+00:01:54.475 --> 00:01:57.128
+containing the hashtag freezing.
+
+39
+00:01:57.128 --> 00:01:59.294
+So what I wanna do is I'm gonna start
+
+40
+00:01:59.294 --> 00:02:01.666
+by grabbing for the retweets.
+
+41
+00:02:01.666 --> 00:02:03.464
+So I'm gonna use the egrep
+
+42
+00:02:03.464 --> 00:02:06.720
+that we saw in the previous video.
+
+43
+00:02:06.720 --> 00:02:08.700
+I'm gonna be searching for retweets
+
+44
+00:02:08.700 --> 00:02:10.783
+so this means starts with
+
+45
+00:02:12.404 --> 00:02:15.281
+the line begins with some spaces one or more times
+
+46
+00:02:15.281 --> 00:02:16.614
+and then retweet
+
+47
+00:02:17.471 --> 00:02:19.470
+then at symbol,
+
+48
+00:02:19.470 --> 00:02:22.525
+just because the format that it's capturing is tweeting
+
+49
+00:02:22.525 --> 00:02:23.829
+and if I run that,
+
+50
+00:02:23.829 --> 00:02:25.958
+I should find all the retweets
+
+51
+00:02:25.958 --> 00:02:27.496
+or the recent retweet statements.
+
+52
+00:02:27.496 --> 00:02:30.218
+And what I'm looking for is the most popular
+
+53
+00:02:30.218 --> 00:02:32.468
+retweet during that period.
+
+54
+00:02:33.340 --> 00:02:35.007
+So we have our egrep
+
+55
+00:02:36.365 --> 00:02:39.232
+and we can less to check that out.
+
+56
+00:02:39.232 --> 00:02:42.399
+So it's not very many but it's enough.
+
+57
+00:02:43.391 --> 00:02:47.168
+And what I'm gonna do is run that into
+
+58
+00:02:47.168 --> 00:02:48.925
+unique just to start off with.
+
+59
+00:02:48.925 --> 00:02:50.092
+If I run that,
+
+60
+00:02:51.207 --> 00:02:52.861
+we're just gonna count the lines just to be sure.
+
+61
+00:02:52.861 --> 00:02:56.187
+So if I do wc, I've got 19 lines, okay?
+
+62
+00:02:56.187 --> 00:02:57.488
+If I get rid of the
+
+63
+00:02:57.488 --> 00:02:58.960
+unique,
+
+64
+00:02:58.960 --> 00:03:00.344
+I still got 24.
+
+65
+00:03:00.344 --> 00:03:03.261
+But are we really sure that we have
+
+66
+00:03:04.505 --> 00:03:06.338
+24 unique or 19 unique
+
+67
+00:03:07.974 --> 00:03:08.807
+retweets?
+
+68
+00:03:09.901 --> 00:03:11.330
+It just, kind of eyeballing it,
+
+69
+00:03:11.330 --> 00:03:13.989
+I'd say that there's less than that.
+
+70
+00:03:13.989 --> 00:03:15.700
+And now the reason for this
+
+71
+00:03:15.700 --> 00:03:17.117
+is because unique
+
+72
+00:03:18.292 --> 00:03:21.364
+will only count the unique lines next to each other.
+
+73
+00:03:21.364 --> 00:03:24.670
+It's kind of bit weird like that.
+
+74
+00:03:24.670 --> 00:03:25.670
+But if I do,
+
+75
+00:03:27.860 --> 00:03:31.109
+I think the sequence will give me
+
+76
+00:03:31.109 --> 00:03:31.942
+time?
+
+77
+00:03:31.942 --> 00:03:32.775
+Yeah.
+
+78
+00:03:33.613 --> 00:03:34.446
+So if I...
+
+79
+00:03:35.655 --> 00:03:36.693
+This isn't quite right.
+
+80
+00:03:36.693 --> 00:03:38.629
+I want to kind of...
+
+81
+00:03:38.629 --> 00:03:42.061
+I'll make a quick demo file that has a few lines
+
+82
+00:03:42.061 --> 00:03:43.971
+and you'll see the problem.
+
+83
+00:03:43.971 --> 00:03:46.848
+So I'm just gonna pause you for a moment and come back.
+
+84
+00:03:46.848 --> 00:03:47.767
+So I have this demo file.
+
+85
+00:03:47.767 --> 00:03:50.136
+I'll just show you the contents of it.
+
+86
+00:03:50.136 --> 00:03:53.798
+So it's one, two, three, three, four, and so on.
+
+87
+00:03:53.798 --> 00:03:54.798
+Some of the
+
+88
+00:03:55.722 --> 00:03:57.322
+lines,
+
+89
+00:03:57.322 --> 00:03:59.614
+some of the duplicates are next to each other, some aren't.
+
+90
+00:03:59.614 --> 00:04:01.159
+So we have one here,
+
+91
+00:04:01.159 --> 00:04:03.527
+we have the number one here and here again.
+
+92
+00:04:03.527 --> 00:04:05.444
+So if we cat that file,
+
+93
+00:04:07.014 --> 00:04:08.660
+then we enter unique,
+
+94
+00:04:08.660 --> 00:04:10.197
+what you'll see is
+
+95
+00:04:10.197 --> 00:04:12.211
+that we still have the one and two
+
+96
+00:04:12.211 --> 00:04:14.337
+but the three now only appears once,
+
+97
+00:04:14.337 --> 00:04:16.068
+whereas it was twice before.
+
+98
+00:04:16.068 --> 00:04:17.363
+Four, one, two, three,
+
+99
+00:04:17.363 --> 00:04:21.034
+and then the three here where it was duplicated,
+
+100
+00:04:21.034 --> 00:04:21.948
+it's also been removed.
+
+101
+00:04:21.948 --> 00:04:24.287
+So the problem is it only
+
+102
+00:04:24.287 --> 00:04:26.391
+gives us unique lines that are next to each other.
+
+103
+00:04:26.391 --> 00:04:29.257
+So we have to sort the lines.
+
+104
+00:04:29.257 --> 00:04:31.245
+So we just pipe into sort
+
+105
+00:04:31.245 --> 00:04:33.490
+and it's sorting it out alphabetically.
+
+106
+00:04:33.490 --> 00:04:35.370
+It doesn't matter that they're numbers.
+
+107
+00:04:35.370 --> 00:04:38.521
+And from there, if we pass it into unique,
+
+108
+00:04:38.521 --> 00:04:40.025
+we can now see
+
+109
+00:04:40.025 --> 00:04:41.656
+that there are
+
+110
+00:04:41.656 --> 00:04:44.088
+four unique strings.
+
+111
+00:04:44.088 --> 00:04:47.255
+One of them is four, one, two, and three.
+
+112
+00:04:47.255 --> 00:04:48.380
+F.
+
+113
+00:04:48.380 --> 00:04:49.536
+And we can also count them.
+
+114
+00:04:49.536 --> 00:04:51.936
+So dash c gives a count.
+
+115
+00:04:51.936 --> 00:04:52.769
+So
+
+116
+00:04:53.758 --> 00:04:54.591
+we
+
+117
+00:04:54.591 --> 00:04:56.885
+can see that four goes once,
+
+118
+00:04:56.885 --> 00:04:59.841
+the number one occurs three times,
+
+119
+00:04:59.841 --> 00:05:01.169
+and four times for the word three,
+
+120
+00:05:01.169 --> 00:05:03.240
+and twice for two.
+
+121
+00:05:03.240 --> 00:05:07.407
+And we can pipe that back into sort to get a numerical sort.
+
+122
+00:05:08.361 --> 00:05:09.194
+Now if
+
+123
+00:05:11.669 --> 00:05:13.555
+there's 10, it's an alphanumeric sort.
+
+124
+00:05:13.555 --> 00:05:16.192
+We need to do by numbers.
+
+125
+00:05:16.192 --> 00:05:18.092
+In this instance, it doesn't make any difference.
+
+126
+00:05:18.092 --> 00:05:20.892
+But if we have more than 10 lines
+
+127
+00:05:20.892 --> 00:05:23.745
+in an alphanumeric search,
+
+128
+00:05:23.745 --> 00:05:24.578
+10 is
+
+129
+00:05:29.322 --> 00:05:30.405
+less than two
+
+130
+00:05:31.277 --> 00:05:32.489
+because it's the one at the beginning,
+
+131
+00:05:32.489 --> 00:05:34.835
+so we just do sort dash n.
+
+132
+00:05:34.835 --> 00:05:36.554
+If we wanna reverse that, we can do dash r,
+
+133
+00:05:36.554 --> 00:05:38.304
+so numerical reversal
+
+134
+00:05:39.756 --> 00:05:41.788
+so the most popular is at the top.
+
+135
+00:05:41.788 --> 00:05:44.038
+So now applying that to our
+
+136
+00:05:44.982 --> 00:05:45.815
+egrep,
+
+137
+00:05:47.046 --> 00:05:49.523
+what we do is we'll sort the lines
+
+138
+00:05:49.523 --> 00:05:51.874
+and then we'll do unique.
+
+139
+00:05:51.874 --> 00:05:54.576
+And now, if we just pipe that into wc,
+
+140
+00:05:54.576 --> 00:05:57.085
+you see we have seven unique tweets.
+
+141
+00:05:57.085 --> 00:05:58.668
+So if I do a count,
+
+142
+00:05:59.604 --> 00:06:00.713
+it's a bit of a mess in the screen,
+
+143
+00:06:00.713 --> 00:06:02.639
+let's just clear that up.
+
+144
+00:06:02.639 --> 00:06:05.176
+So we got four for this particular tweet,
+
+145
+00:06:05.176 --> 00:06:06.009
+two, three,
+
+146
+00:06:06.009 --> 00:06:07.842
+10 for this one.
+
+147
+00:06:07.842 --> 00:06:10.203
+So assuming these were kind of like
+
+148
+00:06:10.203 --> 00:06:13.197
+an hour's worth of captured tweets,
+
+149
+00:06:13.197 --> 00:06:14.943
+we would then pipe that into
+
+150
+00:06:14.943 --> 00:06:16.536
+sort dash n,
+
+151
+00:06:16.536 --> 00:06:17.409
+dash r,
+
+152
+00:06:17.409 --> 00:06:19.984
+or I typically do is pipe that string to less
+
+153
+00:06:19.984 --> 00:06:21.287
+and I'm able to page through.
+
+154
+00:06:21.287 --> 00:06:22.679
+So now at the very top,
+
+155
+00:06:22.679 --> 00:06:24.268
+I can see the most popular tweet
+
+156
+00:06:24.268 --> 00:06:25.795
+and I can then go up and down and work
+
+157
+00:06:25.795 --> 00:06:28.953
+my way through all of the tweets.
+
+158
+00:06:28.953 --> 00:06:30.203
+So here we have
+
+159
+00:06:31.350 --> 00:06:33.517
+egrep to grab out just the
+
+160
+00:06:35.151 --> 00:06:36.495
+line that we want.
+
+161
+00:06:36.495 --> 00:06:39.157
+Now if this was a live feed,
+
+162
+00:06:39.157 --> 00:06:42.288
+at the beginning I might do a tail dash f,
+
+163
+00:06:42.288 --> 00:06:43.795
+freezing,
+
+164
+00:06:43.795 --> 00:06:45.962
+then pipe that into egrep,
+
+165
+00:06:47.708 --> 00:06:48.541
+and then
+
+166
+00:06:49.608 --> 00:06:51.503
+we would do a sort.
+
+167
+00:06:51.503 --> 00:06:55.170
+It gets a bit hairy when we're going kind of
+
+168
+00:06:56.567 --> 00:06:58.650
+following a file.
+
+169
+00:06:58.650 --> 00:07:00.691
+If you're trying to do lots of sorts
+
+170
+00:07:00.691 --> 00:07:03.498
+and kind of manipulations of the pipes,
+
+171
+00:07:03.498 --> 00:07:05.165
+it can stop working.
+
+172
+00:07:06.668 --> 00:07:07.501
+So
+
+173
+00:07:08.902 --> 00:07:10.500
+in most cases, it will work.
+
+174
+00:07:10.500 --> 00:07:12.071
+But if you find nothing's coming out
+
+175
+00:07:12.071 --> 00:07:13.876
+and you're expecting output,
+
+176
+00:07:13.876 --> 00:07:15.043
+I would break,
+
+177
+00:07:16.553 --> 00:07:19.622
+get rid of some of the items in the stream
+
+178
+00:07:19.622 --> 00:07:24.012
+and maybe look at just capturing some of that into a file.
+
+179
+00:07:24.012 --> 00:07:27.013
+So, like I said, going back,
+
+180
+00:07:27.013 --> 00:07:30.121
+cat-ing the file out, run it through the egrep,
+
+181
+00:07:30.121 --> 00:07:31.776
+piping it into sort,
+
+182
+00:07:31.776 --> 00:07:34.026
+doing unique count on that,
+
+183
+00:07:35.458 --> 00:07:37.354
+list those lines.
+
+184
+00:07:37.354 --> 00:07:40.248
+Then we're sorting numerically in a reverse order
+
+185
+00:07:40.248 --> 00:07:41.667
+and then we're piping it into less
+
+186
+00:07:41.667 --> 00:07:44.183
+so we can go ahead and page through.
+
+187
+00:07:44.183 --> 00:07:45.347
+So there you can see kind of
+
+188
+00:07:45.347 --> 00:07:48.195
+lots of those little commands being
+
+189
+00:07:48.195 --> 00:07:51.362
+connected to each other using the pipe
+
+190
+00:07:52.629 --> 00:07:54.325
+and lots of string manipulation
+
+191
+00:07:54.325 --> 00:07:55.158
+and filtering going on
+
+192
+00:07:55.158 --> 00:07:57.529
+to get to find what we're looking for.
+

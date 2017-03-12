@@ -1,0 +1,782 @@
+﻿WEBVTT
+
+1
+00:00:01.635 --> 00:00:04.489
+<v ->Next we're gonna look at further customization</v>
+
+2
+00:00:04.489 --> 00:00:06.648
+and more advanced customization through the use
+
+3
+00:00:06.648 --> 00:00:08.441
+of something called Z Shell.
+
+4
+00:00:08.441 --> 00:00:11.377
+Now, before you were running bash,
+
+5
+00:00:11.377 --> 00:00:15.544
+and you can tell partly by its plain look, but also
+
+6
+00:00:16.857 --> 00:00:19.717
+the title bar of the terminal says bash.
+
+7
+00:00:19.717 --> 00:00:23.800
+And Z Shell is a different type of shell programme.
+
+8
+00:00:26.296 --> 00:00:30.127
+You have bash, fish is one of them that we saw earlier.
+
+9
+00:00:30.127 --> 00:00:33.198
+And Z Shell just gives us a bunch of extra features,
+
+10
+00:00:33.198 --> 00:00:36.508
+and I was introduced to it a few years ago,
+
+11
+00:00:36.508 --> 00:00:40.390
+and I really like it, I really like some of the plugins
+
+12
+00:00:40.390 --> 00:00:43.376
+that are available and the ecosystem that's out there.
+
+13
+00:00:43.376 --> 00:00:46.360
+And I know many other developers are using it as well,
+
+14
+00:00:46.360 --> 00:00:49.706
+so I wanted to introduce it in these videos.
+
+15
+00:00:49.706 --> 00:00:53.879
+Now, the Z Shell page, don't worry, you don't have to
+
+16
+00:00:53.879 --> 00:00:57.546
+go here, but it's not particularly inviting,
+
+17
+00:00:58.947 --> 00:01:01.360
+but I just wanted to bring it in for the context.
+
+18
+00:01:01.360 --> 00:01:04.707
+Really, what we're interested in is this
+
+19
+00:01:04.707 --> 00:01:06.263 line:15% 
+kind of layer on top.
+
+20
+00:01:06.263 --> 00:01:08.859 line:15% 
+There's a framework on top of Z Shell
+
+21
+00:01:08.859 --> 00:01:12.276 line:15% 
+to help us configure it called Oh My Zsh.
+
+22
+00:01:15.602 --> 00:01:18.852 line:15% 
+I'm not sure how to pronounce Zsh, Zsh?
+
+23
+00:01:21.440 --> 00:01:24.099
+It's pretty straightforward to instal.
+
+24
+00:01:24.099 --> 00:01:26.103
+I'll come onto that in a moment.
+
+25
+00:01:26.103 --> 00:01:28.759
+And what it'll give us is themes,
+
+26
+00:01:28.759 --> 00:01:31.619
+a way to add plugins really easily,
+
+27
+00:01:31.619 --> 00:01:34.702
+and a bunch of stuff that just makes,
+
+28
+00:01:35.663 --> 00:01:38.786
+certainly for me, makes my terminal experience
+
+29
+00:01:38.786 --> 00:01:42.485
+much more satisfying, so I wanna show you that as well.
+
+30
+00:01:42.485 --> 00:01:44.690
+So the first thing we need to do
+
+31
+00:01:44.690 --> 00:01:48.612
+is instal Z Shell, but we're also gonna instal
+
+32
+00:01:48.612 --> 00:01:51.144
+something called Z Shell completions,
+
+33
+00:01:51.144 --> 00:01:54.954
+which we'll use to help us navigate around,
+
+34
+00:01:54.954 --> 00:01:58.019
+and we're gonna use brew to do the installation of this.
+
+35
+00:01:58.019 --> 00:02:01.205
+If you haven't got brew, go back to the
+
+36
+00:02:01.205 --> 00:02:04.427
+second series of videos and grab brew.
+
+37
+00:02:04.427 --> 00:02:07.895
+So Z Shell is just, brew instal zsh
+
+38
+00:02:07.895 --> 00:02:09.978
+and then zsh-completions.
+
+39
+00:02:11.069 --> 00:02:13.436
+I believe that's right, yup.
+
+40
+00:02:13.436 --> 00:02:15.436
+So you run those two commands,
+
+41
+00:02:15.436 --> 00:02:17.564
+it should go ahead and prompt to you for disc space
+
+42
+00:02:17.564 --> 00:02:20.388
+and so on, you say yes and instal those two.
+
+43
+00:02:20.388 --> 00:02:22.516
+Now, I've already done that.
+
+44
+00:02:22.516 --> 00:02:24.108
+Now you can check that's been installed
+
+45
+00:02:24.108 --> 00:02:26.551
+by just typing zsh Enter, you might get
+
+46
+00:02:26.551 --> 00:02:28.920
+a slightly different prompt, but it should just run.
+
+47
+00:02:28.920 --> 00:02:30.101
+I'm just gonna back out of that,
+
+48
+00:02:30.101 --> 00:02:33.850
+and to back out of the terminal is Ctrl + D.
+
+49
+00:02:33.850 --> 00:02:36.933
+That will always exit out of a shell.
+
+50
+00:02:38.209 --> 00:02:40.414
+The next thing we wanna do, or I wanna do,
+
+51
+00:02:40.414 --> 00:02:44.497
+instal Oh My Zsh, so I'm just gonna scroll down,
+
+52
+00:02:46.305 --> 00:02:49.085
+prerequisites are the operating system,
+
+53
+00:02:49.085 --> 00:02:52.061
+that works very well on macOS.
+
+54
+00:02:52.061 --> 00:02:54.390
+Zsh which we've just installed,
+
+55
+00:02:54.390 --> 00:02:57.737
+we can check again, zsh --version.
+
+56
+00:02:57.737 --> 00:02:59.982
+So we have that, great.
+
+57
+00:02:59.982 --> 00:03:03.173
+Curl or wget, if you find you don't have curl
+
+58
+00:03:03.173 --> 00:03:07.173
+or wget installed, we do a quick check with this
+
+59
+00:03:08.365 --> 00:03:10.771
+and wget --version.
+
+60
+00:03:10.771 --> 00:03:14.003
+You can go ahead and do a brew instal curl,
+
+61
+00:03:14.003 --> 00:03:15.514
+it'll give you curl.
+
+62
+00:03:15.514 --> 00:03:18.702
+And then we're gonna do a copy and paste drop here.
+
+63
+00:03:18.702 --> 00:03:21.452
+So I'm gonna copy and paste this.
+
+64
+00:03:23.267 --> 00:03:25.295 line:15% 
+A note about security here.
+
+65
+00:03:25.295 --> 00:03:29.462 line:15% 
+This is basically grabbing a script from online somewhere
+
+66
+00:03:31.219 --> 00:03:33.911 line:15% 
+on the Internet, and running it on your local machine,
+
+67
+00:03:33.911 --> 00:03:36.828 line:15% 
+you should have a mind on security.
+
+68
+00:03:37.703 --> 00:03:41.822
+Now, I've already installed this, I trust this script.
+
+69
+00:03:41.822 --> 00:03:44.800
+I can also, honestly, I haven't looked at the contents
+
+70
+00:03:44.800 --> 00:03:48.967
+in detail, certainly recently, but there's nothing stopping
+
+71
+00:03:50.067 --> 00:03:51.989
+the owner of this repo putting something malicious
+
+72
+00:03:51.989 --> 00:03:55.826
+in this script, it's kind of like putting a script tag
+
+73
+00:03:55.826 --> 00:03:59.625
+on your web page to anyone's web server
+
+74
+00:03:59.625 --> 00:04:03.493
+and hoping they give you something that's nice,
+
+75
+00:04:03.493 --> 00:04:05.623
+a decent advert instead of one that tracks
+
+76
+00:04:05.623 --> 00:04:07.990
+every keyboard press on the page.
+
+77
+00:04:07.990 --> 00:04:12.157
+And you can see it's also prompting me for my password,
+
+78
+00:04:13.126 --> 00:04:15.049
+which I'm gonna give it because
+
+79
+00:04:15.049 --> 00:04:17.543
+it needs to do the installation.
+
+80
+00:04:17.543 --> 00:04:19.134
+But just be wary of doing that,
+
+81
+00:04:19.134 --> 00:04:20.599
+the same way as you would be if you were installing
+
+82
+00:04:20.599 --> 00:04:24.149
+a third party piece of code or programme
+
+83
+00:04:24.149 --> 00:04:26.637
+on your computer or on your phone or anything like that.
+
+84
+00:04:26.637 --> 00:04:29.176
+So just be wary when you're asked to do
+
+85
+00:04:29.176 --> 00:04:31.461
+this kind of copy and paste shell,
+
+86
+00:04:31.461 --> 00:04:35.833
+it's basically saying run the contents of this script
+
+87
+00:04:35.833 --> 00:04:39.508
+in my shell, now I can go ahead and look at this URL,
+
+88
+00:04:39.508 --> 00:04:42.425
+put it in the browser if I want to.
+
+89
+00:04:46.400 --> 00:04:49.704
+It isn't particularly intuitive, what I'm reading,
+
+90
+00:04:49.704 --> 00:04:53.371
+I do know I've run it before and it is safe.
+
+91
+00:04:55.663 --> 00:04:58.891
+Caveats aside, we have changed shell.
+
+92
+00:04:58.891 --> 00:05:01.672
+So it says Oh My Zsh is now installed,
+
+93
+00:05:01.672 --> 00:05:05.839
+please look over .zshrc or Z Shell RC to select plugins,
+
+94
+00:05:07.901 --> 00:05:09.814
+and we'll look at that in a moment.
+
+95
+00:05:09.814 --> 00:05:10.919
+Get some stickers and so on.
+
+96
+00:05:10.919 --> 00:05:12.221
+You can see the prompt's slightly different now,
+
+97
+00:05:12.221 --> 00:05:15.695
+so we bring up to the top and just do an ls -ltr.
+
+98
+00:05:15.695 --> 00:05:17.042
+You can see things are very slightly different
+
+99
+00:05:17.042 --> 00:05:18.801
+to what we saw before.
+
+100
+00:05:18.801 --> 00:05:23.266
+So we've got bold and colours going on for directories.
+
+101
+00:05:23.266 --> 00:05:26.766
+We've got non-bold text for regular files.
+
+102
+00:05:27.962 --> 00:05:30.497
+If I go into, I think it's Documents,
+
+103
+00:05:30.497 --> 00:05:34.178
+and I'm hitting Tab for completion.
+
+104
+00:05:34.178 --> 00:05:36.266
+And I just hit Tab again there and it gives me
+
+105
+00:05:36.266 --> 00:05:40.721
+all of the arguments to ls, which is pretty useful.
+
+106
+00:05:40.721 --> 00:05:42.803
+We saw this with fish as well.
+
+107
+00:05:42.803 --> 00:05:46.970
+So I can do the same thing, we go into jsonbin, oh.
+
+108
+00:05:50.280 --> 00:05:52.114
+There, sorry, typo.
+
+109
+00:05:52.114 --> 00:05:54.355
+And you can see something going on here as well,
+
+110
+00:05:54.355 --> 00:05:55.910
+so let me just clear the prompt.
+
+111
+00:05:55.910 --> 00:05:58.244
+You can see the prompt has changed slightly.
+
+112
+00:05:58.244 --> 00:06:00.487
+So we can see it's a git repo,
+
+113
+00:06:00.487 --> 00:06:02.816
+and we're in the branch master.
+
+114
+00:06:02.816 --> 00:06:06.576
+And if I, let me make a very quick change
+
+115
+00:06:06.576 --> 00:06:08.159
+to the README file.
+
+116
+00:06:11.518 --> 00:06:13.111
+And you can see this little cross,
+
+117
+00:06:13.111 --> 00:06:15.843
+it means that the repository is dirty,
+
+118
+00:06:15.843 --> 00:06:19.887
+i.e. there is a local change somewhere here.
+
+119
+00:06:19.887 --> 00:06:21.071
+And I can see, yeah, there we go.
+
+120
+00:06:21.071 --> 00:06:24.745
+Git status shows me that the README has been modified,
+
+121
+00:06:24.745 --> 00:06:26.955
+and that's what that little cross shows me.
+
+122
+00:06:26.955 --> 00:06:28.018
+And if I don't have the cross,
+
+123
+00:06:28.018 --> 00:06:30.836
+it means that the repo is clean.
+
+124
+00:06:30.836 --> 00:06:33.703
+So out of the box, there's some useful functionality
+
+125
+00:06:33.703 --> 00:06:35.120
+in the Oh My Zsh.
+
+126
+00:06:36.361 --> 00:06:39.508
+We go back to the home directory.
+
+127
+00:06:39.508 --> 00:06:42.165
+Earlier on, if we scroll back,
+
+128
+00:06:42.165 --> 00:06:45.351 line:15% 
+I can see that it said look over this file,
+
+129
+00:06:45.351 --> 00:06:49.972 line:15% 
+so if we go ahead and just type open and that file name,
+
+130
+00:06:49.972 --> 00:06:54.542 line:15% 
+and it's gonna open that into a text editor for me.
+
+131
+00:06:54.542 --> 00:06:56.341 line:15% 
+Just bumping the font up here.
+
+132
+00:06:56.341 --> 00:06:58.551 line:15% 
+So it's mostly comments,
+
+133
+00:06:58.551 --> 00:06:59.939 line:15% 
+this obviously isn't syntax highlighted,
+
+134
+00:06:59.939 --> 00:07:02.600 line:15% 
+I could open something like Sublime.
+
+135
+00:07:02.600 --> 00:07:05.664
+Everything starting with a hash is a comment,
+
+136
+00:07:05.664 --> 00:07:09.247
+and this is the configuration for my shell.
+
+137
+00:07:10.353 --> 00:07:12.067
+Now, the interesting thing, or the very first thing
+
+138
+00:07:12.067 --> 00:07:14.391
+I'm interested in, is this.
+
+139
+00:07:14.391 --> 00:07:16.877
+There is also local customizations in this,
+
+140
+00:07:16.877 --> 00:07:18.473
+we'll come back to that later.
+
+141
+00:07:18.473 --> 00:07:20.878
+The Z Shell theme is robbyrussell.
+
+142
+00:07:20.878 --> 00:07:23.003
+We can look at all the themes over here,
+
+143
+00:07:23.003 --> 00:07:26.231
+so let's just stick that into a browser window,
+
+144
+00:07:26.231 --> 00:07:30.395
+and look at all the options we have in their glory.
+
+145
+00:07:30.395 --> 00:07:32.521
+So lots and lots of screenshots,
+
+146
+00:07:32.521 --> 00:07:34.810
+so this is the one that I personally use,
+
+147
+00:07:34.810 --> 00:07:39.259
+with a few modifications, but there are lots.
+
+148
+00:07:39.259 --> 00:07:41.876
+As you can see, as you scroll through,
+
+149
+00:07:41.876 --> 00:07:44.626
+we can just choose one at random.
+
+150
+00:07:46.242 --> 00:07:49.347
+Or maybe not at random but should we choose one?
+
+151
+00:07:49.347 --> 00:07:52.291
+Choose the agnoster one, that's quite a cool one,
+
+152
+00:07:52.291 --> 00:07:54.656
+so let's grab that.
+
+153
+00:07:54.656 --> 00:07:58.042
+It says shown with Solarized Dark colorscheme
+
+154
+00:07:58.042 --> 00:08:01.209
+and Powerline-patched Menlo 14 points,
+
+155
+00:08:03.350 --> 00:08:06.294
+so it talks about how to instal those fonts.
+
+156
+00:08:06.294 --> 00:08:09.073
+Let's not do that one 'cause you need an extra font.
+
+157
+00:08:09.073 --> 00:08:12.240
+Let's do, oh, we need to go Powerline.
+
+158
+00:08:14.838 --> 00:08:16.088
+How about avit?
+
+159
+00:08:18.264 --> 00:08:21.164
+There we go, just telling me to get on with it, choose one.
+
+160
+00:08:21.164 --> 00:08:23.747
+So let's stick that into there,
+
+161
+00:08:25.131 --> 00:08:28.069
+I'm just gonna hit Command + S, and that's saved.
+
+162
+00:08:28.069 --> 00:08:30.765
+And if I just open up another tab,
+
+163
+00:08:30.765 --> 00:08:33.630
+we can see slightly different configuration.
+
+164
+00:08:33.630 --> 00:08:36.821
+I think the background colour isn't the same,
+
+165
+00:08:36.821 --> 00:08:39.488
+but we would have to change that
+
+166
+00:08:41.244 --> 00:08:43.648
+in the iTerm preferences over here.
+
+167
+00:08:43.648 --> 00:08:47.815
+We just go back to the Documents and the jsonbin thing.
+
+168
+00:08:48.762 --> 00:08:52.802
+We can see, oh, look, (mumbles) there, so three hours,
+
+169
+00:08:52.802 --> 00:08:57.089
+I guess that was the last commit, maybe, git log.
+
+170
+00:08:57.089 --> 00:08:59.945
+Kind of three hours ago, I think so, yup.
+
+171
+00:08:59.945 --> 00:09:01.376
+So 3 hours 45 minutes ago was
+
+172
+00:09:01.376 --> 00:09:03.952
+the last commit in this repo.
+
+173
+00:09:03.952 --> 00:09:06.203
+Nice useful feature, as we can see, again,
+
+174
+00:09:06.203 --> 00:09:10.456
+we have another cross telling us that we have a dirty repo.
+
+175
+00:09:10.456 --> 00:09:13.488
+We have the branch that we're on and the directory,
+
+176
+00:09:13.488 --> 00:09:15.861
+and we have our prompt a little bit low down.
+
+177
+00:09:15.861 --> 00:09:18.694
+Pretty nice, what else do we have?
+
+178
+00:09:20.196 --> 00:09:22.644
+Colour coded stuff here.
+
+179
+00:09:22.644 --> 00:09:24.811
+And I wonder if we have...
+
+180
+00:09:25.828 --> 00:09:28.320
+Let's go back to our home directory,
+
+181
+00:09:28.320 --> 00:09:30.153
+and I remember we had,
+
+182
+00:09:31.185 --> 00:09:35.352
+in this bin, yeah, we had a programme that would execute,
+
+183
+00:09:36.577 --> 00:09:40.134
+so it's called ./bin/hello would print out hello world.
+
+184
+00:09:40.134 --> 00:09:42.826
+We see it's red, red means it's executable.
+
+185
+00:09:42.826 --> 00:09:44.622
+So we've got these white files,
+
+186
+00:09:44.622 --> 00:09:47.653
+which are just plain text, blue directories,
+
+187
+00:09:47.653 --> 00:09:49.614
+and red means executable.
+
+188
+00:09:49.614 --> 00:09:52.185
+So that's a theme, you can choose any one of the themes
+
+189
+00:09:52.185 --> 00:09:54.270
+and literally just drop in the name
+
+190
+00:09:54.270 --> 00:09:57.770
+and then hit save and reload, and you have
+
+191
+00:09:58.921 --> 00:10:00.763
+the theme automatically available.
+
+192
+00:10:00.763 --> 00:10:04.124
+You can also edit themes, I have a blog post
+
+193
+00:10:04.124 --> 00:10:06.732
+about how I've customised my theme,
+
+194
+00:10:06.732 --> 00:10:08.161
+and in the next videos, I'll show you some plugins
+
+195
+00:10:08.161 --> 00:10:10.494
+I find really really useful.
+

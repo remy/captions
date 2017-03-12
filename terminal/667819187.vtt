@@ -1,0 +1,638 @@
+﻿WEBVTT
+
+1
+00:00:02.186 --> 00:00:04.095
+<v ->Okay, so now we've encountered a file</v>
+
+2
+00:00:04.095 --> 00:00:08.032
+that belongs to another user that we want to delete.
+
+3
+00:00:08.032 --> 00:00:10.949
+So we have this directory rems-dir,
+
+4
+00:00:11.876 --> 00:00:13.839
+and if we look at this column here,
+
+5
+00:00:13.839 --> 00:00:15.740
+we'll look at permissions in next video,
+
+6
+00:00:15.740 --> 00:00:17.726
+the one thing you can see that's different
+
+7
+00:00:17.726 --> 00:00:20.077
+is the owner is remy, not rem,
+
+8
+00:00:20.077 --> 00:00:24.778
+so there's this other person with the same name, sort of,
+
+9
+00:00:24.778 --> 00:00:27.478
+that has this rems-dir.
+
+10
+00:00:27.478 --> 00:00:30.796
+But we can go into it, and we can see
+
+11
+00:00:30.796 --> 00:00:33.758
+there's a secret file in there, okay.
+
+12
+00:00:33.758 --> 00:00:36.634
+Let's cat that secret out.
+
+13
+00:00:36.634 --> 00:00:38.535
+Hmm, permission denied.
+
+14
+00:00:38.535 --> 00:00:40.184
+So that means I don't have permission
+
+15
+00:00:40.184 --> 00:00:41.318
+to actually look at it.
+
+16
+00:00:41.318 --> 00:00:42.872
+Well, I don't want it in my directory,
+
+17
+00:00:42.872 --> 00:00:45.372
+so I'm going to get rid of it.
+
+18
+00:00:46.946 --> 00:00:48.392
+Yes.
+
+19
+00:00:48.392 --> 00:00:49.444
+Ah, permission denied as well.
+
+20
+00:00:49.444 --> 00:00:52.815
+Well, let's try the forced delete.
+
+21
+00:00:52.815 --> 00:00:55.156
+Also permission denied.
+
+22
+00:00:55.156 --> 00:00:57.592
+So in this case, I don't have permission to
+
+23
+00:00:57.592 --> 00:01:02.358
+get rid of the file at all, and it means I'm stuck with it.
+
+24
+00:01:02.358 --> 00:01:04.164
+Although this is contrived, I put the file there
+
+25
+00:01:04.164 --> 00:01:07.230
+in the first place, there might be a legitimate reason
+
+26
+00:01:07.230 --> 00:01:09.708
+why you don't have permission to write a file,
+
+27
+00:01:09.708 --> 00:01:11.029
+to delete a file.
+
+28
+00:01:11.029 --> 00:01:15.944
+But sometimes you might be trying to clear something up,
+
+29
+00:01:15.944 --> 00:01:18.861
+or fix some problem, and in this case
+
+30
+00:01:18.861 --> 00:01:21.059
+we need to get rid of this secret,
+
+31
+00:01:21.059 --> 00:01:24.293
+and so the way to do that is to use something called sudo.
+
+32
+00:01:24.293 --> 00:01:26.962
+And sudo is literally spelled S-U-D-O,
+
+33
+00:01:26.962 --> 00:01:28.964
+so superuser do.
+
+34
+00:01:28.964 --> 00:01:32.567
+It's kind of like Simon Says, and then you give a command.
+
+35
+00:01:32.567 --> 00:01:36.017
+So sudo rm, or let's cat out the secret.
+
+36
+00:01:36.017 --> 00:01:39.612
+Sudo cat secret, so it's like saying
+
+37
+00:01:39.612 --> 00:01:44.053
+I want to make this superuser, which is root,
+
+38
+00:01:44.053 --> 00:01:45.881
+which is the owner of all the machinery,
+
+39
+00:01:45.881 --> 00:01:49.806
+the root user can do anything to this machine,
+
+40
+00:01:49.806 --> 00:01:51.473
+sudo cat the secret.
+
+41
+00:01:52.517 --> 00:01:54.690
+At that point it's going to ask me for my password,
+
+42
+00:01:54.690 --> 00:01:58.344
+not the superuser's password, but my password.
+
+43
+00:01:58.344 --> 00:02:00.820
+And what it's doing here is it tends to record
+
+44
+00:02:00.820 --> 00:02:03.510
+that I try to do a thing.
+
+45
+00:02:03.510 --> 00:02:06.114
+By default, if you have a Mac out of box
+
+46
+00:02:06.114 --> 00:02:08.802
+there'll be certain things you can sudo to do,
+
+47
+00:02:08.802 --> 00:02:11.216
+and there'll be some things you can't do.
+
+48
+00:02:11.216 --> 00:02:13.212
+And we'll come on to how you do that in a moment,
+
+49
+00:02:13.212 --> 00:02:15.575
+but I'm just going to put in my password,
+
+50
+00:02:15.575 --> 00:02:18.168
+and it cats out the file, so it means that
+
+51
+00:02:18.168 --> 00:02:22.620
+the superuser, that root user that has all the power,
+
+52
+00:02:22.620 --> 00:02:25.061
+is able to cat that file out.
+
+53
+00:02:25.061 --> 00:02:28.629
+So try that again ourselves, permission denied,
+
+54
+00:02:28.629 --> 00:02:32.296
+but we're using the superuser, we're able to
+
+55
+00:02:33.411 --> 00:02:35.820
+cat the file out, which also means we can delete
+
+56
+00:02:35.820 --> 00:02:37.541
+the file using the same command,
+
+57
+00:02:37.541 --> 00:02:39.708
+so this doesn't work, but,
+
+58
+00:02:41.000 --> 00:02:43.083
+sudo rm secret will work.
+
+59
+00:02:45.931 --> 00:02:48.611
+Okay, and it didn't ask me the password that time
+
+60
+00:02:48.611 --> 00:02:51.949
+because I had recently used sudo,
+
+61
+00:02:51.949 --> 00:02:53.211
+and when you've recently used it,
+
+62
+00:02:53.211 --> 00:02:55.091
+it just kind of keeps the fact that
+
+63
+00:02:55.091 --> 00:02:56.811
+you're authenticated for a few minutes.
+
+64
+00:02:56.811 --> 00:02:58.589
+I can't remember exactly how long it is,
+
+65
+00:02:58.589 --> 00:03:00.960
+but if I open up another terminal window,
+
+66
+00:03:00.960 --> 00:03:03.109
+it'll ask me the password again.
+
+67
+00:03:03.109 --> 00:03:04.478
+So that's now gone.
+
+68
+00:03:04.478 --> 00:03:07.100
+I've removed the secret that I didn't have permission
+
+69
+00:03:07.100 --> 00:03:11.229
+to remove before, and if we go back into this directory,
+
+70
+00:03:11.229 --> 00:03:15.369
+let's see if we can remove rm -rf rems-dir,
+
+71
+00:03:15.369 --> 00:03:17.629
+and we're able to get rid of it completely,
+
+72
+00:03:17.629 --> 00:03:21.268
+because that file that we didn't have permission to
+
+73
+00:03:21.268 --> 00:03:25.351
+read or write has been removed, and in this case,
+
+74
+00:03:27.118 --> 00:03:30.951
+in the rems-dir, I was part of the same group.
+
+75
+00:03:32.131 --> 00:03:33.669
+Again, we'll look at permission in a moment,
+
+76
+00:03:33.669 --> 00:03:37.530
+I just want to stay on sudo for a moment.
+
+77
+00:03:37.530 --> 00:03:40.780
+So sudo, you can do a number of things.
+
+78
+00:03:43.150 --> 00:03:47.317
+You can go to the very top-most superuser, known as root.
+
+79
+00:03:48.249 --> 00:03:52.050
+Typically we just sudo and then some command.
+
+80
+00:03:52.050 --> 00:03:54.469
+But you can also sudo to other users,
+
+81
+00:03:54.469 --> 00:03:57.930
+so you can become other users, and the way
+
+82
+00:03:57.930 --> 00:04:00.800
+that you might do that is sudo and the su,
+
+83
+00:04:00.800 --> 00:04:03.717
+which is switch user, I'm thinking.
+
+84
+00:04:04.859 --> 00:04:06.609
+Yeah, switch user.
+
+85
+00:04:06.609 --> 00:04:10.899
+And then I can give the user name of the other user
+
+86
+00:04:10.899 --> 00:04:14.029
+and I'll be prompted, oop, I haven't been prompted
+
+87
+00:04:14.029 --> 00:04:16.989
+because I already put my password in,
+
+88
+00:04:16.989 --> 00:04:19.357
+and now I've actually switched user.
+
+89
+00:04:19.357 --> 00:04:23.538
+If I type in whoami, you can see I'm remy,
+
+90
+00:04:23.538 --> 00:04:26.455
+whereas typically whoami shows rem.
+
+91
+00:04:29.131 --> 00:04:31.720
+So it means I've switched users at that point.
+
+92
+00:04:31.720 --> 00:04:34.989
+Now, on this Mac at the moment,
+
+93
+00:04:34.989 --> 00:04:37.949
+there's no real great advantage to switching between users,
+
+94
+00:04:37.949 --> 00:04:40.669
+but when you're working on a machine that's shared,
+
+95
+00:04:40.669 --> 00:04:43.836
+maybe like a remote server, being able
+
+96
+00:04:44.970 --> 00:04:46.789
+to switch users is pretty handy,
+
+97
+00:04:46.789 --> 00:04:49.497
+being able to kind of su to root,
+
+98
+00:04:49.497 --> 00:04:52.118
+so you could do sudo dash root,
+
+99
+00:04:52.118 --> 00:04:54.699
+I think if you don't give a, yeah,
+
+100
+00:04:54.699 --> 00:04:56.909
+if you don't give a user name, the dash means
+
+101
+00:04:56.909 --> 00:05:01.109
+kind of pull in and automatically go to the root directory.
+
+102
+00:05:01.109 --> 00:05:04.109
+And you can see here, this was my user name before,
+
+103
+00:05:04.109 --> 00:05:05.539
+this is my user name now.
+
+104
+00:05:05.539 --> 00:05:08.987
+Whoami, I'm root on this machine.
+
+105
+00:05:08.987 --> 00:05:13.548
+Now, like I said root has power to do everything.
+
+106
+00:05:13.548 --> 00:05:16.548
+They can delete files from any user,
+
+107
+00:05:18.029 --> 00:05:21.579
+they can change permissions, cause all kinds of chaos,
+
+108
+00:05:21.579 --> 00:05:22.970
+and this is actually the reason why
+
+109
+00:05:22.970 --> 00:05:25.360
+we're not root by default, we don't have permission
+
+110
+00:05:25.360 --> 00:05:27.931
+to do all this stuff by default.
+
+111
+00:05:27.931 --> 00:05:29.531
+Say for instance you try to delete like
+
+112
+00:05:29.531 --> 00:05:33.131
+a core system file from your Mac or your PC,
+
+113
+00:05:33.131 --> 00:05:34.267
+you want it to prompt you
+
+114
+00:05:34.267 --> 00:05:37.829
+and maybe even stop you from doing that.
+
+115
+00:05:37.829 --> 00:05:41.336
+Couple of decades ago, or in fact more than that,
+
+116
+00:05:41.336 --> 00:05:44.179
+I had a PC and I deleted two of the core files
+
+117
+00:05:44.179 --> 00:05:46.080
+that you used to boot the entire thing.
+
+118
+00:05:46.080 --> 00:05:47.589
+Never prompted me to do it, I was trying to
+
+119
+00:05:47.589 --> 00:05:50.549
+clean up some space, and because it didn't have
+
+120
+00:05:50.549 --> 00:05:53.138
+that permissioning system in place,
+
+121
+00:05:53.138 --> 00:05:54.689
+I completely hosed the machine.
+
+122
+00:05:54.689 --> 00:05:56.779
+I had to learn very quickly how to fix it all.
+
+123
+00:05:56.779 --> 00:06:00.946
+So that is why by default I'm signed in as Rem or Remy,
+
+124
+00:06:01.848 --> 00:06:04.499
+I'm always signed in as like a lower user,
+
+125
+00:06:04.499 --> 00:06:06.149
+and you will be as well.
+
+126
+00:06:06.149 --> 00:06:08.979
+If you're finding that you're signing in as root
+
+127
+00:06:08.979 --> 00:06:12.059
+to a machine, you want to kind of look at
+
+128
+00:06:12.059 --> 00:06:14.528
+why you're doing that and maybe consider
+
+129
+00:06:14.528 --> 00:06:17.349
+creating a new user with less privileges.
+
+130
+00:06:17.349 --> 00:06:20.008
+It also means that if your password
+
+131
+00:06:20.008 --> 00:06:23.408
+is compromised somehow, they may not have the root password.
+
+132
+00:06:23.408 --> 00:06:26.499
+There's a lot more insecurity that you can read about,
+
+133
+00:06:26.499 --> 00:06:30.280
+but sudo's very powerful, but be wary of it,
+
+134
+00:06:30.280 --> 00:06:32.200
+be wary that it can do anything.
+
+135
+00:06:32.200 --> 00:06:34.700
+It can really make a big mess.
+
+136
+00:06:37.680 --> 00:06:39.498
+So, like I mentioned just earlier,
+
+137
+00:06:39.498 --> 00:06:41.480
+you may not have permission to do everything
+
+138
+00:06:41.480 --> 00:06:43.897
+that root can do, and you may
+
+139
+00:06:44.829 --> 00:06:46.109
+or may not want to change that,
+
+140
+00:06:46.109 --> 00:06:50.059
+but there is a file in /etc/sudoers
+
+141
+00:06:50.059 --> 00:06:53.859
+which controls how much sudo power you have.
+
+142
+00:06:53.859 --> 00:06:58.026
+So we jump into that file, we get permission denied.
+
+143
+00:06:59.328 --> 00:07:03.219
+If I do sudo and then vi /etc/sudoers,
+
+144
+00:07:03.219 --> 00:07:04.052
+you don't have to use vi,
+
+145
+00:07:04.052 --> 00:07:06.728
+you can use something less sublime,
+
+146
+00:07:06.728 --> 00:07:09.128
+but I'm just showing you the file for the moment,
+
+147
+00:07:09.128 --> 00:07:11.068
+you can see in here now I have permission
+
+148
+00:07:11.068 --> 00:07:13.928
+to open the file because I used sudo,
+
+149
+00:07:13.928 --> 00:07:15.680
+the root user will open it,
+
+150
+00:07:15.680 --> 00:07:18.909
+and if we run down here, you can see
+
+151
+00:07:18.909 --> 00:07:23.076
+I've already added rem to have the ability to do everything.
+
+152
+00:07:24.938 --> 00:07:27.861
+And all I did was copy this line,
+
+153
+00:07:27.861 --> 00:07:30.629
+root ALL=(ALL) ALL,
+
+154
+00:07:30.629 --> 00:07:32.821
+and I just copy and pasted it in the line below,
+
+155
+00:07:32.821 --> 00:07:35.968
+putting in my user name and saving that at that point
+
+156
+00:07:35.968 --> 00:07:38.135
+my user can do everything.
+
+157
+00:07:38.999 --> 00:07:40.669
+So that's sudo.
+
+158
+00:07:40.669 --> 00:07:44.480
+Use with care, but it's definitely worth knowing about
+
+159
+00:07:44.480 --> 00:07:48.647
+to get a kind of, just get outside the limits of your user.
+

@@ -1,0 +1,382 @@
+WEBVTT
+
+1
+00:00:01.846 --> 00:00:04.007
+<v ->This is a really quick tip</v>
+
+2
+00:00:04.007 --> 00:00:06.110
+and there's a lot more you can learn about
+
+3
+00:00:06.110 --> 00:00:07.036
+this particular tool
+
+4
+00:00:07.036 --> 00:00:09.830
+but I just want to show you one specific thing.
+
+5
+00:00:09.830 --> 00:00:11.559
+There is a tool called awk.
+
+6
+00:00:11.559 --> 00:00:16.022
+You might have seen me use it before, A-W-K
+
+7
+00:00:16.022 --> 00:00:19.005
+and it's basically a full programme language.
+
+8
+00:00:19.005 --> 00:00:22.088
+But it's really good at parsing data.
+
+9
+00:00:23.825 --> 00:00:26.443
+You can do some filtering so that you pipe in, like,
+
+10
+00:00:26.443 --> 00:00:29.857
+a whole load of lines, you filter using awk,
+
+11
+00:00:29.857 --> 00:00:31.689
+and you can have it just
+
+12
+00:00:31.689 --> 00:00:34.913
+automatically print out specific columns that you're after.
+
+13
+00:00:34.913 --> 00:00:37.266
+And I use this a lot for things like
+
+14
+00:00:37.266 --> 00:00:40.481
+just grabbing a particular token in the output.
+
+15
+00:00:40.481 --> 00:00:42.921
+So let me give you a couple of examples.
+
+16
+00:00:42.921 --> 00:00:45.883
+First of all, I'm doing a curl up here.
+
+17
+00:00:45.883 --> 00:00:49.322
+You can see on my blog I'm saying give me the headers,
+
+18
+00:00:49.322 --> 00:00:51.041
+the dash I is give me the headers.
+
+19
+00:00:51.041 --> 00:00:53.450
+I'm saying make the request, it gets.
+
+20
+00:00:53.450 --> 00:00:55.945
+I want to check the status code.
+
+21
+00:00:55.945 --> 00:00:57.338
+Now the status code is here.
+
+22
+00:00:57.338 --> 00:00:58.171
+There are other ways of doing this
+
+23
+00:00:58.171 --> 00:01:00.929
+but it's just an example for you.
+
+24
+00:01:00.929 --> 00:01:02.578
+So it's in this first line,
+
+25
+00:01:02.578 --> 00:01:03.762
+I don't really care about the rest of them,
+
+26
+00:01:03.762 --> 00:01:05.235
+so the first thing I'm going to do
+
+27
+00:01:05.235 --> 00:01:07.818
+is pipe it to head dash one
+
+28
+00:01:07.818 --> 00:01:09.057
+and that will give us the first line
+
+29
+00:01:09.057 --> 00:01:11.122
+but I just want the 200.
+
+30
+00:01:11.122 --> 00:01:15.649
+Now there are different tools to be able to cut stuff up
+
+31
+00:01:15.649 --> 00:01:18.442
+but awk is really quite simple once you kind of memorise,
+
+32
+00:01:18.442 --> 00:01:20.225
+just a little bit, the syntax.
+
+33
+00:01:20.225 --> 00:01:22.825
+So the first one is pipe it at awk.
+
+34
+00:01:22.825 --> 00:01:23.986
+And we're going to give it a little programme
+
+35
+00:01:23.986 --> 00:01:25.249
+goes inside of a string.
+
+36
+00:01:25.249 --> 00:01:28.024
+And the programme needs to go inside of curly braces
+
+37
+00:01:28.024 --> 00:01:32.032
+and that programme is just going to print, dollar...
+
+38
+00:01:32.032 --> 00:01:34.383
+I'm going to print dollar two.
+
+39
+00:01:34.383 --> 00:01:37.632
+So, zero represents the entire string;
+
+40
+00:01:37.632 --> 00:01:39.280
+one represents the first token;
+
+41
+00:01:39.280 --> 00:01:40.344
+two, the second;
+
+42
+00:01:40.344 --> 00:01:42.170
+three and so on forth.
+
+43
+00:01:42.170 --> 00:01:46.337
+And by default awk is splitting the string up by spaces.
+
+44
+00:01:48.480 --> 00:01:50.960
+And not just single spaces but entire spaces.
+
+45
+00:01:50.960 --> 00:01:55.352
+If there's lots of spaces it would treat that
+
+46
+00:01:55.352 --> 00:01:56.866
+like a token separator.
+
+47
+00:01:56.866 --> 00:02:00.994
+So if we print out dollar two we get the 200.
+
+48
+00:02:00.994 --> 00:02:04.985
+If I print out dollar three then we the okay.
+
+49
+00:02:04.985 --> 00:02:06.673
+And we can put those together as well.
+
+50
+00:02:06.673 --> 00:02:09.423
+We can do dollar two and I think,
+
+51
+00:02:11.673 --> 00:02:13.337
+nope that puts them together.
+
+52
+00:02:13.337 --> 00:02:17.385
+Kind of running out of space on our line here.
+
+53
+00:02:17.385 --> 00:02:18.658
+Yeah, there we go.
+
+54
+00:02:18.658 --> 00:02:20.922
+So it's not kind of a...
+
+55
+00:02:20.922 --> 00:02:22.979
+You don't concatenate like in JavaScript
+
+56
+00:02:22.979 --> 00:02:24.570
+or another language.
+
+57
+00:02:24.570 --> 00:02:27.433
+You just do that basically.
+
+58
+00:02:27.433 --> 00:02:31.442
+So it's printing this list of variables that you give it.
+
+59
+00:02:31.442 --> 00:02:33.769
+First one is dollar two which is the 200.
+
+60
+00:02:33.769 --> 00:02:34.690
+Then a space.
+
+61
+00:02:34.690 --> 00:02:36.905
+Then the three, so 200 okay.
+
+62
+00:02:36.905 --> 00:02:41.306
+If you don't want any space then that will do the trick.
+
+63
+00:02:41.306 --> 00:02:42.973
+Another place that's really useful
+
+64
+00:02:42.973 --> 00:02:44.873
+for when you're doing a ps,
+
+65
+00:02:44.873 --> 00:02:47.570
+so I want to find all the node processes that are running
+
+66
+00:02:47.570 --> 00:02:50.226
+and I want to kill them all.
+
+67
+00:02:50.226 --> 00:02:54.393
+And I can do a ps aux and I get absolutely everything.
+
+68
+00:02:55.305 --> 00:02:56.361
+No good, right?
+
+69
+00:02:56.361 --> 00:02:57.752
+So we pipe it to grep.
+
+70
+00:02:57.752 --> 00:03:01.202
+I'm going to grep the node, but a tonne of stuff here.
+
+71
+00:03:01.202 --> 00:03:03.041
+And it's really difficult to kind of
+
+72
+00:03:03.041 --> 00:03:05.281
+go and find each one of the process IDs.
+
+73
+00:03:05.281 --> 00:03:08.713
+Now, I know that this first column here is the process ID.
+
+74
+00:03:08.713 --> 00:03:11.305
+And I can copy those individually and do one by one,
+
+75
+00:03:11.305 --> 00:03:13.472
+or I can pipe that to awk,
+
+76
+00:03:14.505 --> 00:03:19.064
+again, in a string, curly braces and then print dollar.
+
+77
+00:03:19.064 --> 00:03:20.577
+I'll show you dollar zero.
+
+78
+00:03:20.577 --> 00:03:24.082
+Dollar zero is the entire line, we don't want that.
+
+79
+00:03:24.082 --> 00:03:25.153
+Dollar one is the owner.
+
+80
+00:03:25.153 --> 00:03:27.886
+Dollar two is the process ID.
+
+81
+00:03:27.886 --> 00:03:30.766
+So this is the list of process IDs
+
+82
+00:03:30.766 --> 00:03:34.933
+and from there I can go through each one and kill them.
+
+83
+00:03:35.837 --> 00:03:39.773
+I can copy and paste that into a file and just do kill.
+
+84
+00:03:39.773 --> 00:03:42.635
+Or I can use a command called xarg
+
+85
+00:03:42.635 --> 00:03:44.338
+which I'll show you in a moment.
+
+86
+00:03:44.338 --> 00:03:46.363
+But awk, very useful.
+
+87
+00:03:46.363 --> 00:03:50.530
+Particularly if you only learn how to do this part.
+
+88
+00:03:52.004 --> 00:03:52.837
+If you look at the original output
+
+89
+00:03:52.837 --> 00:03:57.598
+you can see there's quite a large number of spaces here.
+
+90
+00:03:57.598 --> 00:04:00.031
+It will just say okay I'm just going to break.
+
+91
+00:04:00.031 --> 00:04:02.580
+That is the tokenizer, the spaces,
+
+92
+00:04:02.580 --> 00:04:06.229
+and I'm going to refer to dollar one, two, three, four
+
+93
+00:04:06.229 --> 00:04:07.622
+to get each individual column.
+
+94
+00:04:07.622 --> 00:04:10.072
+So, it logs into it, and so on and so forth.
+
+95
+00:04:10.072 --> 00:04:10.905
+Cool.
+

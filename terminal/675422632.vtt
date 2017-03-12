@@ -1,0 +1,714 @@
+﻿WEBVTT
+
+1
+00:00:01.694 --> 00:00:06.477 line:15% 
+<v ->What I wanna show you here is how I can use Unix commands</v>
+
+2
+00:00:06.477 --> 00:00:10.148 line:15% 
+and pipe them together to help me solve a problem.
+
+3
+00:00:10.148 --> 00:00:12.930 line:15% 
+Now, I'm working on this project here
+
+4
+00:00:12.930 --> 00:00:15.938 line:15% 
+and I've noticed that there's some console login
+
+5
+00:00:15.938 --> 00:00:18.191 line:15% 
+and I don't want that to go into production,
+
+6
+00:00:18.191 --> 00:00:21.191 line:15% 
+so I know that this particular code,
+
+7
+00:00:22.267 --> 00:00:23.331 line:15% 
+or the login rather,
+
+8
+00:00:23.331 --> 00:00:27.511 line:15% 
+isn't actually being generated from my code,
+
+9
+00:00:27.511 --> 00:00:30.394 line:15% 
+that I'm authoring for the website, the project.
+
+10
+00:00:30.394 --> 00:00:34.042 line:15% 
+It's happening inside of the node_modules.
+
+11
+00:00:34.042 --> 00:00:36.325 line:15% 
+I remember opening up a file somewhere
+
+12
+00:00:36.325 --> 00:00:38.948 line:15% 
+and adding console log to output to help me debug.
+
+13
+00:00:38.948 --> 00:00:41.467 line:15% 
+The problem is I've forgotten which file I modified.
+
+14
+00:00:41.467 --> 00:00:45.467 line:15% 
+So, the first thing I wanna do is find the files
+
+15
+00:00:46.788 --> 00:00:49.929 line:15% 
+that were modified in the last 24 hours.
+
+16
+00:00:49.929 --> 00:00:51.823 line:15% 
+I remember it being yesterday,
+
+17
+00:00:51.823 --> 00:00:53.195 line:15% 
+I don't remember exactly what time
+
+18
+00:00:53.195 --> 00:00:56.771 line:15% 
+and I just wanna find those files.
+
+19
+00:00:56.771 --> 00:00:58.818 line:15% 
+And I know about the find command,
+
+20
+00:00:58.818 --> 00:01:00.650 line:15% 
+but I can't remember the syntax.
+
+21
+00:01:00.650 --> 00:01:02.285 line:15% 
+Pretty straightforward to fix.
+
+22
+00:01:02.285 --> 00:01:05.063 line:15% 
+Off to Google, find modified files in the last 24 hours,
+
+23
+00:01:05.063 --> 00:01:07.689 line:15% 
+and the very first response,
+
+24
+00:01:07.689 --> 00:01:10.350 line:15% 
+I tend to stick Unix in front of it sometimes,
+
+25
+00:01:10.350 --> 00:01:11.582 line:15% 
+or Linux in front of it.
+
+26
+00:01:11.582 --> 00:01:13.752 line:15% 
+The very first answer is a stack overflow,
+
+27
+00:01:13.752 --> 00:01:16.491 line:15% 
+quite possibly what I'm looking for.
+
+28
+00:01:16.491 --> 00:01:19.386 line:15% 
+So I go down to this, here we go,
+
+29
+00:01:19.386 --> 00:01:23.695 line:15% 
+so this is find all the modified files in the last day,
+
+30
+00:01:23.695 --> 00:01:28.228 line:15% 
+so find directory_path -mtime, so I'm gonna copy this.
+
+31
+00:01:28.228 --> 00:01:30.328 line:15% 
+Obviously we need to change directory_path name
+
+32
+00:01:30.328 --> 00:01:33.786 line:15% 
+to my node_modules to try and find
+
+33
+00:01:33.786 --> 00:01:36.550 line:15% 
+the particular files, that have changed.
+
+34
+00:01:36.550 --> 00:01:39.728 line:15% 
+So, here in my project directory,
+
+35
+00:01:39.728 --> 00:01:41.488 line:15% 
+I remember it being in the node_modules,
+
+36
+00:01:41.488 --> 00:01:43.685 line:15% 
+but I don't remember exactly what file it was.
+
+37
+00:01:43.685 --> 00:01:45.074 line:15% 
+So I'm gonna put this in here,
+
+38
+00:01:45.074 --> 00:01:47.793 line:15% 
+change the directory_path to dot,
+
+39
+00:01:47.793 --> 00:01:49.611 line:15% 
+remember dot means the current working directory.
+
+40
+00:01:49.611 --> 00:01:54.019 line:15% 
+I'm gonna do dot slash, same thing, and enter.
+
+41
+00:01:54.019 --> 00:01:56.400 line:15% 
+OK, so there's a lot of stuff here,
+
+42
+00:01:56.400 --> 00:01:58.333 line:15% 
+and there's a lot of output,
+
+43
+00:01:58.333 --> 00:02:00.190 line:15% 
+there's a lot of things, that I don't really understand,
+
+44
+00:02:00.190 --> 00:02:02.193 line:15% 
+so this number, I don't really know what that is.
+
+45
+00:02:02.193 --> 00:02:04.550 line:15% 
+These are permissions, which I recognise.
+
+46
+00:02:04.550 --> 00:02:09.058 line:15% 
+This is I don't know, this is me, the owner of the group.
+
+47
+00:02:09.058 --> 00:02:10.708 line:15% 
+This is the file size.
+
+48
+00:02:10.708 --> 00:02:13.012 line:15% 
+This is the timestamp I'm interested in.
+
+49
+00:02:13.012 --> 00:02:15.929 line:15% 
+Then we've got, oh, we've got this,
+
+50
+00:02:16.937 --> 00:02:18.876 line:15% 
+which is a directory, which I don't care about.
+
+51
+00:02:18.876 --> 00:02:20.677 line:15% 
+And then we have this, which is an alias,
+
+52
+00:02:20.677 --> 00:02:22.577 line:15% 
+that points to an actual file.
+
+53
+00:02:22.577 --> 00:02:23.489 line:15% 
+So the first thing is,
+
+54
+00:02:23.489 --> 00:02:24.526 line:15% 
+I don't actually care about directories.
+
+55
+00:02:24.526 --> 00:02:27.484 line:15% 
+If I scroll back up, I can see
+
+56
+00:02:27.484 --> 00:02:31.067 line:15% 
+there's quite a few directories to start off with,
+
+57
+00:02:31.067 --> 00:02:33.391 line:15% 
+so let's get rid of the directories.
+
+58
+00:02:33.391 --> 00:02:36.854 line:15% 
+Now, find, if you look at the manual for find,
+
+59
+00:02:36.854 --> 00:02:40.687 line:15% 
+you'll see that you can specify the type of...
+
+60
+00:02:41.835 --> 00:02:44.017 line:15% 
+it's not quite file, but the type of thing
+
+61
+00:02:44.017 --> 00:02:45.120 line:15% 
+you're looking for,
+
+62
+00:02:45.120 --> 00:02:49.560 line:15% 
+so you can do -type d means directory, f means file,
+
+63
+00:02:49.560 --> 00:02:51.919 line:15% 
+I think s means symbolic link.
+
+64
+00:02:51.919 --> 00:02:54.530 line:15% 
+You can look at the man. page for this
+
+65
+00:02:54.530 --> 00:02:56.376 line:15% 
+or Google the man. page for this.
+
+66
+00:02:56.376 --> 00:02:59.585 line:15% 
+So, I'm just gonna narrow down the files and run that again.
+
+67
+00:02:59.585 --> 00:03:01.335 line:15% 
+Again, a tonne of stuff
+
+68
+00:03:02.183 --> 00:03:04.819 line:15% 
+and it looks like I'm still getting the directories,
+
+69
+00:03:04.819 --> 00:03:06.410 line:15% 
+so I'm not quite sure why
+
+70
+00:03:06.410 --> 00:03:08.039 line:15% 
+and that's not really having the effect I want,
+
+71
+00:03:08.039 --> 00:03:10.257 line:15% 
+so I'm just gonna ignore that for a minute,
+
+72
+00:03:10.257 --> 00:03:13.244 line:15% 
+get rid of the -type f and use our friend, grep.
+
+73
+00:03:13.244 --> 00:03:17.739 line:15% 
+So, I'm gonna grep for anything ending with .js
+
+74
+00:03:17.739 --> 00:03:21.460 line:15% 
+and I'm gonna use egrep, which is regular expression grep,
+
+75
+00:03:21.460 --> 00:03:24.145 line:15% 
+with a dollar on the end, so it's like a regular expression,
+
+76
+00:03:24.145 --> 00:03:25.807 line:15% 
+let's try that again.
+
+77
+00:03:25.807 --> 00:03:26.986 line:15% 
+Cool.
+
+78
+00:03:26.986 --> 00:03:31.179 line:15% 
+So now, you can see I've got a lot less results
+
+79
+00:03:31.179 --> 00:03:34.891 line:15% 
+and it looks like all of them end with that .js
+
+80
+00:03:34.891 --> 00:03:36.760 line:15% 
+at the ends here.
+
+81
+00:03:36.760 --> 00:03:38.956 line:15% 
+So, I've got a bit of a task ahead of me.
+
+82
+00:03:38.956 --> 00:03:40.620 line:15% 
+There's lots of files still turning up
+
+83
+00:03:40.620 --> 00:03:44.534 line:15% 
+and it's pretty hard to consume all this content.
+
+84
+00:03:44.534 --> 00:03:47.534 line:15% 
+So, I'm gonna use a tool called Awk.
+
+85
+00:03:48.743 --> 00:03:52.476 line:15% 
+Well in fact, I can just use a simpler version called Cut.
+
+86
+00:03:52.476 --> 00:03:54.572 line:15% 
+Sorry, I've lost what I'm doing.
+
+87
+00:03:54.572 --> 00:03:56.417 line:15% 
+I'm just gonna move into less,
+
+88
+00:03:56.417 --> 00:03:58.071 line:15% 
+so I can just look at one of these.
+
+89
+00:03:58.071 --> 00:04:00.015 line:15% 
+So I wanna just cut this into columns,
+
+90
+00:04:00.015 --> 00:04:01.881 line:15% 
+and just look at the specific end column
+
+91
+00:04:01.881 --> 00:04:03.585 line:15% 
+and see if I see any pattern.
+
+92
+00:04:03.585 --> 00:04:04.989 line:15% 
+So the first thing I'm gonna do is I'm gonna count,
+
+93
+00:04:04.989 --> 00:04:06.595 line:15% 
+so I've got, if it's zero base,
+
+94
+00:04:06.595 --> 00:04:10.654 line:15% 
+so I'm gonna do zero, one, two, three, four,
+
+95
+00:04:10.654 --> 00:04:13.404 line:15% 
+five, six, seven, eight, nine, 10
+
+96
+00:04:16.288 --> 00:04:18.560 line:15% 
+and then there's an arrow,
+
+97
+00:04:18.560 --> 00:04:19.918 line:15% 
+11, sorry, yeah,
+
+98
+00:04:19.918 --> 00:04:21.501 line:15% 
+11, 12, I think 12.
+
+99
+00:04:22.750 --> 00:04:25.166 line:15% 
+So we're looking for this column.
+
+100
+00:04:25.166 --> 00:04:28.749 line:15% 
+So I'm gonna do a cut, and pipe this to cut
+
+101
+00:04:31.167 --> 00:04:34.750 line:15% 
+and I think I can just say the field is 12.
+
+102
+00:04:37.896 --> 00:04:39.979 line:15% 
+That did not work at all.
+
+103
+00:04:41.589 --> 00:04:42.422 line:15% 
+Nope, OK.
+
+104
+00:04:44.621 --> 00:04:48.288 line:15% 
+Maybe I need to specify the delimiter at 12?
+
+105
+00:04:49.799 --> 00:04:53.966 line:15% 
+Right, that doesn't work, because it's cutting by space
+
+106
+00:04:55.086 --> 00:04:57.133 line:15% 
+and if you look at the results again,
+
+107
+00:04:57.133 --> 00:04:59.601 line:15% 
+it thinks it's a single space.
+
+108
+00:04:59.601 --> 00:05:01.958 line:15% 
+So I'm gonna switch to another tool called awk,
+
+109
+00:05:01.958 --> 00:05:06.830 line:15% 
+which is similar, but it automatically breaks up by spaces,
+
+110
+00:05:06.830 --> 00:05:09.692 line:15% 
+so automatically break it into columns for me.
+
+111
+00:05:09.692 --> 00:05:12.942 line:15% 
+I just need to do print dollar 12, I think it was.
+
+112
+00:05:12.942 --> 00:05:16.072 line:15% 
+Now, these braces, this is actually a little programme
+
+113
+00:05:16.072 --> 00:05:18.289 line:15% 
+I'm passing to awk,
+
+114
+00:05:18.289 --> 00:05:21.363 line:15% 
+but a really common use case for awk is to say,
+
+115
+00:05:21.363 --> 00:05:23.280 line:15% 
+print the first column,
+
+116
+00:05:24.332 --> 00:05:25.774 line:15% 
+print the second column,
+
+117
+00:05:25.774 --> 00:05:29.607 line:15% 
+so it's zero base for the first column, there,
+
+118
+00:05:30.819 --> 00:05:32.069 line:15% 
+print zero one?
+
+119
+00:05:32.956 --> 00:05:34.974 line:15% 
+Oh yeah, sorry, zero is everything,
+
+120
+00:05:34.974 --> 00:05:36.891 line:15% 
+so you want 12, no, 13,
+
+121
+00:05:38.046 --> 00:05:39.626 line:15% 
+so it's pretty much my workflow,
+
+122
+00:05:39.626 --> 00:05:41.882 line:15% 
+I'll just basically repeat, till I get what I want.
+
+123
+00:05:41.882 --> 00:05:44.096 line:15% 
+OK, so it's looking a bit better.
+
+124
+00:05:44.096 --> 00:05:46.748 line:15% 
+I'm now gonna pipe this to sort.
+
+125
+00:05:46.748 --> 00:05:50.817 line:15% 
+So, it kind of gives me roughly the path.
+
+126
+00:05:50.817 --> 00:05:52.296 line:15% 
+You can see some duplicates there,
+
+127
+00:05:52.296 --> 00:05:53.624 line:15% 
+so I'm just gonna pass it into unique,
+
+128
+00:05:53.624 --> 00:05:56.814 line:15% 
+which we would have met in previous screens cast.
+
+129
+00:05:56.814 --> 00:05:58.883 line:15% 
+OK, so it's given me a better idea,
+
+130
+00:05:58.883 --> 00:06:01.600 line:15% 
+but I'm having to read through all of this again
+
+131
+00:06:01.600 --> 00:06:03.869 line:15% 
+and it's still a bit tricky.
+
+132
+00:06:03.869 --> 00:06:07.755 line:15% 
+I'm not quite sure which file I'm looking for.
+
+133
+00:06:07.755 --> 00:06:10.549 line:15% 
+Yeah, I remember it not being in
+
+134
+00:06:10.549 --> 00:06:13.334 line:15% 
+kind of jsp define and so on, so I could kind of do...
+
+135
+00:06:13.334 --> 00:06:17.693 line:15% 
+I could do it pass it into a grep, and I could use grep -v
+
+136
+00:06:17.693 --> 00:06:21.420 line:15% 
+to say ignore this particular one, js-bea,
+
+137
+00:06:21.420 --> 00:06:24.073 line:15% 
+just shorten that to get rid of the js-beautifiers,
+
+138
+00:06:24.073 --> 00:06:26.721 line:15% 
+so you can see those are gone now.
+
+139
+00:06:26.721 --> 00:06:30.587 line:15% 
+Oops, just put that back into sort, unique,
+
+140
+00:06:30.587 --> 00:06:32.894 line:15% 
+so you can see js-beautify is gone,
+
+141
+00:06:32.894 --> 00:06:35.743 line:15% 
+but I'm still missing a lot of context,
+
+142
+00:06:35.743 --> 00:06:37.911 line:15% 
+and it's not quite giving me what I want.
+
+143
+00:06:37.911 --> 00:06:39.767 line:15% 
+So let's go back again
+
+144
+00:06:39.767 --> 00:06:43.335 line:15% 
+and look at the raw data I've got.
+
+145
+00:06:43.335 --> 00:06:46.871 line:15% 
+The one thing I have spotted is the date.
+
+146
+00:06:46.871 --> 00:06:50.001 line:15% 
+This particular date kind of repeats over and over again,
+
+147
+00:06:50.001 --> 00:06:52.375 line:15% 
+so I must have maybe installed a bunch of modules
+
+148
+00:06:52.375 --> 00:06:55.255 line:15% 
+at the same time, around that time, I reckon.
+
+149
+00:06:55.255 --> 00:06:56.606 line:15% 
+Maybe one module and it added
+
+150
+00:06:56.606 --> 00:06:59.006 line:15% 
+a whole bunch of mode packages,
+
+151
+00:06:59.006 --> 00:07:01.335 line:15% 
+so I'm actually gonna do a grep -v
+
+152
+00:07:01.335 --> 00:07:03.478 line:15% 
+to get rid of anything that includes
+
+153
+00:07:03.478 --> 00:07:05.645 line:15% 
+the 17th of Jan. at 14:20.
+
+154
+00:07:07.672 --> 00:07:10.339 line:15% 
+So, let's go back here, grep -v,
+
+155
+00:07:12.347 --> 00:07:14.535 line:15% 
+and because I copied it, I can just paste it straight in.
+
+156
+00:07:14.535 --> 00:07:16.495 line:15% 
+And off we go again.
+
+157
+00:07:16.495 --> 00:07:19.276 line:15% 
+Much better, now we're getting through results.
+
+158
+00:07:19.276 --> 00:07:21.322 line:15% 
+If I just use that awk again.
+
+159
+00:07:21.322 --> 00:07:23.739 line:15% 
+What was it, print dollar 12,
+
+160
+00:07:26.015 --> 00:07:26.848 line:15% 
+oops, 13,
+
+161
+00:07:28.375 --> 00:07:30.029 line:15% 
+nope,
+
+162
+00:07:30.029 --> 00:07:31.077 line:15% 
+11?
+
+163
+00:07:31.077 --> 00:07:32.434 line:15% 
+Yeah.
+
+164
+00:07:32.434 --> 00:07:34.813 line:15% 
+OK, so now, yes, I remember,
+
+165
+00:07:34.813 --> 00:07:38.676 line:15% 
+so we can have a quick look in one of these files.
+
+166
+00:07:38.676 --> 00:07:42.168 line:15% 
+I'm just gonna choose one at random,
+
+167
+00:07:42.168 --> 00:07:43.001 line:15% 
+vi,
+
+168
+00:07:44.183 --> 00:07:46.712 line:15% 
+console log, there we go, so that's the console log
+
+169
+00:07:46.712 --> 00:07:47.960 line:15% 
+I was looking for.
+
+170
+00:07:47.960 --> 00:07:49.303 line:15% 
+So I can just get, oops!
+
+171
+00:07:49.303 --> 00:07:51.959 line:15% 
+I can just get rid of those.
+
+172
+00:07:51.959 --> 00:07:55.942 line:15% 
+I'll probably open it in sublime at this point
+
+173
+00:07:55.942 --> 00:07:57.931 line:15% 
+and then just edit it and save it,
+
+174
+00:07:57.931 --> 00:08:00.061 line:15% 
+but that's how I'm kind of
+
+175
+00:08:00.061 --> 00:08:03.964 line:15% 
+piping commands together, creating a workflow,
+
+176
+00:08:03.964 --> 00:08:06.381 line:15% 
+and using the little commands
+
+177
+00:08:07.822 --> 00:08:10.387 line:15% 
+I have on the See Lite to help me dig in
+
+178
+00:08:10.387 --> 00:08:13.828 line:15% 
+and you know, find things that I was looking for.
+

@@ -1,0 +1,590 @@
+﻿WEBVTT
+
+1
+00:00:02.483 --> 00:00:04.468
+<v ->So now I want to show you how to run commands</v>
+
+2
+00:00:04.468 --> 00:00:06.001
+in the terminal.
+
+3
+00:00:06.001 --> 00:00:08.557
+So you might be used to double clicking on an icon,
+
+4
+00:00:08.557 --> 00:00:10.235
+running a programme like that,
+
+5
+00:00:10.235 --> 00:00:11.615
+but there are some commands that you need
+
+6
+00:00:11.615 --> 00:00:12.792
+to run in the terminal
+
+7
+00:00:12.792 --> 00:00:13.701
+and I'm going to show you different ways
+
+8
+00:00:13.701 --> 00:00:17.201
+of installing new commands in the terminal
+
+9
+00:00:18.516 --> 00:00:19.771
+through different various methods.
+
+10
+00:00:19.771 --> 00:00:21.771
+So the very first one is
+
+11
+00:00:24.757 --> 00:00:27.537
+you have programmes kind of sitting all over your computer.
+
+12
+00:00:27.537 --> 00:00:29.954
+We've seen it earlier, LS and
+
+13
+00:00:32.741 --> 00:00:33.574
+a bunch of other things.
+
+14
+00:00:33.574 --> 00:00:35.584
+But you can do thing like echo,
+
+15
+00:00:35.584 --> 00:00:37.260
+it's kind of a system command.
+
+16
+00:00:37.260 --> 00:00:39.177
+And I can do echo hello
+
+17
+00:00:41.010 --> 00:00:42.593
+or echo hello world
+
+18
+00:00:44.961 --> 00:00:48.981
+And if I want to know where echo lives,
+
+19
+00:00:48.981 --> 00:00:50.329
+where that comes from,
+
+20
+00:00:50.329 --> 00:00:52.757
+there's a useful command called which
+
+21
+00:00:52.757 --> 00:00:54.729
+and then you give it the programme name.
+
+22
+00:00:54.729 --> 00:00:56.866
+So which echo and it will tell me
+
+23
+00:00:56.866 --> 00:00:58.050
+where that file lives.
+
+24
+00:00:58.050 --> 00:00:58.883
+So it means the,
+
+25
+00:00:58.883 --> 00:01:02.502
+when I run echo on this line up here,
+
+26
+00:01:02.502 --> 00:01:06.442
+that it's actually running the programme in /bin/echo.
+
+27
+00:01:06.442 --> 00:01:08.485
+Now that looks like,
+
+28
+00:01:08.485 --> 00:01:11.167
+so if I type in open /bin
+
+29
+00:01:11.167 --> 00:01:12.533 line:15% 
+it'll open finder for me
+
+30
+00:01:12.533 --> 00:01:14.561 line:15% 
+and it will show me everything in the \bin directory.
+
+31
+00:01:14.561 --> 00:01:16.138 line:15% 
+And you don't want to go and delete any of this
+
+32
+00:01:16.138 --> 00:01:17.474 line:15% 
+or mess with any of these files.
+
+33
+00:01:17.474 --> 00:01:19.343 line:15% 
+These are your system files.
+
+34
+00:01:19.343 --> 00:01:22.081
+So I'm just showing you that it exists.
+
+35
+00:01:22.081 --> 00:01:24.131
+So you can see that's in the root of my computer
+
+36
+00:01:24.131 --> 00:01:26.583
+and I have a directory called bin.
+
+37
+00:01:26.583 --> 00:01:27.730
+And there's a few other as well.
+
+38
+00:01:27.730 --> 00:01:28.885
+I've got this,
+
+39
+00:01:28.885 --> 00:01:32.727
+there'll be one in /usr/bin/
+
+40
+00:01:32.727 --> 00:01:34.758
+and a bunch of programmes that we don't need
+
+41
+00:01:34.758 --> 00:01:37.017
+to worry about what's in there.
+
+42
+00:01:37.017 --> 00:01:37.850
+But the point is,
+
+43
+00:01:37.850 --> 00:01:39.301
+when I type a command
+
+44
+00:01:39.301 --> 00:01:40.897
+what it's going to do is
+
+45
+00:01:40.897 --> 00:01:42.814
+look through my path,
+
+46
+00:01:42.814 --> 00:01:44.166
+which I'll show you in a minute,
+
+47
+00:01:44.166 --> 00:01:48.333
+and it will first look for echo in /bin
+
+48
+00:01:50.430 --> 00:01:52.650
+and then it will look through various other directories
+
+49
+00:01:52.650 --> 00:01:54.749
+until it finds the very first instance
+
+50
+00:01:54.749 --> 00:01:57.990
+and then it'll execute that one.
+
+51
+00:01:57.990 --> 00:02:00.249
+So if I show you my path
+
+52
+00:02:00.249 --> 00:02:01.249
+and I can do
+
+53
+00:02:03.226 --> 00:02:04.059
+echo $PATH
+
+54
+00:02:05.584 --> 00:02:09.147
+so this is the path for this particular user.
+
+55
+00:02:09.147 --> 00:02:11.018
+Now yours might be slightly different,
+
+56
+00:02:11.018 --> 00:02:12.785
+you may customise yours
+
+57
+00:02:12.785 --> 00:02:15.068
+and I'll show you how to do that later on.
+
+58
+00:02:15.068 --> 00:02:18.235
+And the paths are separated by colons,
+
+59
+00:02:19.985 --> 00:02:22.605
+so it's really to say the programme could live
+
+60
+00:02:22.605 --> 00:02:24.138
+in any of these directories.
+
+61
+00:02:24.138 --> 00:02:27.388
+So when I run something like say Hello,
+
+62
+00:02:28.505 --> 00:02:29.487
+<v Mac Computer>Hello</v>
+
+63
+00:02:29.487 --> 00:02:31.348
+<v ->my Mac says hello</v>
+
+64
+00:02:31.348 --> 00:02:33.015
+but the say command,
+
+65
+00:02:34.120 --> 00:02:35.311
+I don't now where it is at the moment
+
+66
+00:02:35.311 --> 00:02:36.564
+until I type
+
+67
+00:02:36.564 --> 00:02:37.397
+which say
+
+68
+00:02:38.539 --> 00:02:42.519
+and you can see here it's in /usr/bin/say.
+
+69
+00:02:42.519 --> 00:02:46.102
+So if I run a command just without a prefix
+
+70
+00:02:47.224 --> 00:02:50.228
+it goes and looks through my computer
+
+71
+00:02:50.228 --> 00:02:51.509
+until it finds the right one
+
+72
+00:02:51.509 --> 00:02:52.397
+and then it runs it.
+
+73
+00:02:52.397 --> 00:02:55.281
+What about if I have a programme
+
+74
+00:02:55.281 --> 00:02:57.114
+in the current working directory?
+
+75
+00:02:57.114 --> 00:02:59.390
+So, in my home directory
+
+76
+00:02:59.390 --> 00:03:01.462
+I've got a little programme called hello.
+
+77
+00:03:01.462 --> 00:03:02.295
+Okay, it's nothing special,
+
+78
+00:03:02.295 --> 00:03:05.978
+it's just going to say hello world on the screen.
+
+79
+00:03:05.978 --> 00:03:08.364
+But if I type in hello
+
+80
+00:03:08.364 --> 00:03:09.741
+it says command not found.
+
+81
+00:03:09.741 --> 00:03:12.040
+And that's because it's looked through
+
+82
+00:03:12.040 --> 00:03:15.195
+all the directories you listed earlier here,
+
+83
+00:03:15.195 --> 00:03:17.492
+and it can't find the hello programme
+
+84
+00:03:17.492 --> 00:03:19.374
+in any of those directories.
+
+85
+00:03:19.374 --> 00:03:23.026
+Now it doesn't check my current working directory
+
+86
+00:03:23.026 --> 00:03:24.007
+when it runs through that.
+
+87
+00:03:24.007 --> 00:03:26.504
+I've got to explicitly tell the terminal
+
+88
+00:03:26.504 --> 00:03:29.222
+to run the programme in this directory.
+
+89
+00:03:29.222 --> 00:03:30.224
+And the way that we do this
+
+90
+00:03:30.224 --> 00:03:34.362
+is to do ./ and then we can run the command.
+
+91
+00:03:34.362 --> 00:03:37.862
+So dot-slash and then the name of the command hello.
+
+92
+00:03:37.862 --> 00:03:39.801
+Now the reason that runs is because
+
+93
+00:03:39.801 --> 00:03:40.901
+I've made it executable,
+
+94
+00:03:40.901 --> 00:03:42.923
+again I'll talk about kind of how
+
+95
+00:03:42.923 --> 00:03:43.890
+to make things executable
+
+96
+00:03:43.890 --> 00:03:46.473
+and permissions and so on later on.
+
+97
+00:03:46.473 --> 00:03:49.006
+But if I want to run a programme
+
+98
+00:03:49.006 --> 00:03:50.638
+in the current working directory,
+
+99
+00:03:50.638 --> 00:03:52.107
+whatever directory that is,
+
+100
+00:03:52.107 --> 00:03:53.910
+I need to do dot-slash first.
+
+101
+00:03:53.910 --> 00:03:56.962
+Now it could be that you've downloaded a zip
+
+102
+00:03:56.962 --> 00:03:58.656
+off like a Github project or something like that
+
+103
+00:03:58.656 --> 00:04:01.489
+and there's a directory called bin
+
+104
+00:04:02.366 --> 00:04:04.276
+so if I open up this directory
+
+105
+00:04:04.276 --> 00:04:08.008
+and put hello in this new bin directory I've just made
+
+106
+00:04:08.008 --> 00:04:10.998
+you may have downloaded a zip file from GitHub
+
+107
+00:04:10.998 --> 00:04:13.665
+and they have this bin directory
+
+108
+00:04:15.734 --> 00:04:17.248
+which we can see there
+
+109
+00:04:17.248 --> 00:04:18.999
+and you need to run some programme in it
+
+110
+00:04:18.999 --> 00:04:23.166
+so I'm going to do ./bin/hello
+
+111
+00:04:24.479 --> 00:04:25.621
+and it works.
+
+112
+00:04:25.621 --> 00:04:26.825
+Okay, so dot slash just means
+
+113
+00:04:26.825 --> 00:04:29.303
+from this current working directory onward.
+
+114
+00:04:29.303 --> 00:04:31.235
+So I can do, another thing I can do
+
+115
+00:04:31.235 --> 00:04:32.523
+bin/hello,
+
+116
+00:04:32.523 --> 00:04:35.169
+oh yeah, I can do bin because it can find that directory.
+
+117
+00:04:35.169 --> 00:04:38.419
+Typically we would always do dot slash.
+
+118
+00:04:39.662 --> 00:04:42.994
+And that's how you'd run a local programme.
+
+119
+00:04:42.994 --> 00:04:44.995
+So next I'm going to show you,
+
+120
+00:04:44.995 --> 00:04:46.807
+in the next video rather
+
+121
+00:04:46.807 --> 00:04:47.876
+I'm going to show you
+
+122
+00:04:47.876 --> 00:04:51.730
+different places you can instal applications
+
+123
+00:04:51.730 --> 00:04:55.430
+I quite often land on some tutorial page
+
+124
+00:04:55.430 --> 00:04:58.180
+that says just go ahead and instal this programme.
+
+125
+00:04:58.180 --> 00:05:00.854
+Typically they will tell you where to instal it from
+
+126
+00:05:00.854 --> 00:05:04.027
+so there's different registries of programmes
+
+127
+00:05:04.027 --> 00:05:06.043
+and I'm going to show you a handful of them,
+
+128
+00:05:06.043 --> 00:05:07.191
+one of them is BREW,
+
+129
+00:05:07.191 --> 00:05:09.974
+one of them will be kind of RubyGems.
+
+130
+00:05:09.974 --> 00:05:13.007
+I'm going to show you node modules as well,
+
+131
+00:05:13.007 --> 00:05:15.461
+but there's other things like
+
+132
+00:05:15.461 --> 00:05:17.622
+Python packages also exist.
+
+133
+00:05:17.622 --> 00:05:19.007
+I'm not going to show you Python packages
+
+134
+00:05:19.007 --> 00:05:19.840
+mostly because
+
+135
+00:05:19.840 --> 00:05:20.805
+me personally,
+
+136
+00:05:20.805 --> 00:05:22.527
+I've never been able
+
+137
+00:05:22.527 --> 00:05:24.299
+to successfully instal one of these things.
+
+138
+00:05:24.299 --> 00:05:26.918
+Quite often I'll get to the GitHub README
+
+139
+00:05:26.918 --> 00:05:28.695
+and it makes a bunch of assumptions
+
+140
+00:05:28.695 --> 00:05:30.710
+as to how it's going to instal the thing,
+
+141
+00:05:30.710 --> 00:05:33.494
+and I never have the right prerequisite setup.
+
+142
+00:05:33.494 --> 00:05:36.339
+BREW is actually very easy to get a prerequisite setup,
+
+143
+00:05:36.339 --> 00:05:38.110
+MPM incredibly easy,
+
+144
+00:05:38.110 --> 00:05:39.322
+Ruby a little bit trickier
+
+145
+00:05:39.322 --> 00:05:41.909
+but if you have a smooth process
+
+146
+00:05:41.909 --> 00:05:43.318
+then it will work fine.
+
+147
+00:05:43.318 --> 00:05:45.568
+So let's look at BREW next.
+

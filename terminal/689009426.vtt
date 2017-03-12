@@ -1,0 +1,434 @@
+﻿WEBVTT
+
+1
+00:00:00.853 --> 00:00:02.961
+<v ->So I know throughout this video series</v>
+
+2
+00:00:02.961 --> 00:00:04.714
+that you've been watching if you occasionally
+
+3
+00:00:04.714 --> 00:00:06.922
+got a glimpse of the ask it pony,
+
+4
+00:00:06.922 --> 00:00:08.963
+I'm sure you're thinking how on earth
+
+5
+00:00:08.963 --> 00:00:11.630
+do I get that on my own machine?
+
+6
+00:00:12.527 --> 00:00:15.290
+You've come to the secret bonus video
+
+7
+00:00:15.290 --> 00:00:18.518
+that was probably just linked in the list.
+
+8
+00:00:18.518 --> 00:00:19.793
+So on my mac I did brew instal pony say
+
+9
+00:00:19.793 --> 00:00:23.725
+So on my mac I did brew instal pony say
+
+10
+00:00:23.725 --> 00:00:26.452
+and I got a programme called pony say.
+
+11
+00:00:26.452 --> 00:00:27.285
+And pony say stuff,
+
+12
+00:00:27.285 --> 00:00:29.260
+And pony say stuff,
+
+13
+00:00:29.260 --> 00:00:30.885
+so pony say hello people.
+
+14
+00:00:30.885 --> 00:00:32.968
+so pony say hello people.
+
+15
+00:00:34.322 --> 00:00:38.249
+And I mean it's a turtle but you know we're getting there.
+
+16
+00:00:38.249 --> 00:00:39.646
+Depending on the font you use,
+
+17
+00:00:39.646 --> 00:00:41.658
+depending on the terminal you use,
+
+18
+00:00:41.658 --> 00:00:44.491
+and it'll look slightly different.
+
+19
+00:00:46.082 --> 00:00:48.101
+But maybe this is what you want
+
+20
+00:00:48.101 --> 00:00:51.235
+to welcome you every single time.
+
+21
+00:00:51.235 --> 00:00:52.068
+I'm pretty sure there is pony say help.
+
+22
+00:00:52.068 --> 00:00:56.107
+I'm pretty sure there is pony say help.
+
+23
+00:00:56.107 --> 00:00:58.524
+I can list all of the ponies.
+
+24
+00:01:00.146 --> 00:01:02.099
+Somewhere -l I think.
+
+25
+00:01:02.099 --> 00:01:03.191
+Yeah, list.
+
+26
+00:01:03.191 --> 00:01:05.108
+So let's list them all,
+
+27
+00:01:06.556 --> 00:01:07.389
+and let's do,
+
+28
+00:01:07.389 --> 00:01:09.192
+and let's do,
+
+29
+00:01:09.192 --> 00:01:10.171
+pinkie.
+
+30
+00:01:10.171 --> 00:01:12.493
+That's good enough for me.
+
+31
+00:01:12.493 --> 00:01:13.926
+So pony say -f pinkie hello.
+
+32
+00:01:13.926 --> 00:01:16.259
+So pony say -f pinkie hello.
+
+33
+00:01:17.274 --> 00:01:18.335
+There you go.
+
+34
+00:01:18.335 --> 00:01:19.168
+And most machines will come with a programme called fortune.
+
+35
+00:01:19.168 --> 00:01:23.593
+And most machines will come with a programme called fortune.
+
+36
+00:01:23.593 --> 00:01:26.078
+And this will just print out
+
+37
+00:01:26.078 --> 00:01:28.045
+like a fortune cookie kind of thing.
+
+38
+00:01:28.045 --> 00:01:29.414
+And you can pipe that to pony say - oh,
+
+39
+00:01:29.414 --> 00:01:33.610
+And you can pipe that to pony say - oh,
+
+40
+00:01:33.610 --> 00:01:34.543
+pony say -f pinkie.
+
+41
+00:01:34.543 --> 00:01:36.602
+pony say -f pinkie.
+
+42
+00:01:36.602 --> 00:01:37.593
+And pinkie by, I think's her name will give you the fortune.
+
+43
+00:01:37.593 --> 00:01:42.245
+And pinkie by, I think's her name will give you the fortune.
+
+44
+00:01:42.245 --> 00:01:44.007
+And even better than that, you make that
+
+45
+00:01:44.007 --> 00:01:46.860
+part of your start up shell, start up file.
+
+46
+00:01:46.860 --> 00:01:49.085
+So if you use z shell that'll be z shell rc.
+
+47
+00:01:49.085 --> 00:01:52.752
+So if you use z shell that'll be z shell rc.
+
+48
+00:01:54.207 --> 00:01:55.040
+Shell rc.
+
+49
+00:01:55.040 --> 00:01:55.873
+Shell rc.
+
+50
+00:01:55.873 --> 00:01:57.206
+Shell rc.
+
+51
+00:01:57.206 --> 00:01:58.039
+Or bash rc, or whatever,
+
+52
+00:01:58.039 --> 00:02:00.039
+Or bash rc, or whatever,
+
+53
+00:02:01.847 --> 00:02:04.104
+whatever shell you're using rc
+
+54
+00:02:04.104 --> 00:02:04.937
+and it runs that entire file as it boots up.
+
+55
+00:02:04.937 --> 00:02:09.039
+and it runs that entire file as it boots up.
+
+56
+00:02:09.039 --> 00:02:11.652
+And mine's got lots of bits in it, a few aliases
+
+57
+00:02:11.652 --> 00:02:14.021
+that I've kind of accidentally put in there.
+
+58
+00:02:14.021 --> 00:02:16.592
+But here right towards the bottom,
+
+59
+00:02:16.592 --> 00:02:20.229
+I have this command so let's just bump the font up for you.
+
+60
+00:02:20.229 --> 00:02:21.778
+So hash pony say kind of a weird command and pony say -o.
+
+61
+00:02:21.778 --> 00:02:25.778
+So hash pony say kind of a weird command and pony say -o.
+
+62
+00:02:25.778 --> 00:02:27.612
+And what this does is that every time
+
+63
+00:02:27.612 --> 00:02:29.879
+I bring up a new terminal it
+
+64
+00:02:29.879 --> 00:02:32.542
+will run firstly this hash part.
+
+65
+00:02:32.542 --> 00:02:35.737
+Hash pony say redirect to dev null
+
+66
+00:02:35.737 --> 00:02:39.154
+means if it exists then run this programme.
+
+67
+00:02:40.267 --> 00:02:41.635
+I copied it from somewhere else,
+
+68
+00:02:41.635 --> 00:02:45.258
+I can't remember where but it definitely works.
+
+69
+00:02:45.258 --> 00:02:46.583
+And if you know it's gonna be installed
+
+70
+00:02:46.583 --> 00:02:48.184
+than you don't need that part.
+
+71
+00:02:48.184 --> 00:02:49.017
+<v ->o means no, it's quiet.</v>
+
+72
+00:02:49.017 --> 00:02:51.460
+<v ->o means no, it's quiet.</v>
+
+73
+00:02:51.460 --> 00:02:54.783
+But I could easily change this to pony say cause
+
+74
+00:02:54.783 --> 00:02:57.166
+and fortune, fortune pipe pony say, oops.
+
+75
+00:02:57.166 --> 00:03:00.775
+and fortune, fortune pipe pony say, oops.
+
+76
+00:03:00.775 --> 00:03:04.187
+And I'm just gonna save that, open up a new tab,
+
+77
+00:03:04.187 --> 00:03:05.145
+and there you go.
+
+78
+00:03:05.145 --> 00:03:06.948
+and there you go.
+
+79
+00:03:06.948 --> 00:03:11.072
+There is the fortune told to me as per a pony.
+
+80
+00:03:11.072 --> 00:03:13.217
+There's also a whole bunch of other ones like cow say.
+
+81
+00:03:13.217 --> 00:03:14.669
+Cow say is a very popular one,
+
+82
+00:03:14.669 --> 00:03:17.752
+if you read the book cow say was the,
+
+83
+00:03:18.667 --> 00:03:20.546
+oops I need to give it something.
+
+84
+00:03:20.546 --> 00:03:22.207
+Okay, hi,
+
+85
+00:03:22.207 --> 00:03:23.040
+hey.
+
+86
+00:03:24.656 --> 00:03:25.723
+That's the aski art.
+
+87
+00:03:25.723 --> 00:03:29.029
+There's a whole bunch of cow say
+
+88
+00:03:29.029 --> 00:03:30.304
+different, cows?
+
+89
+00:03:30.304 --> 00:03:31.137
+different, cows?
+
+90
+00:03:31.137 --> 00:03:32.562
+different, cows?
+
+91
+00:03:32.562 --> 00:03:33.395
+Nope.
+
+92
+00:03:35.610 --> 00:03:37.170
+Somewhere is usage.
+
+93
+00:03:37.170 --> 00:03:39.552
+I think maybe I've broken my version of cow say.
+
+94
+00:03:39.552 --> 00:03:40.794
+I'd have to reinstall it.
+
+95
+00:03:40.794 --> 00:03:41.627
+Oh here we go.
+
+96
+00:03:41.627 --> 00:03:42.460
+Surgery telebears three eyes.
+
+97
+00:03:42.460 --> 00:03:44.877
+Surgery telebears three eyes.
+
+98
+00:03:47.267 --> 00:03:49.029
+Cow say -f three eyes.
+
+99
+00:03:49.029 --> 00:03:51.024
+Cow say -f three eyes.
+
+100
+00:03:51.024 --> 00:03:51.857
+Echo hey.
+
+101
+00:03:54.063 --> 00:03:55.647
+Yep there you go, there's a cow with three eyes
+
+102
+00:03:55.647 --> 00:03:59.563
+so you can put that command in your rc file
+
+103
+00:03:59.563 --> 00:04:01.609
+and be greated by it
+
+104
+00:04:01.609 --> 00:04:03.398
+every time you bring up a new tab.
+
+105
+00:04:03.398 --> 00:04:04.981
+Me, I like my pony.
+
+106
+00:04:07.448 --> 00:04:09.012
+And it's colourful.
+
+107
+00:04:09.012 --> 00:04:11.893
+It basically brightens up a rather dull looking screen,
+
+108
+00:04:11.893 --> 00:04:13.167
+which is what I like.
+

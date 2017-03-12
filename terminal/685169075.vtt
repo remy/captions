@@ -1,0 +1,614 @@
+﻿WEBVTT
+
+1
+00:00:02.245 --> 00:00:03.707
+<v ->So it's possible you'll find yourself</v>
+
+2
+00:00:03.707 --> 00:00:06.124
+in a situation where you'll need to edit a file
+
+3
+00:00:06.124 --> 00:00:09.325
+and, but you don't have your normal kind of GUI,
+
+4
+00:00:09.325 --> 00:00:11.645
+something like a Mac or Windows or whatever.
+
+5
+00:00:11.645 --> 00:00:15.161
+I would typically go for something like Sublime.
+
+6
+00:00:15.161 --> 00:00:16.754
+You might use another programme.
+
+7
+00:00:16.754 --> 00:00:18.500
+But let's say that you've somehow connected
+
+8
+00:00:18.500 --> 00:00:20.255
+to another machine,
+
+9
+00:00:20.255 --> 00:00:22.424
+or you don't have the other tools
+
+10
+00:00:22.424 --> 00:00:23.655
+that you're used to,
+
+11
+00:00:23.655 --> 00:00:25.419
+and you need to edit a file.
+
+12
+00:00:25.419 --> 00:00:28.915
+Now, from the Command Line, there are a few options.
+
+13
+00:00:28.915 --> 00:00:31.783
+And this doesn't guarantee any of them are installed.
+
+14
+00:00:31.783 --> 00:00:34.051
+Most systems have them installed by default.
+
+15
+00:00:34.051 --> 00:00:35.277
+Certainly your Mac will have a bunch of them
+
+16
+00:00:35.277 --> 00:00:36.596
+installed by default,
+
+17
+00:00:36.596 --> 00:00:40.763
+but there are three editors that I would consider.
+
+18
+00:00:41.975 --> 00:00:46.903
+The first one is Vim, or Vi, as I tend to think of it.
+
+19
+00:00:46.903 --> 00:00:48.350
+Vi is like an early version.
+
+20
+00:00:48.350 --> 00:00:50.941
+Vim is Vi Improved or something like that,
+
+21
+00:00:50.941 --> 00:00:52.024
+Vim Improved.
+
+22
+00:00:54.813 --> 00:00:57.480
+It's not particularly intuitive,
+
+23
+00:01:00.236 --> 00:01:01.711
+but it's the one that I'm most used to,
+
+24
+00:01:01.711 --> 00:01:03.750
+and I'm going to show you just a couple of commands.
+
+25
+00:01:03.750 --> 00:01:05.998
+Most common gripe with Vim,
+
+26
+00:01:05.998 --> 00:01:07.710
+if you search the web,
+
+27
+00:01:07.710 --> 00:01:12.088
+is quitting Vim, actually being able to leave.
+
+28
+00:01:12.088 --> 00:01:13.720
+It can be tricky if you don't know the command,
+
+29
+00:01:13.720 --> 00:01:15.612
+and you just get stuck inside of there.
+
+30
+00:01:15.612 --> 00:01:17.464
+Another one is Emacs.
+
+31
+00:01:17.464 --> 00:01:19.797
+There is, if you're familiar
+
+32
+00:01:21.681 --> 00:01:23.985
+with the tabs-versus-spaces argument,
+
+33
+00:01:23.985 --> 00:01:28.143
+Vim versus Emacs is a very old, long-running
+
+34
+00:01:28.143 --> 00:01:31.726
+similar kind of war or clash of two groups.
+
+35
+00:01:34.194 --> 00:01:36.291
+So Emacs is another editor.
+
+36
+00:01:36.291 --> 00:01:39.702
+I actually have never really used Emacs at all,
+
+37
+00:01:39.702 --> 00:01:41.349
+and I had a quick go with this.
+
+38
+00:01:41.349 --> 00:01:44.516
+Talk about stuck inside of it as well.
+
+39
+00:01:45.352 --> 00:01:47.040
+And similar, has a lot of key combinations
+
+40
+00:01:47.040 --> 00:01:48.730
+that you need to know to be able to navigate.
+
+41
+00:01:48.730 --> 00:01:50.214
+But the third one is called Nano,
+
+42
+00:01:50.214 --> 00:01:51.931
+which is actually a lot more user friendly
+
+43
+00:01:51.931 --> 00:01:53.956
+when it comes to being able to navigate.
+
+44
+00:01:53.956 --> 00:01:57.539
+So I'm just going to show you Vim and Nano,
+
+45
+00:01:59.117 --> 00:02:00.937
+and if you are forced to make a choice,
+
+46
+00:02:00.937 --> 00:02:03.837
+I would recommend using Nano
+
+47
+00:02:03.837 --> 00:02:06.227
+just to kind of jump in and out.
+
+48
+00:02:06.227 --> 00:02:08.308
+But if you wanted to learn more about Vim,
+
+49
+00:02:08.308 --> 00:02:09.613
+there is loads of information on the web,
+
+50
+00:02:09.613 --> 00:02:12.901
+and I'll include a few links as well.
+
+51
+00:02:12.901 --> 00:02:16.707
+Vim alone could take up three hours' worth of learning.
+
+52
+00:02:16.707 --> 00:02:19.610
+Vi and Vim are the same command. If you don't have Vi or Vim
+
+53
+00:02:19.610 --> 00:02:24.026
+on your Mac, or your Linux machine, or your Windows machine,
+
+54
+00:02:24.026 --> 00:02:25.666
+you can instal them.
+
+55
+00:02:25.666 --> 00:02:27.898
+And we're going to edit a file.
+
+56
+00:02:27.898 --> 00:02:29.634
+So I've got some of these default files
+
+57
+00:02:29.634 --> 00:02:31.502
+from previous videos.
+
+58
+00:02:31.502 --> 00:02:33.770
+I have some syntax highlighting already built in.
+
+59
+00:02:33.770 --> 00:02:35.318
+You may not have highlighting built in.
+
+60
+00:02:35.318 --> 00:02:37.457
+You may see a white version of this,
+
+61
+00:02:37.457 --> 00:02:39.457
+rather, just white text.
+
+62
+00:02:41.359 --> 00:02:44.870
+I'm using the cursor keys to move my cursor around.
+
+63
+00:02:44.870 --> 00:02:46.038
+Because there's only one line,
+
+64
+00:02:46.038 --> 00:02:47.686
+I can't go up and down.
+
+65
+00:02:47.686 --> 00:02:49.148
+If I try and type,
+
+66
+00:02:49.148 --> 00:02:50.951
+nothing really happens because at the moment,
+
+67
+00:02:50.951 --> 00:02:53.036
+I'm in Command Mode.
+
+68
+00:02:53.036 --> 00:02:55.453
+If I want to change any text,
+
+69
+00:02:57.853 --> 00:02:59.129
+I need to insert some text,
+
+70
+00:02:59.129 --> 00:03:00.874
+I need to go into Text Mode.
+
+71
+00:03:00.874 --> 00:03:02.017
+And the way that I would typically do that
+
+72
+00:03:02.017 --> 00:03:04.384
+is press the I key.
+
+73
+00:03:04.384 --> 00:03:05.752
+And now I'm able to edit.
+
+74
+00:03:05.752 --> 00:03:06.865
+So I can make some changes.
+
+75
+00:03:06.865 --> 00:03:08.806
+You can see that Enter does something.
+
+76
+00:03:08.806 --> 00:03:10.662
+I'm gonna put in a comment.
+
+77
+00:03:10.662 --> 00:03:12.162
+This is a comment.
+
+78
+00:03:14.736 --> 00:03:18.891
+From here, quitting is really the hard part
+
+79
+00:03:18.891 --> 00:03:21.024
+because I'm not in Edit Mode.
+
+80
+00:03:21.024 --> 00:03:24.689
+I need to go back to Command Mode to quit Vim.
+
+81
+00:03:24.689 --> 00:03:26.844
+So I'm gonna hit Escape.
+
+82
+00:03:26.844 --> 00:03:30.505
+Escape is how you always go back to Command Mode.
+
+83
+00:03:30.505 --> 00:03:35.203
+You can see the cursor's actually on top of the character
+
+84
+00:03:35.203 --> 00:03:37.092
+I think, when I go in to insert.
+
+85
+00:03:37.092 --> 00:03:39.876
+Oh no, it's the same with my keyboard.
+
+86
+00:03:39.876 --> 00:03:40.936
+So I'm back in Command Mode.
+
+87
+00:03:40.936 --> 00:03:42.912
+I've pressed Escape.
+
+88
+00:03:42.912 --> 00:03:44.294
+And there's two things that you might want to do.
+
+89
+00:03:44.294 --> 00:03:45.494
+One is saving, and one is quitting.
+
+90
+00:03:45.494 --> 00:03:47.397
+If I try and quit now,
+
+91
+00:03:47.397 --> 00:03:51.230
+there's a warning saying there's some changes.
+
+92
+00:03:52.372 --> 00:03:54.853
+If I want to Force Quit, I can do--
+
+93
+00:03:54.853 --> 00:03:58.156
+Sorry, see, to run commands, you need a colon,
+
+94
+00:03:58.156 --> 00:04:03.064
+and down there in the corner, I can do Q + !,
+
+95
+00:04:03.064 --> 00:04:04.413
+and that will do a Force Quit.
+
+96
+00:04:04.413 --> 00:04:07.286
+It would discard my changes.
+
+97
+00:04:07.286 --> 00:04:10.295
+Something I'm very used to doing is
+
+98
+00:04:10.295 --> 00:04:14.462
+: + W + Q. W means writes the file, and Q means
+
+99
+00:04:16.169 --> 00:04:18.529
+quit the programme at the same time.
+
+100
+00:04:18.529 --> 00:04:21.368
+So W will write that file, and make that change.
+
+101
+00:04:21.368 --> 00:04:23.868
+And if I make another change--
+
+102
+00:04:26.715 --> 00:04:27.714
+this is another change--
+
+103
+00:04:27.714 --> 00:04:31.881
+I can do : + W + Q and it will exit and write that file.
+
+104
+00:04:34.001 --> 00:04:35.247
+So if I cat that file out,
+
+105
+00:04:35.247 --> 00:04:37.792
+you can see there's the change.
+
+106
+00:04:37.792 --> 00:04:38.875
+So that's Vi.
+
+107
+00:04:41.210 --> 00:04:45.558
+Opening it, inserting, so I to insert the cursor
+
+108
+00:04:45.558 --> 00:04:47.819
+to start typing, Escape to quit, to go back
+
+109
+00:04:47.819 --> 00:04:49.487
+to the Command Line,
+
+110
+00:04:49.487 --> 00:04:52.062
+and : + W + Q is pretty much the way
+
+111
+00:04:52.062 --> 00:04:54.229
+you always want to go out.
+
+112
+00:04:55.135 --> 00:04:57.527
+Nano, a lot friendlier.
+
+113
+00:04:57.527 --> 00:04:58.360
+So Nano,
+
+114
+00:05:01.366 --> 00:05:02.733
+you can see, first of all,
+
+115
+00:05:02.733 --> 00:05:04.472
+right at the bottom are the commands.
+
+116
+00:05:04.472 --> 00:05:07.239
+And you start off in Insert Mode,
+
+117
+00:05:07.239 --> 00:05:08.831
+so I can delete text,
+
+118
+00:05:08.831 --> 00:05:11.104
+the way that you'd probably expect
+
+119
+00:05:11.104 --> 00:05:15.182
+to be able to delete in Sublime or something like that.
+
+120
+00:05:15.182 --> 00:05:17.630
+I've made some changes here.
+
+121
+00:05:17.630 --> 00:05:19.041
+The caret down at the bottom
+
+122
+00:05:19.041 --> 00:05:21.046
+where it says ^X,
+
+123
+00:05:21.046 --> 00:05:22.670
+that is the Control Key.
+
+124
+00:05:22.670 --> 00:05:25.181
+So if I press Control + X to exit,
+
+125
+00:05:25.181 --> 00:05:27.598
+notice there is no save here.
+
+126
+00:05:29.406 --> 00:05:31.167
+I'm sure there are more commands
+
+127
+00:05:31.167 --> 00:05:32.913
+tucked away, but what we're really looking to do
+
+128
+00:05:32.913 --> 00:05:34.746
+is just save and exit.
+
+129
+00:05:35.923 --> 00:05:39.476
+Control + X, and then it asks me do I want to go ahead
+
+130
+00:05:39.476 --> 00:05:41.940
+and save my changes,
+
+131
+00:05:41.940 --> 00:05:44.556
+so I can cancel, yes or no.
+
+132
+00:05:44.556 --> 00:05:47.025
+It's much more GUI-like.
+
+133
+00:05:47.025 --> 00:05:49.515
+So yes, I wanna make the changes,
+
+134
+00:05:49.515 --> 00:05:51.860
+asks me what file name.
+
+135
+00:05:51.860 --> 00:05:53.772
+I'm just gonna write existing file, press Enter.
+
+136
+00:05:53.772 --> 00:05:54.689
+And I've quit.
+
+137
+00:05:54.689 --> 00:05:55.522
+And if we cat that out,
+
+138
+00:05:55.522 --> 00:05:58.043
+we can see the change has been made.
+
+139
+00:05:58.043 --> 00:05:59.419
+If you do get into this pickle
+
+140
+00:05:59.419 --> 00:06:02.086
+where you have to use an editor,
+
+141
+00:06:03.033 --> 00:06:05.224
+Nano is probably the best route to go.
+
+142
+00:06:05.224 --> 00:06:07.555
+You may need to instal Nano,
+
+143
+00:06:07.555 --> 00:06:09.305
+so brew instal nano,
+
+144
+00:06:10.777 --> 00:06:12.782
+or if you're on a Unix machine,
+
+145
+00:06:12.782 --> 00:06:16.463
+you might need to do apt-get instal nano.
+
+146
+00:06:16.463 --> 00:06:18.296
+Same goes for Windows.
+
+147
+00:06:20.288 --> 00:06:23.275
+Then you'll have Nano if you don't have it already.
+
+148
+00:06:23.275 --> 00:06:26.570
+We now know how to quit some programmes.
+
+149
+00:06:26.570 --> 00:06:30.169
+And Emacs is there if you want to have a play.
+
+150
+00:06:30.169 --> 00:06:33.208
+I'm not a fan, mostly because I don't even know
+
+151
+00:06:33.208 --> 00:06:34.708
+how to quit Emacs.
+
+152
+00:06:37.864 --> 00:06:39.944
+So I'll be here trying to quit Emacs,
+
+153
+00:06:39.944 --> 00:06:41.241
+whilst you can move on to the next video.
+

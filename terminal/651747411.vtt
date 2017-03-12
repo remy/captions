@@ -1,0 +1,586 @@
+WEBVTT
+
+1
+00:00:02.990 --> 00:00:05.982
+<v ->So you want to install a programme on your computer.</v>
+
+2
+00:00:05.982 --> 00:00:09.174
+And the way that you might be used to installing something
+
+3
+00:00:09.174 --> 00:00:11.478
+is clicking on a link, downloading it,
+
+4
+00:00:11.478 --> 00:00:15.512
+double click, big, nice install box and off you go.
+
+5
+00:00:15.512 --> 00:00:18.639
+The terminal is different and now
+
+6
+00:00:18.639 --> 00:00:21.249
+there are different ways of installing programmes.
+
+7
+00:00:21.249 --> 00:00:25.542
+But if you have a Mac one of the most common and easiest
+
+8
+00:00:25.542 --> 00:00:29.709
+ways is using a programme called Homebrew, Brew for short.
+
+9
+00:00:31.184 --> 00:00:34.744
+So the url is brew.sh and it's a utility
+
+10
+00:00:34.744 --> 00:00:37.056
+that gives you access to install
+
+11
+00:00:37.056 --> 00:00:39.889
+other utilities or other programmes.
+
+12
+00:00:41.894 --> 00:00:44.940
+So it's fairly painless to get
+
+13
+00:00:44.940 --> 00:00:47.814
+this installed in the first place.
+
+14
+00:00:47.814 --> 00:00:50.929
+So, they have this installing Homebrew.
+
+15
+00:00:50.929 --> 00:00:53.950
+You literally just copy and paste this entire line
+
+16
+00:00:53.950 --> 00:00:56.460
+and you drop it into your console.
+
+17
+00:00:56.460 --> 00:00:58.941
+Now, I've already installed Homebrew
+
+18
+00:00:58.941 --> 00:01:02.041
+so it should be trying to redo it.
+
+19
+00:01:02.041 --> 00:01:04.917
+It's asking me for my password because it needs
+
+20
+00:01:04.917 --> 00:01:07.413
+to be able to put things in different places.
+
+21
+00:01:07.413 --> 00:01:09.430
+Looks like I am actually installing
+
+22
+00:01:09.430 --> 00:01:11.949
+Homebrew again, but it should be fine.
+
+23
+00:01:11.949 --> 00:01:14.351
+And what that would do is give
+
+24
+00:01:14.351 --> 00:01:16.680
+me a little command called Brew.
+
+25
+00:01:16.680 --> 00:01:19.910
+And from there, if I open, it's already ready,
+
+26
+00:01:19.910 --> 00:01:22.724
+I can give a different argument so at the end
+
+27
+00:01:22.724 --> 00:01:24.692
+of the installation it said I can
+
+28
+00:01:24.692 --> 00:01:27.070
+run Brew help, so I'm going to type that.
+
+29
+00:01:27.070 --> 00:01:30.072
+And that's going to show me the different commands.
+
+30
+00:01:30.072 --> 00:01:33.662
+Now, I can search for different formulas,
+
+31
+00:01:33.662 --> 00:01:36.280
+so the formulas are kind of the packages
+
+32
+00:01:36.280 --> 00:01:38.790
+and packages of, basically, programmes.
+
+33
+00:01:38.790 --> 00:01:41.692
+You can search for them, you can find information
+
+34
+00:01:41.692 --> 00:01:44.134
+and go back to the Home page for them.
+
+35
+00:01:44.134 --> 00:01:46.743
+Brew install and Brew uninstall are basically
+
+36
+00:01:46.743 --> 00:01:49.936
+the two things that I use all the time.
+
+37
+00:01:49.936 --> 00:01:53.036
+So, in the same Home page we have
+
+38
+00:01:53.036 --> 00:01:57.598
+an example of using wget, wget basically gets a webpage.
+
+39
+00:01:57.598 --> 00:02:01.098
+I've already installed that, I think, yep.
+
+40
+00:02:03.281 --> 00:02:08.045
+So if I type in wget and then take the url just,
+
+41
+00:02:08.045 --> 00:02:11.630
+it'll download the index page and we can see it there,
+
+42
+00:02:11.630 --> 00:02:14.797
+save to index one, I can cat that out.
+
+43
+00:02:17.882 --> 00:02:21.250
+There you go, so that is this page.
+
+44
+00:02:21.250 --> 00:02:24.031
+So you're going to sort of, there's
+
+45
+00:02:24.031 --> 00:02:26.706
+a whole bunch of other programmes you can install.
+
+46
+00:02:26.706 --> 00:02:29.113
+But without knowing what they are, how do
+
+47
+00:02:29.113 --> 00:02:30.903
+you know what to install, right?
+
+48
+00:02:30.903 --> 00:02:33.315
+Well, the way that I've approached it is
+
+49
+00:02:33.315 --> 00:02:36.877
+on Twitter or through a peer or colleague,
+
+50
+00:02:36.877 --> 00:02:39.973
+they say to me oh, I use such and such programme,
+
+51
+00:02:39.973 --> 00:02:43.223
+it's really good for linting or running
+
+52
+00:02:43.223 --> 00:02:45.508
+local development servers or just
+
+53
+00:02:45.508 --> 00:02:49.208
+making the terminal look more interesting.
+
+54
+00:02:49.208 --> 00:02:52.093
+And one of those more interesting programmes
+
+55
+00:02:52.093 --> 00:02:54.850
+I heard about was Ponysay.
+
+56
+00:02:54.850 --> 00:02:58.184
+So there's a old Unix programme called Cowsay
+
+57
+00:02:58.184 --> 00:03:00.419
+which basically prints an ASCII cow
+
+58
+00:03:00.419 --> 00:03:03.704
+and it says a thing, but this is a spin on that.
+
+59
+00:03:03.704 --> 00:03:07.772
+So I googled Ponysay, and I've got two results
+
+60
+00:03:07.772 --> 00:03:10.298
+and the first is a GitHub project.
+
+61
+00:03:10.298 --> 00:03:12.891
+The second one looks like a homepage,
+
+62
+00:03:12.891 --> 00:03:15.251
+so I'm just going to go the homepage
+
+63
+00:03:15.251 --> 00:03:18.974
+just to show you my workflow to try and install this thing.
+
+64
+00:03:18.974 --> 00:03:23.469
+And I see a picture of a terminal and the pony
+
+65
+00:03:23.469 --> 00:03:27.831
+and that's what I want to just kind of liven up my terminal.
+
+66
+00:03:27.831 --> 00:03:30.914
+And I can see down here is installing
+
+67
+00:03:34.187 --> 00:03:37.763
+and then some words, really, from upstream,
+
+68
+00:03:37.763 --> 00:03:40.790
+package repositories, exotic operating.
+
+69
+00:03:40.790 --> 00:03:42.152
+Is a Mac exotic?
+
+70
+00:03:42.152 --> 00:03:44.323
+It's kind of exotic.
+
+71
+00:03:44.323 --> 00:03:46.956
+At this point I'd probably abort and go back
+
+72
+00:03:46.956 --> 00:03:49.882
+to my google search results and click on the first one.
+
+73
+00:03:49.882 --> 00:03:52.384
+So it looks like pretty much the same thing.
+
+74
+00:03:52.384 --> 00:03:54.222
+This is GitHub and really, I'm
+
+75
+00:03:54.222 --> 00:03:56.184
+not interested in all these files.
+
+76
+00:03:56.184 --> 00:03:59.543
+The meat of what I'm looking for is down here, the README.
+
+77
+00:03:59.543 --> 00:04:01.732
+Why this isn't higher up I don't know.
+
+78
+00:04:01.732 --> 00:04:04.727
+So, yep I want this pony on my terminal
+
+79
+00:04:04.727 --> 00:04:06.901
+just to lighten it up a little bit.
+
+80
+00:04:06.901 --> 00:04:09.740
+And here we go, installing on GNU/Linux
+
+81
+00:04:09.740 --> 00:04:12.606
+and other Unix implementations.
+
+82
+00:04:12.606 --> 00:04:16.773
+Now, a Mac is actually based on a Unix implementation
+
+83
+00:04:17.782 --> 00:04:21.300
+so we might be able to use the information here.
+
+84
+00:04:21.300 --> 00:04:23.299
+So what I'm doing is literally
+
+85
+00:04:23.299 --> 00:04:26.252
+just scrolling down looking for words I recognise.
+
+86
+00:04:26.252 --> 00:04:29.458
+And here we go, Mac OS X, that's the one we want.
+
+87
+00:04:29.458 --> 00:04:33.387
+And it just says, a ponysay Homebrew formula is available.
+
+88
+00:04:33.387 --> 00:04:36.388
+And they've put the ponysay part in code
+
+89
+00:04:36.388 --> 00:04:39.440
+and what that's telling me is I should be able
+
+90
+00:04:39.440 --> 00:04:42.964
+to do Brew install and then the name of that programme.
+
+91
+00:04:42.964 --> 00:04:44.851
+So I'm just going to try that.
+
+92
+00:04:44.851 --> 00:04:47.015
+I'm going to back to my terminal
+
+93
+00:04:47.015 --> 00:04:49.765
+and type brew install and then ponysay.
+
+94
+00:04:49.765 --> 00:04:53.216
+And it should go through the whole process
+
+95
+00:04:53.216 --> 00:04:56.216
+of doing the brewing of the ponysay.
+
+96
+00:04:57.817 --> 00:05:01.108
+So poured it, and it says summary and it gives me
+
+97
+00:05:01.108 --> 00:05:05.275
+the little beer icon which means, I guess, it's all good.
+
+98
+00:05:07.301 --> 00:05:08.910
+So we'll try it.
+
+99
+00:05:08.910 --> 00:05:12.762
+Ponysay, execute, alright we've got some output.
+
+100
+00:05:12.762 --> 00:05:15.480
+That's pretty good, that's kind of what I wanted.
+
+101
+00:05:15.480 --> 00:05:18.724
+Although, actually, really what I wanted was a pony
+
+102
+00:05:18.724 --> 00:05:22.029
+so it says Hello World, hey, there we go.
+
+103
+00:05:22.029 --> 00:05:24.500
+We scroll up a bit, we can see
+
+104
+00:05:24.500 --> 00:05:27.165
+the pony's actually saying, Hello World.
+
+105
+00:05:27.165 --> 00:05:30.928
+And now I have a completely useless programme on my computer.
+
+106
+00:05:30.928 --> 00:05:33.683
+But what I can do is I can figure my prompt,
+
+107
+00:05:33.683 --> 00:05:36.037
+so that when I open a new terminal,
+
+108
+00:05:36.037 --> 00:05:39.238
+every time it can generate a new pony for me every time,
+
+109
+00:05:39.238 --> 00:05:41.186
+just to kind of make things look
+
+110
+00:05:41.186 --> 00:05:44.499
+colourful on this rather bland screen.
+
+111
+00:05:44.499 --> 00:05:49.134
+So that's Brew, and there are lots of different programmes
+
+112
+00:05:49.134 --> 00:05:52.673
+that are a lot more useful than this pony.
+
+113
+00:05:52.673 --> 00:05:57.164
+For instance, there's the, if you're familiar with Lynx
+
+114
+00:05:57.164 --> 00:06:01.164
+the text browser there's also that in Brew lynx.
+
+115
+00:06:03.792 --> 00:06:05.209
+So you can browse
+
+116
+00:06:08.540 --> 00:06:10.746
+the web in plain text
+
+117
+00:06:10.746 --> 00:06:14.921
+which might be pretty retro, might be good for the hipsters.
+
+118
+00:06:14.921 --> 00:06:17.387
+But, actually, it's quite useful
+
+119
+00:06:17.387 --> 00:06:20.063
+for pulling down just the text of a webpage.
+
+120
+00:06:20.063 --> 00:06:23.480
+So I think you can use lynx to, man lynx,
+
+121
+00:06:24.720 --> 00:06:27.616
+so if you want any help, I tend to use google,
+
+122
+00:06:27.616 --> 00:06:30.600
+but you can type man which is short for manual
+
+123
+00:06:30.600 --> 00:06:33.431
+and the name of the programme, and it
+
+124
+00:06:33.431 --> 00:06:35.964
+will give you the manual for the programme.
+
+125
+00:06:35.964 --> 00:06:38.589
+And in here somewhere should be how
+
+126
+00:06:38.589 --> 00:06:41.942
+to just print the page on the screen.
+
+127
+00:06:41.942 --> 00:06:45.524
+I'm sure it's in there, I know it's in there somewhere.
+
+128
+00:06:45.524 --> 00:06:49.733
+Another quite useful little tool I have is gifify.
+
+129
+00:06:49.733 --> 00:06:53.185
+I think, yep, gifify, that came through Brew as well.
+
+130
+00:06:53.185 --> 00:06:56.489
+So that Brew install gifify and what that would do is
+
+131
+00:06:56.489 --> 00:06:59.941
+it will take a video file like an mp4 and generate a gif,
+
+132
+00:06:59.941 --> 00:07:02.396
+an animated gif so I can just use that.
+
+133
+00:07:02.396 --> 00:07:05.411
+Even though, technically, it ends up being larger
+
+134
+00:07:05.411 --> 00:07:08.265
+than the video, not that clever for the web.
+
+135
+00:07:08.265 --> 00:07:10.435
+But still, sometimes a gif kind of
+
+136
+00:07:10.435 --> 00:07:14.371
+works better than a video in some cases.
+
+137
+00:07:14.371 --> 00:07:16.850
+And there's a whole tonne of things.
+
+138
+00:07:16.850 --> 00:07:21.375
+You can google things like best homebrew packages
+
+139
+00:07:21.375 --> 00:07:25.058
+and you'll get lots of people's opinions on first things
+
+140
+00:07:25.058 --> 00:07:28.199
+to install, and must-have and so on and so forth.
+
+141
+00:07:28.199 --> 00:07:31.150
+So that was Brew, bit of a whirlwind tour,
+
+142
+00:07:31.150 --> 00:07:34.006
+but definitely useful and, like I said, pretty much
+
+143
+00:07:34.006 --> 00:07:36.763
+the go-to way of installing programmes.
+
+144
+00:07:36.763 --> 00:07:40.767
+If you land on that README page take a look at the,
+
+145
+00:07:40.767 --> 00:07:43.543
+look for, this is on Homebrew and
+
+146
+00:07:43.543 --> 00:07:46.088
+you can just install from there.
+

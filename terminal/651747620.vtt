@@ -1,0 +1,178 @@
+﻿WEBVTT
+
+1
+00:00:02.544 --> 00:00:05.146
+<v ->So there's one last question.</v>
+
+2
+00:00:05.146 --> 00:00:07.646
+Which of these should you use?
+
+3
+00:00:08.531 --> 00:00:11.962
+Now there's no black and white answer, really.
+
+4
+00:00:11.962 --> 00:00:14.757
+There's no one system that's better than the rest.
+
+5
+00:00:14.757 --> 00:00:16.968
+Like I said, from my experience,
+
+6
+00:00:16.968 --> 00:00:20.512
+I've had trouble with Python and Ruby,
+
+7
+00:00:20.512 --> 00:00:23.952
+but also I know JavaScript, I understand how that works,
+
+8
+00:00:23.952 --> 00:00:27.584
+and I'm gonna tend towards using MPM.
+
+9
+00:00:27.584 --> 00:00:30.056
+I like MPM because it works the same
+
+10
+00:00:30.056 --> 00:00:32.389
+on a Mac, Windows and Linux.
+
+11
+00:00:33.695 --> 00:00:35.105
+And if I'm running any workshops,
+
+12
+00:00:35.105 --> 00:00:36.620
+or if I'm going in to work with a company,
+
+13
+00:00:36.620 --> 00:00:41.359
+I know that it will instal nearly all the time,
+
+14
+00:00:41.359 --> 00:00:44.440
+99% of the time, across all three of those platforms.
+
+15
+00:00:44.440 --> 00:00:46.357
+Brew only exists on Mac
+
+16
+00:00:47.586 --> 00:00:49.660
+and it has equivalents on other systems,
+
+17
+00:00:49.660 --> 00:00:52.308
+like apt-get for Linux,
+
+18
+00:00:52.308 --> 00:00:55.410
+and there's like this Chocolatey,
+
+19
+00:00:55.410 --> 00:00:57.208
+I think it's called Chocolatey or something like that,
+
+20
+00:00:57.208 --> 00:00:58.208
+for Windows.
+
+21
+00:00:59.348 --> 00:01:02.274
+And Gems, really, I don't know enough about Ruby to say.
+
+22
+00:01:02.274 --> 00:01:04.313
+So, part of it is kinda personal preference
+
+23
+00:01:04.313 --> 00:01:07.885
+and part of it is just where the programmes are.
+
+24
+00:01:07.885 --> 00:01:11.388
+And kind of where your information comes from.
+
+25
+00:01:11.388 --> 00:01:15.471
+So I'm connected to a JavaScript-heavy community,
+
+26
+00:01:17.122 --> 00:01:19.316
+so I hear more about programmes
+
+27
+00:01:19.316 --> 00:01:21.851
+that are inside the MPM repository,
+
+28
+00:01:21.851 --> 00:01:25.294
+rather than the Ruby Gems repository.
+
+29
+00:01:25.294 --> 00:01:28.551
+So, I wouldn't say one is better than the other,
+
+30
+00:01:28.551 --> 00:01:29.715
+that you should just only use one.
+
+31
+00:01:29.715 --> 00:01:33.089
+I definitely recommend having at least Brew installed.
+
+32
+00:01:33.089 --> 00:01:36.339
+And personally recommend installing MPM
+
+33
+00:01:38.216 --> 00:01:39.883
+because it's my jam.
+
+34
+00:01:40.977 --> 00:01:45.324
+But otherwise there's no one that's better than the rest.
+
+35
+00:01:45.324 --> 00:01:49.082
+You know, it's whatever tool works for you, really.
+
+36
+00:01:49.082 --> 00:01:52.840
+So, yeah like I said, I recommend installing them all,
+
+37
+00:01:52.840 --> 00:01:56.962
+using them all, and just installing what you need.
+
+38
+00:01:56.962 --> 00:01:59.849
+Try and go back and kind of look at what you have installed
+
+39
+00:01:59.849 --> 00:02:02.013
+and try and get rid of the things that you're not using
+
+40
+00:02:02.013 --> 00:02:03.051
+if you don't use them,
+
+41
+00:02:03.051 --> 00:02:05.376
+because when you go to upgrade to another machine,
+
+42
+00:02:05.376 --> 00:02:09.234
+you want to probably bring along those tools with you.
+
+43
+00:02:09.234 --> 00:02:10.557
+So it's worth kind of keeping track
+
+44
+00:02:10.557 --> 00:02:12.505
+as to what you're actually using.
+

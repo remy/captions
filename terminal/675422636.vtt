@@ -1,0 +1,414 @@
+﻿WEBVTT
+
+1
+00:00:02.137 --> 00:00:04.703
+<v ->So, in this last part of customising our shell,</v>
+
+2
+00:00:04.703 --> 00:00:06.499
+I want to show you aliases.
+
+3
+00:00:06.499 --> 00:00:10.123
+Aliases are effectively just shortcuts, shortcut commands
+
+4
+00:00:10.123 --> 00:00:12.815
+that you can customise as you please.
+
+5
+00:00:12.815 --> 00:00:15.648
+So, you see me type ls -ltr a lot,
+
+6
+00:00:16.892 --> 00:00:21.415
+it's muscle memory, but it's quite a lengthy command,
+
+7
+00:00:21.415 --> 00:00:24.386
+and it'd be great if I could just type ll.
+
+8
+00:00:24.386 --> 00:00:28.379
+Now, you can see from the Z Shell highlighting,
+
+9
+00:00:28.379 --> 00:00:31.106
+ll isn't a command, it's red,
+
+10
+00:00:31.106 --> 00:00:32.818
+so if I run it, nothing's going to happen.
+
+11
+00:00:32.818 --> 00:00:36.901
+So, what I want to do is alias ll to run ls -ltr,
+
+12
+00:00:39.743 --> 00:00:43.210
+and the way that we do this is we can just do...
+
+13
+00:00:43.210 --> 00:00:45.690
+I'll show you arbitrarily on the command line,
+
+14
+00:00:45.690 --> 00:00:48.302
+but I'll show you how to configure your shell
+
+15
+00:00:48.302 --> 00:00:50.508
+so that every time you open a new session,
+
+16
+00:00:50.508 --> 00:00:52.138
+that shortcut is there.
+
+17
+00:00:52.138 --> 00:00:56.305
+So, what we do is alias ll='ls -ltr', and that's it.
+
+18
+00:00:59.600 --> 00:01:03.883
+Okay, I hit enter, and that now has aliased the
+
+19
+00:01:03.883 --> 00:01:07.101
+ll command, and if I type it, you can see it's green now,
+
+20
+00:01:07.101 --> 00:01:09.829
+I run it and it runs my shortcut,
+
+21
+00:01:09.829 --> 00:01:12.804
+and it just makes it a little bit easier to type out.
+
+22
+00:01:12.804 --> 00:01:15.861
+I should note that if you're using Z Shell
+
+23
+00:01:15.861 --> 00:01:18.664
+and possibly Fish, there're a whole bunch of aliases
+
+24
+00:01:18.664 --> 00:01:20.168
+already set up for you,
+
+25
+00:01:20.168 --> 00:01:24.335
+and I've just got this on Google, so Google's cheatsheet,
+
+26
+00:01:25.385 --> 00:01:29.552
+sorry, Z Shell's cheatsheet, the oh-my-zsh, specifically,
+
+27
+00:01:30.561 --> 00:01:33.738
+has a whole bunch of aliases already set up,
+
+28
+00:01:33.738 --> 00:01:36.021
+and I've kind of undone a couple of them just so I can
+
+29
+00:01:36.021 --> 00:01:38.708
+show you how they work.
+
+30
+00:01:38.708 --> 00:01:42.212
+And I think the ll one is already in there under
+
+31
+00:01:42.212 --> 00:01:43.462
+something else.
+
+32
+00:01:45.273 --> 00:01:47.559
+Well, I know it is because I removed it,
+
+33
+00:01:47.559 --> 00:01:50.611
+the point being, if you have Z Shell, you will be able
+
+34
+00:01:50.611 --> 00:01:53.261
+to run ll and it will give you an output.
+
+35
+00:01:53.261 --> 00:01:54.733
+It won't match this, and you can overwrite it
+
+36
+00:01:54.733 --> 00:01:56.734
+and I'll show you that in a moment.
+
+37
+00:01:56.734 --> 00:01:59.177
+But, the thing I want to show you now is that
+
+38
+00:01:59.177 --> 00:02:00.440
+we have in this session,
+
+39
+00:02:00.440 --> 00:02:02.596
+when I open up another session, I type ll, it's red
+
+40
+00:02:02.596 --> 00:02:06.679
+because this session doesn't know about my alias.
+
+41
+00:02:07.983 --> 00:02:11.245
+So, what we have to do now is make sure that the alias
+
+42
+00:02:11.245 --> 00:02:14.342
+is configured every single time.
+
+43
+00:02:14.342 --> 00:02:17.675
+So, if you remember from previous video,
+
+44
+00:02:19.154 --> 00:02:23.321
+we have a Z Shell rc file, and we're going to edit
+
+45
+00:02:24.336 --> 00:02:25.169
+that file.
+
+46
+00:02:27.185 --> 00:02:30.791
+So, by putting the alias inside of here,
+
+47
+00:02:30.791 --> 00:02:34.583
+it means that it'll always include our alias
+
+48
+00:02:34.583 --> 00:02:37.067
+in every single shell we ever open.
+
+49
+00:02:37.067 --> 00:02:40.735
+So, I can just put the alias command directly in here,
+
+50
+00:02:40.735 --> 00:02:42.318
+ll = 'ls -ltr'
+
+51
+00:02:45.867 --> 00:02:50.226
+and if I hit save, now, when I open up a new session,
+
+52
+00:02:50.226 --> 00:02:52.017
+that shortcut should be there,
+
+53
+00:02:52.017 --> 00:02:54.100
+so let's go ahead and close our previous session,
+
+54
+00:02:54.100 --> 00:02:55.566
+open up a new one...
+
+55
+00:02:55.566 --> 00:02:58.816
+ll, no spaces, I think, let's try that.
+
+56
+00:03:07.018 --> 00:03:09.960
+And we have it in each session, brilliant.
+
+57
+00:03:09.960 --> 00:03:13.293
+And so the one thing I want to extend is
+
+58
+00:03:14.650 --> 00:03:18.070
+we can also put this into its own file
+
+59
+00:03:18.070 --> 00:03:20.025
+rather than adding it into our main config file
+
+60
+00:03:20.025 --> 00:03:21.862
+we can manage it separately,
+
+61
+00:03:21.862 --> 00:03:23.535
+that's fairly typical and it's the kind of thing
+
+62
+00:03:23.535 --> 00:03:25.571
+I use in my own dot files as well.
+
+63
+00:03:25.571 --> 00:03:27.895
+So, if we just open up a new file,
+
+64
+00:03:27.895 --> 00:03:32.062
+let's save this as .aliases, pretty common filename
+
+65
+00:03:33.641 --> 00:03:37.808
+for this, and I notice that sublime has renamed this
+
+66
+00:03:39.958 --> 00:03:43.708
+to .sh, which I don't want, but it'll have to
+
+67
+00:03:44.606 --> 00:03:48.482
+do for now, and we're gonna use the same syntax here,
+
+68
+00:03:48.482 --> 00:03:51.482
+source, users, rem, and .aliases.sh.
+
+69
+00:03:55.654 --> 00:03:58.102
+Now, if we open up a new terminal window,
+
+70
+00:03:58.102 --> 00:04:00.707
+ll still works, but it also means that we can manage
+
+71
+00:04:00.707 --> 00:04:03.029
+all our aliases inside of one window,
+
+72
+00:04:03.029 --> 00:04:04.866
+inside of one file, rather,
+
+73
+00:04:04.866 --> 00:04:06.412
+and that way I can kind of back it up
+
+74
+00:04:06.412 --> 00:04:09.308
+and put it in the git repo and make sure that when I
+
+75
+00:04:09.308 --> 00:04:12.282
+get a new machine, I have all my aliases in one go,
+
+76
+00:04:12.282 --> 00:04:15.583
+it means that if I switch to Fish, for instance,
+
+77
+00:04:15.583 --> 00:04:18.032
+I can just bring my aliases separately
+
+78
+00:04:18.032 --> 00:04:21.826
+and so, other ones I might want is ps, and I type in
+
+79
+00:04:21.826 --> 00:04:25.326
+ps auxww all the time, so let's have that.
+
+80
+00:04:27.280 --> 00:04:30.946
+There are aliases like this, so you can put
+
+81
+00:04:30.946 --> 00:04:32.863
+three dots equals cd...
+
+82
+00:04:33.960 --> 00:04:37.344
+Like that, and, like I said, Z Shell definitely
+
+83
+00:04:37.344 --> 00:04:39.504
+sets this one up for you, so you don't particularly
+
+84
+00:04:39.504 --> 00:04:42.495
+need it, but it's pretty handy if you have your
+
+85
+00:04:42.495 --> 00:04:45.843
+own kind of shell, you can also keep going with this,
+
+86
+00:04:45.843 --> 00:04:49.998
+which means that if you open up a new shell
+
+87
+00:04:49.998 --> 00:04:53.331
+and you go into documents, remy, public,
+
+88
+00:04:56.358 --> 00:05:00.525
+I can type three dots and it will go up to documents,
+
+89
+00:05:03.716 --> 00:05:05.168
+I think, yeah.
+
+90
+00:05:05.168 --> 00:05:08.145
+A really nice way of kind of shortcutting how we
+
+91
+00:05:08.145 --> 00:05:10.509
+see back and forth.
+
+92
+00:05:10.509 --> 00:05:12.828
+And there's kind of endless possibilities,
+
+93
+00:05:12.828 --> 00:05:15.150
+you find yourself typing something quite often,
+
+94
+00:05:15.150 --> 00:05:17.551
+just stick it in alias and the job is done.
+
+95
+00:05:17.551 --> 00:05:21.718
+One I use all the time is gs, and that's my git status,
+
+96
+00:05:24.929 --> 00:05:28.473
+and it's something I've just got, and I'll just type gs
+
+97
+00:05:28.473 --> 00:05:30.020
+and hit enter and it gives me the git status
+
+98
+00:05:30.020 --> 00:05:31.776
+for a project.
+
+99
+00:05:31.776 --> 00:05:34.711
+So, yeah, aliases, and the extension of that is
+
+100
+00:05:34.711 --> 00:05:37.481
+functions, which work similarly to aliases,
+
+101
+00:05:37.481 --> 00:05:40.046
+but allow you to kind of write shell scripting
+
+102
+00:05:40.046 --> 00:05:41.514
+to make it a bit more complicated,
+
+103
+00:05:41.514 --> 00:05:42.894
+so we'll look at those next.
+

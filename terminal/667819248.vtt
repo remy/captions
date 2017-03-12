@@ -1,0 +1,138 @@
+﻿WEBVTT
+
+1
+00:00:01.725 --> 00:00:03.073
+<v ->Okay, so I'm gonna reintroduce you</v>
+
+2
+00:00:03.073 --> 00:00:05.990
+to two very simple string commands.
+
+3
+00:00:09.772 --> 00:00:11.076
+Both you've already met.
+
+4
+00:00:11.076 --> 00:00:12.552
+Echo is one.
+
+5
+00:00:12.552 --> 00:00:14.905
+So echo can do strings
+
+6
+00:00:14.905 --> 00:00:17.894
+and all it does is take the argument
+
+7
+00:00:17.894 --> 00:00:20.227
+and echo it onto the output.
+
+8
+00:00:21.302 --> 00:00:23.960
+But this is useful for then piping
+
+9
+00:00:23.960 --> 00:00:25.903
+something else like say.
+
+10
+00:00:25.903 --> 00:00:27.235
+<v Computer Voice>Remy.</v>
+
+11
+00:00:27.235 --> 00:00:29.454
+<v ->I'm not sure how my computer pronounces my name,</v>
+
+12
+00:00:29.454 --> 00:00:32.619
+but we can echo that out to,
+
+13
+00:00:32.619 --> 00:00:34.194
+we can pipe that into say,
+
+14
+00:00:34.194 --> 00:00:37.287
+and say, well read out that whole thing.
+
+15
+00:00:37.287 --> 00:00:39.450
+So if we want to freak out our friends,
+
+16
+00:00:39.450 --> 00:00:42.200
+hello I am a computer, and so on.
+
+17
+00:00:43.054 --> 00:00:46.436
+And cat, the typical use for cat
+
+18
+00:00:46.436 --> 00:00:48.940
+is to take the contents of a file
+
+19
+00:00:48.940 --> 00:00:51.023
+and put it on the screen.
+
+20
+00:00:52.471 --> 00:00:55.094
+So if I take one of my blog posts,
+
+21
+00:00:55.094 --> 00:00:56.844
+my-2013 for instance,
+
+22
+00:00:57.811 --> 00:00:59.822
+that'll take the contents of that file
+
+23
+00:00:59.822 --> 00:01:01.940
+and just print it to the screen.
+
+24
+00:01:01.940 --> 00:01:05.519
+From there, if I wanted to, I could do a count.
+
+25
+00:01:05.519 --> 00:01:07.102
+I could say it all.
+
+26
+00:01:09.264 --> 00:01:12.852
+Probably a bit dull, but I could say it.
+
+27
+00:01:12.852 --> 00:01:14.857
+I could do other things with that as well.
+
+28
+00:01:14.857 --> 00:01:18.774
+But once we can cat out the contents of a file,
+
+29
+00:01:20.332 --> 00:01:21.835
+there's lots of other things we can do with it,
+
+30
+00:01:21.835 --> 00:01:24.395
+which we will see in the next video.
+
+31
+00:01:24.395 --> 00:01:26.409
+So those two very basic commands,
+
+32
+00:01:26.409 --> 00:01:29.326
+useful for just getting content out
+
+33
+00:01:30.351 --> 00:01:32.091
+to send it out to them,
+
+34
+00:01:32.091 --> 00:01:33.508
+feed into another programme.
+
