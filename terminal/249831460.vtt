@@ -1,0 +1,594 @@
+﻿WEBVTT
+
+1
+00:00:01.351 --> 00:00:03.477
+<v ->Okay, so one of the first command I have ever learned</v>
+
+2
+00:00:03.477 --> 00:00:05.841
+about was the command watch.
+
+3
+00:00:05.841 --> 00:00:08.569
+Now, it's kind of self-explanatory.
+
+4
+00:00:08.569 --> 00:00:12.725
+You watch another command, you give it a command-like
+
+5
+00:00:12.725 --> 00:00:16.024
+string and keep running it over and over again.
+
+6
+00:00:16.024 --> 00:00:20.191
+And I found it like really easy to use, very accessible, and
+
+7
+00:00:23.844 --> 00:00:26.849
+kind of like my cheat way of doing sysops.
+
+8
+00:00:26.849 --> 00:00:31.618
+Anyway, so, let's see, I have this curl command and
+
+9
+00:00:31.618 --> 00:00:33.573
+I wanna check that the rate limit is working.
+
+10
+00:00:33.573 --> 00:00:37.615
+So, when I run the curl, I'm passing this -I,
+
+11
+00:00:37.615 --> 00:00:39.202
+which means, show me just the headers.
+
+12
+00:00:39.202 --> 00:00:42.344
+And over here we've got X-RateLimit, the limit, the
+
+13
+00:00:42.344 --> 00:00:44.182
+remaining and the reset.
+
+14
+00:00:44.182 --> 00:00:48.349
+Now, every time you head over to buy the terminal training,
+
+15
+00:00:49.771 --> 00:00:52.339
+it hits an API endpoint that I wrote to work out
+
+16
+00:00:52.339 --> 00:00:56.461
+the tax, to work out whether the VAT ID that you've given
+
+17
+00:00:56.461 --> 00:00:59.434
+is valid and calculates all that sort of stuff.
+
+18
+00:00:59.434 --> 00:01:02.492
+I wanted to check that the actual numbers were correct.
+
+19
+00:01:02.492 --> 00:01:04.688
+So, I have this curl command.
+
+20
+00:01:04.688 --> 00:01:07.140
+But, just running it over and over manually is no good,
+
+21
+00:01:07.140 --> 00:01:09.874
+so I want to add it into watch.
+
+22
+00:01:09.874 --> 00:01:11.502
+So what I can do is...
+
+23
+00:01:11.502 --> 00:01:12.360
+I'm just gonna clear the screen.
+
+24
+00:01:12.360 --> 00:01:15.501
+Right at the beginning here, gonna type watch and then
+
+25
+00:01:15.501 --> 00:01:17.135
+everything else afterwards.
+
+26
+00:01:17.135 --> 00:01:21.831
+And it will just re-run that entire command over and over
+
+27
+00:01:21.831 --> 00:01:22.771
+and over for me.
+
+28
+00:01:22.771 --> 00:01:24.528
+So, there's a few things going on here.
+
+29
+00:01:24.528 --> 00:01:28.329
+Firstly, the title, which is the very top line.
+
+30
+00:01:28.329 --> 00:01:29.475
+This is a watch title.
+
+31
+00:01:29.475 --> 00:01:31.268
+So what it's saying is it's running every two seconds.
+
+32
+00:01:31.268 --> 00:01:33.060
+Here is a complete command I gave it and
+
+33
+00:01:33.060 --> 00:01:34.893
+over on the side is a timestamp.
+
+34
+00:01:34.893 --> 00:01:36.320
+So, if I kinda want to refer to that, if there's
+
+35
+00:01:36.320 --> 00:01:38.684
+something else I'm looking at.
+
+36
+00:01:38.684 --> 00:01:40.400
+Timestamp is not particularly useful here because
+
+37
+00:01:40.400 --> 00:01:43.549
+I'm looking at all this stuff here.
+
+38
+00:01:43.549 --> 00:01:45.546
+And then I've got junk here, which I don't really want.
+
+39
+00:01:45.546 --> 00:01:46.727
+It's actually coming from the curl.
+
+40
+00:01:46.727 --> 00:01:51.290
+So I'm gonna go back to the command line and I am going to
+
+41
+00:01:51.290 --> 00:01:52.540
+just do dash S.
+
+42
+00:01:53.929 --> 00:01:56.429
+And that means do a side curl.
+
+43
+00:01:57.436 --> 00:01:59.111
+Okay, so that's better.
+
+44
+00:01:59.111 --> 00:02:02.703
+Now what we can see is the timestamp here that the
+
+45
+00:02:02.703 --> 00:02:05.642
+servers returning is updating, right?
+
+46
+00:02:05.642 --> 00:02:08.250
+So you can see that the request is actually changing.
+
+47
+00:02:08.250 --> 00:02:11.551
+Now, it might not be completely obvious particularly
+
+48
+00:02:11.551 --> 00:02:13.547
+if I kind of move away from the page and come back again,
+
+49
+00:02:13.547 --> 00:02:14.992
+that's what's changed.
+
+50
+00:02:14.992 --> 00:02:17.481
+So there's this really neat little argument that I can
+
+51
+00:02:17.481 --> 00:02:21.064
+give it, which is dash, oops, watch dash D.
+
+52
+00:02:24.005 --> 00:02:25.117
+Alright?
+
+53
+00:02:25.117 --> 00:02:28.299
+So dash d will show the differences.
+
+54
+00:02:28.299 --> 00:02:31.927
+So we see the only characters changed since last request
+
+55
+00:02:31.927 --> 00:02:33.188
+is this one.
+
+56
+00:02:33.188 --> 00:02:36.413
+Okay and you can see as each new request comes in,
+
+57
+00:02:36.413 --> 00:02:39.388
+it's saying that this character hasn't changed anymore.
+
+58
+00:02:39.388 --> 00:02:44.285
+So it's showing me new changes between each request,
+
+59
+00:02:44.285 --> 00:02:46.406
+so it's like, you know, looking at the difference,
+
+60
+00:02:46.406 --> 00:02:49.261
+rather than showing me all the changes over time,
+
+61
+00:02:49.261 --> 00:02:51.097
+which I can also do, alright?
+
+62
+00:02:51.097 --> 00:02:54.886
+So, this is where It comes in useful.
+
+63
+00:02:54.886 --> 00:02:59.053
+I'm going to run this command again and to show you
+
+64
+00:03:00.198 --> 00:03:01.297
+what I'm looking for.
+
+65
+00:03:01.297 --> 00:03:03.945
+So I wanna go to this page and hit refresh.
+
+66
+00:03:03.945 --> 00:03:07.606
+Go to here and we see it change, but it immediately
+
+67
+00:03:07.606 --> 00:03:10.540
+goes blank again because the subsequent request,
+
+68
+00:03:10.540 --> 00:03:12.704
+there's no differences between the point where there
+
+69
+00:03:12.704 --> 00:03:14.787
+were only 2218 remaining.
+
+70
+00:03:16.980 --> 00:03:19.588
+So, we want consistent differences.
+
+71
+00:03:19.588 --> 00:03:21.094
+Right, so, control C out of here.
+
+72
+00:03:21.094 --> 00:03:22.511
+Go back to watch.
+
+73
+00:03:23.500 --> 00:03:27.667
+And we're gonna do persistent, just gonna paste that in.
+
+74
+00:03:28.533 --> 00:03:30.113
+Differences equals.
+
+75
+00:03:30.113 --> 00:03:31.534
+Permanent rather, not persistent.
+
+76
+00:03:31.534 --> 00:03:33.784
+So, I run that again, okay.
+
+77
+00:03:34.797 --> 00:03:37.083
+Go back to my webpage, hit refresh, that's hitting
+
+78
+00:03:37.083 --> 00:03:38.468
+the API.
+
+79
+00:03:38.468 --> 00:03:41.449
+We'll see the changes, and it will stay changed
+
+80
+00:03:41.449 --> 00:03:44.032
+as the timestamp moves forward.
+
+81
+00:03:45.328 --> 00:03:47.606
+Right, so I can see, maybe if I leave this page,
+
+82
+00:03:47.606 --> 00:03:51.149
+this screen for awhile, that this is what actually
+
+83
+00:03:51.149 --> 00:03:53.272
+changed and that it did work.
+
+84
+00:03:53.272 --> 00:03:55.760
+There's a few extra arguments that you can give to
+
+85
+00:03:55.760 --> 00:03:58.651
+watch which I find are actually really helpful,
+
+86
+00:03:58.651 --> 00:03:59.790
+really handy.
+
+87
+00:03:59.790 --> 00:04:01.785
+If I don't want this title across the top,
+
+88
+00:04:01.785 --> 00:04:04.535
+I can get rid of it using dash T.
+
+89
+00:04:05.879 --> 00:04:08.421
+Right, so if I do watch dash dash help,
+
+90
+00:04:08.421 --> 00:04:12.177
+I get all of the arguments that we're looking at here.
+
+91
+00:04:12.177 --> 00:04:14.498
+So dash T gets rid of the title and the blank line
+
+92
+00:04:14.498 --> 00:04:15.640
+at the bottom.
+
+93
+00:04:15.640 --> 00:04:18.731
+And actually here, I wanna just grep
+
+94
+00:04:18.731 --> 00:04:20.816
+for the RateLimit stuff.
+
+95
+00:04:20.816 --> 00:04:23.588
+I don't want any of the old stuff.
+
+96
+00:04:23.588 --> 00:04:26.893
+So, if I wanna grep, I take my curl command, right?
+
+97
+00:04:26.893 --> 00:04:30.443
+So let's just take that curl command and pipe to grep
+
+98
+00:04:30.443 --> 00:04:32.112
+and then X rate.
+
+99
+00:04:32.112 --> 00:04:34.356
+Alright, cause it stops at X rate, so that would work.
+
+100
+00:04:34.356 --> 00:04:35.989
+Go back to the watch command and gonna do
+
+101
+00:04:35.989 --> 00:04:37.406
+pipe grep X-Rate.
+
+102
+00:04:40.797 --> 00:04:44.593
+And, doesn't really work the way I expect.
+
+103
+00:04:44.593 --> 00:04:47.203
+And the problem is, what's happening is it's taking
+
+104
+00:04:47.203 --> 00:04:51.196
+the watch command and it's piping that to grep, but
+
+105
+00:04:51.196 --> 00:04:55.520
+watch hasn't finished running so it's doing quiet work.
+
+106
+00:04:55.520 --> 00:04:57.318
+What I want I do is take the whole curl command and
+
+107
+00:04:57.318 --> 00:05:00.213
+the grep together and run that in watch, so I need to
+
+108
+00:05:00.213 --> 00:05:01.895
+put quotes around that.
+
+109
+00:05:01.895 --> 00:05:04.055
+Alright, so I'm gonna put double quotes around
+
+110
+00:05:04.055 --> 00:05:05.850
+the whole thing.
+
+111
+00:05:05.850 --> 00:05:07.686
+Now, when I run it, I get the bit I'm interested in.
+
+112
+00:05:07.686 --> 00:05:08.705
+Okay?
+
+113
+00:05:08.705 --> 00:05:10.545
+So, hit refresh.
+
+114
+00:05:10.545 --> 00:05:14.010
+You should see, yep, number changes, perfect.
+
+115
+00:05:14.010 --> 00:05:16.984
+Now what if I actually wanna say, when that changes
+
+116
+00:05:16.984 --> 00:05:18.067
+do something?
+
+117
+00:05:19.066 --> 00:05:21.146
+Watch has got my back on that one as well.
+
+118
+00:05:21.146 --> 00:05:23.802
+So, I go back to the arguments here and if I do
+
+119
+00:05:23.802 --> 00:05:28.123
+dash G, that will exit when there is a change.
+
+120
+00:05:28.123 --> 00:05:32.290
+And if it exits I can say and and I can do afplay, yeah.
+
+121
+00:05:34.000 --> 00:05:38.167
+So I'm gonna say play little audio ding when the watch
+
+122
+00:05:41.005 --> 00:05:41.975
+detects a change.
+
+123
+00:05:41.975 --> 00:05:43.570
+So just gonna watch at the moment.
+
+124
+00:05:43.570 --> 00:05:45.534
+I go off to the webpage.
+
+125
+00:05:45.534 --> 00:05:49.701
+And you know, I'm doing something and I refresh the page.
+
+126
+00:05:50.757 --> 00:05:52.722
+And there's the ding, right?
+
+127
+00:05:52.722 --> 00:05:54.964
+So, I can use it to trigger different things.
+
+128
+00:05:54.964 --> 00:05:57.659
+Now, you know the afplay is specific to my mac,
+
+129
+00:05:57.659 --> 00:05:59.126
+but the watch command...
+
+130
+00:05:59.126 --> 00:06:01.656
+On a mac you may not have it and on the other machines,
+
+131
+00:06:01.656 --> 00:06:03.863
+Linux and Windows, you may not have it installed
+
+132
+00:06:03.863 --> 00:06:04.764
+by default.
+
+133
+00:06:04.764 --> 00:06:07.667
+On a mac you can just do brew instal watch and
+
+134
+00:06:07.667 --> 00:06:09.420
+you'll get the watch command.
+
+135
+00:06:09.420 --> 00:06:13.587
+On windows and Linux, if you're using Windows Ubuntu
+
+136
+00:06:15.048 --> 00:06:18.148
+Set up system you can do apt instal, sorry,
+
+137
+00:06:18.148 --> 00:06:19.981
+apt get instal watch.
+
+138
+00:06:21.986 --> 00:06:23.907
+It's always worth just typing in watch just to see
+
+139
+00:06:23.907 --> 00:06:25.457
+if you have the command in the first place.
+
+140
+00:06:25.457 --> 00:06:29.457
+But yeah, first command I learned or learnt, and
+
+141
+00:06:31.185 --> 00:06:34.434
+really, really, quite - I would go to it a lot.
+
+142
+00:06:34.434 --> 00:06:36.926
+I'd use it for a lot of different things.
+
+143
+00:06:36.926 --> 00:06:38.972
+It was my quick and dirty solution to pretty much
+
+144
+00:06:38.972 --> 00:06:41.582
+anything where I wanted to just keep requesting
+
+145
+00:06:41.582 --> 00:06:42.850
+the thing.
+
+146
+00:06:42.850 --> 00:06:44.724
+You can even use watch to date,
+
+147
+00:06:44.724 --> 00:06:46.313
+even though it's there twice.
+
+148
+00:06:46.313 --> 00:06:47.563
+So, yeah, cool.
+
