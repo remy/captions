@@ -1,0 +1,778 @@
+﻿WEBVTT
+
+1
+00:00:01.901 --> 00:00:03.737
+<v ->Continuing on from aliases,</v>
+
+2
+00:00:03.737 --> 00:00:08.267
+there's a few limitations in using kind of a straight alias.
+
+3
+00:00:08.267 --> 00:00:11.205
+As you can see, it's just a command is linked
+
+4
+00:00:11.205 --> 00:00:12.551
+directly to kind of a string,
+
+5
+00:00:12.551 --> 00:00:16.718
+which means that we have no logical functionality.
+
+6
+00:00:18.019 --> 00:00:20.345
+And we can't programme it, which is fine for most cases,
+
+7
+00:00:20.345 --> 00:00:23.569
+but there are a few situations where it doesn't quite work.
+
+8
+00:00:23.569 --> 00:00:24.752
+And one of those other situations
+
+9
+00:00:24.752 --> 00:00:28.919
+is where the position of the arguments don't really work.
+
+10
+00:00:30.017 --> 00:00:34.547
+So, let's say I have this command called tree.
+
+11
+00:00:34.547 --> 00:00:36.712
+And I installed this using Brew.
+
+12
+00:00:36.712 --> 00:00:39.283
+And what it gives me is like a tree listing
+
+13
+00:00:39.283 --> 00:00:40.467
+of everything in that directory,
+
+14
+00:00:40.467 --> 00:00:43.202
+which is really, I find it quite useful.
+
+15
+00:00:43.202 --> 00:00:44.875
+But the problem is, I have to kind of scroll back
+
+16
+00:00:44.875 --> 00:00:46.915
+and kinda look for what I'm looking for
+
+17
+00:00:46.915 --> 00:00:48.057
+and if I want to page through it
+
+18
+00:00:48.057 --> 00:00:51.077
+I need to do less manually.
+
+19
+00:00:51.077 --> 00:00:53.404
+And if I want to look to a particular directory,
+
+20
+00:00:53.404 --> 00:00:55.730
+I would do this kind of thing.
+
+21
+00:00:55.730 --> 00:00:58.790
+So, this is an ideal candidate
+
+22
+00:00:58.790 --> 00:00:59.790
+for a alias.
+
+23
+00:01:02.707 --> 00:01:04.207
+So I'll take this.
+
+24
+00:01:05.236 --> 00:01:08.153
+Alias tree, let's say, equals that.
+
+25
+00:01:10.013 --> 00:01:13.441
+But, I don't want to hard code node modules.
+
+26
+00:01:13.441 --> 00:01:14.624
+I want to make it,
+
+27
+00:01:14.624 --> 00:01:18.175
+the argument that the user is gonna parse in.
+
+28
+00:01:18.175 --> 00:01:19.888
+But what is that?
+
+29
+00:01:19.888 --> 00:01:21.072
+Well, we can't do anything here.
+
+30
+00:01:21.072 --> 00:01:21.929
+It's just a string.
+
+31
+00:01:21.929 --> 00:01:24.512
+What happens is, if I run tree,
+
+32
+00:01:25.848 --> 00:01:28.828
+like this, and then node_modules,
+
+33
+00:01:28.828 --> 00:01:31.807
+this effectively comes out as
+
+34
+00:01:31.807 --> 00:01:35.057
+tree, pipe, less, and then node_modules
+
+35
+00:01:36.578 --> 00:01:37.721
+Okay, and that's not really what we want.
+
+36
+00:01:37.721 --> 00:01:39.761
+We want this node_modules
+
+37
+00:01:39.761 --> 00:01:41.428
+to be inserted here.
+
+38
+00:01:45.572 --> 00:01:46.590
+And we want the less to be left alone.
+
+39
+00:01:46.590 --> 00:01:48.426
+And that's where our function comes in.
+
+40
+00:01:48.426 --> 00:01:50.181
+A function can solve this problem for us.
+
+41
+00:01:50.181 --> 00:01:51.598
+Let's leave this.
+
+42
+00:01:52.875 --> 00:01:55.690
+I've opened my Zed RC file already.
+
+43
+00:01:55.690 --> 00:01:57.363
+I've inserted a new line.
+
+44
+00:01:57.363 --> 00:01:59.159
+So all my functions are kept in one place,
+
+45
+00:01:59.159 --> 00:02:01.811
+the same way as I've done with my aliases.
+
+46
+00:02:01.811 --> 00:02:05.443
+So I'm going to create a new function called tree.
+
+47
+00:02:05.443 --> 00:02:07.403
+I've called an alternative spelling I can do,
+
+48
+00:02:07.403 --> 00:02:09.240
+I'll show you tree later.
+
+49
+00:02:09.240 --> 00:02:12.056
+And the function looks like this.
+
+50
+00:02:12.056 --> 00:02:15.361
+And what we're going to do is call tree command.
+
+51
+00:02:15.361 --> 00:02:16.789
+So we're basically just writing,
+
+52
+00:02:16.789 --> 00:02:18.870
+this is what's going to be run in the shell
+
+53
+00:02:18.870 --> 00:02:20.203
+when I call tre.
+
+54
+00:02:21.441 --> 00:02:25.031
+Tree, and then, we're going to do something here,
+
+55
+00:02:25.031 --> 00:02:26.378
+and we're going to pipe it to less,
+
+56
+00:02:26.378 --> 00:02:28.499
+and actually I want to pipe into less-X.
+
+57
+00:02:28.499 --> 00:02:30.172
+And -X doesn't clear the screen.
+
+58
+00:02:30.172 --> 00:02:33.089
+And that dot dot dot, we want that,
+
+59
+00:02:33.969 --> 00:02:36.866
+to be everything that's been parsed in to tree
+
+60
+00:02:36.866 --> 00:02:38.335
+on the command line.
+
+61
+00:02:38.335 --> 00:02:40.252
+And that is dollar, at.
+
+62
+00:02:41.395 --> 00:02:43.395
+Okay, so if I save that,
+
+63
+00:02:44.864 --> 00:02:47.191
+and open up a new tab,
+
+64
+00:02:47.191 --> 00:02:49.191
+head off to the jsonbin.
+
+65
+00:02:51.107 --> 00:02:54.167
+If I type in tre, node modules,
+
+66
+00:02:54.167 --> 00:02:55.187
+I get the paging.
+
+67
+00:02:55.187 --> 00:02:56.453
+And also note the root directory
+
+68
+00:02:56.453 --> 00:02:58.126
+is the node module.
+
+69
+00:02:58.126 --> 00:02:59.760
+Hit space, you can go back and forth,
+
+70
+00:02:59.760 --> 00:03:02.739
+the same way as I do with a, with the less command.
+
+71
+00:03:02.739 --> 00:03:05.269
+So that is one, certainly for me,
+
+72
+00:03:05.269 --> 00:03:07.554
+quite common case where I would use
+
+73
+00:03:07.554 --> 00:03:09.553
+a function over an alias.
+
+74
+00:03:09.553 --> 00:03:11.838
+Pretty much, if, you know,
+
+75
+00:03:11.838 --> 00:03:13.186
+it's just a very simple command,
+
+76
+00:03:13.186 --> 00:03:14.777
+what I'm doing is I'm putting the arguments
+
+77
+00:03:14.777 --> 00:03:17.592
+in a very specific place.
+
+78
+00:03:17.592 --> 00:03:19.633
+This is an example that I've also used,
+
+79
+00:03:19.633 --> 00:03:22.693
+I used node for a lot of my work.
+
+80
+00:03:22.693 --> 00:03:24.897
+And I use a deep argument module,
+
+81
+00:03:24.897 --> 00:03:27.713
+which will only be activated
+
+82
+00:03:27.713 --> 00:03:29.468
+if I add an environment variable,
+
+83
+00:03:29.468 --> 00:03:31.916
+that is Debug in the name.
+
+84
+00:03:31.916 --> 00:03:33.875
+But I've found that I wanted just a quick way
+
+85
+00:03:33.875 --> 00:03:36.608
+of firing that up, so I created a shortcut.
+
+86
+00:03:36.608 --> 00:03:39.302
+Initially it was going to be an alias,
+
+87
+00:03:39.302 --> 00:03:40.241
+but it doesn't quite match,
+
+88
+00:03:40.241 --> 00:03:41.668
+because I need to say,
+
+89
+00:03:41.668 --> 00:03:45.703
+what I want to do is take all the normal output
+
+90
+00:03:45.703 --> 00:03:47.335
+and redirect it.
+
+91
+00:03:47.335 --> 00:03:50.967
+So this is redirect the arrow here.
+
+92
+00:03:50.967 --> 00:03:52.438
+Redirect it to dev/null.
+
+93
+00:03:52.438 --> 00:03:54.112
+What that does is make it quiet.
+
+94
+00:03:54.112 --> 00:03:55.785
+So just to quick show you.
+
+95
+00:03:55.785 --> 00:03:58.356
+Tree, dev/null.
+
+96
+00:03:58.356 --> 00:03:59.745
+There's no output.
+
+97
+00:03:59.745 --> 00:04:02.398
+And that's because all the Debug output
+
+98
+00:04:02.398 --> 00:04:05.052
+comes out, out of certain course standard error,
+
+99
+00:04:05.052 --> 00:04:06.277
+which is a separate stream,
+
+100
+00:04:06.277 --> 00:04:08.276
+so it's still printed to the screen,
+
+101
+00:04:08.276 --> 00:04:12.235
+even though node doesn't print anything on the screen.
+
+102
+00:04:12.235 --> 00:04:15.010
+And dnode, I would do dnode,
+
+103
+00:04:15.010 --> 00:04:18.152
+and then my project, what is it,
+
+104
+00:04:18.152 --> 00:04:19.985
+just be like index.js.
+
+105
+00:04:21.336 --> 00:04:24.683
+Or it might be lib/index.js.
+
+106
+00:04:24.683 --> 00:04:27.867
+And that would run this command.
+
+107
+00:04:27.867 --> 00:04:30.437
+But with Debug turned on,
+
+108
+00:04:30.437 --> 00:04:32.192
+all other outputs suppressed,
+
+109
+00:04:32.192 --> 00:04:34.028
+and it was pass in all the argments.
+
+110
+00:04:34.028 --> 00:04:35.415
+It doesn't even have to be one argument,
+
+111
+00:04:35.415 --> 00:04:36.558
+it could be two arguments, it could be,
+
+112
+00:04:36.558 --> 00:04:39.391
+you know, a=10, 12, whatever.
+
+113
+00:04:40.232 --> 00:04:42.681
+Everything I pass into dnode,
+
+114
+00:04:42.681 --> 00:04:44.435
+will be added here.
+
+115
+00:04:44.435 --> 00:04:47.169
+And effectively what's happening is $@
+
+116
+00:04:47.169 --> 00:04:49.495
+is quoting every one of the arguments.
+
+117
+00:04:49.495 --> 00:04:51.912
+So this ends up running this.
+
+118
+00:04:53.699 --> 00:04:57.366
+So, lib/index.js, then a=10.
+
+119
+00:04:59.330 --> 00:05:00.830
+So, really useful.
+
+120
+00:05:02.595 --> 00:05:06.594
+This is another version of the tree function.
+
+121
+00:05:06.594 --> 00:05:08.717
+But let's say I want to call it tree,
+
+122
+00:05:08.717 --> 00:05:10.594
+and actually I always want to use
+
+123
+00:05:10.594 --> 00:05:12.389
+the special version of tree.
+
+124
+00:05:12.389 --> 00:05:13.287
+So what this does,
+
+125
+00:05:13.287 --> 00:05:15.490
+is say, give me the tree listing,
+
+126
+00:05:15.490 --> 00:05:18.632
+but ignore some of these directories
+
+127
+00:05:18.632 --> 00:05:20.142
+so I don't care about the git directory
+
+128
+00:05:20.142 --> 00:05:21.937
+or the node modules directory.
+
+129
+00:05:21.937 --> 00:05:23.179
+But the directories at the beginning,
+
+130
+00:05:23.179 --> 00:05:26.649
+then we're parsing in our, in our directory.
+
+131
+00:05:26.649 --> 00:05:30.730
+And then it's piping it to less, with syntax highlighting.
+
+132
+00:05:30.730 --> 00:05:34.404
+But notice that the command, sorry,
+
+133
+00:05:34.404 --> 00:05:36.935
+the function is the same as the command.
+
+134
+00:05:36.935 --> 00:05:38.934
+Now I can get around, if I try to run this,
+
+135
+00:05:38.934 --> 00:05:41.791
+it'll just go into a loop and just go bananas.
+
+136
+00:05:41.791 --> 00:05:45.789
+But if I just prefix this with command,
+
+137
+00:05:45.789 --> 00:05:47.014
+I mentioned this in the aliases,
+
+138
+00:05:47.014 --> 00:05:48.525
+what this says is,
+
+139
+00:05:48.525 --> 00:05:50.198
+call the command tree, and ignore
+
+140
+00:05:50.198 --> 00:05:52.646
+any aliases or functions we already have.
+
+141
+00:05:52.646 --> 00:05:54.074
+So if I save that,
+
+142
+00:05:54.074 --> 00:05:55.543
+open up another window,
+
+143
+00:05:55.543 --> 00:05:58.710
+head off to jsonbin, and type in tree,
+
+144
+00:05:59.623 --> 00:06:03.175
+I get that nice syntax highlighting, paged.
+
+145
+00:06:03.175 --> 00:06:04.684
+It ignores all the git directories
+
+146
+00:06:04.684 --> 00:06:06.970
+and all the node modules directory.
+
+147
+00:06:06.970 --> 00:06:09.133
+And I can compare that by doing command tree,
+
+148
+00:06:09.133 --> 00:06:10.633
+which will ignore,
+
+149
+00:06:11.663 --> 00:06:13.214
+ignore my function.
+
+150
+00:06:13.214 --> 00:06:14.887
+And you can see here is the original listing,
+
+151
+00:06:14.887 --> 00:06:17.744
+with all of the extra gunk that I don't really care about.
+
+152
+00:06:17.744 --> 00:06:19.702
+So. That's pretty cool.
+
+153
+00:06:19.702 --> 00:06:20.968
+And you can go a lot further,
+
+154
+00:06:20.968 --> 00:06:22.968
+things like this.
+
+155
+00:06:22.968 --> 00:06:27.006
+This is dataurl function I just happened to have.
+
+156
+00:06:27.006 --> 00:06:27.839
+It's really just to show you how
+
+157
+00:06:27.839 --> 00:06:29.986
+you can get a lot more complicated.
+
+158
+00:06:29.986 --> 00:06:33.569
+And I've got, personally, I have a lot more
+
+159
+00:06:35.209 --> 00:06:36.925
+functions that do things like
+
+160
+00:06:36.925 --> 00:06:38.231
+test whether or not I'm parsing in,
+
+161
+00:06:38.231 --> 00:06:42.148
+I'm piping into it, or if it's an argument, and so on.
+
+162
+00:06:42.148 --> 00:06:44.555
+Here we've got some local variables.
+
+163
+00:06:44.555 --> 00:06:45.862
+The mimeType.
+
+164
+00:06:45.862 --> 00:06:50.229
+So what this does is grant the dataurl for a file name.
+
+165
+00:06:50.229 --> 00:06:51.779
+And what this does is get the mimeType
+
+166
+00:06:51.779 --> 00:06:52.962
+for the particular files.
+
+167
+00:06:52.962 --> 00:06:57.572
+This says run, this dollar bracket says run this command,
+
+168
+00:06:57.572 --> 00:06:59.857
+and capture the output in this.
+
+169
+00:06:59.857 --> 00:07:02.877
+It then tests the mimeType using this square bracket,
+
+170
+00:07:02.877 --> 00:07:05.733
+which is kind of bash, sorry, shell scripting.
+
+171
+00:07:05.733 --> 00:07:08.304
+And then it will echo out the actual file
+
+172
+00:07:08.304 --> 00:07:12.710
+running command, and give me a base64 encoded
+
+173
+00:07:12.710 --> 00:07:14.063
+URL for a file.
+
+174
+00:07:14.063 --> 00:07:15.654
+So if I do, what was it,
+
+175
+00:07:15.654 --> 00:07:19.821
+dataurl, dataurl, public/img/favicon.png,
+
+176
+00:07:23.286 --> 00:07:26.786
+there is a nice long single-line data URL.
+
+177
+00:07:28.794 --> 00:07:29.627
+And you can see it's prefixed
+
+178
+00:07:29.627 --> 00:07:31.854
+with the right mimeType as well.
+
+179
+00:07:31.854 --> 00:07:33.733
+Now I showed you this last one,
+
+180
+00:07:33.733 --> 00:07:35.814
+not to kind of, have you copy and paste it,
+
+181
+00:07:35.814 --> 00:07:37.732
+but to show you that there's lots of things available,
+
+182
+00:07:37.732 --> 00:07:38.649
+and really,
+
+183
+00:07:39.487 --> 00:07:42.904
+it's linked to, and I will link to again,
+
+184
+00:07:44.098 --> 00:07:47.036 line:15% 
+dotfiles that you can see other people's examples,
+
+185
+00:07:47.036 --> 00:07:48.382 line:15% 
+and take what you want.
+
+186
+00:07:48.382 --> 00:07:51.444
+I also linked to a couple of URLs
+
+187
+00:07:51.444 --> 00:07:54.014
+to kind of explain how variables work.
+
+188
+00:07:54.014 --> 00:07:56.870 line:15% 
+You can do substitution, and also kind of list out
+
+189
+00:07:56.870 --> 00:07:58.624 line:15% 
+the different types of these.
+
+190
+00:07:58.624 --> 00:08:01.237 line:15% 
+So if you just want the first argument, you'd do dollar 1,
+
+191
+00:08:01.237 --> 00:08:05.157 line:15% 
+if you want all the arguments quoted, you'd do $@,
+
+192
+00:08:05.157 --> 00:08:07.810 line:15% 
+if you just want all of them in a single quote,
+
+193
+00:08:07.810 --> 00:08:10.994 line:15% 
+but I'll include a link in this video
+
+194
+00:08:10.994 --> 00:08:14.327
+to explain kind of what those are, okay?
+

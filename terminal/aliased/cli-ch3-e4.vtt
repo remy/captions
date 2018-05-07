@@ -1,0 +1,798 @@
+﻿WEBVTT
+
+1
+00:00:01.603 --> 00:00:05.094
+<v ->So next we're going to look at three commands.</v>
+
+2
+00:00:05.094 --> 00:00:07.648
+Head, Tail, and Less.
+
+3
+00:00:07.648 --> 00:00:10.981
+So Head will look at the head of a file,
+
+4
+00:00:12.900 --> 00:00:15.295
+so the top few lines and you can determine
+
+5
+00:00:15.295 --> 00:00:18.459
+how many lines you want as well in the arguments.
+
+6
+00:00:18.459 --> 00:00:22.239
+Tail will look at the last few lines
+
+7
+00:00:22.239 --> 00:00:24.630
+and again it's like Head, you can specify
+
+8
+00:00:24.630 --> 00:00:26.666
+the number of lines you're looking for
+
+9
+00:00:26.666 --> 00:00:28.001
+and you can pipe things together
+
+10
+00:00:28.001 --> 00:00:31.418
+so you can grep before you pipe into Tail
+
+11
+00:00:34.972 --> 00:00:37.555
+so you only tail specific lines
+
+12
+00:00:38.549 --> 00:00:40.192
+that match what you're looking for.
+
+13
+00:00:40.192 --> 00:00:44.359
+And Less which allows us to open up a stream or a file
+
+14
+00:00:47.583 --> 00:00:50.166
+and basically go back and forth
+
+15
+00:00:52.277 --> 00:00:54.587
+and search and so on.
+
+16
+00:00:54.587 --> 00:00:57.666
+So far in the examples I've been showing you
+
+17
+00:00:57.666 --> 00:01:00.327
+what I've been doing is looking at individual files
+
+18
+00:01:00.327 --> 00:01:03.897
+where when we print to the screen,
+
+19
+00:01:03.897 --> 00:01:06.179
+there is a definite start and a definite end.
+
+20
+00:01:06.179 --> 00:01:07.679
+So it always ends.
+
+21
+00:01:08.555 --> 00:01:11.722
+When we are catting out the blog post,
+
+22
+00:01:12.900 --> 00:01:16.400
+it finished so it had a determined length.
+
+23
+00:01:17.752 --> 00:01:21.919
+But all these commands also support things called Streams.
+
+24
+00:01:24.978 --> 00:01:28.478
+So Streams are for this particular purpose
+
+25
+00:01:29.811 --> 00:01:32.561
+basically are never-ending files.
+
+26
+00:01:36.680 --> 00:01:38.054
+So when you...
+
+27
+00:01:38.054 --> 00:01:41.746
+Basically at the moment I've got a live search going
+
+28
+00:01:41.746 --> 00:01:46.125
+off to Twitter for one of the trending phrases,
+
+29
+00:01:46.125 --> 00:01:47.671
+I think it's freezing.
+
+30
+00:01:47.671 --> 00:01:49.499
+It's quite cold outside at the moment
+
+31
+00:01:49.499 --> 00:01:54.160
+and I have that writing to a log file called freezing.
+
+32
+00:01:54.160 --> 00:01:56.209
+Okay, so that's in the background.
+
+33
+00:01:56.209 --> 00:02:00.126
+It's a command called t, it's tricky to Google.
+
+34
+00:02:01.566 --> 00:02:05.077
+But the point is that this log file is getting
+
+35
+00:02:05.077 --> 00:02:06.034
+larger and larger.
+
+36
+00:02:06.034 --> 00:02:09.003
+So if we just look at freezing.log,
+
+37
+00:02:09.003 --> 00:02:11.051
+if we just keep looking at it,
+
+38
+00:02:11.051 --> 00:02:14.876
+over time, no of course no one's tweeting,
+
+39
+00:02:14.876 --> 00:02:17.341
+someone tweeted finally.
+
+40
+00:02:17.341 --> 00:02:18.174
+And a few more.
+
+41
+00:02:18.174 --> 00:02:20.985
+So the point is that this file is continuously getting
+
+42
+00:02:20.985 --> 00:02:22.751
+bigger and bigger.
+
+43
+00:02:22.751 --> 00:02:24.137
+Now we can tail that file.
+
+44
+00:02:24.137 --> 00:02:28.553
+So if we do tail freezing, we get the end of the file
+
+45
+00:02:28.553 --> 00:02:32.540
+and it immediately ends and comes back to our prompt,
+
+46
+00:02:32.540 --> 00:02:35.275
+but we can also continuously tail.
+
+47
+00:02:35.275 --> 00:02:37.608
+So tail dash f means follow.
+
+48
+00:02:38.709 --> 00:02:40.881
+So it follows the end of the file.
+
+49
+00:02:40.881 --> 00:02:43.019
+If I hit enter now, you can see that I don't get
+
+50
+00:02:43.019 --> 00:02:44.610
+my prompt back.
+
+51
+00:02:44.610 --> 00:02:47.616
+And the screen will keep on kind of updating
+
+52
+00:02:47.616 --> 00:02:51.099
+with each new line that comes into the file.
+
+53
+00:02:51.099 --> 00:02:55.356
+Now this is really handy for tailing log files.
+
+54
+00:02:55.356 --> 00:02:57.245
+So if you have some file that's getting bigger
+
+55
+00:02:57.245 --> 00:03:00.741
+and bigger like a log, like a web log for instance,
+
+56
+00:03:00.741 --> 00:03:04.074
+or some URL endpoint, we can tail dash f
+
+57
+00:03:06.616 --> 00:03:09.437
+and it will follow this stream.
+
+58
+00:03:09.437 --> 00:03:11.705
+From there we can do more things
+
+59
+00:03:11.705 --> 00:03:13.122
+like we can grep.
+
+60
+00:03:14.723 --> 00:03:18.090
+So what kinds of words are kind of coming up?
+
+61
+00:03:18.090 --> 00:03:20.850
+Maybe we just want the at symbols.
+
+62
+00:03:20.850 --> 00:03:22.457
+I think maybe we just want the Twitter handles.
+
+63
+00:03:22.457 --> 00:03:25.624
+So what we'll do is we'll grep for at.
+
+64
+00:03:30.682 --> 00:03:31.952
+I have a feeling there's a bunch of spaces
+
+65
+00:03:31.952 --> 00:03:33.534
+in front of this so we're not quite getting
+
+66
+00:03:33.534 --> 00:03:34.552
+what we're looking for.
+
+67
+00:03:34.552 --> 00:03:38.208
+So I'm going to stick those spaces in there.
+
+68
+00:03:38.208 --> 00:03:39.375
+Here is a tab.
+
+69
+00:03:40.538 --> 00:03:44.721
+Now I try and grep first without the follow,
+
+70
+00:03:44.721 --> 00:03:47.471
+see if I actually match anything.
+
+71
+00:04:06.388 --> 00:04:09.401
+Okay, so I've had to use egrep
+
+72
+00:04:09.401 --> 00:04:10.972
+which I mentioned before is a slightly
+
+73
+00:04:10.972 --> 00:04:13.461
+more advanced version of the grep.
+
+74
+00:04:13.461 --> 00:04:15.055
+It allows me to do irregular expressions.
+
+75
+00:04:15.055 --> 00:04:17.252
+Just trust for the moment that what this means is
+
+76
+00:04:17.252 --> 00:04:19.288
+it start at the beginning of the line,
+
+77
+00:04:19.288 --> 00:04:21.895
+there are some spaces, one or more,
+
+78
+00:04:21.895 --> 00:04:23.274
+and then there's an at symbol.
+
+79
+00:04:23.274 --> 00:04:25.941
+So we'll get the last few tweets
+
+80
+00:04:27.421 --> 00:04:30.991
+but if we do tail dash f, we now just get
+
+81
+00:04:30.991 --> 00:04:32.279
+the Twitter handles.
+
+82
+00:04:32.279 --> 00:04:33.947
+And I mentioned that we can have more
+
+83
+00:04:33.947 --> 00:04:34.830
+than one line.
+
+84
+00:04:34.830 --> 00:04:37.872
+If I go back to tail, I can do tail dash 100
+
+85
+00:04:37.872 --> 00:04:40.142
+or a thousand and it will give me
+
+86
+00:04:40.142 --> 00:04:43.390
+the last thousand lines and it will stop following.
+
+87
+00:04:43.390 --> 00:04:45.404
+So you can see all of the people
+
+88
+00:04:45.404 --> 00:04:48.373
+that have tweeted with a hashtag freezing
+
+89
+00:04:48.373 --> 00:04:50.163
+and if I push enter a few times
+
+90
+00:04:50.163 --> 00:04:53.598
+when a tweet comes in, we'll see that Twitter handle.
+
+91
+00:04:53.598 --> 00:04:56.049
+And then we could do more things with that if we wanted to.
+
+92
+00:04:56.049 --> 00:04:57.340
+We could do more manipulation,
+
+93
+00:04:57.340 --> 00:05:00.259
+but tail dash f is really useful
+
+94
+00:05:00.259 --> 00:05:04.663
+for kind of watching files and following files
+
+95
+00:05:04.663 --> 00:05:08.380
+in real time and then we can pipe that output,
+
+96
+00:05:08.380 --> 00:05:10.880
+that string to something else.
+
+97
+00:05:11.814 --> 00:05:12.979
+So I mentioned Head.
+
+98
+00:05:12.979 --> 00:05:15.050
+Head is very similar.
+
+99
+00:05:15.050 --> 00:05:19.217
+We can do head dash 10 and we can look at the first 10,
+
+100
+00:05:20.781 --> 00:05:21.698
+follow.log.
+
+101
+00:05:22.989 --> 00:05:24.987
+No, freezing.log.
+
+102
+00:05:24.987 --> 00:05:27.820
+We can look at the first 10 lines.
+
+103
+00:05:29.908 --> 00:05:33.551
+Okay, we can, what we can do is we can grep
+
+104
+00:05:33.551 --> 00:05:36.210
+or use that egrep that we had a moment ago.
+
+105
+00:05:36.210 --> 00:05:37.365
+Scroll up.
+
+106
+00:05:37.365 --> 00:05:39.898
+What we'll do is use the egrep on the freezing.log.
+
+107
+00:05:39.898 --> 00:05:42.407
+We'll look at the first 10 people
+
+108
+00:05:42.407 --> 00:05:43.805
+who tweeted about it.
+
+109
+00:05:43.805 --> 00:05:45.039
+That's not particularly the first 10 people
+
+110
+00:05:45.039 --> 00:05:47.039
+who tweeted at the time.
+
+111
+00:05:47.878 --> 00:05:50.086
+It's the first 10 that I captured.
+
+112
+00:05:50.086 --> 00:05:51.003
+So dash 10.
+
+113
+00:05:52.205 --> 00:05:54.662
+Oops, I didn't give it a file to follow.
+
+114
+00:05:54.662 --> 00:05:57.103
+Freezing and there we go.
+
+115
+00:05:57.103 --> 00:05:59.151
+So there's the first 10 people.
+
+116
+00:05:59.151 --> 00:06:01.234
+I think we can do dash n.
+
+117
+00:06:02.123 --> 00:06:03.040
+Not dash n.
+
+118
+00:06:08.105 --> 00:06:09.565
+If we get the line number,
+
+119
+00:06:09.565 --> 00:06:10.398
+man head.
+
+120
+00:06:12.816 --> 00:06:16.566
+No, I don't think we can get the line number.
+
+121
+00:06:20.399 --> 00:06:23.566
+So yeah we can see the Twitter handles
+
+122
+00:06:26.008 --> 00:06:29.175
+and we can do some other bits I think.
+
+123
+00:06:30.173 --> 00:06:32.590
+What else do we have on Head?
+
+124
+00:06:35.717 --> 00:06:39.467
+So dash n is the same as what we've got here.
+
+125
+00:06:41.433 --> 00:06:43.654
+I'm pretty sure we can do an offset as well.
+
+126
+00:06:43.654 --> 00:06:47.285
+So I think we can do like offset one.
+
+127
+00:06:47.285 --> 00:06:50.535
+Alright so we can start from the first,
+
+128
+00:06:52.510 --> 00:06:53.994
+like skip the first line basically.
+
+129
+00:06:53.994 --> 00:06:57.587
+So I think, just coming back actually,
+
+130
+00:06:57.587 --> 00:07:00.254
+you can say skip the first line.
+
+131
+00:07:01.158 --> 00:07:04.491
+You can say the first of the 10 I think,
+
+132
+00:07:06.752 --> 00:07:08.886
+but if only works with the file.
+
+133
+00:07:08.886 --> 00:07:11.634
+With a stream, there is no end
+
+134
+00:07:11.634 --> 00:07:14.551
+so it doesn't really know where to,
+
+135
+00:07:15.694 --> 00:07:17.534
+where to split the data basically.
+
+136
+00:07:17.534 --> 00:07:19.853
+But if we want to skip the first line,
+
+137
+00:07:19.853 --> 00:07:24.673
+we could do the first 11 lines and then tail dash 10.
+
+138
+00:07:24.673 --> 00:07:26.832
+Kind of funky but it does work.
+
+139
+00:07:26.832 --> 00:07:27.838
+So what we're doing is we're getting
+
+140
+00:07:27.838 --> 00:07:29.751
+the first 11 lines and then just getting
+
+141
+00:07:29.751 --> 00:07:31.714
+the last 10 of those first 11 lines
+
+142
+00:07:31.714 --> 00:07:34.266
+by putting the two together.
+
+143
+00:07:34.266 --> 00:07:36.916
+And the last one I want to show you is Less.
+
+144
+00:07:36.916 --> 00:07:40.333
+So there are two commands, More and Less.
+
+145
+00:07:41.540 --> 00:07:43.699
+And I think the expression is something like
+
+146
+00:07:43.699 --> 00:07:44.782
+less is more.
+
+147
+00:07:47.833 --> 00:07:49.250
+Opposite of more.
+
+148
+00:07:50.286 --> 00:07:53.758
+They almost do the same thing but Less is better
+
+149
+00:07:53.758 --> 00:07:55.892
+than More because it has more functionality,
+
+150
+00:07:55.892 --> 00:07:58.124
+it's easier to use.
+
+151
+00:07:58.124 --> 00:07:59.621
+So if you're ever kind of confused
+
+152
+00:07:59.621 --> 00:08:03.788
+about which one you want, you want Less 'cause less is more.
+
+153
+00:08:05.043 --> 00:08:06.599
+Anyway.
+
+154
+00:08:06.599 --> 00:08:08.772
+So we have this freezing file.
+
+155
+00:08:08.772 --> 00:08:12.268
+We could cat the freezing file out.
+
+156
+00:08:12.268 --> 00:08:14.157
+But if we're searching for something specific
+
+157
+00:08:14.157 --> 00:08:16.074
+like maybe Christmas...
+
+158
+00:08:18.154 --> 00:08:20.632
+We could use grep but we can also use Less.
+
+159
+00:08:20.632 --> 00:08:24.465
+So if you use less freezing, it goes into this
+
+160
+00:08:25.490 --> 00:08:27.393
+kind of cursor view.
+
+161
+00:08:27.393 --> 00:08:30.153
+So I can hit space and it will let me
+
+162
+00:08:30.153 --> 00:08:32.103
+kind of page down.
+
+163
+00:08:32.103 --> 00:08:36.053
+And if I do shift space, it will go, sorry,
+
+164
+00:08:36.053 --> 00:08:36.886
+b and f.
+
+165
+00:08:38.725 --> 00:08:41.475
+B is backwards and f is forwards.
+
+166
+00:08:43.720 --> 00:08:45.682
+And I can also search.
+
+167
+00:08:45.682 --> 00:08:48.896
+If I use the slash key, you can see down here
+
+168
+00:08:48.896 --> 00:08:51.096
+in the corner, it's changed to a slash
+
+169
+00:08:51.096 --> 00:08:53.679
+and I can search for Christmas.
+
+170
+00:08:54.968 --> 00:08:56.885
+I think I can do, oops.
+
+171
+00:08:58.538 --> 00:08:59.871
+So I just hit h.
+
+172
+00:09:02.157 --> 00:09:03.074
+Gosh, quit.
+
+173
+00:09:04.044 --> 00:09:06.070
+So h gives me the help.
+
+174
+00:09:06.070 --> 00:09:07.987
+And q gets out of Less.
+
+175
+00:09:10.301 --> 00:09:13.589
+And let's just look for Christmas.
+
+176
+00:09:13.589 --> 00:09:17.110
+There we have Christmas up in the corner there.
+
+177
+00:09:17.110 --> 00:09:20.238
+We see it matches a couple of times.
+
+178
+00:09:20.238 --> 00:09:22.460
+It's useful for kind of opening up,
+
+179
+00:09:22.460 --> 00:09:24.752
+to take a stream and just kind of pause it
+
+180
+00:09:24.752 --> 00:09:25.942
+and look at it.
+
+181
+00:09:25.942 --> 00:09:29.694
+So we could do tail minus f freezing.
+
+182
+00:09:29.694 --> 00:09:32.897
+And let's get the first 1,000 lines,
+
+183
+00:09:32.897 --> 00:09:35.064
+but let's pipe it to Less.
+
+184
+00:09:37.276 --> 00:09:40.400
+And that'll keep getting longer and longer and longer,
+
+185
+00:09:40.400 --> 00:09:44.890
+but I can page through in my own pace basically.
+
+186
+00:09:44.890 --> 00:09:47.684
+So I'm paging all the way down to the end.
+
+187
+00:09:47.684 --> 00:09:49.085
+I keep hitting space.
+
+188
+00:09:49.085 --> 00:09:50.005
+I'll get to the end.
+
+189
+00:09:50.005 --> 00:09:53.096
+It should print new lines as they come in,
+
+190
+00:09:53.096 --> 00:09:57.013
+but I can also go back, look for bits and bobs.
+
+191
+00:09:57.917 --> 00:10:00.420
+Whoops, there you go.
+
+192
+00:10:00.420 --> 00:10:05.044
+So yeah, that was Head or Tail probably the most useful
+
+193
+00:10:05.044 --> 00:10:06.798
+for kind of looking at the end of things,
+
+194
+00:10:06.798 --> 00:10:09.301
+certainly tail dash f.
+
+195
+00:10:09.301 --> 00:10:12.427
+Head being the opposite of Tail rather.
+
+196
+00:10:12.427 --> 00:10:16.177
+And Less for kind of going into text streams,
+
+197
+00:10:17.801 --> 00:10:19.761
+it can be used with files as well
+
+198
+00:10:19.761 --> 00:10:22.561
+for basic searching and paging back and forth.
+
+199
+00:10:22.561 --> 00:10:23.394
+See ya.
+

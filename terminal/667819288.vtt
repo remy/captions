@@ -1,0 +1,894 @@
+﻿WEBVTT
+
+1
+00:00:01.469 --> 00:00:04.502
+<v ->So we've just seen how sudo can cause some chaos</v>
+
+2
+00:00:04.502 --> 00:00:06.397
+but also give you extra privileges,
+
+3
+00:00:06.397 --> 00:00:09.028
+and speaking of privileges
+
+4
+00:00:09.028 --> 00:00:12.804
+the files have different permission existence
+
+5
+00:00:12.804 --> 00:00:14.960
+and different privileges
+
+6
+00:00:14.960 --> 00:00:17.229
+that allow you to do different things to them.
+
+7
+00:00:17.229 --> 00:00:19.088
+So there's three types of privilege,
+
+8
+00:00:19.088 --> 00:00:22.248
+one is read, one is write, and one is execute.
+
+9
+00:00:22.248 --> 00:00:25.008
+Now we looked at executing programmes
+
+10
+00:00:25.008 --> 00:00:27.258
+in a previous video series.
+
+11
+00:00:29.101 --> 00:00:31.181
+Read is being able to read the content,
+
+12
+00:00:31.181 --> 00:00:34.749
+and write is to be able change the contents
+
+13
+00:00:34.749 --> 00:00:37.416
+but also delete the file itself.
+
+14
+00:00:38.339 --> 00:00:40.589
+Now going back to rems-dir,
+
+15
+00:00:41.840 --> 00:00:43.423
+remember I am remy,
+
+16
+00:00:44.366 --> 00:00:47.187
+sorry, this user is called rem,
+
+17
+00:00:47.187 --> 00:00:48.726
+which we see there in the prompt,
+
+18
+00:00:48.726 --> 00:00:50.827
+and this other user called remy
+
+19
+00:00:50.827 --> 00:00:52.425
+has created this secret file,
+
+20
+00:00:52.425 --> 00:00:55.167
+and when I try and cat the secret
+
+21
+00:00:55.167 --> 00:00:56.488
+I don't have permission.
+
+22
+00:00:56.488 --> 00:01:00.194
+Now there's a few reasons for that.
+
+23
+00:01:00.194 --> 00:01:02.234
+The first one is this.
+
+24
+00:01:02.234 --> 00:01:04.888
+This tells us what the permissions are.
+
+25
+00:01:04.888 --> 00:01:09.055
+In fact, actually if we go back into the directory
+
+26
+00:01:10.064 --> 00:01:11.579
+we can see there's quite a bit
+
+27
+00:01:11.579 --> 00:01:14.754
+of information in this listing,
+
+28
+00:01:14.754 --> 00:01:18.836
+and on the left column when I include the -l
+
+29
+00:01:18.836 --> 00:01:22.253
+it gives me the permissions and the type.
+
+30
+00:01:23.109 --> 00:01:26.640
+So I'm interested in this column here.
+
+31
+00:01:26.640 --> 00:01:28.479
+A directory has a d at the beginning,
+
+32
+00:01:28.479 --> 00:01:32.020
+so that's a clue that's a directory.
+
+33
+00:01:32.020 --> 00:01:33.687
+When I do ltr, oops,
+
+34
+00:01:35.832 --> 00:01:38.832
+I also in my personal terminal setup
+
+35
+00:01:41.076 --> 00:01:42.816
+if I recall correctly actually has slashes
+
+36
+00:01:42.816 --> 00:01:44.376
+on the end of each one of the directories,
+
+37
+00:01:44.376 --> 00:01:46.466
+so there's an extra clue
+
+38
+00:01:46.466 --> 00:01:47.437
+that I'm looking at a directory,
+
+39
+00:01:47.437 --> 00:01:50.764
+but here the first character is used to tell us
+
+40
+00:01:50.764 --> 00:01:52.786
+whether it's a directory or whether it's a file.
+
+41
+00:01:52.786 --> 00:01:55.992
+So all of these are directories except for this last one
+
+42
+00:01:55.992 --> 00:01:58.654
+because we see there's no d.
+
+43
+00:01:58.654 --> 00:02:03.124
+The first three columns are the user permissions,
+
+44
+00:02:03.124 --> 00:02:04.373
+and the user permissions are me,
+
+45
+00:02:04.373 --> 00:02:05.774
+the person using this machine,
+
+46
+00:02:05.774 --> 00:02:08.071
+I'm sorry, the the owner of the file,
+
+47
+00:02:08.071 --> 00:02:10.494
+not the person using the machine, the owner of the file.
+
+48
+00:02:10.494 --> 00:02:12.217
+The owner of the file is rem.
+
+49
+00:02:12.217 --> 00:02:15.652
+So I own the Pictures directory, Desktop, and so on.
+
+50
+00:02:15.652 --> 00:02:18.879
+So I have read, write, and execute,
+
+51
+00:02:18.879 --> 00:02:20.287
+and execute on a directory
+
+52
+00:02:20.287 --> 00:02:23.089
+I think it doesn't tend to mean a lot,
+
+53
+00:02:23.089 --> 00:02:26.340
+but it means if there's an executable file in there
+
+54
+00:02:26.340 --> 00:02:28.400
+I can execute it.
+
+55
+00:02:28.400 --> 00:02:31.228
+That might not be completely correct.
+
+56
+00:02:31.228 --> 00:02:34.177
+But if we look in the bin directory
+
+57
+00:02:34.177 --> 00:02:37.226
+we have that hello file from Chapter 2.
+
+58
+00:02:37.226 --> 00:02:40.198
+We can see read, write, execute.
+
+59
+00:02:40.198 --> 00:02:43.295
+So that means I can execute that hello programme.
+
+60
+00:02:43.295 --> 00:02:48.201
+So if we just try and run that just as a reminder, it runs.
+
+61
+00:02:48.201 --> 00:02:50.701
+It just echos out Hello world.
+
+62
+00:02:52.010 --> 00:02:54.103
+So the next group,
+
+63
+00:02:54.103 --> 00:02:58.522
+this after the first three, these three here,
+
+64
+00:02:58.522 --> 00:03:02.682
+and this freezing.log that belongs to the rem user
+
+65
+00:03:02.682 --> 00:03:06.402
+is marked as read and then nothing and nothing,
+
+66
+00:03:06.402 --> 00:03:09.888
+so that means it's only readable by people in my group.
+
+67
+00:03:09.888 --> 00:03:13.874
+So it goes user, the next three is group,
+
+68
+00:03:13.874 --> 00:03:16.378
+and the last three is other, people outside of my group.
+
+69
+00:03:16.378 --> 00:03:18.988
+And on a Mac they have this group called staff
+
+70
+00:03:18.988 --> 00:03:21.416
+which normal users are part of.
+
+71
+00:03:21.416 --> 00:03:23.652
+I think root user is part of staff,
+
+72
+00:03:23.652 --> 00:03:26.292
+and any user on this machine would be part of staff.
+
+73
+00:03:26.292 --> 00:03:29.262
+And then depending on the complexity
+
+74
+00:03:29.262 --> 00:03:30.364
+of the system you're working on
+
+75
+00:03:30.364 --> 00:03:32.964
+there might be other groups and so on,
+
+76
+00:03:32.964 --> 00:03:37.369
+but in this case any other user on this machine
+
+77
+00:03:37.369 --> 00:03:39.742
+will be in the group staff,
+
+78
+00:03:39.742 --> 00:03:43.062
+and they will be able to read this file.
+
+79
+00:03:43.062 --> 00:03:47.229
+Now if we look at this file, the hello file down here,
+
+80
+00:03:49.244 --> 00:03:53.411
+you'll see that the group commission is the r and the x,
+
+81
+00:03:58.099 --> 00:04:01.366
+and that means that anyone in my group can read the file,
+
+82
+00:04:01.366 --> 00:04:03.257
+but anyone else can execute the file,
+
+83
+00:04:03.257 --> 00:04:05.896
+anyone on my group can execute the file.
+
+84
+00:04:05.896 --> 00:04:07.982
+You can see the same thing repeated in the last column,
+
+85
+00:04:07.982 --> 00:04:12.870
+and that means that anyone who comes to this machine
+
+86
+00:04:12.870 --> 00:04:15.217
+if they're signed in they can run that file.
+
+87
+00:04:15.217 --> 00:04:17.655
+So if I had like a guest user sign in
+
+88
+00:04:17.655 --> 00:04:19.564
+that isn't part of the staff group,
+
+89
+00:04:19.564 --> 00:04:23.867
+they can still run this file and that will work,
+
+90
+00:04:23.867 --> 00:04:27.121
+and they can actually look at the contents of it as well.
+
+91
+00:04:27.121 --> 00:04:29.621
+But if we go into the rems-dir
+
+92
+00:04:32.017 --> 00:04:33.997
+and look at what's in there
+
+93
+00:04:33.997 --> 00:04:35.878
+we look at the permissions again,
+
+94
+00:04:35.878 --> 00:04:39.766
+remember the first three is the owner, the user,
+
+95
+00:04:39.766 --> 00:04:41.537
+the person who owns the file,
+
+96
+00:04:41.537 --> 00:04:42.908
+and in that case it was remy,
+
+97
+00:04:42.908 --> 00:04:44.868
+and I might use it.
+
+98
+00:04:44.868 --> 00:04:47.001
+There's two different users, one is remy, and one is rem,
+
+99
+00:04:47.001 --> 00:04:48.760
+sorry if that's confusing,
+
+100
+00:04:48.760 --> 00:04:50.681
+and everything else is blank.
+
+101
+00:04:50.681 --> 00:04:52.315
+Even though I'm in the same group
+
+102
+00:04:52.315 --> 00:04:55.196
+it means that I can look at the file
+
+103
+00:04:55.196 --> 00:04:57.924
+and have permission to look at the file.
+
+104
+00:04:57.924 --> 00:05:00.153
+So if I wanted to be able to read the file
+
+105
+00:05:00.153 --> 00:05:04.363
+I would need to have a read permission just here.
+
+106
+00:05:04.363 --> 00:05:06.873
+So I'm gonna use sudo to do that,
+
+107
+00:05:06.873 --> 00:05:08.037
+and I'm gonna change permissions.
+
+108
+00:05:08.037 --> 00:05:10.037
+In fact actually I'm gonna show,
+
+109
+00:05:10.037 --> 00:05:11.193
+before I do that I'm gonna show you
+
+110
+00:05:11.193 --> 00:05:13.407
+the same permissions but with finder.
+
+111
+00:05:13.407 --> 00:05:14.913
+So if we open up this directory
+
+112
+00:05:14.913 --> 00:05:17.484
+and we look at the, oops,
+
+113
+00:05:17.484 --> 00:05:19.345
+oh where did we go?
+
+114
+00:05:19.345 --> 00:05:21.614
+Go back to finder and look at permissions on this file.
+
+115
+00:05:21.614 --> 00:05:23.714
+So if I just do Command + I,
+
+116
+00:05:23.714 --> 00:05:27.806
+I think it's one of these things, Get Info,
+
+117
+00:05:27.806 --> 00:05:29.723
+down here in the corner
+
+118
+00:05:30.977 --> 00:05:34.525
+you can see permissions and sharing and so on.
+
+119
+00:05:34.525 --> 00:05:37.608
+So we can see that the owner is remy,
+
+120
+00:05:39.135 --> 00:05:41.788
+and that person has read write permissions,
+
+121
+00:05:41.788 --> 00:05:44.463
+and everyone else has no access.
+
+122
+00:05:44.463 --> 00:05:46.353
+Now I can unlock that,
+
+123
+00:05:46.353 --> 00:05:50.020
+which is the same as effectively doing sudo,
+
+124
+00:05:50.960 --> 00:05:53.578
+then go ahead and change those permissions.
+
+125
+00:05:53.578 --> 00:05:56.045
+I'm gonna change that for remy,
+
+126
+00:05:56.045 --> 00:06:00.063
+but I can change it to read only for everyone else.
+
+127
+00:06:00.063 --> 00:06:03.980
+So let's see how that affects things over here.
+
+128
+00:06:05.151 --> 00:06:05.984
+Okay, so if you look at
+
+129
+00:06:05.984 --> 00:06:07.613
+I've done the directory listing again
+
+130
+00:06:07.613 --> 00:06:10.653
+you can see that now in the other column,
+
+131
+00:06:10.653 --> 00:06:12.486
+so user, group, other,
+
+132
+00:06:15.725 --> 00:06:17.672
+other users have read permissions,
+
+133
+00:06:17.672 --> 00:06:20.445
+so if I cat that file out,
+
+134
+00:06:20.445 --> 00:06:22.778
+still don't have permission.
+
+135
+00:06:25.125 --> 00:06:27.625
+Read only, you have no access,
+
+136
+00:06:28.573 --> 00:06:29.406
+oh...
+
+137
+00:06:31.130 --> 00:06:33.629
+We have to have the group,
+
+138
+00:06:33.629 --> 00:06:36.879
+which I don't know how to do from here.
+
+139
+00:06:39.233 --> 00:06:40.150
+Read write.
+
+140
+00:06:44.683 --> 00:06:47.144
+That's a bit silly that you can't do it from there,
+
+141
+00:06:47.144 --> 00:06:51.144
+but we can actually do it from the command line.
+
+142
+00:06:52.139 --> 00:06:55.889
+I guess I could add myself individually, rem.
+
+143
+00:06:57.992 --> 00:06:58.909
+I can read.
+
+144
+00:07:03.598 --> 00:07:04.528
+I can read it.
+
+145
+00:07:04.528 --> 00:07:06.981
+I'm gonna abort using the finder,
+
+146
+00:07:06.981 --> 00:07:08.549
+'cause I just wanted to show you that it existed
+
+147
+00:07:08.549 --> 00:07:10.608
+and can do permissions.
+
+148
+00:07:10.608 --> 00:07:12.848
+If we go back here,
+
+149
+00:07:12.848 --> 00:07:15.517
+so the permissions are back to the way they were before.
+
+150
+00:07:15.517 --> 00:07:17.605
+I can't cat the file out,
+
+151
+00:07:17.605 --> 00:07:20.355
+but if I do sudo and then change,
+
+152
+00:07:22.097 --> 00:07:24.097
+chmod, change mod, mode,
+
+153
+00:07:27.349 --> 00:07:31.239
+mode, yes, okay so chmod means change mode,
+
+154
+00:07:31.239 --> 00:07:35.176
+and what we're gonna do is make the group
+
+155
+00:07:35.176 --> 00:07:36.843
+be read permissions.
+
+156
+00:07:37.994 --> 00:07:41.124
+So we put the file in there, secret.
+
+157
+00:07:41.124 --> 00:07:42.750
+So we're doing a few things,
+
+158
+00:07:42.750 --> 00:07:45.275
+we're doing sudo, so we're running it as root,
+
+159
+00:07:45.275 --> 00:07:48.915
+and we're changing the mode of the file
+
+160
+00:07:48.915 --> 00:07:51.535
+and we're giving the group,
+
+161
+00:07:51.535 --> 00:07:55.037
+we're plussing on read permissions to the file secret.
+
+162
+00:07:55.037 --> 00:07:57.537
+So let's see how that changes.
+
+163
+00:07:59.416 --> 00:08:00.965
+We see an r there
+
+164
+00:08:00.965 --> 00:08:03.826
+and we can cat the file out again.
+
+165
+00:08:03.826 --> 00:08:06.576
+Okay, so this is fairly intuitive
+
+166
+00:08:09.074 --> 00:08:12.491
+when you come to think of like u is user,
+
+167
+00:08:13.536 --> 00:08:16.786
+g is group, o is everyone else, others,
+
+168
+00:08:17.626 --> 00:08:20.096
+and you have read, write, and execute.
+
+169
+00:08:20.096 --> 00:08:23.346
+So if I do chmod rw and I list it again
+
+170
+00:08:25.672 --> 00:08:29.354
+you can see now I've got read write access.
+
+171
+00:08:29.354 --> 00:08:33.253
+There is another way of doing chmod with numbers.
+
+172
+00:08:33.253 --> 00:08:35.200
+So I'm showing you just so that you're not surprised
+
+173
+00:08:35.200 --> 00:08:38.105
+when you ever come across it.
+
+174
+00:08:38.105 --> 00:08:40.056
+The numbers relate to each column.
+
+175
+00:08:40.056 --> 00:08:42.639
+So if I had 777, three columns,
+
+176
+00:08:45.242 --> 00:08:46.627
+it's a bit (mumbles) number,
+
+177
+00:08:46.627 --> 00:08:48.224
+and I could never remember the order precisely.
+
+178
+00:08:48.224 --> 00:08:51.724
+I think read is one, so if we just do 111.
+
+179
+00:08:52.685 --> 00:08:54.246
+Nope.
+
+180
+00:08:54.246 --> 00:08:57.952
+Oh, one is execute, two is write I guess,
+
+181
+00:08:57.952 --> 00:09:01.452
+so we would do 3, which is one plus three.
+
+182
+00:09:04.622 --> 00:09:07.539
+Yeah, and we basically add them up.
+
+183
+00:09:08.502 --> 00:09:12.275
+What do we do, two four and seven is read, write, execute.
+
+184
+00:09:12.275 --> 00:09:13.775
+So we would do 40.
+
+185
+00:09:19.722 --> 00:09:24.274
+So that does read, write, execute for the user,
+
+186
+00:09:24.274 --> 00:09:27.093
+4 is read for the group,
+
+187
+00:09:27.093 --> 00:09:30.022
+and 0 is nothing for everyone else.
+
+188
+00:09:30.022 --> 00:09:31.032
+I'm just showing you
+
+189
+00:09:31.032 --> 00:09:34.865
+so that you know it exists in the first place,
+
+190
+00:09:35.771 --> 00:09:39.229
+but if you're actually doing chmod on the command line
+
+191
+00:09:39.229 --> 00:09:41.273
+then you want to use,
+
+192
+00:09:41.273 --> 00:09:43.336
+I recommend using the text version.
+
+193
+00:09:43.336 --> 00:09:45.469
+It's a little bit easier to read.
+
+194
+00:09:45.469 --> 00:09:48.039
+There's just one final part to this.
+
+195
+00:09:48.039 --> 00:09:50.739
+Now we can change your permissions, that's fine and dandy,
+
+196
+00:09:50.739 --> 00:09:52.499
+but what if we actually want to own the file?
+
+197
+00:09:52.499 --> 00:09:55.877
+What if we want to be able to make us the user
+
+198
+00:09:55.877 --> 00:09:57.963
+rather than this other user remy?
+
+199
+00:09:57.963 --> 00:09:59.325
+Well we can do that as well.
+
+200
+00:09:59.325 --> 00:10:02.408
+We can do chown, so change ownership.
+
+201
+00:10:04.030 --> 00:10:08.272
+If I do chown, I put in the user rem, which is me,
+
+202
+00:10:08.272 --> 00:10:11.902
+file name, let's see, permission denied,
+
+203
+00:10:11.902 --> 00:10:16.069
+but if we do sudo we've now changed the ownership to rem,
+
+204
+00:10:17.003 --> 00:10:19.947
+which means that I can chmod it as I please.
+
+205
+00:10:19.947 --> 00:10:22.447
+So let's take off the execute,
+
+206
+00:10:23.776 --> 00:10:24.943
+so u-x secret.
+
+207
+00:10:28.707 --> 00:10:31.377
+There we go, we weren't asked for the password,
+
+208
+00:10:31.377 --> 00:10:34.029
+because we are the owner of the file,
+
+209
+00:10:34.029 --> 00:10:38.429
+we are that user in that first column, okay?
+
+210
+00:10:38.429 --> 00:10:42.237
+So chmod is permissions, or the mode of the file,
+
+211
+00:10:42.237 --> 00:10:44.434
+so we have read, write, and execute,
+
+212
+00:10:44.434 --> 00:10:45.363
+and there are three groups,
+
+213
+00:10:45.363 --> 00:10:46.863
+there is the user,
+
+214
+00:10:47.712 --> 00:10:49.829
+which is the person who actually owns the file,
+
+215
+00:10:49.829 --> 00:10:51.912
+the group, and then the max case
+
+216
+00:10:51.912 --> 00:10:54.362
+where we're under the same group, the staff,
+
+217
+00:10:54.362 --> 00:10:56.945
+we can also make it executable,
+
+218
+00:10:58.028 --> 00:10:59.230
+and to make it executable
+
+219
+00:10:59.230 --> 00:11:01.480
+chmod u+x, executable,
+
+220
+00:11:07.304 --> 00:11:08.714
+and then the file name,
+
+221
+00:11:08.714 --> 00:11:10.344
+and then finally chown,
+
+222
+00:11:10.344 --> 00:11:12.763
+so we can change the ownership of the file or directory,
+
+223
+00:11:12.763 --> 00:11:16.100
+and we can do this to files and directories.
+

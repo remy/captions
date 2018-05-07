@@ -1,0 +1,974 @@
+﻿WEBVTT
+
+1
+00:00:01.775 --> 00:00:03.378
+<v ->Okay, so is this the last section</v>
+
+2
+00:00:03.378 --> 00:00:05.694
+on causing damage to your machine.
+
+3
+00:00:05.694 --> 00:00:07.425
+We've learned how to delete files,
+
+4
+00:00:07.425 --> 00:00:09.921
+completely override system permissions,
+
+5
+00:00:09.921 --> 00:00:12.329
+delete files that don't belong to us,
+
+6
+00:00:12.329 --> 00:00:14.734
+delete files or directories that are empty;
+
+7
+00:00:14.734 --> 00:00:16.271
+and now I'm gonna show you how
+
+8
+00:00:16.271 --> 00:00:20.459
+to completely stop programmes running in their tracks.
+
+9
+00:00:20.459 --> 00:00:22.670
+So there's a few commands that we can use
+
+10
+00:00:22.670 --> 00:00:25.084
+to see what programmes are running
+
+11
+00:00:25.084 --> 00:00:28.402
+and one of them, which I'll refer to
+
+12
+00:00:28.402 --> 00:00:32.133
+in my kind of workflow quite frequently is PS,
+
+13
+00:00:32.133 --> 00:00:34.716
+so process status I'm guessing.
+
+14
+00:00:36.654 --> 00:00:40.647
+And it'll list the processes, processes,
+
+15
+00:00:40.647 --> 00:00:44.814
+processes, processes, processes that I'm running by default.
+
+16
+00:00:46.191 --> 00:00:51.168
+So we have this thing called a pid, and it's the process ID.
+
+17
+00:00:51.168 --> 00:00:53.986
+So every process has a unique ID
+
+18
+00:00:53.986 --> 00:00:57.552
+that identifies it running on this machine,
+
+19
+00:00:57.552 --> 00:01:00.493
+so I am, you can see everything I'm running.
+
+20
+00:01:00.493 --> 00:01:03.668
+I'm running iTerm, which is this programme,
+
+21
+00:01:03.668 --> 00:01:05.708
+and I'm running a bash instance,
+
+22
+00:01:05.708 --> 00:01:08.375
+which is this command line here.
+
+23
+00:01:10.039 --> 00:01:13.814
+There is this ruby command over here that I'm running,
+
+24
+00:01:13.814 --> 00:01:17.731
+which is, I think it is doing capturing tweets;
+
+25
+00:01:21.548 --> 00:01:23.736
+and this is the file that's--
+
+26
+00:01:23.736 --> 00:01:25.499
+this is the command that's actually saving it to a file,
+
+27
+00:01:25.499 --> 00:01:26.994
+and this is another iTerm instance
+
+28
+00:01:26.994 --> 00:01:28.246
+that's down near minimise
+
+29
+00:01:28.246 --> 00:01:29.406
+and that's the other bash instance.
+
+30
+00:01:29.406 --> 00:01:34.298
+So you can see everything that my user is running right now.
+
+31
+00:01:34.298 --> 00:01:35.757
+Except I'm also running some other things
+
+32
+00:01:35.757 --> 00:01:39.772
+like the whole operating system and Chrome Canary
+
+33
+00:01:39.772 --> 00:01:41.140
+and some other bits and bobs,
+
+34
+00:01:41.140 --> 00:01:45.057
+so there are arguments that you can pass to PS;
+
+35
+00:01:46.318 --> 00:01:50.716
+and the ones that I tend to use all the time are auxww.
+
+36
+00:01:50.716 --> 00:01:53.268
+So much so that I have forgotten what they all mean,
+
+37
+00:01:53.268 --> 00:01:58.002
+and I'm pretty sure this is like show all processes;
+
+38
+00:01:58.002 --> 00:02:00.555
+so now we see a lot more
+
+39
+00:02:00.555 --> 00:02:03.207
+from all users, oh shit, yep.
+
+40
+00:02:03.207 --> 00:02:06.176
+So now we see remy; we see root.
+
+41
+00:02:06.176 --> 00:02:08.162
+We see rem at the bottom there,
+
+42
+00:02:08.162 --> 00:02:11.579
+and X, I can't really remember what X is.
+
+43
+00:02:14.132 --> 00:02:15.969
+Just a lot more information,
+
+44
+00:02:15.969 --> 00:02:18.908
+and then ww is super wide.
+
+45
+00:02:18.908 --> 00:02:22.573
+It gives us the full command so that when I grep,
+
+46
+00:02:22.573 --> 00:02:24.127
+and I'm about to show you that;
+
+47
+00:02:24.127 --> 00:02:26.613
+it has the whole line to actually grep on.
+
+48
+00:02:26.613 --> 00:02:29.530
+So this is pretty, pretty unwieldy.
+
+49
+00:02:30.468 --> 00:02:31.560
+There's a lot of information here.
+
+50
+00:02:31.560 --> 00:02:34.330
+I don't tend to look at it like this.
+
+51
+00:02:34.330 --> 00:02:37.247
+What I'm doing here is first saying
+
+52
+00:02:38.207 --> 00:02:40.340
+grab everything that's running
+
+53
+00:02:40.340 --> 00:02:43.259
+and always then pipe into grep
+
+54
+00:02:43.259 --> 00:02:45.437
+because I'm tend to be looking for one particular thing.
+
+55
+00:02:45.437 --> 00:02:49.604
+So let's open up Canary and head over to my blog briefly,
+
+56
+00:02:50.800 --> 00:02:53.450
+and let's just stick that on the side.
+
+57
+00:02:53.450 --> 00:02:54.484
+There we go.
+
+58
+00:02:54.484 --> 00:02:59.469
+So what we're gonna do is we're going to look for Canary.
+
+59
+00:02:59.469 --> 00:03:02.751
+Okay, so I'm gonna grep for Canary;
+
+60
+00:03:02.751 --> 00:03:05.918
+and it shows some of the Canary items,
+
+61
+00:03:07.251 --> 00:03:10.668
+and I only did a partial bit of the word,
+
+62
+00:03:11.947 --> 00:03:14.122
+but what I'll also do is do dash I.
+
+63
+00:03:14.122 --> 00:03:17.289
+Dash I means ignore case, just in case
+
+64
+00:03:18.309 --> 00:03:20.448
+I've got the casing wrong basically.
+
+65
+00:03:20.448 --> 00:03:22.531
+So there's so much there
+
+66
+00:03:23.866 --> 00:03:25.876
+that I'm kind of not sure how many I have,
+
+67
+00:03:25.876 --> 00:03:26.709
+so I'm just gonna pass it
+
+68
+00:03:26.709 --> 00:03:28.659
+straight into wc just to get a count.
+
+69
+00:03:28.659 --> 00:03:30.282
+So we have ten.
+
+70
+00:03:30.282 --> 00:03:32.056
+Ten Canaries were matched,
+
+71
+00:03:32.056 --> 00:03:34.288
+and I've only got one running Canary.
+
+72
+00:03:34.288 --> 00:03:37.392
+Now I know it's because I'm signed in as another user,
+
+73
+00:03:37.392 --> 00:03:39.002
+and I have other tabs open;
+
+74
+00:03:39.002 --> 00:03:41.499
+and there are plug-ins running and so on and so forth.
+
+75
+00:03:41.499 --> 00:03:44.995
+So I've got a lot of kind of floating bits,
+
+76
+00:03:44.995 --> 00:03:47.735
+and typically when I'm using PS,
+
+77
+00:03:47.735 --> 00:03:51.197
+I tend to be looking for one process;
+
+78
+00:03:51.197 --> 00:03:55.925
+and it'll be that I might wanna stop that process,
+
+79
+00:03:55.925 --> 00:04:00.587
+or I wanna see if it's even running in the first place.
+
+80
+00:04:00.587 --> 00:04:03.735
+But I'm gonna show you how to kill a process here.
+
+81
+00:04:03.735 --> 00:04:07.597
+So we're looking for Canary at the moment.
+
+82
+00:04:07.597 --> 00:04:09.107
+This isn't particularly useful.
+
+83
+00:04:09.107 --> 00:04:10.559
+There's too much information here.
+
+84
+00:04:10.559 --> 00:04:12.892
+What I wanna do is look for
+
+85
+00:04:14.361 --> 00:04:16.465
+the one that's being run by rem.
+
+86
+00:04:16.465 --> 00:04:18.477
+So I'm gonna grep for rem, and that's not useful either
+
+87
+00:04:18.477 --> 00:04:21.575
+because the other user's called remy.
+
+88
+00:04:21.575 --> 00:04:24.949
+I could grep for rem with a space.
+
+89
+00:04:24.949 --> 00:04:26.649
+That's one way of doing it.
+
+90
+00:04:26.649 --> 00:04:28.301
+That kind of narrows it down a bit,
+
+91
+00:04:28.301 --> 00:04:30.010
+and we're still quite a bit going on.
+
+92
+00:04:30.010 --> 00:04:32.766
+Let me just do a quick wc again, five;
+
+93
+00:04:32.766 --> 00:04:37.705
+but, in theory, these are all the ones that belong to me.
+
+94
+00:04:37.705 --> 00:04:41.288
+Let's pass that to less, have a quick look.
+
+95
+00:04:43.428 --> 00:04:44.912
+Yeah, it looks like--
+
+96
+00:04:44.912 --> 00:04:46.377
+I'm just kind of looking over on the left
+
+97
+00:04:46.377 --> 00:04:49.630
+just to see these first lines.
+
+98
+00:04:49.630 --> 00:04:52.543
+They all do look like they belong to me.
+
+99
+00:04:52.543 --> 00:04:55.528
+Now what I need to do now is get the process ID.
+
+100
+00:04:55.528 --> 00:04:57.558
+I'm going to kill that process ID.
+
+101
+00:04:57.558 --> 00:05:01.391
+So, there's a few ways that I can do this now.
+
+102
+00:05:03.882 --> 00:05:06.329
+I'm gonna show you a command called awk.
+
+103
+00:05:06.329 --> 00:05:08.487
+I'm not really gonna teach you how to use it fully
+
+104
+00:05:08.487 --> 00:05:12.570
+because it is a whole programme language in itself.
+
+105
+00:05:14.018 --> 00:05:17.006
+I'm just gonna show you one command,
+
+106
+00:05:17.006 --> 00:05:20.768
+so print dollar one; and I put it inside a quotes.
+
+107
+00:05:20.768 --> 00:05:24.276
+And what it's gonna do is it automatically breaks up
+
+108
+00:05:24.276 --> 00:05:29.138
+each line into a column, and it will print the first column;
+
+109
+00:05:29.138 --> 00:05:33.156
+and then if I wanna print the second column,
+
+110
+00:05:33.156 --> 00:05:35.878
+I just put a space in between.
+
+111
+00:05:35.878 --> 00:05:39.266
+That's obviously how you use spaces, I say sarcastically.
+
+112
+00:05:39.266 --> 00:05:41.611
+And then column two, which is dollar two;
+
+113
+00:05:41.611 --> 00:05:43.932
+and now I have the process ID.
+
+114
+00:05:43.932 --> 00:05:48.015
+So with that I should be able to kill my browser.
+
+115
+00:05:52.669 --> 00:05:55.132
+Now, let's get rid of the rem part
+
+116
+00:05:55.132 --> 00:05:56.946
+because I know that they all definitely belong to me.
+
+117
+00:05:56.946 --> 00:05:58.497
+I've just got to press IDs.
+
+118
+00:05:58.497 --> 00:05:59.352
+What I'm gonna do is go through
+
+119
+00:05:59.352 --> 00:06:03.416
+each one of those and kill that process.
+
+120
+00:06:03.416 --> 00:06:05.583
+I'm gonna start with the--
+
+121
+00:06:06.726 --> 00:06:09.147
+well, I'm gonna sort those actually.
+
+122
+00:06:09.147 --> 00:06:11.711
+I'm gonna start with the biggest number
+
+123
+00:06:11.711 --> 00:06:14.303
+just in a hope that it's the one I'm looking at.
+
+124
+00:06:14.303 --> 00:06:17.897
+So I'm gonna just type kill and give it the process ID,
+
+125
+00:06:17.897 --> 00:06:21.730
+and that tells me there is no such process ID.
+
+126
+00:06:22.797 --> 00:06:24.714
+Oh, yep, it's vanished.
+
+127
+00:06:25.909 --> 00:06:30.076
+In fact, I can see that last number keeps changing;
+
+128
+00:06:32.250 --> 00:06:35.140
+so we see it's 53 and 59 and so on and so forth.
+
+129
+00:06:35.140 --> 00:06:37.521
+So I'm gonna try this one instead,
+
+130
+00:06:37.521 --> 00:06:39.421
+and it's probably because Chrome has like some,
+
+131
+00:06:39.421 --> 00:06:41.449
+it's spawning extra things.
+
+132
+00:06:41.449 --> 00:06:43.908
+So I'm gonna kill this process,
+
+133
+00:06:43.908 --> 00:06:45.716
+and look what just happened.
+
+134
+00:06:45.716 --> 00:06:47.633
+We blew up a tab, nice.
+
+135
+00:06:49.214 --> 00:06:50.548
+But I wanna blow up the whole thing,
+
+136
+00:06:50.548 --> 00:06:53.248
+so I'm gonna bring back my window.
+
+137
+00:06:53.248 --> 00:06:56.530
+So we've got all these Chrome matches.
+
+138
+00:06:56.530 --> 00:06:59.863
+We're gonna pass all of those into kill,
+
+139
+00:07:00.945 --> 00:07:02.369
+and we use xargs.
+
+140
+00:07:02.369 --> 00:07:06.536
+What xargs does is take the output from the left side,
+
+141
+00:07:08.198 --> 00:07:10.315
+and it passes it as an argument
+
+142
+00:07:10.315 --> 00:07:12.815
+to whatever we give to xargs.
+
+143
+00:07:13.793 --> 00:07:15.988
+So I'm gonna do kill, and what happens is basically all
+
+144
+00:07:15.988 --> 00:07:20.255
+of these IDs will end up on the end of the kill command.
+
+145
+00:07:20.255 --> 00:07:22.297
+And I run it; it's gone.
+
+146
+00:07:22.297 --> 00:07:25.214
+I've just blown up Chrome entirely.
+
+147
+00:07:26.178 --> 00:07:30.345
+So, that's how you kill a command using the command line
+
+148
+00:07:32.709 --> 00:07:35.655
+or, certainly, that's I'd find a command, look for Canary,
+
+149
+00:07:35.655 --> 00:07:39.340
+make sure it's mine, find the process ID, and then kill it.
+
+150
+00:07:39.340 --> 00:07:40.564
+Now there are other ways as well.
+
+151
+00:07:40.564 --> 00:07:44.316
+There's a process called pid, a command called pidof,
+
+152
+00:07:44.316 --> 00:07:48.348
+which isn't installed here, but we can do a brew instal.
+
+153
+00:07:48.348 --> 00:07:49.978
+And I've gone and installed a pidof
+
+154
+00:07:49.978 --> 00:07:53.570
+using my other user on this machine
+
+155
+00:07:53.570 --> 00:07:55.694
+because I didn't have permission with this particular user,
+
+156
+00:07:55.694 --> 00:07:59.857
+but now I've installed pidof using brew,
+
+157
+00:07:59.857 --> 00:08:02.649
+I can type pidof Chrome;
+
+158
+00:08:02.649 --> 00:08:04.247
+and it will give me the process ID
+
+159
+00:08:04.247 --> 00:08:06.664
+of all the Chrome instances.
+
+160
+00:08:07.624 --> 00:08:12.094
+And if I wanted to, I could then pass that to xargs kill;
+
+161
+00:08:12.094 --> 00:08:13.794
+and it will kill Chrome entirely.
+
+162
+00:08:13.794 --> 00:08:16.456
+But if you notice down at the bottom I'm not--
+
+163
+00:08:16.456 --> 00:08:17.972
+I am not running Chrome;
+
+164
+00:08:17.972 --> 00:08:20.600
+the other user is running Chrome,
+
+165
+00:08:20.600 --> 00:08:22.608
+and that will pretty mess up my day a little bit.
+
+166
+00:08:22.608 --> 00:08:25.275
+So we're gonna see pidof sketch.
+
+167
+00:08:27.749 --> 00:08:31.506
+So I'm signed in as another user on this machine,
+
+168
+00:08:31.506 --> 00:08:36.481
+and I'm running sketch could kill all the sketch instances.
+
+169
+00:08:36.481 --> 00:08:39.231
+I'm gonna try; permission denied.
+
+170
+00:08:40.722 --> 00:08:43.230
+Now we've seen this before when we tried to delete files,
+
+171
+00:08:43.230 --> 00:08:46.266
+which means we can get around it.
+
+172
+00:08:46.266 --> 00:08:48.107
+The poor, unsuspecting other remy
+
+173
+00:08:48.107 --> 00:08:49.877
+is running sketch right now;
+
+174
+00:08:49.877 --> 00:08:52.627
+and I could go ahead and kill it.
+
+175
+00:08:53.734 --> 00:08:57.901
+And before I do, I just wanna show you the activity monitor,
+
+176
+00:08:58.757 --> 00:09:02.090
+which is not firing up activity.
+
+177
+00:09:02.090 --> 00:09:05.992
+The activity monitor is pretty much the equivalent
+
+178
+00:09:05.992 --> 00:09:08.542
+to what we're looking at;
+
+179
+00:09:08.542 --> 00:09:11.327
+and you'll find it under utilities, I think.
+
+180
+00:09:11.327 --> 00:09:13.115
+Activity monitor, here we go.
+
+181
+00:09:13.115 --> 00:09:16.757
+So these are all the processes that are running
+
+182
+00:09:16.757 --> 00:09:19.646
+under this machine right now,
+
+183
+00:09:19.646 --> 00:09:22.310
+including from other users, I think.
+
+184
+00:09:22.310 --> 00:09:23.365
+Oh, no, it's not.
+
+185
+00:09:23.365 --> 00:09:24.615
+I think I can--
+
+186
+00:09:25.525 --> 00:09:28.136
+maybe I can actually show other users.
+
+187
+00:09:28.136 --> 00:09:32.288
+So if I search for Chrome, nothing is listed.
+
+188
+00:09:32.288 --> 00:09:33.633
+You got all processes.
+
+189
+00:09:33.633 --> 00:09:37.016
+Here's what pidof was finding, all of these processes here;
+
+190
+00:09:37.016 --> 00:09:40.446
+and you can see that column pid over here.
+
+191
+00:09:40.446 --> 00:09:44.613
+So we look for sketch, we can see the two sketch processes.
+
+192
+00:09:45.916 --> 00:09:49.031
+I believe that this one is a child of this one,
+
+193
+00:09:49.031 --> 00:09:51.241
+so that's why there's two;
+
+194
+00:09:51.241 --> 00:09:54.435
+and we can see the owner, user is remy.
+
+195
+00:09:54.435 --> 00:09:55.975
+But we're gonna go ahead and kill those anyway,
+
+196
+00:09:55.975 --> 00:09:59.503
+and I think you can do it from here as well.
+
+197
+00:09:59.503 --> 00:10:01.525
+There we can force quit the process,
+
+198
+00:10:01.525 --> 00:10:03.509
+and the reason I'm showing you on the command line again
+
+199
+00:10:03.509 --> 00:10:06.934
+is if you have to-- if you can't do it from the GUI,
+
+200
+00:10:06.934 --> 00:10:09.528
+or if you're having to do it on a remote machine.
+
+201
+00:10:09.528 --> 00:10:13.445
+So what we're gonna do now is just a sudo kill,
+
+202
+00:10:15.093 --> 00:10:17.175
+and we're gonna put in our password;
+
+203
+00:10:17.175 --> 00:10:18.342
+and it's dead.
+
+204
+00:10:20.172 --> 00:10:24.339
+So that has shut down in the other user's account.
+
+205
+00:10:25.297 --> 00:10:27.387
+None of them are running.
+
+206
+00:10:27.387 --> 00:10:29.328
+No pidof sketch.
+
+207
+00:10:29.328 --> 00:10:31.828
+Now, what we just did is tell
+
+208
+00:10:33.422 --> 00:10:35.965
+that process to shut down using the kill command;
+
+209
+00:10:35.965 --> 00:10:37.441
+and there is another--
+
+210
+00:10:37.441 --> 00:10:39.779
+we were pretty forceful with our sudo,
+
+211
+00:10:39.779 --> 00:10:41.887
+but there is another way of killing it as well;
+
+212
+00:10:41.887 --> 00:10:45.006
+and we have kill minus nine.
+
+213
+00:10:45.006 --> 00:10:49.753
+Kill minus nine means force the programme to quit
+
+214
+00:10:49.753 --> 00:10:52.059
+regardless of whether or not there's any kind of prompting
+
+215
+00:10:52.059 --> 00:10:54.270
+or kind of exit handling or anything like that.
+
+216
+00:10:54.270 --> 00:10:57.867
+It just says just completely get it shut down.
+
+217
+00:10:57.867 --> 00:11:00.098
+Now you might have--
+
+218
+00:11:00.098 --> 00:11:02.376
+oh, I was gonna open another window.
+
+219
+00:11:02.376 --> 00:11:05.014
+You might have a process that's spinning out of control,
+
+220
+00:11:05.014 --> 00:11:08.361
+using all your CPU; and, you know,
+
+221
+00:11:08.361 --> 00:11:12.528
+you can't get to it using-- you can't even load it up.
+
+222
+00:11:14.887 --> 00:11:16.560
+Kill minus nine and then the ID
+
+223
+00:11:16.560 --> 00:11:19.623
+of the process will force the shutdown
+
+224
+00:11:19.623 --> 00:11:22.929
+and just instantly kill it in its tracks.
+
+225
+00:11:22.929 --> 00:11:25.902
+And then, of course, sudo kill minus nine is kind of
+
+226
+00:11:25.902 --> 00:11:30.392
+the mega mega make this thing stop for sure.
+
+227
+00:11:30.392 --> 00:11:33.062
+So that's probably the most lethal you can get.
+
+228
+00:11:33.062 --> 00:11:36.213
+If you absolutely wanna make sure the process is
+
+229
+00:11:36.213 --> 00:11:38.551
+it stops in its track, then kill,
+
+230
+00:11:38.551 --> 00:11:42.718
+sudo kill minus nine and the process ID and it will stop.
+
+231
+00:11:43.718 --> 00:11:46.396
+Just as a little anecdote,
+
+232
+00:11:46.396 --> 00:11:50.229
+old Linux machines used to have the process ID
+
+233
+00:11:51.238 --> 00:11:53.823
+of the entire operating system used to be one;
+
+234
+00:11:53.823 --> 00:11:57.240
+so you could do sudo kill minus nine one,
+
+235
+00:11:59.501 --> 00:12:01.094
+and that would completely shut down
+
+236
+00:12:01.094 --> 00:12:03.222
+the entire operating system.
+
+237
+00:12:03.222 --> 00:12:05.328
+Thankfully, it's impossible to do now.
+
+238
+00:12:05.328 --> 00:12:07.860
+It's just the system is protecting itself
+
+239
+00:12:07.860 --> 00:12:11.395
+from idiots like me trying to shut down my entire machine
+
+240
+00:12:11.395 --> 00:12:13.110
+whilst I'm recording a video.
+
+241
+00:12:13.110 --> 00:12:16.306
+So, now that we know how to do some damage,
+
+242
+00:12:16.306 --> 00:12:17.994
+the next video I'm gonna show you,
+
+243
+00:12:17.994 --> 00:12:20.975
+we'll show you how to check the health of your machine.
+

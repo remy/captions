@@ -1,0 +1,262 @@
+﻿WEBVTT
+
+1
+00:00:01.681 --> 00:00:04.158
+<v ->Now we're going to look at environment variables.</v>
+
+2
+00:00:04.158 --> 00:00:07.158
+Environment variables are basically,
+
+3
+00:00:08.072 --> 00:00:11.847
+environment variables that have some value specific
+
+4
+00:00:11.847 --> 00:00:14.693
+to this machine or whatever machine you're running
+
+5
+00:00:14.693 --> 00:00:16.593
+your code on.
+
+6
+00:00:16.593 --> 00:00:19.304
+Now this is really useful for having one configuration
+
+7
+00:00:19.304 --> 00:00:21.661
+for like your development machine
+
+8
+00:00:21.661 --> 00:00:24.696
+and another configuration for your production machine
+
+9
+00:00:24.696 --> 00:00:26.840
+and there are already environment variables
+
+10
+00:00:26.840 --> 00:00:27.673
+on this machine.
+
+11
+00:00:27.673 --> 00:00:30.225
+I can see them by typing in the, and I notice now
+
+12
+00:00:30.225 --> 00:00:32.211
+every single environment variable that this machine has.
+
+13
+00:00:32.211 --> 00:00:34.816
+I can give you a preview of some of those.
+
+14
+00:00:34.816 --> 00:00:36.755
+I'm just piping it less because I don't want to show you
+
+15
+00:00:36.755 --> 00:00:38.761
+all of my environment variables because I tend to have
+
+16
+00:00:38.761 --> 00:00:41.453
+some secret keys on this machine as well.
+
+17
+00:00:41.453 --> 00:00:44.934
+You can see that I separate by on the left side
+
+18
+00:00:44.934 --> 00:00:47.314
+tends to be upper case.
+
+19
+00:00:47.314 --> 00:00:49.419
+This is the environment variable name
+
+20
+00:00:49.419 --> 00:00:51.565
+and this is the environment variable value.
+
+21
+00:00:51.565 --> 00:00:53.564
+So down here we can see path which we met
+
+22
+00:00:53.564 --> 00:00:57.731
+in earlier screen cast and we can also echo out $PATH.
+
+23
+00:00:58.699 --> 00:01:01.590
+So the environment variable name is without a dollar
+
+24
+00:01:01.590 --> 00:01:04.556
+but in the shell if we want to print it,
+
+25
+00:01:04.556 --> 00:01:07.466
+I'm going to use echo which just means print this value
+
+26
+00:01:07.466 --> 00:01:10.933
+to screen and I put a dollar in front of the variable name
+
+27
+00:01:10.933 --> 00:01:14.447
+and it will print out the full path.
+
+28
+00:01:14.447 --> 00:01:18.614
+If there's no variable like PORT it'll just be blank
+
+29
+00:01:19.496 --> 00:01:21.996
+because there's no value in it
+
+30
+00:01:23.629 --> 00:01:25.032
+and these environment variables are actually
+
+31
+00:01:25.032 --> 00:01:27.431
+really useful for development like I said
+
+32
+00:01:27.431 --> 00:01:29.658
+and in particular you can actually set them
+
+33
+00:01:29.658 --> 00:01:33.465
+on the command line temporarily for the duration
+
+34
+00:01:33.465 --> 00:01:35.023
+of that programme.
+
+35
+00:01:35.023 --> 00:01:37.314
+So something that's really common for me to do
+
+36
+00:01:37.314 --> 00:01:39.737
+when I'm developing kind of a node programme,
+
+37
+00:01:39.737 --> 00:01:42.426
+the same I would presume with any kind of Python
+
+38
+00:01:42.426 --> 00:01:45.781
+or Ruby or anything else, you can set the environment
+
+39
+00:01:45.781 --> 00:01:47.102
+variable on the command line.
+
+40
+00:01:47.102 --> 00:01:49.771
+So you can do things like this, PORT=3000
+
+41
+00:01:49.771 --> 00:01:51.683
+and then you run your programme.
+
+42
+00:01:51.683 --> 00:01:54.016
+So I would run node index.js
+
+43
+00:01:55.317 --> 00:01:58.523
+and inside of my index.js file I will be able
+
+44
+00:01:58.523 --> 00:02:01.226
+to look into the environment and it will see
+
+45
+00:02:01.226 --> 00:02:03.854
+that PORT has a value of 3000.
+
+46
+00:02:03.854 --> 00:02:05.765
+And I've just made this little script
+
+47
+00:02:05.765 --> 00:02:09.414
+that will echo out $PORT, exactly the same as what
+
+48
+00:02:09.414 --> 00:02:11.575
+we just did in the command line but this is a programme
+
+49
+00:02:11.575 --> 00:02:13.844
+that will look at its environment.
+
+50
+00:02:13.844 --> 00:02:18.691
+So when I run this by itself, by doing sh or shell
+
+51
+00:02:18.691 --> 00:02:22.591
+there's no value, but if I do PORT=3000
+
+52
+00:02:22.591 --> 00:02:25.424
+and then do run the programme again,
+
+53
+00:02:26.508 --> 00:02:30.498
+you can see that now there is this temporary PORT value.
+
+54
+00:02:30.498 --> 00:02:34.416
+It hasn't effected my, oops, it hasn't effected my
+
+55
+00:02:34.416 --> 00:02:36.193
+current environment, my current shell.
+
+56
+00:02:36.193 --> 00:02:38.776
+It only exists for the duration
+
+57
+00:02:40.575 --> 00:02:43.215
+that this programme is running.
+
+58
+00:02:43.215 --> 00:02:45.867
+So you can see we can change that
+
+59
+00:02:45.867 --> 00:02:47.603
+and it's able to read that value.
+
+60
+00:02:47.603 --> 00:02:50.697
+This is really, really useful for when,
+
+61
+00:02:50.697 --> 00:02:51.786
+like I said you're doing development.
+
+62
+00:02:51.786 --> 00:02:54.682
+This is a really common patent that I use.
+
+63
+00:02:54.682 --> 00:02:59.573
+I will literally just do PORT=3001 node, off I go,
+
+64
+00:02:59.573 --> 00:03:01.754
+node index.js and I'll be able
+
+65
+00:03:01.754 --> 00:03:03.599
+to read that environment variable.
+

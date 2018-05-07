@@ -1,0 +1,738 @@
+﻿WEBVTT
+
+1
+00:00:02.144 --> 00:00:03.418
+<v ->So next up we're going to look up</v>
+
+2
+00:00:03.418 --> 00:00:05.618
+how we can add plugins
+
+3
+00:00:05.618 --> 00:00:06.785
+to our zshell.
+
+4
+00:00:08.340 --> 00:00:11.461
+or a particular oh-my zshell
+
+5
+00:00:11.461 --> 00:00:14.402
+and Oh-my zshell, makes it very, very easy
+
+6
+00:00:14.402 --> 00:00:16.305
+to add in additional plug-ins.
+
+7
+00:00:16.305 --> 00:00:17.138
+So
+
+8
+00:00:18.335 --> 00:00:21.739
+you can either google Oh-my zshell plugins
+
+9
+00:00:21.739 --> 00:00:22.899
+you should land on this page,
+
+10
+00:00:22.899 --> 00:00:25.944 line:15% 
+otherwise there'll be a link in the video that you can use.
+
+11
+00:00:25.944 --> 00:00:28.400 line:15% 
+And the description is pretty straightforward.
+
+12
+00:00:28.400 --> 00:00:31.524
+You edit your .zhrc that we met earlier
+
+13
+00:00:31.524 --> 00:00:32.787
+and there's a list of plugins
+
+14
+00:00:32.787 --> 00:00:33.770
+which I'll show you in a moment
+
+15
+00:00:33.770 --> 00:00:35.242
+and you just add into that.
+
+16
+00:00:35.242 --> 00:00:38.211
+Now what I do is I tend to browse down this long list.
+
+17
+00:00:38.211 --> 00:00:41.082
+Some of those don't make any sense to me at all.
+
+18
+00:00:41.082 --> 00:00:45.191
+I don't use apache-macports or archlinux
+
+19
+00:00:45.191 --> 00:00:48.015
+But I do recognise words like bower and brew,
+
+20
+00:00:48.015 --> 00:00:49.432
+bundler and cask.
+
+21
+00:00:50.599 --> 00:00:52.231
+So there's a bunch of things in here.
+
+22
+00:00:52.231 --> 00:00:54.751
+What I tend to do is just kinda scroll through these
+
+23
+00:00:54.751 --> 00:00:56.433
+and have a look a ones that catch my eye,
+
+24
+00:00:56.433 --> 00:00:59.402
+like git-extras and so on.
+
+25
+00:00:59.402 --> 00:01:00.635
+So there's git-hub there as well.
+
+26
+00:01:00.635 --> 00:01:04.558
+If you scroll down a bit more, I think earlier I saw OSX.
+
+27
+00:01:04.558 --> 00:01:07.835
+So when I click on that, have a read.
+
+28
+00:01:07.835 --> 00:01:10.603
+Decide whether or not I wanna instal it
+
+29
+00:01:10.603 --> 00:01:12.474
+and I'll show you how to instal it.
+
+30
+00:01:12.474 --> 00:01:16.203
+So, our showfiles and hidefiles are really useful
+
+31
+00:01:16.203 --> 00:01:18.891
+and maybe this is something I would instal.
+
+32
+00:01:18.891 --> 00:01:21.361
+But we're going to look at 'sublime'.
+
+33
+00:01:21.361 --> 00:01:23.249
+So I use sublime for my editing
+
+34
+00:01:23.249 --> 00:01:27.332
+and I wanna show you the plugin that it gives me.
+
+35
+00:01:28.424 --> 00:01:29.809
+Really straightforward.
+
+36
+00:01:29.809 --> 00:01:32.476
+This command 'st' opens sublime.
+
+37
+00:01:33.766 --> 00:01:35.152
+It can either open sublime
+
+38
+00:01:35.152 --> 00:01:38.462
+or open sublime on a directory or a file.
+
+39
+00:01:38.462 --> 00:01:42.285
+So I'm just gonna go ahead and copy the word sublime
+
+40
+00:01:42.285 --> 00:01:45.118
+and I'm gonna open the .zhrc file.
+
+41
+00:01:48.405 --> 00:01:50.340
+I can type it out again
+
+42
+00:01:50.340 --> 00:01:52.300
+but one of the really nice features of zshell
+
+43
+00:01:52.300 --> 00:01:53.956
+is I can start typing the beginning
+
+44
+00:01:53.956 --> 00:01:57.539
+of the command I ran earlier on in history,
+
+45
+00:01:58.729 --> 00:02:00.905
+if you remember history from one of the earlier videos
+
+46
+00:02:00.905 --> 00:02:04.122
+but now I can just cursor up.
+
+47
+00:02:04.122 --> 00:02:07.530
+Just doing cursor up says find me anything in the history
+
+48
+00:02:07.530 --> 00:02:09.026
+that begins with 'op',
+
+49
+00:02:09.026 --> 00:02:11.794
+the first few characters I had just there, so 'op'.
+
+50
+00:02:11.794 --> 00:02:13.863
+And if I just keep cursoring up,
+
+51
+00:02:13.863 --> 00:02:15.151
+it'll show you the different things
+
+52
+00:02:15.151 --> 00:02:16.840
+that I've run with 'open.'
+
+53
+00:02:16.840 --> 00:02:18.482
+So I opened this directory earlier
+
+54
+00:02:18.482 --> 00:02:20.927
+and I opened the .zshrc file.
+
+55
+00:02:20.927 --> 00:02:21.855
+So I can just hit that
+
+56
+00:02:21.855 --> 00:02:25.599
+and that's a real nice kinda little history hack.
+
+57
+00:02:25.599 --> 00:02:28.935
+So if you search this file for plugin,
+
+58
+00:02:28.935 --> 00:02:33.150
+plugins equals rather, it should just jump you to this area
+
+59
+00:02:33.150 --> 00:02:35.182
+and by default, we have a 'git' plugin,
+
+60
+00:02:35.182 --> 00:02:36.215
+which is a thing that allowed us
+
+61
+00:02:36.215 --> 00:02:38.190
+to see when we had dirty files
+
+62
+00:02:38.190 --> 00:02:40.459
+and what the repository was.
+
+63
+00:02:40.459 --> 00:02:43.698
+I'm just going to put in 'sublime', hit save.
+
+64
+00:02:43.698 --> 00:02:47.315
+Now saving doesn't reload my config in this shell.
+
+65
+00:02:47.315 --> 00:02:50.315
+I have to either open up another terminal window
+
+66
+00:02:50.315 --> 00:02:53.667
+or I have to exit this one and go back into it.
+
+67
+00:02:53.667 --> 00:02:57.800
+Or I can do a dot and I'll just do (inaudible) dollar
+
+68
+00:02:57.800 --> 00:03:00.056
+and dot will reload the file form as well.
+
+69
+00:03:00.056 --> 00:03:01.427
+So you do whatever you want,
+
+70
+00:03:01.427 --> 00:03:04.971
+but just bear in mind until you reload that shell
+
+71
+00:03:04.971 --> 00:03:08.099
+you're not going to have that configuration change.
+
+72
+00:03:08.099 --> 00:03:11.931
+So now, I should be able to type 'st'
+
+73
+00:03:11.931 --> 00:03:14.431
+and choose directory like
+
+74
+00:03:14.431 --> 00:03:16.264
+'Documents', 'jsonbin'
+
+75
+00:03:17.450 --> 00:03:21.573
+and hit 'Enter' and it'll open up sublime in that directory.
+
+76
+00:03:21.573 --> 00:03:23.165
+So I go ahead and make a change.
+
+77
+00:03:23.165 --> 00:03:25.827
+I could do on a specific file
+
+78
+00:03:25.827 --> 00:03:27.698
+and it will open up the README for me
+
+79
+00:03:27.698 --> 00:03:29.914
+and it's the same as kind of,
+
+80
+00:03:29.914 --> 00:03:31.182
+I use VI sometimes
+
+81
+00:03:31.182 --> 00:03:35.425
+which is kind of Text Editor version here.
+
+82
+00:03:35.425 --> 00:03:38.976
+But using 'sublime' to open up this is really handy.
+
+83
+00:03:38.976 --> 00:03:39.989
+So yeah.
+
+84
+00:03:39.989 --> 00:03:41.274
+Pretty cool.
+
+85
+00:03:41.274 --> 00:03:43.330
+But that's just a short cut rig.
+
+86
+00:03:43.330 --> 00:03:47.497
+One of the plugins I find really, really useful is called z
+
+87
+00:03:50.313 --> 00:03:54.890
+or 'z', depending on how you wanna pronounce it.
+
+88
+00:03:54.890 --> 00:03:57.057
+Scroll down to the bottom.
+
+89
+00:03:58.011 --> 00:04:00.178
+It's not even there is it.
+
+90
+00:04:01.039 --> 00:04:02.934
+I can't remember how I came unto it,
+
+91
+00:04:02.934 --> 00:04:05.653
+so maybe this is like an inside tip
+
+92
+00:04:05.653 --> 00:04:06.653
+and but z is
+
+93
+00:04:08.571 --> 00:04:10.654
+a way to quickly navigate
+
+94
+00:04:11.500 --> 00:04:14.456
+into different directories that you've been into recently.
+
+95
+00:04:14.456 --> 00:04:16.460
+So if I instal that
+
+96
+00:04:16.460 --> 00:04:19.326
+and I just run that source command again.
+
+97
+00:04:19.326 --> 00:04:22.572
+I should be able to type in 'z' and 'js'
+
+98
+00:04:22.572 --> 00:04:24.494
+and it should jump me into.
+
+99
+00:04:24.494 --> 00:04:25.934
+I think I need to populate the history.
+
+100
+00:04:25.934 --> 00:04:27.351
+So if I move into
+
+101
+00:04:28.501 --> 00:04:29.501
+'Documents',
+
+102
+00:04:31.031 --> 00:04:32.114
+and 'jsonbin'
+
+103
+00:04:39.574 --> 00:04:41.105
+It gave me an error just there.
+
+104
+00:04:41.105 --> 00:04:44.504
+No such directory or file, '.z'.
+
+105
+00:04:44.504 --> 00:04:46.254
+I think it has it now
+
+106
+00:04:47.884 --> 00:04:49.217
+Okay it has one.
+
+107
+00:04:50.331 --> 00:04:53.906
+I'm just gonna go back into maybe 'Documents' and the 'remy'
+
+108
+00:04:53.906 --> 00:04:56.739
+and I look at the public directory
+
+109
+00:04:58.406 --> 00:05:02.065
+and from here, if I type 'z' and the 'json',
+
+110
+00:05:02.065 --> 00:05:04.607
+what's gonna happen is, it's gonna search through my history
+
+111
+00:05:04.607 --> 00:05:06.208
+of directories I've been into
+
+112
+00:05:06.208 --> 00:05:09.241
+and it should jump me into the most recent one
+
+113
+00:05:09.241 --> 00:05:11.129
+that matches that strain.
+
+114
+00:05:11.129 --> 00:05:12.558
+So it moves me into that directory link,
+
+115
+00:05:12.558 --> 00:05:15.612
+you'll have to kinda navigate up and down.
+
+116
+00:05:15.612 --> 00:05:18.192
+If I type in 'z rem',
+
+117
+00:05:18.192 --> 00:05:20.104
+it should take me to remyshop.com
+
+118
+00:05:20.104 --> 00:05:22.521
+but not the public directory.
+
+119
+00:05:23.651 --> 00:05:25.184
+And then finally what I wanna show you
+
+120
+00:05:25.184 --> 00:05:27.016
+is zshell syntax highlighting.
+
+121
+00:05:27.016 --> 00:05:30.099
+So again if you watch the fish video,
+
+122
+00:05:31.176 --> 00:05:33.133
+you'll see that if we type a command wrong
+
+123
+00:05:33.133 --> 00:05:34.407
+it comes up in red.
+
+124
+00:05:34.407 --> 00:05:36.837
+And it's a really neat feature
+
+125
+00:05:36.837 --> 00:05:38.920
+and I find really useful.
+
+126
+00:05:41.899 --> 00:05:43.124
+We have to instal it manually.
+
+127
+00:05:43.124 --> 00:05:46.874
+So I'll include the link to this in the video
+
+128
+00:05:49.344 --> 00:05:51.472
+but we have to go ahead and instal this
+
+129
+00:05:51.472 --> 00:05:53.336
+and here we go,
+
+130
+00:05:53.336 --> 00:05:54.253
+to instal,
+
+131
+00:05:56.560 --> 00:05:57.977
+we clone the repo
+
+132
+00:06:00.616 --> 00:06:03.502
+probably didn't want to put it there
+
+133
+00:06:03.502 --> 00:06:07.669
+and let's move the zshell thingy into our home directory.
+
+134
+00:06:10.905 --> 00:06:11.871
+Just make sure it's still there.
+
+135
+00:06:11.871 --> 00:06:12.704
+Yup
+
+136
+00:06:12.704 --> 00:06:16.371
+and then next we're going to do this command
+
+137
+00:06:18.319 --> 00:06:20.619
+K, so now, there should be,
+
+138
+00:06:20.619 --> 00:06:24.536
+it should have added a line to our zshell file.
+
+139
+00:06:26.979 --> 00:06:28.595
+Let's just close that
+
+140
+00:06:28.595 --> 00:06:31.955
+and open in again and down at the bottom
+
+141
+00:06:31.955 --> 00:06:35.060
+you should see that's the lines being added.
+
+142
+00:06:35.060 --> 00:06:36.636
+I got it twice somehow
+
+143
+00:06:36.636 --> 00:06:39.174
+and it's only because I was doing some
+
+144
+00:06:39.174 --> 00:06:41.136
+preparation work earlier.
+
+145
+00:06:41.136 --> 00:06:43.496
+So if I open up a new tab,
+
+146
+00:06:43.496 --> 00:06:48.259
+now if I type, you can see I have a green text there
+
+147
+00:06:48.259 --> 00:06:51.995
+and you can see if I type in something that doesn't exist
+
+148
+00:06:51.995 --> 00:06:53.708
+I get it red.
+
+149
+00:06:53.708 --> 00:06:56.164
+And then if it's good then green.
+
+150
+00:06:56.164 --> 00:06:57.099
+So that's cool.
+
+151
+00:06:57.099 --> 00:06:59.599
+It means that also things like
+
+152
+00:07:02.276 --> 00:07:03.972
+that directory doesn't exist
+
+153
+00:07:03.972 --> 00:07:06.604
+and but when I type something, it does exist.
+
+154
+00:07:06.604 --> 00:07:08.148
+You can see it's underlined.
+
+155
+00:07:08.148 --> 00:07:10.036
+That's a really good visual cue
+
+156
+00:07:10.036 --> 00:07:14.088
+that I'm correctly typing what I'm doing
+
+157
+00:07:14.088 --> 00:07:15.338
+So, 'documents'
+
+158
+00:07:17.964 --> 00:07:18.797
+'jsonbin'
+
+159
+00:07:19.847 --> 00:07:20.943
+and if public,
+
+160
+00:07:20.943 --> 00:07:22.783
+so you can move around really easily now
+
+161
+00:07:22.783 --> 00:07:26.079
+And I can save from running commands incorrectly.
+
+162
+00:07:26.079 --> 00:07:28.770
+So if it was you know 'fi' doesn't exist
+
+163
+00:07:28.770 --> 00:07:32.136
+I know that because it's not even highlight green
+
+164
+00:07:32.136 --> 00:07:34.719
+but 'fish' does, 'fis' doesn't.
+
+165
+00:07:35.593 --> 00:07:36.426
+I think that 'fi' actually means
+
+166
+00:07:36.426 --> 00:07:38.252
+it's matching more than one thing.
+
+167
+00:07:38.252 --> 00:07:39.881
+So I'm hitting tab here to work my way
+
+168
+00:07:39.881 --> 00:07:41.774
+through all these different things.
+
+169
+00:07:41.774 --> 00:07:44.357
+So that was the last one there.
+
+170
+00:07:45.214 --> 00:07:48.342
+Definitely worth scrolling through these plugins
+
+171
+00:07:48.342 --> 00:07:49.678
+and having a look around.
+
+172
+00:07:49.678 --> 00:07:52.427
+Look in the ecosystem, checking out stuff.
+
+173
+00:07:52.427 --> 00:07:54.038
+Maybe use 'jira'.
+
+174
+00:07:54.038 --> 00:07:56.369
+You can get a 'jira' plugin.
+
+175
+00:07:56.369 --> 00:07:58.119
+No idea what that is.
+
+176
+00:08:00.368 --> 00:08:04.476
+Maybe you'll wanna try and instal that next and find out.
+
+177
+00:08:04.476 --> 00:08:05.309
+Great!
+
+178
+00:08:05.309 --> 00:08:09.755
+So that is customising your shell experience
+
+179
+00:08:09.755 --> 00:08:12.437
+and except the file that we've seen,
+
+180
+00:08:12.437 --> 00:08:16.437
+everything lives inside of this doc .zshrc file.
+
+181
+00:08:17.349 --> 00:08:20.044
+And if you save that and move it to another machine
+
+182
+00:08:20.044 --> 00:08:21.412
+then that's your whole configuration
+
+183
+00:08:21.412 --> 00:08:23.388
+and that's what will make it look
+
+184
+00:08:23.388 --> 00:08:26.223
+and feel the way that you want it to look and feel.
+

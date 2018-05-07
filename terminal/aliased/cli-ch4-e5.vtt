@@ -1,0 +1,1014 @@
+﻿WEBVTT
+
+1
+00:00:02.141 --> 00:00:05.090
+<v ->So now that we've seen how to make a mess of our machine,</v>
+
+2
+00:00:05.090 --> 00:00:08.570
+I wanna show you a few tools for checking the health
+
+3
+00:00:08.570 --> 00:00:10.840
+and status of the machine.
+
+4
+00:00:10.840 --> 00:00:14.411
+So the first ones we're gonna look at is for disc space.
+
+5
+00:00:14.411 --> 00:00:17.810
+Again, just to repeat it, you can, if you have
+
+6
+00:00:17.810 --> 00:00:19.509
+a good way to check these kinda things,
+
+7
+00:00:19.509 --> 00:00:20.869
+it's worth using those.
+
+8
+00:00:20.869 --> 00:00:22.451
+But I wanna show them so that you how to use them
+
+9
+00:00:22.451 --> 00:00:26.629
+on a machine that you might have connected to.
+
+10
+00:00:26.629 --> 00:00:29.160
+So the first one is disc free.
+
+11
+00:00:29.160 --> 00:00:31.611
+So if I run disc free I get a lot of numbers
+
+12
+00:00:31.611 --> 00:00:35.543
+and stuff that isn't particularly useful to me,
+
+13
+00:00:35.543 --> 00:00:39.440
+and I'm pretty much hard-wired to do DF dash KH.
+
+14
+00:00:39.440 --> 00:00:43.607
+That means if we looked at the man page for DF rather,
+
+15
+00:00:45.851 --> 00:00:47.871
+that gives us two extra things.
+
+16
+00:00:47.871 --> 00:00:50.803
+First one is it groups these blocks,
+
+17
+00:00:50.803 --> 00:00:54.400
+instead of being bytes, it gives me kilobytes,
+
+18
+00:00:54.400 --> 00:00:56.221
+so the K means kilobytes.
+
+19
+00:00:56.221 --> 00:00:58.771
+I can do megabytes instead.
+
+20
+00:00:58.771 --> 00:01:02.938
+It just means that it divides the bytes differently.
+
+21
+00:01:03.931 --> 00:01:07.611
+It also gives me a human readable number.
+
+22
+00:01:07.611 --> 00:01:09.331
+And it's really the human readable number that I'm
+
+23
+00:01:09.331 --> 00:01:11.731
+most interested in, and I'm pretty sure you can do
+
+24
+00:01:11.731 --> 00:01:15.898
+the same thing on LS as well, dash H, human readable.
+
+25
+00:01:19.101 --> 00:01:21.934
+Now what that's giving me a glance
+
+26
+00:01:22.833 --> 00:01:25.250
+is that I have 350 or 345 gig
+
+27
+00:01:28.479 --> 00:01:30.593
+available on my MAC.
+
+28
+00:01:30.593 --> 00:01:34.760
+Now I've got the size of the drive, the amount used
+
+29
+00:01:36.182 --> 00:01:39.182
+amount available and the percentages
+
+30
+00:01:40.615 --> 00:01:41.917
+of the things I'm interested in,
+
+31
+00:01:41.917 --> 00:01:44.409
+but there's also other drives here that mounted.
+
+32
+00:01:44.409 --> 00:01:46.507
+And these are more virtual drives
+
+33
+00:01:46.507 --> 00:01:49.837
+that I'm not particularly interested in
+
+34
+00:01:49.837 --> 00:01:51.206
+when I'm looking at this information.
+
+35
+00:01:51.206 --> 00:01:53.558
+I'm looking for dev disc one.
+
+36
+00:01:53.558 --> 00:01:56.197
+When I have like a USB drive mounted,
+
+37
+00:01:56.197 --> 00:01:59.197
+it will list it here as well as dev.
+
+38
+00:02:03.817 --> 00:02:06.057
+It'll be a different disc number in fact.
+
+39
+00:02:06.057 --> 00:02:09.355
+So we'll see them listed here.
+
+40
+00:02:09.355 --> 00:02:13.107
+Now if I just switch over to this second tab I've opened,
+
+41
+00:02:13.107 --> 00:02:17.896
+I've gone and signed into the production machine for JS Bin,
+
+42
+00:02:17.896 --> 00:02:22.063
+and as you can see, when I've done DF dash KH or MH,
+
+43
+00:02:25.657 --> 00:02:27.095
+I get slightly different output because it's
+
+44
+00:02:27.095 --> 00:02:29.737
+different operating system running
+
+45
+00:02:29.737 --> 00:02:32.570
+different kind of flavour of Linux.
+
+46
+00:02:33.907 --> 00:02:37.706
+And what I've got here is human readable values
+
+47
+00:02:37.706 --> 00:02:41.107
+that tells me that the dev drive
+
+48
+00:02:41.107 --> 00:02:45.274
+at X, whatever it is, has got about eight gig on it,
+
+49
+00:02:47.337 --> 00:02:50.254
+and we're just over 60% usage.
+
+50
+00:02:51.097 --> 00:02:52.655
+Now that number doesn't really climb very much,
+
+51
+00:02:52.655 --> 00:02:55.375
+so I'm kind of happy with that.
+
+52
+00:02:55.375 --> 00:02:58.217
+The rest of these are kind of virtual drives.
+
+53
+00:02:58.217 --> 00:03:00.355
+Anything on dev means it's actually mounted.
+
+54
+00:03:00.355 --> 00:03:04.113
+And I can see I've got roughly 150 gig mounted here,
+
+55
+00:03:04.113 --> 00:03:08.667
+and the place it's mounted on, that's how I access it.
+
+56
+00:03:08.667 --> 00:03:10.899
+See, if we look back on my local machine,
+
+57
+00:03:10.899 --> 00:03:14.158
+we can see I'm mounted on Roots here.
+
+58
+00:03:14.158 --> 00:03:15.767
+I actually have three drives.
+
+59
+00:03:15.767 --> 00:03:19.099
+One is the main one that's in, that is Roots.
+
+60
+00:03:19.099 --> 00:03:21.682
+But I also have this slash MMT,
+
+61
+00:03:23.869 --> 00:03:27.845
+which has some bits on it, really the log directory.
+
+62
+00:03:27.845 --> 00:03:29.845
+And I also have this MMT
+
+63
+00:03:30.698 --> 00:03:34.865
+old JS Bin, which is an old backup drive that I have.
+
+64
+00:03:36.128 --> 00:03:39.939
+So I have multiple drives mounted on this machine,
+
+65
+00:03:39.939 --> 00:03:43.910
+and it lists the available disc space here.
+
+66
+00:03:43.910 --> 00:03:46.743
+So going back to my local machine,
+
+67
+00:03:48.019 --> 00:03:50.670
+we may wanna know where that disc space is being taken,
+
+68
+00:03:50.670 --> 00:03:53.507
+so if I list out the directories, I could go ahead
+
+69
+00:03:53.507 --> 00:03:55.139
+and try and add these numbers up.
+
+70
+00:03:55.139 --> 00:03:56.750
+We could put human readable again.
+
+71
+00:03:56.750 --> 00:04:00.198
+Like I say, it's 100 bytes for a directory.
+
+72
+00:04:00.198 --> 00:04:02.531
+The freezing log is 57K now,
+
+73
+00:04:05.248 --> 00:04:10.178
+but we can use a command called DU, so disc usage.
+
+74
+00:04:10.178 --> 00:04:14.938
+If I hit enter, it's gonna search every single category
+
+75
+00:04:14.938 --> 00:04:18.771
+and show me the disc usage for each directory,
+
+76
+00:04:20.518 --> 00:04:24.917
+including parent directories and everything.
+
+77
+00:04:24.917 --> 00:04:26.619
+I think right at the bottom there is the amount
+
+78
+00:04:26.619 --> 00:04:29.638
+of disc space used by this directory,
+
+79
+00:04:29.638 --> 00:04:30.596
+and again it's in bytes.
+
+80
+00:04:30.596 --> 00:04:32.596
+So I wanna do DU dash H,
+
+81
+00:04:34.065 --> 00:04:36.815
+which tells me it's using 46 gig.
+
+82
+00:04:40.191 --> 00:04:44.358
+Using this directory specs the videos up in your recording.
+
+83
+00:04:45.210 --> 00:04:46.370
+And it lists everything.
+
+84
+00:04:46.370 --> 00:04:48.319
+Depending on how big the drive is or the directory
+
+85
+00:04:48.319 --> 00:04:50.670
+you're looking at, can take a long time,
+
+86
+00:04:50.670 --> 00:04:52.470
+and maybe you don't want all the previous information,
+
+87
+00:04:52.470 --> 00:04:56.679
+so we have dash S, which is giving me the summary number.
+
+88
+00:04:56.679 --> 00:05:00.359
+That's 46 gig, so I can see there's a lot of files
+
+89
+00:05:00.359 --> 00:05:03.060
+in this public directory.
+
+90
+00:05:03.060 --> 00:05:05.893
+And if I go to maybe applications,
+
+91
+00:05:07.070 --> 00:05:09.079
+I can do the same thing, but it'll only look
+
+92
+00:05:09.079 --> 00:05:10.901
+in the applications directory.
+
+93
+00:05:10.901 --> 00:05:12.984
+If I look at the library,
+
+94
+00:05:15.101 --> 00:05:17.199
+do the same thing, actually there's a gig there.
+
+95
+00:05:17.199 --> 00:05:20.689
+So disc usage is a way of getting
+
+96
+00:05:20.689 --> 00:05:24.050
+the amount of disc usage, how much space is being used
+
+97
+00:05:24.050 --> 00:05:25.781
+by a particularly directory.
+
+98
+00:05:25.781 --> 00:05:30.449
+So I tend to use, but one thing I might do actually,
+
+99
+00:05:30.449 --> 00:05:33.119
+I'll run a disc usage without the summary,
+
+100
+00:05:33.119 --> 00:05:35.501
+but I'll pipe it, sorry, not pipe it.
+
+101
+00:05:35.501 --> 00:05:37.141
+I'll redirect the output.
+
+102
+00:05:37.141 --> 00:05:40.980
+Instead of putting it into the terminal,
+
+103
+00:05:40.980 --> 00:05:43.397
+I'll redirect it into a file.
+
+104
+00:05:44.460 --> 00:05:47.119
+So now, instead of printing the output,
+
+105
+00:05:47.119 --> 00:05:49.330
+it'll put it all inside this report file,
+
+106
+00:05:49.330 --> 00:05:53.239
+and if I do less report, I can then go through
+
+107
+00:05:53.239 --> 00:05:54.319
+and look at it.
+
+108
+00:05:54.319 --> 00:05:58.290
+And from there, if I get rid of the dash H,
+
+109
+00:05:58.290 --> 00:05:59.690
+and actually just have bytes,
+
+110
+00:05:59.690 --> 00:06:03.107
+I can do things like sort dash MR report,
+
+111
+00:06:05.061 --> 00:06:07.170
+and then I can look at what's taking up
+
+112
+00:06:07.170 --> 00:06:08.453
+the most of amount of disc space,
+
+113
+00:06:08.453 --> 00:06:09.453
+so I can see
+
+114
+00:06:12.021 --> 00:06:15.610
+this particular file has a very big media directory.
+
+115
+00:06:15.610 --> 00:06:17.119
+I went right through.
+
+116
+00:06:17.119 --> 00:06:19.301
+You see I'm using the sort command,
+
+117
+00:06:19.301 --> 00:06:21.850
+and using the numerical column, that first numerical column
+
+118
+00:06:21.850 --> 00:06:23.690
+that shows number of bytes.
+
+119
+00:06:23.690 --> 00:06:25.529
+Doesn't particularly tell me how big that is
+
+120
+00:06:25.529 --> 00:06:28.821
+because I can't quickly convert to megabytes in my head,
+
+121
+00:06:28.821 --> 00:06:31.982
+but I can see that that's where the big directory is.
+
+122
+00:06:31.982 --> 00:06:34.944
+So that's the kind of thing I would use it for.
+
+123
+00:06:34.944 --> 00:06:38.027
+So that was disc free and disc usage.
+
+124
+00:06:40.973 --> 00:06:43.253
+And next we've got processes.
+
+125
+00:06:43.253 --> 00:06:45.838
+So we've looked at PS already,
+
+126
+00:06:45.838 --> 00:06:48.523
+auxww gives me a list of all the processes,
+
+127
+00:06:48.523 --> 00:06:50.965
+but it does like one snapshot at a time.
+
+128
+00:06:50.965 --> 00:06:54.923
+Now there is another command that I will use
+
+129
+00:06:54.923 --> 00:06:57.341
+quite frequently, called top,
+
+130
+00:06:57.341 --> 00:07:00.013
+which, depending on the operating system,
+
+131
+00:07:00.013 --> 00:07:02.552
+appears differently, so this is what top looks like
+
+132
+00:07:02.552 --> 00:07:06.453
+for a MAC, and I'm personally not very used to it.
+
+133
+00:07:06.453 --> 00:07:08.813
+And this is what top looks like on a Linux machine,
+
+134
+00:07:08.813 --> 00:07:11.482
+so I am used to this kind of thing.
+
+135
+00:07:11.482 --> 00:07:14.152
+So again, this is the production machine on JS Bin,
+
+136
+00:07:14.152 --> 00:07:16.661
+and I can see a whole bunch of different
+
+137
+00:07:16.661 --> 00:07:18.552
+bits of information here.
+
+138
+00:07:18.552 --> 00:07:21.723
+Now the first one is, I think,
+
+139
+00:07:21.723 --> 00:07:24.140
+I can sort by memory, by CPU.
+
+140
+00:07:26.923 --> 00:07:27.756
+Oh, help.
+
+141
+00:07:32.110 --> 00:07:34.923
+Yes, CPU, okay, so when I press C,
+
+142
+00:07:34.923 --> 00:07:38.301
+it sorts by most CPU being used,
+
+143
+00:07:38.301 --> 00:07:40.901
+and I can see that there is this command node
+
+144
+00:07:40.901 --> 00:07:42.752
+that is using quite a lotta CPU right now.
+
+145
+00:07:42.752 --> 00:07:45.082
+So it means that it is pretty CPU intensive,
+
+146
+00:07:45.082 --> 00:07:48.249
+and it's using 40% of the memory.
+
+147
+00:07:50.341 --> 00:07:53.301
+So up here I've got memory.
+
+148
+00:07:53.301 --> 00:07:55.872
+And it tells me how much memory is available,
+
+149
+00:07:55.872 --> 00:07:57.212
+how much is used.
+
+150
+00:07:57.212 --> 00:07:59.571
+Really what I'm looking at is the free amount memory.
+
+151
+00:07:59.571 --> 00:08:01.923
+So we've got about 80 meg free, which is fine.
+
+152
+00:08:01.923 --> 00:08:04.923
+Having no free memory is fine
+
+153
+00:08:04.923 --> 00:08:08.962
+as long as we're not going into this thing swp,
+
+154
+00:08:08.962 --> 00:08:11.882
+and now we're going into ops a little bit.
+
+155
+00:08:11.882 --> 00:08:16.049
+I always want my swp to be reasonably low, two meg.
+
+156
+00:08:18.221 --> 00:08:19.872
+Oh that's seven meg.
+
+157
+00:08:19.872 --> 00:08:23.712
+Anyway, if I proceed I'll get the long command,
+
+158
+00:08:23.712 --> 00:08:24.545
+the full command.
+
+159
+00:08:24.545 --> 00:08:26.632
+So before, I just had node,
+
+160
+00:08:26.632 --> 00:08:29.573
+Engine X node appeared a couple of times,
+
+161
+00:08:29.573 --> 00:08:31.042
+press C, I get the full command.
+
+162
+00:08:31.042 --> 00:08:34.803
+I can see that this is the main JS Bin process,
+
+163
+00:08:34.803 --> 00:08:37.101
+we have a stats D thing running here.
+
+164
+00:08:37.101 --> 00:08:40.323
+We have some Engine X running, and then cache and so on,
+
+165
+00:08:40.323 --> 00:08:43.133
+so we have a bunch of different processes running together.
+
+166
+00:08:43.133 --> 00:08:45.603
+Compare that to top on my MAC,
+
+167
+00:08:45.603 --> 00:08:48.341
+it looks very different.
+
+168
+00:08:48.341 --> 00:08:51.221
+Even the columns are in different orders.
+
+169
+00:08:51.221 --> 00:08:52.138
+We do have,
+
+170
+00:08:54.301 --> 00:08:57.992
+we have memory here, but I can't, to me it's not the same.
+
+171
+00:08:57.992 --> 00:09:02.053
+But you can instal another top programme.
+
+172
+00:09:02.053 --> 00:09:04.853
+So if you use brew or instal Htop,
+
+173
+00:09:04.853 --> 00:09:07.686
+it's like a visual version of top,
+
+174
+00:09:09.653 --> 00:09:13.013
+and it's much more similar to the activity monitor.
+
+175
+00:09:13.013 --> 00:09:14.613
+And I believe you can instal Htop
+
+176
+00:09:14.613 --> 00:09:17.032
+on other machines as well.
+
+177
+00:09:17.032 --> 00:09:20.413
+So, this is a bit more easy to read.
+
+178
+00:09:20.413 --> 00:09:23.322
+So I can see the process using the most CPU
+
+179
+00:09:23.322 --> 00:09:24.821
+on this machine right now
+
+180
+00:09:24.821 --> 00:09:28.632
+is ScreenFlow, the recording I'm doing right now.
+
+181
+00:09:28.632 --> 00:09:31.592
+I can see the list of CPUs, so I've got four cores
+
+182
+00:09:31.592 --> 00:09:32.971
+in this machine.
+
+183
+00:09:32.971 --> 00:09:36.272
+I can see that they're all doing a bit of work,
+
+184
+00:09:36.272 --> 00:09:39.320
+which is good, rather than being topped out.
+
+185
+00:09:39.320 --> 00:09:41.152
+See the amount of memory being used.
+
+186
+00:09:41.152 --> 00:09:43.235
+I can see swp being used.
+
+187
+00:09:44.270 --> 00:09:47.510
+I'm not sure if it is using any swp or not.
+
+188
+00:09:47.510 --> 00:09:51.677
+I think red even means, I don't know, I'm not sure.
+
+189
+00:09:52.920 --> 00:09:55.971
+But memory, maybe green is free.
+
+190
+00:09:55.971 --> 00:09:57.891
+That could be it.
+
+191
+00:09:57.891 --> 00:10:00.432
+But from here, I think I can also kill processes as well,
+
+192
+00:10:00.432 --> 00:10:02.581
+so you see down here, F9.
+
+193
+00:10:02.581 --> 00:10:05.451
+If I wanna kill some processes, I can do.
+
+194
+00:10:05.451 --> 00:10:07.368
+Let's try killing Htop.
+
+195
+00:10:09.512 --> 00:10:12.595
+This is asking me to send the signal,
+
+196
+00:10:13.941 --> 00:10:16.108
+so hit enter, killed Htop.
+
+197
+00:10:18.728 --> 00:10:21.798
+And the other thing to notice here as well,
+
+198
+00:10:21.798 --> 00:10:25.631
+couple of bits, load time up here, and uptime.
+
+199
+00:10:27.120 --> 00:10:29.240
+So uptime tells me how long the machine's been running.
+
+200
+00:10:29.240 --> 00:10:34.189
+So I haven't rebooted this machine in just over a month.
+
+201
+00:10:34.189 --> 00:10:37.000
+So that tells me how it's been actually turned on for.
+
+202
+00:10:37.000 --> 00:10:38.028
+And the load average,
+
+203
+00:10:38.028 --> 00:10:40.778
+it's a moving average of how much
+
+204
+00:10:42.859 --> 00:10:44.846
+the machine is under load.
+
+205
+00:10:44.846 --> 00:10:48.149
+There are, I think there's public algorithms
+
+206
+00:10:48.149 --> 00:10:49.819
+how this is worked out.
+
+207
+00:10:49.819 --> 00:10:53.379
+The way I read it is very much kind of finger in the air.
+
+208
+00:10:53.379 --> 00:10:54.847
+Two is kind of okay.
+
+209
+00:10:54.847 --> 00:10:57.568
+10, the machine's probably gonna be wearing a bit.
+
+210
+00:10:57.568 --> 00:10:58.739
+100, you probably won't be able
+
+211
+00:10:58.739 --> 00:11:01.000
+to do anything on the machine at all.
+
+212
+00:11:01.000 --> 00:11:04.697
+If we look across back to the production machine on JS Bin,
+
+213
+00:11:04.697 --> 00:11:07.330
+I'll be looking at the load average up here,
+
+214
+00:11:07.330 --> 00:11:09.291
+nice and low, under one.
+
+215
+00:11:09.291 --> 00:11:12.930
+My web servers, I tend to want the load average
+
+216
+00:11:12.930 --> 00:11:15.680
+to be under two, and this is the,
+
+217
+00:11:18.349 --> 00:11:20.429
+I think, the five-second average.
+
+218
+00:11:20.429 --> 00:11:22.539
+This is the 30-second average,
+
+219
+00:11:22.539 --> 00:11:24.331
+maybe five-minute average or one-minute average
+
+220
+00:11:24.331 --> 00:11:25.531
+and five minute.
+
+221
+00:11:25.531 --> 00:11:27.869
+Furthest to the left is the freshest value,
+
+222
+00:11:27.869 --> 00:11:30.952
+and this is the more long-term value.
+
+223
+00:11:32.411 --> 00:11:34.731
+We have the same thing offline here.
+
+224
+00:11:34.731 --> 00:11:36.589
+But I can also get it from the command line,
+
+225
+00:11:36.589 --> 00:11:38.331
+just by typing uptime.
+
+226
+00:11:38.331 --> 00:11:41.669
+So uptime gives me the load average, and it gives me
+
+227
+00:11:41.669 --> 00:11:43.490
+how long the machine's been up and running.
+
+228
+00:11:43.490 --> 00:11:45.760
+The same thing on a production machine.
+
+229
+00:11:45.760 --> 00:11:49.149
+See these commands, they exist on different
+
+230
+00:11:49.149 --> 00:11:51.129
+operating systems, but they give you the same
+
+231
+00:11:51.129 --> 00:11:52.691
+kind of information, so I can see
+
+232
+00:11:52.691 --> 00:11:55.941
+this machine's been up for over a year,
+
+233
+00:11:57.189 --> 00:11:59.168
+which is kind of crazy to think about.
+
+234
+00:11:59.168 --> 00:12:00.989
+It's got one user on it at the moment,
+
+235
+00:12:00.989 --> 00:12:03.699
+which is the user I'm signed in with,
+
+236
+00:12:03.699 --> 00:12:05.971
+and it has a load average of just under one,
+
+237
+00:12:05.971 --> 00:12:07.520
+which I'm pretty happy with.
+
+238
+00:12:07.520 --> 00:12:09.811
+This machine has a load average of two,
+
+239
+00:12:09.811 --> 00:12:11.600
+coming up to three, because I'm recording
+
+240
+00:12:11.600 --> 00:12:13.720
+a video at the same time.
+
+241
+00:12:13.720 --> 00:12:16.349
+Reasonably healthy, I'm fairly happy with that as well.
+
+242
+00:12:16.349 --> 00:12:19.766
+So those four commands, disc usage or DU,
+
+243
+00:12:20.840 --> 00:12:24.673
+DF, disc free, and then we have Htop on a MAC,
+
+244
+00:12:25.659 --> 00:12:28.759
+Htop you can instal on other machines as well.
+
+245
+00:12:28.759 --> 00:12:31.039
+Pretty sure you do brew instal Htop,
+
+246
+00:12:31.039 --> 00:12:33.372
+and uptime for a quick look.
+
+247
+00:12:34.400 --> 00:12:36.131
+And we also saw PS before,
+
+248
+00:12:36.131 --> 00:12:38.709
+which I tend to use to grab
+
+249
+00:12:38.709 --> 00:12:42.541
+individuals items out like Screenflow.
+
+250
+00:12:42.541 --> 00:12:44.549
+Cool, so that is the end of
+
+251
+00:12:44.549 --> 00:12:46.250
+how to shoot yourself in the foot
+
+252
+00:12:46.250 --> 00:12:48.469
+with commands, and how to get
+
+253
+00:12:48.469 --> 00:12:52.636
+a little bit of health and the status of your machine.
+

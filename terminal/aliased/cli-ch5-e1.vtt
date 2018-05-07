@@ -1,0 +1,894 @@
+﻿WEBVTT
+
+1
+00:00:02.144 --> 00:00:02.977
+<v ->So what I'm going to show you</v>
+
+2
+00:00:02.977 --> 00:00:04.027
+over the next series of videos
+
+3
+00:00:04.027 --> 00:00:06.309
+is how to customise your terminal.
+
+4
+00:00:06.309 --> 00:00:09.019
+And the customization isn't just for
+
+5
+00:00:09.019 --> 00:00:11.386
+adding some nice colours.
+
+6
+00:00:11.386 --> 00:00:13.222
+It's really to create an environment
+
+7
+00:00:13.222 --> 00:00:15.987
+that you like to work in.
+
+8
+00:00:15.987 --> 00:00:18.888
+There's nothing worse than having kind of a text
+
+9
+00:00:18.888 --> 00:00:19.902
+that is enforced on you
+
+10
+00:00:19.902 --> 00:00:22.608
+or a type of browser that you don't like using.
+
+11
+00:00:22.608 --> 00:00:25.301
+You'd much rather use a tool that you enjoy spending time in
+
+12
+00:00:25.301 --> 00:00:26.938
+if you're going to use it.
+
+13
+00:00:26.938 --> 00:00:29.344
+So customization's kind of a key part of that.
+
+14
+00:00:29.344 --> 00:00:32.646
+So I'm logged into my personal user at the moment.
+
+15
+00:00:32.646 --> 00:00:36.112
+If I just switch over to iTerm and open up a new window
+
+16
+00:00:36.112 --> 00:00:39.772
+you'll see the kind of view that I see.
+
+17
+00:00:39.772 --> 00:00:41.939
+So this image just loaded.
+
+18
+00:00:43.241 --> 00:00:46.976
+It is an upside down unicorn I believe.
+
+19
+00:00:46.976 --> 00:00:48.828
+And this is what my normal terminal looks like,
+
+20
+00:00:48.828 --> 00:00:50.584
+so every time I open a new terminal
+
+21
+00:00:50.584 --> 00:00:53.167
+I get a different ASCII unicorn
+
+22
+00:00:54.065 --> 00:00:57.936
+just to make things brighten up a little bit in my terminal.
+
+23
+00:00:57.936 --> 00:00:59.690
+You'll also notice that the prompt is completely different
+
+24
+00:00:59.690 --> 00:01:02.734
+to what you've seen in the previous videos.
+
+25
+00:01:02.734 --> 00:01:04.093
+You might be able to spot the colour
+
+26
+00:01:04.093 --> 00:01:05.538
+is slightly different in the background.
+
+27
+00:01:05.538 --> 00:01:07.563
+It's a little bit blue.
+
+28
+00:01:07.563 --> 00:01:08.690
+My prompt is down here.
+
+29
+00:01:08.690 --> 00:01:10.334
+I have this indicator bar over here.
+
+30
+00:01:10.334 --> 00:01:13.162
+So I just want to talk about some of the terminology
+
+31
+00:01:13.162 --> 00:01:15.414
+and some of the customizations.
+
+32
+00:01:15.414 --> 00:01:17.714
+And just to give you a feel for this as well,
+
+33
+00:01:17.714 --> 00:01:21.131
+when I view my terminal I always have it full screen
+
+34
+00:01:21.131 --> 00:01:22.601
+so it looks like this.
+
+35
+00:01:22.601 --> 00:01:25.569
+There's no bar at the top when I have anything else,
+
+36
+00:01:25.569 --> 00:01:27.454
+and I can switch back and forth from it
+
+37
+00:01:27.454 --> 00:01:30.360
+when I bring up Chrome for a second.
+
+38
+00:01:30.360 --> 00:01:33.606
+I can bring it to focus by doing command escape
+
+39
+00:01:33.606 --> 00:01:36.958
+and hitting command escape again.
+
+40
+00:01:36.958 --> 00:01:39.625
+So I run my terminal full screen
+
+41
+00:01:41.307 --> 00:01:43.724
+and I also have some shortcuts that I'm really used to
+
+42
+00:01:43.724 --> 00:01:45.812
+and I have the system configured
+
+43
+00:01:45.812 --> 00:01:47.846
+the way that I like to use it.
+
+44
+00:01:47.846 --> 00:01:50.492 line:15% 
+Now that doesn't mean you have to copy exactly what I have.
+
+45
+00:01:50.492 --> 00:01:53.148 line:15% 
+I have a blog post that describes kind of some of my setup.
+
+46
+00:01:53.148 --> 00:01:55.669 line:15% 
+I have some of the dotfiles, the configuration files
+
+47
+00:01:55.669 --> 00:01:57.636 line:15% 
+in gifhub that somebody else can use,
+
+48
+00:01:57.636 --> 00:02:01.725 line:15% 
+and a lot of other people put their dotfiles into gifhub
+
+49
+00:02:01.725 --> 00:02:04.431 line:15% 
+for you to kind of use and take what you want.
+
+50
+00:02:04.431 --> 00:02:06.318 line:15% 
+But for instance one of the most used tools I have
+
+51
+00:02:06.318 --> 00:02:08.625 line:15% 
+is this said, I just type a partial directory
+
+52
+00:02:08.625 --> 00:02:10.241
+and it jumps to that directory,
+
+53
+00:02:10.241 --> 00:02:12.661
+and you can see here very different prompt.
+
+54
+00:02:12.661 --> 00:02:16.020
+It tells me about the gifhub state of this folder.
+
+55
+00:02:16.020 --> 00:02:18.325
+So I know that this colour when it's green
+
+56
+00:02:18.325 --> 00:02:20.164
+it means that there's some dirty files in there.
+
+57
+00:02:20.164 --> 00:02:22.408
+There's something that's waiting to be changed.
+
+58
+00:02:22.408 --> 00:02:25.674
+I have the directory name above my prompt,
+
+59
+00:02:25.674 --> 00:02:27.136
+and over on the right here
+
+60
+00:02:27.136 --> 00:02:29.896
+I've got a little bit of custom code that tells me,
+
+61
+00:02:29.896 --> 00:02:30.952
+firstly I've got a dot that tells me
+
+62
+00:02:30.952 --> 00:02:32.413
+whether or not I'm online
+
+63
+00:02:32.413 --> 00:02:34.093
+because when I do some travelling I want to know if I have
+
+64
+00:02:34.093 --> 00:02:37.077
+an active connexion and it just kind of refreshes
+
+65
+00:02:37.077 --> 00:02:38.288
+every minute or so.
+
+66
+00:02:38.288 --> 00:02:40.153
+So a green dot means I have a connexion
+
+67
+00:02:40.153 --> 00:02:41.802
+and a red dot means I don't.
+
+68
+00:02:41.802 --> 00:02:42.884
+And this is a ...
+
+69
+00:02:42.884 --> 00:02:44.600
+My battery basically is sowed
+
+70
+00:02:44.600 --> 00:02:47.448
+because I spend quite a lot of time in my terminal,
+
+71
+00:02:47.448 --> 00:02:49.199
+I want to be able to see it at a glance
+
+72
+00:02:49.199 --> 00:02:50.118
+how much battery I have
+
+73
+00:02:50.118 --> 00:02:54.251
+so if I need a charge or anything like that.
+
+74
+00:02:54.251 --> 00:02:57.499 line:15% 
+And just a quick listing here gives you an idea
+
+75
+00:02:57.499 --> 00:02:59.671 line:15% 
+of kind of what my prompt looks like.
+
+76
+00:02:59.671 --> 00:03:02.208 line:15% 
+So I just want to go into a couple
+
+77
+00:03:02.208 --> 00:03:05.182 line:15% 
+of the bits of terminology around this.
+
+78
+00:03:05.182 --> 00:03:06.849
+The first one is ...
+
+79
+00:03:08.055 --> 00:03:11.521
+This programme iTerm2 and maybe you're using Terminal still
+
+80
+00:03:11.521 --> 00:03:13.488
+or a different programme altogether.
+
+81
+00:03:13.488 --> 00:03:15.821
+This is called the terminal,
+
+82
+00:03:16.980 --> 00:03:21.064
+the application that is running a shell,
+
+83
+00:03:21.064 --> 00:03:23.207
+and at the moment I'm logged into a shell.
+
+84
+00:03:23.207 --> 00:03:25.176
+So the shell really,
+
+85
+00:03:25.176 --> 00:03:26.221
+the difference ...
+
+86
+00:03:26.221 --> 00:03:29.585
+The way I look at it is that this grey bar here
+
+87
+00:03:29.585 --> 00:03:31.618
+and kind of resizing is the terminal
+
+88
+00:03:31.618 --> 00:03:34.338
+and how my mouse interacts with it is the terminal
+
+89
+00:03:34.338 --> 00:03:37.718
+and everything inside, the text part, is the shell.
+
+90
+00:03:37.718 --> 00:03:42.376
+So I can connect to a remote server, one of my web servers.
+
+91
+00:03:42.376 --> 00:03:45.515
+I can connect to another machine in my home
+
+92
+00:03:45.515 --> 00:03:48.766
+or when I'm at my work office I can connect to a machine
+
+93
+00:03:48.766 --> 00:03:51.649
+and I'll go into that shell.
+
+94
+00:03:51.649 --> 00:03:54.226
+And then a couple of important bits here,
+
+95
+00:03:54.226 --> 00:03:55.251
+this is the prompt
+
+96
+00:03:55.251 --> 00:03:58.113
+so where you type, we're already pretty familiar with it,
+
+97
+00:03:58.113 --> 00:04:00.327
+but we can customise it quite a lot
+
+98
+00:04:00.327 --> 00:04:02.935
+and I'm going to show you that in another video.
+
+99
+00:04:02.935 --> 00:04:06.774
+But there's also aliases, so commands that kind of ...
+
+100
+00:04:06.774 --> 00:04:08.538
+Short cuts to other commands that you can also write
+
+101
+00:04:08.538 --> 00:04:10.406
+functions that do things.
+
+102
+00:04:10.406 --> 00:04:12.614
+So one example, I have GS
+
+103
+00:04:12.614 --> 00:04:16.261
+which is something that I've kind of got as muscle memory.
+
+104
+00:04:16.261 --> 00:04:18.823
+GS to me means get status.
+
+105
+00:04:18.823 --> 00:04:22.323
+So I run GS and it shows me the get status
+
+106
+00:04:23.421 --> 00:04:26.298
+for this directory and tells me what's waiting to be changed
+
+107
+00:04:26.298 --> 00:04:27.202
+and so on.
+
+108
+00:04:27.202 --> 00:04:29.537
+And I have GP which will do a get push
+
+109
+00:04:29.537 --> 00:04:30.458
+and commit everything.
+
+110
+00:04:30.458 --> 00:04:33.267
+I have a few others that will do little things
+
+111
+00:04:33.267 --> 00:04:34.348
+here and there.
+
+112
+00:04:34.348 --> 00:04:37.832
+There are more complicated scripts like I can type gist
+
+113
+00:04:37.832 --> 00:04:41.999
+and it will, if I copy some text and then type gist,
+
+114
+00:04:42.974 --> 00:04:45.500
+it will take that text, copy it,
+
+115
+00:04:45.500 --> 00:04:47.097
+and create a new gist for me,
+
+116
+00:04:47.097 --> 00:04:49.939
+which you can see loading up now and you can see it there.
+
+117
+00:04:49.939 --> 00:04:52.676
+I can go ahead and share that with someone else.
+
+118
+00:04:52.676 --> 00:04:55.515
+So that's a function but still a command
+
+119
+00:04:55.515 --> 00:04:58.215
+that I ran inside of my terminal
+
+120
+00:04:58.215 --> 00:05:01.542
+and inside my shell and it gave me something back.
+
+121
+00:05:01.542 --> 00:05:05.505
+So I wrote a little bit of shove scripting code to do that.
+
+122
+00:05:05.505 --> 00:05:08.576
+Then on top of my terminal I have my preferences.
+
+123
+00:05:08.576 --> 00:05:12.290
+So if I go to preferences over here
+
+124
+00:05:12.290 --> 00:05:16.457
+and I've got a few things that I've customised to my liking.
+
+125
+00:05:17.545 --> 00:05:20.087
+The first one that I'd like to show you
+
+126
+00:05:20.087 --> 00:05:22.837
+is I've turned off the animations
+
+127
+00:05:23.801 --> 00:05:25.826
+when you go to full screen and away,
+
+128
+00:05:25.826 --> 00:05:28.491
+something that I prefer.
+
+129
+00:05:28.491 --> 00:05:29.866
+It's ... where is it ...
+
+130
+00:05:29.866 --> 00:05:32.411
+Use native full screen windows.
+
+131
+00:05:32.411 --> 00:05:34.212
+I've unchecked that so I can go full screen
+
+132
+00:05:34.212 --> 00:05:37.555
+without waiting for it to animate basically.
+
+133
+00:05:37.555 --> 00:05:39.652
+I'm also backing up my entire preferences,
+
+134
+00:05:39.652 --> 00:05:40.657
+which is down here.
+
+135
+00:05:40.657 --> 00:05:43.708
+You've got a direction name and it just saves it,
+
+136
+00:05:43.708 --> 00:05:46.208
+and I have a few other tweaks.
+
+137
+00:05:48.962 --> 00:05:51.006
+So I've got a bunch of profiles here,
+
+138
+00:05:51.006 --> 00:05:51.957
+which I don't really use.
+
+139
+00:05:51.957 --> 00:05:54.655
+I actually just reconfigure the default one
+
+140
+00:05:54.655 --> 00:05:55.738
+all the time.
+
+141
+00:05:57.199 --> 00:05:58.183
+I don't have anything special here,
+
+142
+00:05:58.183 --> 00:06:00.387
+but if I open a new terminal for instance,
+
+143
+00:06:00.387 --> 00:06:04.088
+I could have it show a different name,
+
+144
+00:06:04.088 --> 00:06:06.242
+run a command automatically.
+
+145
+00:06:06.242 --> 00:06:08.715
+I could stick some text in the prompt automatically.
+
+146
+00:06:08.715 --> 00:06:11.790
+I could define what directory it starts up in.
+
+147
+00:06:11.790 --> 00:06:14.663
+Like maybe I always go to my site's directory
+
+148
+00:06:14.663 --> 00:06:18.758
+so I could change that using this preference over here,
+
+149
+00:06:18.758 --> 00:06:20.257
+leave that in home,
+
+150
+00:06:20.257 --> 00:06:22.967
+and I've also got some colours that I've tweaked.
+
+151
+00:06:22.967 --> 00:06:26.955
+I've just selected the solarized light
+
+152
+00:06:26.955 --> 00:06:29.494
+or dark, which one is the one I'm using.
+
+153
+00:06:29.494 --> 00:06:32.168
+I think this one might be my default actually,
+
+154
+00:06:32.168 --> 00:06:34.607
+the one with the star.
+
+155
+00:06:34.607 --> 00:06:36.870
+It was the solarized dark.
+
+156
+00:06:36.870 --> 00:06:38.676
+I made a couple of customizations
+
+157
+00:06:38.676 --> 00:06:40.382
+and one of them was my cursor,
+
+158
+00:06:40.382 --> 00:06:43.780
+which is this colour here so you can see
+
+159
+00:06:43.780 --> 00:06:45.350
+it's kind of this bright pink,
+
+160
+00:06:45.350 --> 00:06:47.690
+which just kind of draws my eye in a bit more
+
+161
+00:06:47.690 --> 00:06:52.375
+and things like text I've selected a bigger font
+
+162
+00:06:52.375 --> 00:06:55.731
+so you can select the font size from here
+
+163
+00:06:55.731 --> 00:06:58.648
+and I'm using Menlo with Powerline,
+
+164
+00:07:00.257 --> 00:07:03.175
+and I'll include a link as to how to get Powerline.
+
+165
+00:07:03.175 --> 00:07:06.381
+What Powerline gives you is just a few more glifs,
+
+166
+00:07:06.381 --> 00:07:08.136
+like this thing.
+
+167
+00:07:08.136 --> 00:07:11.176
+You don't need it at all if you don't want to,
+
+168
+00:07:11.176 --> 00:07:12.555
+but it gives me just a few more characters
+
+169
+00:07:12.555 --> 00:07:15.537
+which make my terminal look a little bit nicer.
+
+170
+00:07:15.537 --> 00:07:17.965
+And then beyond that I really don't have very much,
+
+171
+00:07:17.965 --> 00:07:19.955
+but you can do things like opacity,
+
+172
+00:07:19.955 --> 00:07:22.274
+so you can make your window semi-transparent
+
+173
+00:07:22.274 --> 00:07:23.897
+so you can see things underneath it,
+
+174
+00:07:23.897 --> 00:07:27.134
+which some people like, not myself so much.
+
+175
+00:07:27.134 --> 00:07:30.132
+You can blur what's underneath and so on.
+
+176
+00:07:30.132 --> 00:07:30.965
+Where is that?
+
+177
+00:07:30.965 --> 00:07:31.965
+There we go.
+
+178
+00:07:33.104 --> 00:07:34.959
+And then the keyboard shortcuts.
+
+179
+00:07:34.959 --> 00:07:36.001
+So I think I mentioned
+
+180
+00:07:36.001 --> 00:07:38.860
+right at the beginning of this whole series,
+
+181
+00:07:38.860 --> 00:07:42.561
+being able to split screens is something I use all the time
+
+182
+00:07:42.561 --> 00:07:47.248
+and I use these split screens and also keyboard shortcuts
+
+183
+00:07:47.248 --> 00:07:49.589
+to navigate between the split screens.
+
+184
+00:07:49.589 --> 00:07:52.276
+If I bring this to full screen and then do command D
+
+185
+00:07:52.276 --> 00:07:53.210
+I get another window,
+
+186
+00:07:53.210 --> 00:07:55.581
+but I can do command shift left and right
+
+187
+00:07:55.581 --> 00:07:57.974
+and I can switch back and forth between the windows
+
+188
+00:07:57.974 --> 00:08:00.315
+and if I do command shift D I get one above
+
+189
+00:08:00.315 --> 00:08:02.882
+so I can use the cursor arrows to move around.
+
+190
+00:08:02.882 --> 00:08:05.035
+I find that particularly helpful for me.
+
+191
+00:08:05.035 --> 00:08:07.027
+You might have a set of keyboard preferences
+
+192
+00:08:07.027 --> 00:08:08.360
+that you prefer.
+
+193
+00:08:09.486 --> 00:08:11.589
+And then finally the hotkey.
+
+194
+00:08:11.589 --> 00:08:13.118
+This is the one I use,
+
+195
+00:08:13.118 --> 00:08:17.037
+show/hide terminal as a system-wide hotkey.
+
+196
+00:08:17.037 --> 00:08:19.504
+I use it, again you don't have to use this kind of thing
+
+197
+00:08:19.504 --> 00:08:21.512
+but I use command escape.
+
+198
+00:08:21.512 --> 00:08:23.648
+It's a keyboard combination I've had for years
+
+199
+00:08:23.648 --> 00:08:27.294
+and it's just kind of burnt into my memory
+
+200
+00:08:27.294 --> 00:08:29.746
+and that lets me kind of jump directly to the window
+
+201
+00:08:29.746 --> 00:08:30.579
+no matter where I am
+
+202
+00:08:30.579 --> 00:08:33.919
+so I can be browsing the internet, doing a thing,
+
+203
+00:08:33.919 --> 00:08:35.120
+and I can just do command escape
+
+204
+00:08:35.120 --> 00:08:38.227
+and the whole of my terminal comes to the forefront
+
+205
+00:08:38.227 --> 00:08:40.830
+and I carry on with what I'm doing.
+
+206
+00:08:40.830 --> 00:08:43.042
+So that's what my prompt looks like at the moment,
+
+207
+00:08:43.042 --> 00:08:46.636
+my terminal, my shell, the whole thing.
+
+208
+00:08:46.636 --> 00:08:48.461
+What we're going to look at next is a few tools.
+
+209
+00:08:48.461 --> 00:08:50.590
+The first thing that we're going to look at is called Fish,
+
+210
+00:08:50.590 --> 00:08:53.429
+which is a tool that you can just drop in
+
+211
+00:08:53.429 --> 00:08:55.027
+and it gives you a lot of this customization
+
+212
+00:08:55.027 --> 00:08:55.994
+straight out of the box
+
+213
+00:08:55.994 --> 00:08:58.890
+and really the idea is that you don't have to customise it
+
+214
+00:08:58.890 --> 00:08:59.897
+very much.
+
+215
+00:08:59.897 --> 00:09:01.165
+You can just kind of select the thing
+
+216
+00:09:01.165 --> 00:09:02.467
+that suits you the best
+
+217
+00:09:02.467 --> 00:09:04.936
+and it will just make the experience better for you,
+
+218
+00:09:04.936 --> 00:09:06.686
+and a lot of people use this.
+
+219
+00:09:06.686 --> 00:09:08.384
+But then beyond that we're going to look at
+
+220
+00:09:08.384 --> 00:09:10.646
+installing our own shell
+
+221
+00:09:10.646 --> 00:09:13.846
+and making adjustments to kind of customise things.
+
+222
+00:09:13.846 --> 00:09:16.473
+I'll show you how to make aliases and so on.
+
+223
+00:09:16.473 --> 00:09:18.489
+So I'll see you in the next videos.
+

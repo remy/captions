@@ -1,0 +1,578 @@
+﻿WEBVTT
+
+1
+00:00:02.323 --> 00:00:06.549
+<v ->Okay, so welcome back, and in this video section, or this</v>
+
+2
+00:00:06.549 --> 00:00:10.139
+series of videos we're gonna learn how to do two things.
+
+3
+00:00:10.139 --> 00:00:11.806
+One, mess things up,
+
+4
+00:00:13.439 --> 00:00:15.066
+cause a bit of havoc,
+
+5
+00:00:15.066 --> 00:00:16.149
+break things.
+
+6
+00:00:17.803 --> 00:00:22.045
+So be careful, and the second part will be how to kind of do
+
+7
+00:00:22.045 --> 00:00:25.628
+some simple health checking on the machine.
+
+8
+00:00:26.922 --> 00:00:31.168
+So to start off we're going to be looking at deleting files.
+
+9
+00:00:31.168 --> 00:00:32.001
+Now,
+
+10
+00:00:33.643 --> 00:00:35.624
+you may not want to,
+
+11
+00:00:35.624 --> 00:00:37.190
+you may not feel comfortable
+
+12
+00:00:37.190 --> 00:00:39.156
+to do all your kind of
+
+13
+00:00:39.156 --> 00:00:41.989
+file deletion on the command line.
+
+14
+00:00:44.607 --> 00:00:46.482
+But I'm showing you firstly to show you how
+
+15
+00:00:46.482 --> 00:00:48.580
+to do it, so that you know
+
+16
+00:00:48.580 --> 00:00:51.412
+it exists, but also to show you how to do forced deletes
+
+17
+00:00:51.412 --> 00:00:53.571
+and delete files that you don't really have permission to
+
+18
+00:00:53.571 --> 00:00:56.687
+delete, but also if you get to the point where
+
+19
+00:00:56.687 --> 00:01:00.078
+you're connecting to remote machines, some kinda web server
+
+20
+00:01:00.078 --> 00:01:02.712
+you'll need to know how to use these commands anyway.
+
+21
+00:01:02.712 --> 00:01:04.462
+So, to delete a file,
+
+22
+00:01:05.318 --> 00:01:06.901
+we need to rm.
+
+23
+00:01:06.901 --> 00:01:08.755
+rm is short for remove.
+
+24
+00:01:08.755 --> 00:01:10.779
+So rm, and then the name of the file.
+
+25
+00:01:10.779 --> 00:01:13.529
+So, we're in my home directory
+
+26
+00:01:13.529 --> 00:01:16.965
+We've got a couple of, we've got the demo file that I made
+
+27
+00:01:16.965 --> 00:01:21.589
+in the previous video for grepping, so to remove that file
+
+28
+00:01:21.589 --> 00:01:23.338
+we do rm demo.
+
+29
+00:01:23.338 --> 00:01:26.690
+Okay, pretty simple and it's gone. There's no prompting,
+
+30
+00:01:26.690 --> 00:01:29.713
+there's no asking, it belonged to me, and
+
+31
+00:01:29.713 --> 00:01:32.054
+that file is now gone.
+
+32
+00:01:32.054 --> 00:01:36.289
+It's not in my recycle bin, it is permanently gone.
+
+33
+00:01:36.289 --> 00:01:39.781
+There are possibly tools out there that can recover the
+
+34
+00:01:39.781 --> 00:01:44.002
+file, but from a UI perspective, from the GUI,
+
+35
+00:01:44.002 --> 00:01:47.459
+the Mac's GUI, I can't recover it.
+
+36
+00:01:47.459 --> 00:01:49.384
+So the files now gone, I don't know what the contents of it
+
+37
+00:01:49.384 --> 00:01:52.301
+is anymore, I can't get back to it.
+
+38
+00:01:54.654 --> 00:01:56.987
+So that's done, it's pretty,
+
+39
+00:01:58.939 --> 00:02:01.166
+well, I mean, I own that file
+
+40
+00:02:01.166 --> 00:02:05.437
+so really I ran the command, so you know I should've kinda
+
+41
+00:02:05.437 --> 00:02:09.710
+known what I was doing, that's why there was no prompting.
+
+42
+00:02:09.710 --> 00:02:11.043
+Now if I try and
+
+43
+00:02:12.260 --> 00:02:13.874
+delete,
+
+44
+00:02:13.874 --> 00:02:15.825
+I can, well, let me see.
+
+45
+00:02:15.825 --> 00:02:20.022
+We can go into directories and we're just gonna quickly make
+
+46
+00:02:20.022 --> 00:02:22.105
+a directory, "mkdir foo",
+
+47
+00:02:23.502 --> 00:02:26.203
+so "make directory" mk is short for
+
+48
+00:02:26.203 --> 00:02:30.580
+make directory foo, and to remove that directory,
+
+49
+00:02:30.580 --> 00:02:35.393
+we look, we've got a directory here, I do rmdir foo.
+
+50
+00:02:35.393 --> 00:02:39.083
+So remove directory, if I try and just,
+
+51
+00:02:39.083 --> 00:02:39.976
+before I do that
+
+52
+00:02:39.976 --> 00:02:43.749
+if I just do rm foo, it just says it's a directory,
+
+53
+00:02:43.749 --> 00:02:44.916
+can't do that.
+
+54
+00:02:46.561 --> 00:02:50.243
+And if I try and make a whole bunch of files, if I quickly
+
+55
+00:02:50.243 --> 00:02:54.410
+make some files, I can delete more than one file at once.
+
+56
+00:02:56.275 --> 00:02:58.505
+I'm gonna use touch command, touch will basically just
+
+57
+00:02:58.505 --> 00:03:01.524
+create an empty file, and I'm just gonna create
+
+58
+00:03:01.524 --> 00:03:02.941
+a bunch of files.
+
+59
+00:03:04.798 --> 00:03:07.377
+So this should be, yeah lots of files, they're empty files,
+
+60
+00:03:07.377 --> 00:03:10.515
+nothing in them, and I just used a little command, "touch"
+
+61
+00:03:10.515 --> 00:03:14.558
+will make the file and these braces mean, it just allows me
+
+62
+00:03:14.558 --> 00:03:16.457
+to do more than one at a time.
+
+63
+00:03:16.457 --> 00:03:20.953
+So I'm gonna do "rm 1 2 3", and they're all gone.
+
+64
+00:03:20.953 --> 00:03:22.115
+So do multiple files at once,
+
+65
+00:03:22.115 --> 00:03:25.137
+but I can't remove this directory.
+
+66
+00:03:25.137 --> 00:03:27.220
+But I can do "rmdir foo",
+
+67
+00:03:28.730 --> 00:03:32.917
+and it goes, and it doesn't prompt because I own it again
+
+68
+00:03:32.917 --> 00:03:35.167
+and the directory has gone.
+
+69
+00:03:36.081 --> 00:03:38.680
+There we go, it's just completely empty.
+
+70
+00:03:38.680 --> 00:03:42.586
+So, I'm just using "open" for Finder, obviously a Mac
+
+71
+00:03:42.586 --> 00:03:46.639
+specific thing, that's this demo-folder right here, and I'm
+
+72
+00:03:46.639 --> 00:03:51.278
+gonna go ahead and back up to the parent directory,
+
+73
+00:03:51.278 --> 00:03:55.467
+and I'm gonna try and remove the demo-folder.
+
+74
+00:03:55.467 --> 00:03:58.974
+So, "rmdir demo-folder/",
+
+75
+00:03:58.974 --> 00:04:00.666
+and typically we would expect it
+
+76
+00:04:00.666 --> 00:04:02.499
+to be removed as well,
+
+77
+00:04:03.542 --> 00:04:05.754
+oh actually let's stick a file in there,
+
+78
+00:04:05.754 --> 00:04:08.343
+so "touch demo-folder/1", so there's
+
+79
+00:04:08.343 --> 00:04:12.085
+now a file inside of there, demo-folder.
+
+80
+00:04:12.085 --> 00:04:14.149
+I think the Finder is still there, no it's not.
+
+81
+00:04:14.149 --> 00:04:17.002
+If we try and remove that directory,
+
+82
+00:04:17.002 --> 00:04:18.669
+"rmdir demo-folder",
+
+83
+00:04:20.218 --> 00:04:22.433
+it says it's not empty, so it doesn't want to go ahead and
+
+84
+00:04:22.433 --> 00:04:24.613
+get rid of it until we get rid of the file, so let's just
+
+85
+00:04:24.613 --> 00:04:27.970
+quickly get rid of that file, okay so that's gone.
+
+86
+00:04:27.970 --> 00:04:31.767
+Have a quick look inside, looks empty, try to remove the
+
+87
+00:04:31.767 --> 00:04:34.517
+folder, and it's not empty still.
+
+88
+00:04:35.622 --> 00:04:37.629
+The reason it's not empty is there is actually a hidden file
+
+89
+00:04:37.629 --> 00:04:39.885
+in there, and if you use a Mac, you
+
+90
+00:04:39.885 --> 00:04:42.978
+might've seen these .ds_store files.
+
+91
+00:04:42.978 --> 00:04:45.675
+Now when we looked in the directory we didn't see it.
+
+92
+00:04:45.675 --> 00:04:48.318
+If we try and open the directory, we can't see it, unless
+
+93
+00:04:48.318 --> 00:04:51.960
+you have a special flag turned on,
+
+94
+00:04:51.960 --> 00:04:54.682
+but if we do "ls -ltr",
+
+95
+00:04:54.682 --> 00:04:58.849
+which is my favourite way of listing directories, if I do,
+
+96
+00:05:00.351 --> 00:05:03.868
+I think it's "a", "demo-folder/",
+
+97
+00:05:03.868 --> 00:05:06.154
+"a" means show all files,
+
+98
+00:05:06.154 --> 00:05:07.595
+including hidden files.
+
+99
+00:05:07.595 --> 00:05:11.762
+And there it is, that .DS_Store file, they get everywhere.
+
+100
+00:05:13.506 --> 00:05:16.256
+It's like cat-fur under the sofa.
+
+101
+00:05:18.111 --> 00:05:20.537
+So, we have a choice here, we can manually go ahead and
+
+102
+00:05:20.537 --> 00:05:24.028
+delete each one of these files, or the .DS_Store file.
+
+103
+00:05:24.028 --> 00:05:28.068
+So maybe inside of that demo folder we had a whole bunch of
+
+104
+00:05:28.068 --> 00:05:30.735
+other files, "1, 2, 3" in there,
+
+105
+00:05:32.077 --> 00:05:33.523
+maybe we had another
+
+106
+00:05:33.523 --> 00:05:37.240
+sub-directory inside of there, and really we're feeling
+
+107
+00:05:37.240 --> 00:05:41.628
+a bit lazy, we don't wanna delete every individual file, and
+
+108
+00:05:41.628 --> 00:05:46.115
+the hidden file, what we can do is do a forced delete.
+
+109
+00:05:46.115 --> 00:05:50.360
+So we can do "rm demo-folder/",
+
+110
+00:05:50.360 --> 00:05:53.443
+that will fail but if we do "rm -rf",
+
+111
+00:05:54.519 --> 00:05:58.003
+that's a recursive forced delete, so what that
+
+112
+00:05:58.003 --> 00:06:02.056
+will do is it'll delete the demo folder,
+
+113
+00:06:02.056 --> 00:06:04.061
+it will go into the demo folder and
+
+114
+00:06:04.061 --> 00:06:06.119
+recursively go through every single file and
+
+115
+00:06:06.119 --> 00:06:09.469
+every directory that's in there, and force delete it, and
+
+116
+00:06:09.469 --> 00:06:11.110
+then delete the demo directory.
+
+117
+00:06:11.110 --> 00:06:14.109
+So if we run that now, gone.
+
+118
+00:06:14.109 --> 00:06:14.942
+Okay.
+
+119
+00:06:15.811 --> 00:06:16.644
+Vanished.
+
+120
+00:06:20.877 --> 00:06:23.262
+Where is it, so it's completely gone, so that's a forced
+
+121
+00:06:23.262 --> 00:06:27.262
+delete, and again notice it doesn't prompt me to
+
+122
+00:06:28.582 --> 00:06:31.249
+ask if I'm sure I wanna do that.
+
+123
+00:06:32.415 --> 00:06:35.745
+Now, you need to be careful with this kind of command,
+
+124
+00:06:35.745 --> 00:06:38.682
+because "rm -rf" can get you into a little bit of trouble
+
+125
+00:06:38.682 --> 00:06:42.861
+because it is so much like a sledgehammer
+
+126
+00:06:42.861 --> 00:06:43.694
+to a nail.
+
+127
+00:06:45.229 --> 00:06:49.146
+I tweeted a couple of years ago now, "rm -rf ~"
+
+128
+00:06:50.540 --> 00:06:54.470
+and if you remember from the earlier chapters, tilde means
+
+129
+00:06:54.470 --> 00:06:56.243
+the home directory, so you could actually
+
+130
+00:06:56.243 --> 00:06:58.988
+blow away your entire home directory, and I've been in a
+
+131
+00:06:58.988 --> 00:07:03.469
+situation with perfectly competent colleagues accidentally
+
+132
+00:07:03.469 --> 00:07:07.144
+deleting core directories and realising
+
+133
+00:07:07.144 --> 00:07:09.621
+they've got that rf command and it just
+
+134
+00:07:09.621 --> 00:07:12.193
+gets rid of everything, and it doesn't
+
+135
+00:07:12.193 --> 00:07:14.426
+ask it just goes as fast as it can.
+
+136
+00:07:14.426 --> 00:07:17.926
+So be careful with that, use it sparingly,
+
+137
+00:07:18.922 --> 00:07:21.474
+but you can use it to get rid of directories that have
+
+138
+00:07:21.474 --> 00:07:23.250
+files inside them and you can't be bothered to do
+
+139
+00:07:23.250 --> 00:07:25.689
+every one individually.
+
+140
+00:07:25.689 --> 00:07:28.866
+Equally if you happen to have the terminal handy, you know
+
+141
+00:07:28.866 --> 00:07:32.965
+use the terminal if you feel safe, sorry, Finder handy, use
+
+142
+00:07:32.965 --> 00:07:36.131
+Finder if you feel safer doing that.
+
+143
+00:07:36.131 --> 00:07:39.245
+What I'm going to show you next is "What about files that
+
+144
+00:07:39.245 --> 00:07:41.401
+you don't have permission to delete?".
+

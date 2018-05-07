@@ -1,0 +1,158 @@
+﻿WEBVTT
+
+1
+00:00:01.461 --> 00:00:04.248
+<v ->Following on from the environment variable screen cost,</v>
+
+2
+00:00:04.248 --> 00:00:05.903
+you can also set default values
+
+3
+00:00:05.903 --> 00:00:08.355
+and this is pretty handy for,
+
+4
+00:00:08.355 --> 00:00:12.393
+again kind of development tasks where maybe you,
+
+5
+00:00:12.393 --> 00:00:15.941
+normally always wanted to be port 8000,
+
+6
+00:00:15.941 --> 00:00:17.635
+but occasionally you want to change it.
+
+7
+00:00:17.635 --> 00:00:20.181
+So when we ran this example at echo port
+
+8
+00:00:20.181 --> 00:00:23.726
+with no environment variable, no port it prints nothing.
+
+9
+00:00:23.726 --> 00:00:26.671
+And we have to put the port in front of it.
+
+10
+00:00:26.671 --> 00:00:28.479
+And but we can set a default,
+
+11
+00:00:28.479 --> 00:00:31.754
+so if we have a look at echo default here,
+
+12
+00:00:31.754 --> 00:00:34.604
+instead of just doing dollar port,
+
+13
+00:00:34.604 --> 00:00:36.937
+I've made it so that it uses
+
+14
+00:00:38.360 --> 00:00:40.027
+the shell scripting,
+
+15
+00:00:41.224 --> 00:00:44.378
+method that is if this value is undefined,
+
+16
+00:00:44.378 --> 00:00:46.488
+then use the value 3000.
+
+17
+00:00:46.488 --> 00:00:48.097
+So let's see what happens when we run this.
+
+18
+00:00:48.097 --> 00:00:48.930
+If I run it just by itself and we get 3000,
+
+19
+00:00:48.930 --> 00:00:52.313
+If I run it just by itself and we get 3000,
+
+20
+00:00:52.313 --> 00:00:55.840
+but I can override the port by doing 333
+
+21
+00:00:55.840 --> 00:00:57.245
+and now I get a different port.
+
+22
+00:00:57.245 --> 00:00:59.662
+And this is really handy for,
+
+23
+00:01:01.114 --> 00:01:02.114
+things like,
+
+24
+00:01:03.125 --> 00:01:04.292
+packages, and,
+
+25
+00:01:05.488 --> 00:01:08.113
+default kind of starting scripts so here
+
+26
+00:01:08.113 --> 00:01:10.710
+this is a package from the terminal training website,
+
+27
+00:01:10.710 --> 00:01:12.710
+where I say to run this,
+
+28
+00:01:14.413 --> 00:01:18.636
+node server use this serve command at use port,
+
+29
+00:01:18.636 --> 00:01:20.319
+and they're like pass in so I
+
+30
+00:01:20.319 --> 00:01:22.798
+can specify port 3001 for instance,
+
+31
+00:01:22.798 --> 00:01:25.667
+but if there's no port passed in then you use port 3000.
+
+32
+00:01:25.667 --> 00:01:29.340
+So I can do npm start and it would just run the server
+
+33
+00:01:29.340 --> 00:01:32.741
+or I can do port equals 3001 npm start
+
+34
+00:01:32.741 --> 00:01:35.511
+and it would use the port 3001.
+
+35
+00:01:35.511 --> 00:01:37.854
+So that's a good way of having a default value.
+
+36
+00:01:37.854 --> 00:01:39.849
+I wouldn't normally always use this,
+
+37
+00:01:39.849 --> 00:01:42.269
+but like I said it's really handy for just
+
+38
+00:01:42.269 --> 00:01:44.889
+that little thing where sometimes you want
+
+39
+00:01:44.889 --> 00:01:46.329
+to be able to tweak the value.
+

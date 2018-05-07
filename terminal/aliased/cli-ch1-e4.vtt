@@ -1,0 +1,98 @@
+﻿WEBVTT
+
+1
+00:00:03.762 --> 00:00:06.762
+<v ->Now you've already seen one of the</v>
+
+2
+00:00:09.008 --> 00:00:10.154
+cd shortcuts.
+
+3
+00:00:10.154 --> 00:00:12.643
+You've seen cd ~, which takes you back
+
+4
+00:00:12.643 --> 00:00:13.996
+to the home directory.
+
+5
+00:00:13.996 --> 00:00:15.579
+I can also use cd -
+
+6
+00:00:17.835 --> 00:00:20.677
+and what cd - does is take me back
+
+7
+00:00:20.677 --> 00:00:23.501
+to the directory I was in a moment ago.
+
+8
+00:00:23.501 --> 00:00:26.634
+So, in this previous line, I was in the blog directory,
+
+9
+00:00:26.634 --> 00:00:29.857
+and I typed in, I went up into the parent directory,
+
+10
+00:00:29.857 --> 00:00:31.139
+into draughts.
+
+11
+00:00:31.139 --> 00:00:35.306
+If I type in cd -, I go back into the blog directory.
+
+12
+00:00:36.162 --> 00:00:37.394
+And equally, I can use that again
+
+13
+00:00:37.394 --> 00:00:39.155
+to back to the draughts.
+
+14
+00:00:39.155 --> 00:00:40.035
+Now, this is handy for
+
+15
+00:00:40.035 --> 00:00:41.690
+jumping back and forth between directories
+
+16
+00:00:41.690 --> 00:00:44.162
+when I'm making copy changes here and there.
+
+17
+00:00:44.162 --> 00:00:47.834
+Maybe I want to count the number of blog posts I have,
+
+18
+00:00:47.834 --> 00:00:49.855
+and then I want to count the number of draughts I have.
+
+19
+00:00:49.855 --> 00:00:51.656
+So, we can do that,
+
+20
+00:00:51.656 --> 00:00:54.156
+ls and then I count all those.
+
+21
+00:00:55.229 --> 00:00:58.817
+And then I cd back, and I do an ls
+
+22
+00:00:58.817 --> 00:00:59.827
+and I count all those.
+
+23
+00:00:59.827 --> 00:01:03.250
+I'll show you how to count and mix commands together
+
+24
+00:01:03.250 --> 00:01:04.750
+in a later video.
+

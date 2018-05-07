@@ -1,0 +1,518 @@
+﻿WEBVTT
+
+1
+00:00:02.557 --> 00:00:05.464
+<v ->Here I want to show you a really powerful tool</v>
+
+2
+00:00:05.464 --> 00:00:09.631
+for web development that all happens on the command line.
+
+3
+00:00:10.834 --> 00:00:14.189
+Now, I'm working on the terminal training website
+
+4
+00:00:14.189 --> 00:00:15.633
+and this is the local copy, you can
+
+5
+00:00:15.633 --> 00:00:17.737
+see up here localhost port 3000.
+
+6
+00:00:17.737 --> 00:00:20.850
+And I'm working on the twitter card,
+
+7
+00:00:20.850 --> 00:00:23.506
+and I'm not that super familiar, I'm basically
+
+8
+00:00:23.506 --> 00:00:26.815
+copying and pasting my way through the twitter card,
+
+9
+00:00:26.815 --> 00:00:28.832
+and when I got off the twitter validator,
+
+10
+00:00:28.832 --> 00:00:31.691
+the twitter card validator, it needs a public URL
+
+11
+00:00:31.691 --> 00:00:34.216
+to access when it validates the card.
+
+12
+00:00:34.216 --> 00:00:38.541
+So when I put the card URL, if I copy localhost:3000,
+
+13
+00:00:38.541 --> 00:00:42.220
+it won't work because the twitter card validator
+
+14
+00:00:42.220 --> 00:00:44.157
+can't reach my server, because it's localhost.
+
+15
+00:00:44.157 --> 00:00:47.256
+So, before, really, the only way I could get this to work
+
+16
+00:00:47.256 --> 00:00:50.318
+was to publish it online somewhere and actually
+
+17
+00:00:50.318 --> 00:00:52.625
+test if the twitter card works, and if it didn't,
+
+18
+00:00:52.625 --> 00:00:54.120
+I would then need to make another change,
+
+19
+00:00:54.120 --> 00:00:57.168
+re-release and repeat over and over again.
+
+20
+00:00:57.168 --> 00:00:59.192
+And this is where ngrok comes in,
+
+21
+00:00:59.192 --> 00:01:02.641
+and solves this problem completely for me.
+
+22
+00:01:02.641 --> 00:01:05.474
+So, ngrok is over here, ngrok.com.
+
+23
+00:01:06.782 --> 00:01:09.452
+It's free to use, you have to sign up
+
+24
+00:01:09.452 --> 00:01:13.258
+and get an auth token, it's pretty straightforward
+
+25
+00:01:13.258 --> 00:01:15.573
+once you have the copy and paste commands.
+
+26
+00:01:15.573 --> 00:01:18.985
+You go ahead and download it, you'll get a zip file,
+
+27
+00:01:18.985 --> 00:01:21.485
+and you'll unzip the file into
+
+28
+00:01:22.641 --> 00:01:25.416
+whatever directory you put it.
+
+29
+00:01:25.416 --> 00:01:29.583
+Now I have I moved my copy into my home directory/bin/ngrok.
+
+30
+00:01:31.216 --> 00:01:35.383
+You could put it into /usr/local/bin, that would work
+
+31
+00:01:36.757 --> 00:01:40.540
+as well, so that you could just type ngrok, like that.
+
+32
+00:01:40.540 --> 00:01:42.687
+Or you can run it from the current working directory
+
+33
+00:01:42.687 --> 00:01:46.351
+as this example does, and then once you've done that,
+
+34
+00:01:46.351 --> 00:01:50.407
+you'll need to auth, and once you've signed in,
+
+35
+00:01:50.407 --> 00:01:52.915
+the dashboard, once you're logged in
+
+36
+00:01:52.915 --> 00:01:55.415
+to ngrok, shows you your token
+
+37
+00:01:56.258 --> 00:01:59.466
+and how to complete your authentication.
+
+38
+00:01:59.466 --> 00:02:03.108
+So, you've downloaded it, you've done the auth process,
+
+39
+00:02:03.108 --> 00:02:06.258
+the next thing to do is to create a tunnel,
+
+40
+00:02:06.258 --> 00:02:09.494
+and what ngrok will do is, it will tunnel
+
+41
+00:02:09.494 --> 00:02:11.598
+whatever port you want, and in this case,
+
+42
+00:02:11.598 --> 00:02:15.371
+3000 for me, and create a public URL for it,
+
+43
+00:02:15.371 --> 00:02:18.204
+both an http URL and an https URL.
+
+44
+00:02:19.442 --> 00:02:23.353
+So I'm gonna do that now, ngrok, I tell it http
+
+45
+00:02:23.353 --> 00:02:25.218
+'cause that's the protocol I need to go over,
+
+46
+00:02:25.218 --> 00:02:28.237
+and then 3000, that's the port that I have my localhost on.
+
+47
+00:02:28.237 --> 00:02:31.023
+So when I kick it off, there's a bit of information here,
+
+48
+00:02:31.023 --> 00:02:33.084
+first of all, I'm on a free plan, which means
+
+49
+00:02:33.084 --> 00:02:36.893
+I can only have one tunnel per region.
+
+50
+00:02:36.893 --> 00:02:38.258
+Now like I say, the region that it's using
+
+51
+00:02:38.258 --> 00:02:40.028
+is the States, the U.S., so it means,
+
+52
+00:02:40.028 --> 00:02:44.469
+I'm based in the U.K., so if I had an E.U. tunnel,
+
+53
+00:02:44.469 --> 00:02:46.131
+it might be a little bit faster,
+
+54
+00:02:46.131 --> 00:02:47.241
+the latency might be a little bit lower,
+
+55
+00:02:47.241 --> 00:02:50.557
+but it doesn't really matter for this example.
+
+56
+00:02:50.557 --> 00:02:52.415
+The web interface that you'll come onto in a moment,
+
+57
+00:02:52.415 --> 00:02:54.642
+and here are the two public-facing URLs.
+
+58
+00:02:54.642 --> 00:02:57.124
+Now whenever I run ngrok, because I have a free account,
+
+59
+00:02:57.124 --> 00:03:01.594
+it just creates random, generates it, URL for me,
+
+60
+00:03:01.594 --> 00:03:04.678
+if I had upgraded to the $5 a month, I could specify
+
+61
+00:03:04.678 --> 00:03:07.616
+and I could have, like, remy.ngrok, io, and so on.
+
+62
+00:03:07.616 --> 00:03:09.931
+So now what I'm gonna do is I'm gonna grab
+
+63
+00:03:09.931 --> 00:03:12.892
+this https URL, and I go back to
+
+64
+00:03:12.892 --> 00:03:16.309
+the twitter card validator, and I'm gonna
+
+65
+00:03:18.268 --> 00:03:22.521
+stick it into the card URL, and preview the card.
+
+66
+00:03:22.521 --> 00:03:26.604
+Now when I run it, it's grabbed the metadata from
+
+67
+00:03:29.033 --> 00:03:33.200
+my offline copy of my website, but the image is missing.
+
+68
+00:03:35.366 --> 00:03:39.747
+If I look at the twitter image here, it's a relative URL,
+
+69
+00:03:39.747 --> 00:03:43.665
+maybe it needs an absolute URL, so I'm gonna paste in
+
+70
+00:03:43.665 --> 00:03:46.590
+the ngrok URL for the time being, and this just saves me
+
+71
+00:03:46.590 --> 00:03:48.738
+kind of releasing it and tweaking it and so on,
+
+72
+00:03:48.738 --> 00:03:50.327
+when I actually come to release it,
+
+73
+00:03:50.327 --> 00:03:53.679
+I'll use the real terminal.training URL.
+
+74
+00:03:53.679 --> 00:03:56.284
+But I'm just gonna hit save here,
+
+75
+00:03:56.284 --> 00:03:57.859
+this is the same as opening devtools,
+
+76
+00:03:57.859 --> 00:04:00.536
+uh, sorry, sublime, and making a change,
+
+77
+00:04:00.536 --> 00:04:03.460
+don't worry about the magic that's going on here.
+
+78
+00:04:03.460 --> 00:04:07.350
+I'm literally just going to go off to the card validator.
+
+79
+00:04:07.350 --> 00:04:09.250
+I'm just gonna cachebox this, I'm just gonna
+
+80
+00:04:09.250 --> 00:04:12.185
+stick ?1, because the card validator
+
+81
+00:04:12.185 --> 00:04:14.446
+caches the response, so it doesn't have to keep
+
+82
+00:04:14.446 --> 00:04:18.363
+going off the server all the time, hit preview,
+
+83
+00:04:19.420 --> 00:04:22.576
+and now the image loads, so it turns out
+
+84
+00:04:22.576 --> 00:04:25.805
+I just had a bug there, but what ngrok saved me from doing
+
+85
+00:04:25.805 --> 00:04:28.708
+is constantly releasing to try and get
+
+86
+00:04:28.708 --> 00:04:32.118
+a single change being seen on a real URL.
+
+87
+00:04:32.118 --> 00:04:34.556
+So you go back to the terminal here,
+
+88
+00:04:34.556 --> 00:04:37.154
+I still want to show you the web interface.
+
+89
+00:04:37.154 --> 00:04:39.674
+I'm just gonna open it up, I'm holding it down
+
+90
+00:04:39.674 --> 00:04:42.101
+Command with iTerm, and it'll make it clickable,
+
+91
+00:04:42.101 --> 00:04:44.760
+and when I open up the web inspector,
+
+92
+00:04:44.760 --> 00:04:46.275
+I can actually see all the requests that came
+
+93
+00:04:46.275 --> 00:04:50.942
+through ngrok, so I can see, there were four requests.
+
+94
+00:04:50.942 --> 00:04:53.357
+I had a robots request which you can see that came
+
+95
+00:04:53.357 --> 00:04:57.406
+from this twitterbot, I've had two http requests,
+
+96
+00:04:57.406 --> 00:04:59.014
+I'm not sure why there were two.
+
+97
+00:04:59.014 --> 00:05:00.488
+Oh, that was the first one, sorry,
+
+98
+00:05:00.488 --> 00:05:01.464
+and this was the second one with the
+
+99
+00:05:01.464 --> 00:05:04.621
+query parameter of one, we can see that.
+
+100
+00:05:04.621 --> 00:05:07.833
+We can see all the headers that were sent,
+
+101
+00:05:07.833 --> 00:05:10.810
+the raw request itself, as you can see,
+
+102
+00:05:10.810 --> 00:05:14.623
+GET just up here, GET /?1, and then this is
+
+103
+00:05:14.623 --> 00:05:17.120
+the next request where we can see the images being served.
+
+104
+00:05:17.120 --> 00:05:19.819
+And I can use this as well for dynamic content,
+
+105
+00:05:19.819 --> 00:05:24.360
+things like web hooks, if I have a server locally,
+
+106
+00:05:24.360 --> 00:05:28.339
+I can run ngrok and point another service
+
+107
+00:05:28.339 --> 00:05:32.506
+to my local machine, and if a web hook hits my ngrok URL,
+
+108
+00:05:34.112 --> 00:05:35.831
+the entire payload comes through here,
+
+109
+00:05:35.831 --> 00:05:40.486
+and I can see the summary of the data that came in,
+
+110
+00:05:40.486 --> 00:05:43.017
+here we can see the query parameter,
+
+111
+00:05:43.017 --> 00:05:45.184
+we can see POST body data,
+
+112
+00:05:48.009 --> 00:05:50.911
+and really, really useful is this Replay button.
+
+113
+00:05:50.911 --> 00:05:53.361
+What this does is just completely re-request
+
+114
+00:05:53.361 --> 00:05:57.074
+the entire thing, so again, if I had a web hook,
+
+115
+00:05:57.074 --> 00:05:59.594
+and I had server that was working on
+
+116
+00:05:59.594 --> 00:06:01.662
+responding to a web hook, when I hit Replay,
+
+117
+00:06:01.662 --> 00:06:03.933
+that would just hit my server again, over and over,
+
+118
+00:06:03.933 --> 00:06:06.001
+until I'm happy with the actual response going back
+
+119
+00:06:06.001 --> 00:06:08.235
+out the door, at which point I tear down ngrok
+
+120
+00:06:08.235 --> 00:06:11.713
+and then release my entire thing, and I'm happy.
+
+121
+00:06:11.713 --> 00:06:14.638
+Absolutely superb tool, even just
+
+122
+00:06:14.638 --> 00:06:16.942
+the free offering is brilliant.
+
+123
+00:06:16.942 --> 00:06:21.124
+There is some, where is it, some information on,
+
+124
+00:06:21.124 --> 00:06:23.470
+there's some information on different parameters
+
+125
+00:06:23.470 --> 00:06:28.255
+you can use, the one thing I sometimes use is E.U.,
+
+126
+00:06:28.255 --> 00:06:31.242
+region E.U., just to change a region allows me to
+
+127
+00:06:31.242 --> 00:06:32.619
+have two running at the same time,
+
+128
+00:06:32.619 --> 00:06:35.088
+but absolutely superb tool, highly recommend it,
+
+129
+00:06:35.088 --> 00:06:37.401
+using it in part of your workflow.
+

@@ -1,0 +1,186 @@
+﻿WEBVTT
+
+1
+00:00:01.822 --> 00:00:04.746
+<v ->If you just followed in from the previous video,</v>
+
+2
+00:00:04.746 --> 00:00:07.177
+you would have seen that we are
+
+3
+00:00:07.177 --> 00:00:10.493
+looking at all the node processes on my machine.
+
+4
+00:00:10.493 --> 00:00:12.326
+So if I do a ps auxww,
+
+5
+00:00:13.807 --> 00:00:17.798
+pipe that into grep and grep for node,
+
+6
+00:00:17.798 --> 00:00:19.565
+we can see a list of everything,
+
+7
+00:00:19.565 --> 00:00:21.559
+all the node processes running.
+
+8
+00:00:21.559 --> 00:00:25.726
+We were using awk to print a list of those process IDs.
+
+9
+00:00:29.497 --> 00:00:31.211
+From there, what I want to do is kill
+
+10
+00:00:31.211 --> 00:00:33.251
+each one of these processes.
+
+11
+00:00:33.251 --> 00:00:35.765
+The way that you would do this is kill
+
+12
+00:00:35.765 --> 00:00:39.310
+and then copy and paste, which is a bit kind of boring,
+
+13
+00:00:39.310 --> 00:00:41.573
+and then copy and paste again and again
+
+14
+00:00:41.573 --> 00:00:44.307
+and it would kill each one individual,
+
+15
+00:00:44.307 --> 00:00:47.545
+but wouldn't it be nice if we could pipe it to kill?
+
+16
+00:00:47.545 --> 00:00:50.569
+So, each one of these IDs is given directly to kill
+
+17
+00:00:50.569 --> 00:00:53.153
+and kill will just kill them for us.
+
+18
+00:00:53.153 --> 00:00:55.003
+Problem is kill doesn't work like that.
+
+19
+00:00:55.003 --> 00:00:58.575
+Kill expects the process ID as an argument
+
+20
+00:00:58.575 --> 00:01:03.131
+and not via standard in, so we can't pipe them together.
+
+21
+00:01:03.131 --> 00:01:06.907
+This is where xargs solve the problem for us.
+
+22
+00:01:06.907 --> 00:01:08.407
+What xargs will do
+
+23
+00:01:09.743 --> 00:01:13.910
+is take the content from standard in, so this output,
+
+24
+00:01:16.085 --> 00:01:18.669
+and it will put it as an argument
+
+25
+00:01:18.669 --> 00:01:20.251
+to whatever command we use.
+
+26
+00:01:20.251 --> 00:01:22.087
+So let's get rid of this.
+
+27
+00:01:22.087 --> 00:01:24.159
+We'll do xargs.
+
+28
+00:01:24.159 --> 00:01:25.874
+Echo is our command.
+
+29
+00:01:25.874 --> 00:01:27.550
+Then, what you have to imagine is
+
+30
+00:01:27.550 --> 00:01:30.591
+that all the output from this
+
+31
+00:01:30.591 --> 00:01:32.739
+is stuck on the end over here.
+
+32
+00:01:32.739 --> 00:01:34.012
+So I hit enter.
+
+33
+00:01:34.012 --> 00:01:37.326
+This is effectively typing or running
+
+34
+00:01:37.326 --> 00:01:39.675
+echo on all those IDs.
+
+35
+00:01:39.675 --> 00:01:44.473
+Now, using our knowledge of xargs, we can do kill
+
+36
+00:01:44.473 --> 00:01:48.088
+and it will put all of the process IDs at the end
+
+37
+00:01:48.088 --> 00:01:50.400
+as an argument to kill,
+
+38
+00:01:50.400 --> 00:01:53.664
+and it will kill all of the node processes.
+
+39
+00:01:53.664 --> 00:01:56.811
+If we just grep, you can see they're all gone.
+
+40
+00:01:56.811 --> 00:01:59.293
+The only thing here is the grep command I'm running.
+
+41
+00:01:59.293 --> 00:02:00.829
+So, xargs, really useful.
+
+42
+00:02:00.829 --> 00:02:03.649
+Basically, like I said, taking standard in,
+
+43
+00:02:03.649 --> 00:02:06.561
+chucking it on the end of the command that we want to use.
+
+44
+00:02:06.561 --> 00:02:10.221
+We also have a link that explains how to
+
+45
+00:02:10.221 --> 00:02:13.007
+position where you want the argument to go,
+
+46
+00:02:13.007 --> 00:02:15.300
+so you can kind of have more control over xargs.
+

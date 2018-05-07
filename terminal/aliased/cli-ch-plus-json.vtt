@@ -1,0 +1,582 @@
+﻿WEBVTT
+
+1
+00:00:02.285 --> 00:00:04.768
+<v ->So one of the tools that I use all the time</v>
+
+2
+00:00:04.768 --> 00:00:07.970
+on the command line is this tool called JSON.
+
+3
+00:00:07.970 --> 00:00:10.625
+Now as you can probably guess from the name,
+
+4
+00:00:10.625 --> 00:00:15.061
+it's for json manipulation, filtering, and so on.
+
+5
+00:00:15.061 --> 00:00:18.549
+And this is kinda the simpler version of tools
+
+6
+00:00:18.549 --> 00:00:20.716
+I've found for json manipulation.
+
+7
+00:00:20.716 --> 00:00:24.979
+And it's one tool that maybe you've heard of before.
+
+8
+00:00:24.979 --> 00:00:27.985
+It's called jq, it's much more advanced version
+
+9
+00:00:27.985 --> 00:00:30.985
+of what json is and has a little bit
+
+10
+00:00:31.868 --> 00:00:35.228
+of its own language for doing processing.
+
+11
+00:00:35.228 --> 00:00:38.716
+I've had a few tries with jq, I haven't really had the time
+
+12
+00:00:38.716 --> 00:00:43.097
+to kind of grock how to do the manipulation.
+
+13
+00:00:43.097 --> 00:00:46.254
+And I tend to find this json tool a bit easier to work with.
+
+14
+00:00:46.254 --> 00:00:51.171
+Although sometimes I find I have to pipe the json command
+
+15
+00:00:51.171 --> 00:00:54.176
+into itself multiple times to get what I'm looking for.
+
+16
+00:00:54.176 --> 00:00:56.526
+But we'll see that in a moment.
+
+17
+00:00:56.526 --> 00:00:59.974
+So, you're can instal this tool using npm.
+
+18
+00:00:59.974 --> 00:01:04.141
+Npm instal dash dash global json
+
+19
+00:01:05.862 --> 00:01:08.141
+and that's because we're gonna make it a utility
+
+20
+00:01:08.141 --> 00:01:10.752
+that's used throughout your operating system.
+
+21
+00:01:10.752 --> 00:01:13.533
+And here's a few examples of it kind of being used.
+
+22
+00:01:13.533 --> 00:01:17.733
+There's piping, a plain text file into the json command.
+
+23
+00:01:17.733 --> 00:01:20.634
+And it's kind of outputting it out as json.
+
+24
+00:01:20.634 --> 00:01:23.040
+You can do look ups on it.
+
+25
+00:01:23.040 --> 00:01:26.110
+You can do manipulation and filtering.
+
+26
+00:01:26.110 --> 00:01:27.645
+And we'll look at that as well.
+
+27
+00:01:27.645 --> 00:01:30.477
+And just a little bit further down is the
+
+28
+00:01:30.477 --> 00:01:32.080
+documentation for this.
+
+29
+00:01:32.080 --> 00:01:35.874
+This is the same as typing man json,
+
+30
+00:01:35.874 --> 00:01:38.116
+you get the same output, just a little bit easier
+
+31
+00:01:38.116 --> 00:01:40.965
+to kind of navigate in the browser.
+
+32
+00:01:40.965 --> 00:01:44.521
+So, we're gonna have a look at that now.
+
+33
+00:01:44.521 --> 00:01:49.196
+I downloaded this file, or I've hit the vimeo API
+
+34
+00:01:49.196 --> 00:01:53.426
+and gotten this content and I've stored it in vimeo.json.
+
+35
+00:01:53.426 --> 00:01:56.221
+So if we cat this out, you'll see what I've got.
+
+36
+00:01:56.221 --> 00:01:58.064
+And a whole load of json.
+
+37
+00:01:58.064 --> 00:02:00.859
+And it's valid json, but it's a little bit tricky to read,
+
+38
+00:02:00.859 --> 00:02:04.102
+and to be honest, if I want to grab all of the links
+
+39
+00:02:04.102 --> 00:02:06.290
+or the HD URLs for the course,
+
+40
+00:02:06.290 --> 00:02:08.582
+I don't really know where to begin.
+
+41
+00:02:08.582 --> 00:02:10.234
+So, the first thing I'm gonna do is pipe
+
+42
+00:02:10.234 --> 00:02:12.430
+that straight into json.
+
+43
+00:02:12.430 --> 00:02:13.814
+And what you see now,
+
+44
+00:02:13.814 --> 00:02:16.978
+it automatically structures it out for me.
+
+45
+00:02:16.978 --> 00:02:20.101
+But still, I don't really know kind of how it's structured.
+
+46
+00:02:20.101 --> 00:02:23.839
+And json has this nice command called keys,
+
+47
+00:02:23.839 --> 00:02:26.792
+which will just list out all the keys over level.
+
+48
+00:02:26.792 --> 00:02:28.440
+So if I do that, now I can see
+
+49
+00:02:28.440 --> 00:02:30.715
+okay I've got information about the pages
+
+50
+00:02:30.715 --> 00:02:32.869
+and probably what I'm looking for is in data.
+
+51
+00:02:32.869 --> 00:02:35.017
+So I'm just gonna do json data,
+
+52
+00:02:35.017 --> 00:02:36.817
+and I'm gonna pipe it to less,
+
+53
+00:02:36.817 --> 00:02:39.838
+just a little glimpse as to what it's gonna give me.
+
+54
+00:02:39.838 --> 00:02:41.913
+And we can see, okay we've got an array.
+
+55
+00:02:41.913 --> 00:02:45.312
+And we have these objects with lots of things inside of it.
+
+56
+00:02:45.312 --> 00:02:49.166
+And really what I'm looking for is this files array.
+
+57
+00:02:49.166 --> 00:02:53.166
+So inside of data, I have to pipe to json again.
+
+58
+00:02:54.852 --> 00:02:58.173
+Type files, and this won't work, it's gonna blank response
+
+59
+00:02:58.173 --> 00:03:02.926
+because there's no files property in data, data is an array.
+
+60
+00:03:02.926 --> 00:03:07.093
+So if we pipe this into out1.json, have a quick look.
+
+61
+00:03:08.930 --> 00:03:12.418
+You'll see, at the top corner here, it's an array.
+
+62
+00:03:12.418 --> 00:03:15.335
+And if I was looking for dot files,
+
+63
+00:03:16.682 --> 00:03:19.667
+it's not a property on the array, so we need to
+
+64
+00:03:19.667 --> 00:03:23.312
+run it through json again and I'm gonna use this -a.
+
+65
+00:03:23.312 --> 00:03:26.812
+And -a will, what does it do, is it merge?
+
+66
+00:03:29.390 --> 00:03:31.075
+No it's not merge.
+
+67
+00:03:31.075 --> 00:03:35.075
+Basically what it does is...
+
+68
+00:03:39.472 --> 00:03:41.777
+Itemises, I saw it kind of described
+
+69
+00:03:41.777 --> 00:03:45.527
+in a pretty nice way earlier.
+
+70
+00:03:48.310 --> 00:03:50.019
+It's sort of like that, I mean
+
+71
+00:03:50.019 --> 00:03:51.907
+although we're using different command.
+
+72
+00:03:51.907 --> 00:03:54.907
+<v ->a will put each object on a single,</v>
+
+73
+00:03:57.541 --> 00:04:00.131
+it'll basically just collect all the drop through objects
+
+74
+00:04:00.131 --> 00:04:01.629
+so that they're at their root.
+
+75
+00:04:01.629 --> 00:04:04.470
+So we're not longer dealing with an array anymore.
+
+76
+00:04:04.470 --> 00:04:07.744
+And I can look up the property files, and that'll give me
+
+77
+00:04:07.744 --> 00:04:11.911
+each of the files property in each of my vimeo publications.
+
+78
+00:04:14.553 --> 00:04:17.629
+So we run that, you can now see it works.
+
+79
+00:04:17.629 --> 00:04:20.373
+And you'll see, we're getting back an array.
+
+80
+00:04:20.373 --> 00:04:23.540
+But I think, if we put this into out2.
+
+81
+00:04:25.555 --> 00:04:27.774
+Have a quick look at that file.
+
+82
+00:04:27.774 --> 00:04:29.999
+You might see.
+
+83
+00:04:29.999 --> 00:04:32.332
+(muttering)
+
+84
+00:04:34.588 --> 00:04:37.049
+Just there, yeah, so line 48 and 49,
+
+85
+00:04:37.049 --> 00:04:38.605
+you can see where the two arrays
+
+86
+00:04:38.605 --> 00:04:40.446
+have butted next to each other.
+
+87
+00:04:40.446 --> 00:04:44.656
+So this one from 48 upwards is one of the files' properties,
+
+88
+00:04:44.656 --> 00:04:46.494
+and then the next one is the next file's properties.
+
+89
+00:04:46.494 --> 00:04:49.275
+So it's not valid json at this point.
+
+90
+00:04:49.275 --> 00:04:51.169
+Okay, so now we have this,
+
+91
+00:04:51.169 --> 00:04:55.086
+basically an array of arrays,
+
+92
+00:04:57.786 --> 00:05:01.923
+we need to group those all together, and we're gonna philtre,
+
+93
+00:05:01.923 --> 00:05:05.964
+we're gonna do a conditional philtre for all of the HD files.
+
+94
+00:05:05.964 --> 00:05:09.881
+So I need to use this group and array together.
+
+95
+00:05:11.111 --> 00:05:15.884
+So piping ga, if I do less again, we should see is
+
+96
+00:05:15.884 --> 00:05:20.051
+now I have all of these video objects, the file objects,
+
+97
+00:05:21.080 --> 00:05:24.019
+but they're all just objects by themselves.
+
+98
+00:05:24.019 --> 00:05:28.080
+So now I can actually do kind of look ups.
+
+99
+00:05:28.080 --> 00:05:31.130
+What were we just looking at?
+
+100
+00:05:31.130 --> 00:05:34.593
+Less, let's get secure link.
+
+101
+00:05:34.593 --> 00:05:37.531
+This is probably what we'll actually need to get.
+
+102
+00:05:37.531 --> 00:05:39.513
+So we've got loads of secure links,
+
+103
+00:05:39.513 --> 00:05:42.420
+but then not just the HD ones, but every single one of them.
+
+104
+00:05:42.420 --> 00:05:45.400
+So what I'm gonna do is add -c and this,
+
+105
+00:05:45.400 --> 00:05:48.246
+this refers to each object.
+
+106
+00:05:48.246 --> 00:05:52.887
+Dot height equals 1440, which is our HD videos.
+
+107
+00:05:52.887 --> 00:05:56.843
+And now just grab the secure link, and there we go.
+
+108
+00:05:56.843 --> 00:06:01.010
+Quite a few less, I only grabbed 10 vimeo objects.
+
+109
+00:06:03.238 --> 00:06:05.050
+We just have a quick look.
+
+110
+00:06:05.050 --> 00:06:08.550
+We see, out of those, there are 9 HD URLs.
+
+111
+00:06:09.901 --> 00:06:11.904
+So you can see, I've kind of,
+
+112
+00:06:11.904 --> 00:06:16.071
+I've taken this concatenated, like flat json structure,
+
+113
+00:06:17.534 --> 00:06:21.082
+and I passed it through multiple passes of the json command
+
+114
+00:06:21.082 --> 00:06:23.035
+until I get what I'm looking for.
+
+115
+00:06:23.035 --> 00:06:27.035
+In this instance, I was looking for these links.
+
+116
+00:06:27.927 --> 00:06:30.279
+And just one last thing as well.
+
+117
+00:06:30.279 --> 00:06:33.594
+When you instal json for the first time,
+
+118
+00:06:33.594 --> 00:06:38.262
+when you cat out the vimeo file and pipe it json.
+
+119
+00:06:38.262 --> 00:06:40.520
+It won't be syntax highlighted.
+
+120
+00:06:40.520 --> 00:06:43.687
+You'll just get like a plain text version.
+
+121
+00:06:43.687 --> 00:06:46.019
+And the reason I have syntax highlighting
+
+122
+00:06:46.019 --> 00:06:50.525
+is because I installed this tool ccat or C-cat.
+
+123
+00:06:50.525 --> 00:06:54.692
+So you just do a brew instal ccat, and what'll give you is
+
+124
+00:06:56.085 --> 00:06:58.437
+if you run everything through ccat,
+
+125
+00:06:58.437 --> 00:07:01.412
+it'll syntax highlight by default.
+
+126
+00:07:01.412 --> 00:07:04.205
+And I actually have this alias in place,
+
+127
+00:07:04.205 --> 00:07:06.543
+so alias cat = ccat.
+
+128
+00:07:06.543 --> 00:07:09.941
+If you look at my command right here, which cat.
+
+129
+00:07:09.941 --> 00:07:13.014
+It's aliased to ccat, and what ccat will do
+
+130
+00:07:13.014 --> 00:07:15.640
+is syntax highlight files.
+
+131
+00:07:15.640 --> 00:07:17.699
+If we look at package for instance,
+
+132
+00:07:17.699 --> 00:07:19.552
+it highlights the json.
+
+133
+00:07:19.552 --> 00:07:22.166
+Do the same thing with JavaScript,
+
+134
+00:07:22.166 --> 00:07:24.416
+other syntax files I think.
+
+135
+00:07:25.293 --> 00:07:28.221
+It sort of highlights, not HTML or CSS,
+
+136
+00:07:28.221 --> 00:07:30.205
+but I'm sure there are other things
+
+137
+00:07:30.205 --> 00:07:31.936
+for doing that kind of thing.
+
+138
+00:07:31.936 --> 00:07:33.985
+So, yup, definitely useful.
+
+139
+00:07:33.985 --> 00:07:36.115
+I use it all the time, like I said,
+
+140
+00:07:36.115 --> 00:07:40.026
+I do quite often pipe multiple json together.
+
+141
+00:07:40.026 --> 00:07:43.480
+If you want to look to go further, take a look at jq.
+
+142
+00:07:43.480 --> 00:07:45.405
+There is also this kind of playground
+
+143
+00:07:45.405 --> 00:07:46.789
+that you can experiment with
+
+144
+00:07:46.789 --> 00:07:48.858
+to try and kind of get your command right
+
+145
+00:07:48.858 --> 00:07:51.001
+and seek out as a bonus.
+
