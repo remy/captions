@@ -1,0 +1,530 @@
+﻿WEBVTT
+
+1
+00:00:00.160 --> 00:00:05.160
+<v ->Hello and welcome to this workshop on Next.js.</v>
+
+2
+00:00:05.673 --> 00:00:10.060
+So the workshop is going to be multiple videos
+
+3
+00:00:10.060 --> 00:00:11.750
+which walks you through
+
+4
+00:00:11.750 --> 00:00:16.750
+how to create an Universal JavaScript application,
+
+5
+00:00:17.200 --> 00:00:19.810
+software, website, whatever you want to call it,
+
+6
+00:00:19.810 --> 00:00:22.900
+using the framework, Next.js.
+
+7
+00:00:22.900 --> 00:00:27.900
+So, we're going to build up a conference schedule website.
+
+8
+00:00:27.980 --> 00:00:31.950
+I'm gonna talk through how to build that.
+
+9
+00:00:31.950 --> 00:00:33.920
+There are links to GitHub repos
+
+10
+00:00:33.920 --> 00:00:34.860
+and specific tags
+
+11
+00:00:34.860 --> 00:00:38.010
+where you can copy the code as you go along
+
+12
+00:00:38.010 --> 00:00:42.260
+or you can code as you follow along here.
+
+13
+00:00:42.260 --> 00:00:44.310
+I'm also going into the details
+
+14
+00:00:44.310 --> 00:00:46.543
+as to how things work and why.
+
+15
+00:00:47.390 --> 00:00:49.670
+Talk about some gotchas and some tips
+
+16
+00:00:49.670 --> 00:00:51.150
+that I've learned along the way,
+
+17
+00:00:51.150 --> 00:00:54.010
+having built my own Next JS applications,
+
+18
+00:00:54.010 --> 00:00:55.420
+both for side projects
+
+19
+00:00:55.420 --> 00:01:00.110
+and for clients in kind of a professional setting.
+
+20
+00:01:00.110 --> 00:01:02.610
+So before we dig into some code,
+
+21
+00:01:02.610 --> 00:01:05.600
+I just want to kinda cover what Next is.
+
+22
+00:01:05.600 --> 00:01:10.440
+So Next is a framework for React.
+
+23
+00:01:10.440 --> 00:01:15.020
+So it kinda abstracts a few things away.
+
+24
+00:01:15.020 --> 00:01:19.030
+And a few of the things that really draw me to Next is
+
+25
+00:01:19.030 --> 00:01:22.150
+that the zero configuration.
+
+26
+00:01:22.150 --> 00:01:25.123
+Literally no webpack files,
+
+27
+00:01:26.430 --> 00:01:28.320
+no battle lossy files.
+
+28
+00:01:28.320 --> 00:01:29.210
+I don't have to write any of
+
+29
+00:01:29.210 --> 00:01:31.060
+that to actually get something going.
+
+30
+00:01:32.870 --> 00:01:35.893
+You can get very far without any configuration whatsoever.
+
+31
+00:01:37.130 --> 00:01:41.460
+The second thing is it provides
+
+32
+00:01:41.460 --> 00:01:44.090
+out of the box service side rendering.
+
+33
+00:01:44.090 --> 00:01:48.170
+So we're going to, in the next video,
+
+34
+00:01:48.170 --> 00:01:52.840
+put together a really basic web page
+
+35
+00:01:52.840 --> 00:01:55.930
+that is hello world using the Next framework,
+
+36
+00:01:55.930 --> 00:01:57.150
+but I'll show you how
+
+37
+00:01:57.150 --> 00:01:59.540
+that is rendering both on the client side
+
+38
+00:01:59.540 --> 00:02:02.060
+when you navigate to it but also on the server side
+
+39
+00:02:02.060 --> 00:02:04.374
+and delivering all the html,
+
+40
+00:02:04.374 --> 00:02:08.330
+kind of a hydrated React app over the wire.
+
+41
+00:02:08.330 --> 00:02:12.720
+So you get all the performance benefits or the SEO benefits.
+
+42
+00:02:12.720 --> 00:02:15.210
+And really as someone, like myself,
+
+43
+00:02:15.210 --> 00:02:19.750
+who is kind of an advocate and pro performance,
+
+44
+00:02:19.750 --> 00:02:24.750
+and using the technology for the best job that it can,
+
+45
+00:02:25.000 --> 00:02:27.630
+Next is a really, really good fit given
+
+46
+00:02:27.630 --> 00:02:32.150
+that the amount of set up required is practically zero.
+
+47
+00:02:32.150 --> 00:02:35.450
+Now there are a few things to do like in soar Next
+
+48
+00:02:35.450 --> 00:02:39.500
+and write your first page,
+
+49
+00:02:39.500 --> 00:02:41.310
+but otherwise, there's no configuration.
+
+50
+00:02:41.310 --> 00:02:44.433
+I'm not a big fan of configuration in the first place.
+
+51
+00:02:45.370 --> 00:02:48.230
+So Next is used in the wild in a few places.
+
+52
+00:02:48.230 --> 00:02:49.200
+Here are some of the examples
+
+53
+00:02:49.200 --> 00:02:50.740
+that I've just pulled
+
+54
+00:02:50.740 --> 00:02:54.513
+from one of the GitHub issues on the Next repo.
+
+55
+00:02:57.353 --> 00:02:59.540
+The Open Collective, Netflix jobs,
+
+56
+00:03:00.900 --> 00:03:02.200
+bunch of different places.
+
+57
+00:03:03.410 --> 00:03:05.550
+I believe Deliveroo are already using it.
+
+58
+00:03:05.550 --> 00:03:07.420
+I think that's changed already
+
+59
+00:03:07.420 --> 00:03:09.750
+and that this issue wasn't made by me,
+
+60
+00:03:09.750 --> 00:03:13.473
+but it's kinda live, in the wild track places
+
+61
+00:03:14.900 --> 00:03:16.373
+where Next is actually used.
+
+62
+00:03:20.227 --> 00:03:22.210
+Some of the big benefits of Next is well is
+
+63
+00:03:22.210 --> 00:03:26.150
+that it solves some of your pain points.
+
+64
+00:03:26.150 --> 00:03:30.040
+So, I did kind of a canvas, not very scientific survey
+
+65
+00:03:30.040 --> 00:03:33.750
+but a survey of people who are taking this workshop
+
+66
+00:03:33.750 --> 00:03:37.210
+and the pain points that keep coming up were webpack.
+
+67
+00:03:37.210 --> 00:03:38.500
+Now webpack 4 is very good.
+
+68
+00:03:38.500 --> 00:03:40.560
+It's supposed to be zero configuration
+
+69
+00:03:40.560 --> 00:03:42.460
+but there's still a little bit that you have to know
+
+70
+00:03:42.460 --> 00:03:46.560
+where as Next allows you to know nothing about webpack.
+
+71
+00:03:46.560 --> 00:03:49.170
+Keeping up with a moving technology.
+
+72
+00:03:49.170 --> 00:03:51.100
+It's a tough one no matter what
+
+73
+00:03:51.100 --> 00:03:56.100
+but with Next for instance, it works with React 16 today.
+
+74
+00:03:58.680 --> 00:04:01.769
+Takes advantage of things like code splitting,
+
+75
+00:04:01.769 --> 00:04:05.130
+dynamic imports, all of that's out of the box.
+
+76
+00:04:05.130 --> 00:04:06.280
+A lot of it is kind of,
+
+77
+00:04:09.470 --> 00:04:10.990
+I don't want to use the word hidden
+
+78
+00:04:10.990 --> 00:04:12.460
+but kind of happens for you
+
+79
+00:04:12.460 --> 00:04:13.710
+without having you to do anything.
+
+80
+00:04:13.710 --> 00:04:16.360
+So, code splitting will happen automatically for you.
+
+81
+00:04:20.010 --> 00:04:22.770
+This one, it could be time consuming
+
+82
+00:04:22.770 --> 00:04:24.663
+to get a simple app up and running.
+
+83
+00:04:26.330 --> 00:04:29.250
+When I see this, it's such a pain point for me, personally.
+
+84
+00:04:29.250 --> 00:04:32.130
+I hate having to spend an hour just
+
+85
+00:04:32.130 --> 00:04:34.100
+to be able to get a page to render.
+
+86
+00:04:34.100 --> 00:04:36.639
+I'd much rather just be writing the logical code
+
+87
+00:04:36.639 --> 00:04:38.287
+that does the thing that I want to build
+
+88
+00:04:38.287 --> 00:04:39.480
+and Next kind of moves
+
+89
+00:04:39.480 --> 00:04:42.983
+that all of that nonsense out of the way.
+
+90
+00:04:43.880 --> 00:04:46.040
+And these last two, kind of duplication of back end
+
+91
+00:04:46.040 --> 00:04:48.760
+and front end and hydration.
+
+92
+00:04:48.760 --> 00:04:52.080
+Again, Next is gonna reuse the code
+
+93
+00:04:52.080 --> 00:04:57.080
+that we run inside the client on the server side for us.
+
+94
+00:04:57.970 --> 00:05:01.340
+Exactly the same code without any additional changes
+
+95
+00:05:01.340 --> 00:05:02.203
+for us to make.
+
+96
+00:05:03.080 --> 00:05:08.080
+So Next JS was created by
+
+97
+00:05:11.149 --> 00:05:13.940
+or put out by Zeit.co.
+
+98
+00:05:13.940 --> 00:05:16.623
+Really innovative little company.
+
+99
+00:05:17.710 --> 00:05:20.410
+And they have a deployment platform called Now
+
+100
+00:05:20.410 --> 00:05:22.810
+which we'll look at much later on in the videos.
+
+101
+00:05:24.070 --> 00:05:25.370
+That's their main product.
+
+102
+00:05:27.304 --> 00:05:29.460
+Next was the project that kind of came out,
+
+103
+00:05:29.460 --> 00:05:31.110
+I think, of this website as well.
+
+104
+00:05:35.149 --> 00:05:37.670
+And they are also authors of,
+
+105
+00:05:37.670 --> 00:05:40.130
+where is it, Socket JS, Socket.io
+
+106
+00:05:40.130 --> 00:05:41.863
+which you'll be familiar with.
+
+107
+00:05:43.320 --> 00:05:47.753
+They are very, very solid team of developers.
+
+108
+00:05:49.530 --> 00:05:52.700
+And it's reliable, it's moving frequently
+
+109
+00:05:52.700 --> 00:05:55.630
+and there are updates being made
+
+110
+00:05:55.630 --> 00:05:58.620
+even between running this workshop the first time
+
+111
+00:05:58.620 --> 00:06:02.510
+and recording this video today, there've been significant,
+
+112
+00:06:02.510 --> 00:06:03.830
+in fact, there's been a major bump
+
+113
+00:06:03.830 --> 00:06:06.550
+in the version of Next already.
+
+114
+00:06:06.550 --> 00:06:08.160
+I expect, if you're watching this a few months
+
+115
+00:06:08.160 --> 00:06:12.320
+after it's been released, there'll be more updates to Next.
+
+116
+00:06:12.320 --> 00:06:15.250
+So the place to get Next is from GitHub.
+
+117
+00:06:15.250 --> 00:06:17.890
+Let's go and head to that open source
+
+118
+00:06:17.890 --> 00:06:19.090
+which is somewhere here.
+
+119
+00:06:21.040 --> 00:06:22.113
+Open source.
+
+120
+00:06:24.440 --> 00:06:28.263
+And scroll on here, this is the one we want to work with.
+
+121
+00:06:30.340 --> 00:06:32.457
+So, it's all up on GitHub.
+
+122
+00:06:33.390 --> 00:06:34.610
+I was signed in earlier.
+
+123
+00:06:34.610 --> 00:06:36.777
+So it's all up on GitHub
+
+124
+00:06:36.777 --> 00:06:38.960
+and it gives you direction on how to do this stuff.
+
+125
+00:06:38.960 --> 00:06:41.930
+There's a few decent articles out
+
+126
+00:06:41.930 --> 00:06:44.800
+on the web, learning resources,
+
+127
+00:06:44.800 --> 00:06:47.900
+but you'll learn with these videos is a little bit more
+
+128
+00:06:47.900 --> 00:06:49.910
+of what goes behind the scenes.
+
+129
+00:06:49.910 --> 00:06:52.330
+Particularly gotchas, workflow patterns
+
+130
+00:06:52.330 --> 00:06:54.393
+for working with servers and so on.
+
+131
+00:06:56.160 --> 00:06:58.930
+So, in the next video we're going to get started,
+
+132
+00:06:58.930 --> 00:07:02.193
+instal Next and create our first webpage.
+

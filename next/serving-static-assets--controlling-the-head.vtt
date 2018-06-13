@@ -1,0 +1,454 @@
+﻿WEBVTT
+
+1
+00:00:00.820 --> 00:00:03.693
+<v ->So, now that we have our common layout set up,</v>
+
+2
+00:00:04.920 --> 00:00:07.184
+we need that static directory.
+
+3
+00:00:07.184 --> 00:00:09.280
+Now, next has this special pages directory,
+
+4
+00:00:09.280 --> 00:00:10.590
+which you've already met,
+
+5
+00:00:10.590 --> 00:00:13.120
+and there is also the static directory,
+
+6
+00:00:13.120 --> 00:00:15.520
+literally called static.
+
+7
+00:00:15.520 --> 00:00:17.133
+Oops, not like that.
+
+8
+00:00:18.864 --> 00:00:22.360
+Which will serve static content out of.
+
+9
+00:00:22.360 --> 00:00:26.400
+So, that means if I put an image
+
+10
+00:00:26.400 --> 00:00:28.963
+inside of the static directory.
+
+11
+00:00:30.010 --> 00:00:32.620
+Let's call that remy, okay?
+
+12
+00:00:32.620 --> 00:00:34.640
+And, I go over to my code.
+
+13
+00:00:34.640 --> 00:00:36.960
+If I open this header and put
+
+14
+00:00:36.960 --> 00:00:40.643
+this common image source equals.
+
+15
+00:00:42.998 --> 00:00:44.770
+I'll come back to that in a second.
+
+16
+00:00:44.770 --> 00:00:49.510
+This is gonna be /static/remy.jpg.
+
+17
+00:00:49.510 --> 00:00:52.020
+Hit Save, and that will now appear
+
+18
+00:00:52.020 --> 00:00:53.820
+on the top of all these pages, so.
+
+19
+00:00:53.820 --> 00:00:57.230
+Anything in that /static page will be served over
+
+20
+00:00:57.230 --> 00:00:59.240
+as just static content.
+
+21
+00:00:59.240 --> 00:01:02.860
+And we can change this using a variable
+
+22
+00:01:02.860 --> 00:01:03.820
+that we pass into next,
+
+23
+00:01:03.820 --> 00:01:05.133
+and I'll show you that later.
+
+24
+00:01:06.050 --> 00:01:07.390
+We can change this point to
+
+25
+00:01:07.390 --> 00:01:09.020
+like a CDN or anything like that,
+
+26
+00:01:09.020 --> 00:01:10.970
+and I'll show you that in later episodes.
+
+27
+00:01:10.970 --> 00:01:13.250
+So the next thing I want to do here
+
+28
+00:01:13.250 --> 00:01:14.993
+is really out of stylesheet,
+
+29
+00:01:14.993 --> 00:01:17.663
+but my toothy grin is not what we want here.
+
+30
+00:01:17.663 --> 00:01:22.110
+What we want to do is add in a stylesheet up here.
+
+31
+00:01:22.110 --> 00:01:27.110
+Now, I could just do link rel equals stylesheet,
+
+32
+00:01:28.590 --> 00:01:32.787
+href equals static/styles.css.
+
+33
+00:01:35.713 --> 00:01:37.940
+And I need to put that file in place
+
+34
+00:01:37.940 --> 00:01:42.040
+so I'm just gonna do touch and styles.css
+
+35
+00:01:42.040 --> 00:01:44.140
+and I open that styles.
+
+36
+00:01:44.140 --> 00:01:48.040
+I'm just gonna paste in some styles I already had.
+
+37
+00:01:48.040 --> 00:01:51.910
+And that will kind of work.
+
+38
+00:01:51.910 --> 00:01:55.090
+Except, kind of in a weird place.
+
+39
+00:01:55.090 --> 00:01:57.053
+If we look at the elements, downloads,
+
+40
+00:01:58.000 --> 00:02:02.150
+just quickly using the
+
+41
+00:02:03.260 --> 00:02:05.743
+can't sort of find that link element.
+
+42
+00:02:07.860 --> 00:02:09.590
+Scroll into view.
+
+43
+00:02:09.590 --> 00:02:11.093
+Reveal in panel, here we go.
+
+44
+00:02:12.730 --> 00:02:15.683
+So, nope, that was the wrong one.
+
+45
+00:02:16.880 --> 00:02:17.713
+Excuse me.
+
+46
+00:02:17.713 --> 00:02:20.010
+Rel equals stylesheet.
+
+47
+00:02:23.460 --> 00:02:24.460
+There we go.
+
+48
+00:02:25.530 --> 00:02:27.760
+So you can see it's kind of in the wrong place.
+
+49
+00:02:27.760 --> 00:02:29.633
+That should be up in the head, right?
+
+50
+00:02:30.910 --> 00:02:32.950
+Feels wrong that it's down there in that download.
+
+51
+00:02:32.950 --> 00:02:37.510
+So, another component that next provides,
+
+52
+00:02:37.510 --> 00:02:42.510
+and we're going to render this in the head of the element.
+
+53
+00:02:42.630 --> 00:02:46.983
+We're going to import Head from next/head.
+
+54
+00:02:48.089 --> 00:02:51.140
+Okay, and if you're familiar with a tool called helmet,
+
+55
+00:02:51.140 --> 00:02:53.770
+which react helmet, which is basically just
+
+56
+00:02:53.770 --> 00:02:57.600
+a component where you put all of your head components
+
+57
+00:02:57.600 --> 00:02:59.970
+like your misc tabs, and all those bits and bobs,
+
+58
+00:02:59.970 --> 00:03:02.890
+into there, then this is what Head does,
+
+59
+00:03:02.890 --> 00:03:04.430
+it's kind of a similar thing to that
+
+60
+00:03:04.430 --> 00:03:06.780
+but it works server side as well.
+
+61
+00:03:06.780 --> 00:03:10.570
+So we're just gonna pop that into the Head.
+
+62
+00:03:10.570 --> 00:03:13.840
+Save, and this should just update.
+
+63
+00:03:13.840 --> 00:03:15.793
+Nothing really happens at this point.
+
+64
+00:03:17.550 --> 00:03:20.138
+But if we look at that dom tree again,
+
+65
+00:03:20.138 --> 00:03:21.783
+we should see, there we go.
+
+66
+00:03:22.850 --> 00:03:25.598
+That stylesheet is in the head element.
+
+67
+00:03:25.598 --> 00:03:27.840
+And we can do the same thing with a title element,
+
+68
+00:03:27.840 --> 00:03:28.673
+a title attribute.
+
+69
+00:03:28.673 --> 00:03:31.417
+So we'll do title, Nextconf Schedule.
+
+70
+00:03:36.150 --> 00:03:39.043
+Okay, we're building a conference schedule website.
+
+71
+00:03:40.880 --> 00:03:44.883
+Title, and we're gonna do title, this.
+
+72
+00:03:45.807 --> 00:03:48.410
+That appears up in the top there, you see?
+
+73
+00:03:48.410 --> 00:03:51.950
+So I've set a default title because we haven't set one,
+
+74
+00:03:51.950 --> 00:03:53.660
+I can do go over to contacts page
+
+75
+00:03:53.660 --> 00:03:58.303
+and do a title equals Contact us.
+
+76
+00:03:59.190 --> 00:04:00.250
+So we're on the contact page.
+
+77
+00:04:00.250 --> 00:04:02.535
+Update, let's go to the About.
+
+78
+00:04:02.535 --> 00:04:04.323
+We're gonna do title equal, oops,
+
+79
+00:04:05.450 --> 00:04:10.450
+About, title equals About the app.
+
+80
+00:04:11.860 --> 00:04:13.090
+All right.
+
+81
+00:04:13.090 --> 00:04:14.310
+And there you go.
+
+82
+00:04:14.310 --> 00:04:16.050
+So About the app.
+
+83
+00:04:16.050 --> 00:04:18.210
+Go over to Contact us.
+
+84
+00:04:18.210 --> 00:04:19.350
+Looks good.
+
+85
+00:04:19.350 --> 00:04:21.349
+Just to show you kind of,
+
+86
+00:04:21.349 --> 00:04:24.850
+I was gonna show you kind of live injected content,
+
+87
+00:04:24.850 --> 00:04:29.100
+but I've noticed that a small layout issue over here
+
+88
+00:04:29.100 --> 00:04:33.980
+where in the layout index page
+
+89
+00:04:33.980 --> 00:04:36.810
+this should be wrapped in a main element
+
+90
+00:04:36.810 --> 00:04:38.550
+according to my CSS.
+
+91
+00:04:38.550 --> 00:04:40.843
+Okay, so I'm just gonna save that.
+
+92
+00:04:40.843 --> 00:04:45.843
+And I'm gonna give that an id of root.
+
+93
+00:04:46.190 --> 00:04:48.439
+And it should just kind of relay stuff out.
+
+94
+00:04:48.439 --> 00:04:49.367
+There we go.
+
+95
+00:04:49.367 --> 00:04:51.910
+So, looks pretty nice.
+
+96
+00:04:51.910 --> 00:04:55.940
+So now I've got static files
+
+97
+00:04:55.940 --> 00:04:57.420
+and that's where I put any other kind of
+
+98
+00:04:57.420 --> 00:05:00.243
+static content like images, any other CSS,
+
+99
+00:05:05.350 --> 00:05:09.270
+any kind of mess tags I might want to add in here as well.
+
+100
+00:05:09.270 --> 00:05:11.700
+But I have static content
+
+101
+00:05:11.700 --> 00:05:13.793
+and I've got a common layout.
+
+102
+00:05:15.040 --> 00:05:17.880
+Now the next thing I'm gonna show you is actually
+
+103
+00:05:18.720 --> 00:05:21.540
+for every document wink that we make,
+
+104
+00:05:21.540 --> 00:05:24.180
+every new root we have to import the layout.
+
+105
+00:05:24.180 --> 00:05:27.120
+Well, next allows us a way of saying actually
+
+106
+00:05:27.120 --> 00:05:29.350
+this is what the entire document template
+
+107
+00:05:29.350 --> 00:05:30.470
+will always look like.
+
+108
+00:05:30.470 --> 00:05:33.460
+So maybe we always want to include
+
+109
+00:05:33.460 --> 00:05:35.500
+this stylesheet no matter what,
+
+110
+00:05:35.500 --> 00:05:36.910
+and we don't really want to have to
+
+111
+00:05:36.910 --> 00:05:37.990
+kind of manually include
+
+112
+00:05:37.990 --> 00:05:39.940
+it in every project, every component,
+
+113
+00:05:39.940 --> 00:05:42.453
+so I'm gonna show you in the next video.
+

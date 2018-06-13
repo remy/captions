@@ -1,0 +1,746 @@
+﻿WEBVTT
+
+1
+00:00:02.550 --> 00:00:05.640
+<v ->The task now is to go and get the user</v>
+
+2
+00:00:05.640 --> 00:00:08.780
+from our API and verify it exists.
+
+3
+00:00:08.780 --> 00:00:13.180
+So, the first well,
+
+4
+00:00:13.180 --> 00:00:14.520
+it may not have to be the first thing we do,
+
+5
+00:00:14.520 --> 00:00:16.090
+but we have to go and get the user at some point.
+
+6
+00:00:16.090 --> 00:00:18.900
+So, what I'm gonna do is
+
+7
+00:00:18.900 --> 00:00:23.900
+const user equals get user, okay?
+
+8
+00:00:24.100 --> 00:00:26.480
+And I'm gonna create a new function
+
+9
+00:00:30.190 --> 00:00:33.520
+and we're gonna use the fetch API
+
+10
+00:00:33.520 --> 00:00:38.380
+so import from unfetch, whatever it's called.
+
+11
+00:00:38.380 --> 00:00:40.119
+There we go.
+
+12
+00:00:40.119 --> 00:00:43.480
+Const res equals fetch
+
+13
+00:00:43.480 --> 00:00:45.980
+and we have an API, woops
+
+14
+00:00:49.290 --> 00:00:51.053
+user, okay?
+
+15
+00:00:52.150 --> 00:00:56.020
+Const API equals process dot env API.
+
+16
+00:00:56.020 --> 00:01:01.020
+And my development API is this, okay?
+
+17
+00:01:03.000 --> 00:01:06.704
+So I'm running locally in my package.
+
+18
+00:01:06.704 --> 00:01:10.700
+I'm running locally with npm run dev server
+
+19
+00:01:10.700 --> 00:01:14.377
+which is just running kind of like API end point
+
+20
+00:01:14.377 --> 00:01:17.300
+and that will be, when we go to production
+
+21
+00:01:17.300 --> 00:01:22.210
+this will actually be the same as the location.
+
+22
+00:01:22.210 --> 00:01:23.433
+Same URL.
+
+23
+00:01:24.960 --> 00:01:29.960
+So, then we're gonna do, sorry not
+
+24
+00:01:30.030 --> 00:01:31.113
+we're gonna do await.
+
+25
+00:01:32.060 --> 00:01:33.810
+So it's gonna be an async function.
+
+26
+00:01:35.110 --> 00:01:39.210
+And we're gonna do return await.
+
+27
+00:01:39.210 --> 00:01:42.713
+Well actually we can just do return res dot json.
+
+28
+00:01:44.840 --> 00:01:48.300
+Okay, so this will be user equals await.
+
+29
+00:01:48.300 --> 00:01:49.860
+And what we wanna do here is
+
+30
+00:01:49.860 --> 00:01:51.610
+instead of just passing props back
+
+31
+00:01:51.610 --> 00:01:53.630
+we want to include the user.
+
+32
+00:01:53.630 --> 00:01:57.280
+So we're going to spread the props
+
+33
+00:01:57.280 --> 00:01:59.210
+and include the user here.
+
+34
+00:01:59.210 --> 00:02:02.970
+Okay, so the idea is we're gonna get a user
+
+35
+00:02:02.970 --> 00:02:05.960
+and it's just going to go back out.
+
+36
+00:02:05.960 --> 00:02:10.960
+And to auth, I've got this URL local host 3001 auth.
+
+37
+00:02:14.840 --> 00:02:17.037
+And that will take me through GitHub.
+
+38
+00:02:19.320 --> 00:02:20.153
+It skipped it but,
+
+39
+00:02:20.153 --> 00:02:21.620
+that took me through GitHub
+
+40
+00:02:21.620 --> 00:02:24.880
+and completed an authenticated session.
+
+41
+00:02:24.880 --> 00:02:29.646
+So, how do we prove that?
+
+42
+00:02:29.646 --> 00:02:33.550
+I can go to local host 3001 user.
+
+43
+00:02:33.550 --> 00:02:36.343
+Okay so that's what we're expecting to see, okay?
+
+44
+00:02:38.560 --> 00:02:40.353
+So now that we're authenticated,
+
+45
+00:02:40.353 --> 00:02:41.270
+what's happened?
+
+46
+00:02:41.270 --> 00:02:44.950
+Should we maybe log this out to see what we're looking at?
+
+47
+00:02:44.950 --> 00:02:48.180
+Console dot log user.
+
+48
+00:02:48.180 --> 00:02:50.623
+Okay, so let's have a look at the dev tools.
+
+49
+00:02:51.466 --> 00:02:54.053
+So undock that so we can actually see what we're doing.
+
+50
+00:03:03.893 --> 00:03:05.643
+So, let's click home.
+
+51
+00:03:07.020 --> 00:03:08.640
+Okay, so we have a 401.
+
+52
+00:03:08.640 --> 00:03:13.350
+So, to start off with, this fetch by itself is not enough.
+
+53
+00:03:13.350 --> 00:03:15.430
+We need to pass in some options.
+
+54
+00:03:15.430 --> 00:03:17.660
+Okay, so it's worth familiarising yourself
+
+55
+00:03:17.660 --> 00:03:19.090
+with the fetch API.
+
+56
+00:03:19.090 --> 00:03:23.586
+It's kinda of a standard way of doing things these days.
+
+57
+00:03:23.586 --> 00:03:28.230
+I need to do credentials include.
+
+58
+00:03:28.230 --> 00:03:30.870
+So that means it gonna send the cookies
+
+59
+00:03:30.870 --> 00:03:33.633
+that it has set for port 3001.
+
+60
+00:03:34.590 --> 00:03:37.343
+So, let's bring up the dev tools again.
+
+61
+00:03:39.800 --> 00:03:41.440
+Lot of stuff there with the user.
+
+62
+00:03:41.440 --> 00:03:42.730
+There it is.
+
+63
+00:03:42.730 --> 00:03:45.320
+Okay, so just adding that credentials
+
+64
+00:03:45.320 --> 00:03:48.520
+means that it appears and it works.
+
+65
+00:03:48.520 --> 00:03:51.710
+Okay, so that means that
+
+66
+00:03:51.710 --> 00:03:56.710
+this we pass back into this props will include the user
+
+67
+00:03:58.080 --> 00:04:00.620
+and if we actually look at the dev tools for that,
+
+68
+00:04:00.620 --> 00:04:05.620
+go to React and inspect our element.
+
+69
+00:04:07.370 --> 00:04:08.600
+So, here we go.
+
+70
+00:04:08.600 --> 00:04:10.260
+This is the one that we're looking at.
+
+71
+00:04:10.260 --> 00:04:13.010
+There's the user with all the information we want.
+
+72
+00:04:13.010 --> 00:04:14.553
+That API key is actually
+
+73
+00:04:14.553 --> 00:04:17.470
+we shouldn't be passing that back.
+
+74
+00:04:17.470 --> 00:04:20.117
+I think the stuff you pass back
+
+75
+00:04:20.117 --> 00:04:22.990
+should actually just include what you need to be on display,
+
+76
+00:04:22.990 --> 00:04:24.658
+not any kind of secret tokens.
+
+77
+00:04:24.658 --> 00:04:26.083
+That's probably a no-no.
+
+78
+00:04:28.320 --> 00:04:29.490
+Possibly email addresses as well
+
+79
+00:04:29.490 --> 00:04:31.408
+is something you don't want to pass back,
+
+80
+00:04:31.408 --> 00:04:33.580
+but this is just a demo for the time being.
+
+81
+00:04:33.580 --> 00:04:36.420
+So, we want the avatar to appear up here,
+
+82
+00:04:36.420 --> 00:04:38.653
+so we're just going to go to the header
+
+83
+00:04:38.653 --> 00:04:41.480
+and that's not receiving any props at the moment.
+
+84
+00:04:41.480 --> 00:04:43.960
+So we want the user go in as well.
+
+85
+00:04:43.960 --> 00:04:47.730
+And I'm just gonna pop it straight into here.
+
+86
+00:04:47.730 --> 00:04:52.730
+Image source equals user dot avatar, okay.
+
+87
+00:04:57.830 --> 00:05:00.050
+And I'm gonna check if...
+
+88
+00:05:00.940 --> 00:05:02.070
+Yeah so it says undefined.
+
+89
+00:05:02.070 --> 00:05:05.270
+So the user here is an empty object.
+
+90
+00:05:05.270 --> 00:05:06.783
+It's because my header,
+
+91
+00:05:07.890 --> 00:05:11.243
+the layout I don't think is not passing any props.
+
+92
+00:05:13.600 --> 00:05:14.433
+Yep, here we go.
+
+93
+00:05:14.433 --> 00:05:16.640
+So you wanna pass in the props
+
+94
+00:05:16.640 --> 00:05:18.980
+and notice we don't have the props up here.
+
+95
+00:05:18.980 --> 00:05:21.780
+We got the title which is intended for this component.
+
+96
+00:05:21.780 --> 00:05:23.310
+We're just going to capture
+
+97
+00:05:23.310 --> 00:05:26.652
+the rest of the properties in that one argument.
+
+98
+00:05:26.652 --> 00:05:29.773
+And we're gonna check our index page.
+
+99
+00:05:31.120 --> 00:05:34.340
+You see layout here also doesn't have any props.
+
+100
+00:05:34.340 --> 00:05:35.490
+So we're gonna do that.
+
+101
+00:05:37.400 --> 00:05:40.050
+So we're basically just passing all the props around.
+
+102
+00:05:43.737 --> 00:05:44.653
+Wow there we go.
+
+103
+00:05:45.660 --> 00:05:48.150
+Pretty big or a bit too big?
+
+104
+00:05:48.150 --> 00:05:49.667
+Let's import some CSS.
+
+105
+00:05:50.652 --> 00:05:54.363
+Header dot CSS.
+
+106
+00:05:55.670 --> 00:05:57.740
+And let's make that file maybe.
+
+107
+00:05:57.740 --> 00:05:59.640
+Let's see, who got that file?
+
+108
+00:05:59.640 --> 00:06:00.843
+Yeah, we got the file.
+
+109
+00:06:04.220 --> 00:06:05.770
+There we go. It's a bit better.
+
+110
+00:06:07.200 --> 00:06:09.453
+Oh, really small. Really, really small.
+
+111
+00:06:10.597 --> 00:06:12.593
+Height and width 200, 300?
+
+112
+00:06:15.070 --> 00:06:16.243
+Let's get rid of this.
+
+113
+00:06:19.490 --> 00:06:22.231
+Well, anyway the point is it is appearing.
+
+114
+00:06:22.231 --> 00:06:24.270
+I don't know why that's so small,
+
+115
+00:06:24.270 --> 00:06:25.930
+but it's still up there
+
+116
+00:06:25.930 --> 00:06:27.370
+and if we go to the header
+
+117
+00:06:27.370 --> 00:06:29.520
+we can probably include.
+
+118
+00:06:29.520 --> 00:06:32.170
+Let's just do, I don't know.
+
+119
+00:06:32.170 --> 00:06:33.160
+Well, actually I do know.
+
+120
+00:06:33.160 --> 00:06:38.160
+Div class name equals user nav.
+
+121
+00:06:45.060 --> 00:06:47.320
+Let's put user name in there as well.
+
+122
+00:06:47.320 --> 00:06:49.423
+User dot user name.
+
+123
+00:06:53.918 --> 00:06:55.668
+Okay, so it's looking a bit better.
+
+124
+00:07:01.250 --> 00:07:03.452
+Okay, so we got the user name in there,
+
+125
+00:07:03.452 --> 00:07:05.313
+but there is another problem.
+
+126
+00:07:06.200 --> 00:07:11.200
+So, with user is using fetch to get that credential.
+
+127
+00:07:13.150 --> 00:07:18.150
+If I hit refresh, we get kind of an odd response here.
+
+128
+00:07:19.870 --> 00:07:22.203
+Now, let's have a look.
+
+129
+00:07:23.220 --> 00:07:24.610
+See if there's any errors.
+
+130
+00:07:24.610 --> 00:07:25.853
+No errors.
+
+131
+00:07:27.370 --> 00:07:30.280
+I think this user object is not what we think it is.
+
+132
+00:07:30.280 --> 00:07:34.890
+So I'm gonna log out res dot status.
+
+133
+00:07:34.890 --> 00:07:35.723
+In fact, actually I'm going to say
+
+134
+00:07:35.723 --> 00:07:39.730
+if res dot status is equal to 200, i.e. it worked,
+
+135
+00:07:39.730 --> 00:07:41.040
+we're gonna return json.
+
+136
+00:07:41.040 --> 00:07:43.290
+Otherwise, we're going to throw an exception.
+
+137
+00:07:47.950 --> 00:07:48.783
+Not found.
+
+138
+00:07:48.783 --> 00:07:52.673
+Well, failed res dot status.
+
+139
+00:07:55.610 --> 00:07:57.760
+Okay, so let's have a look at what happens.
+
+140
+00:07:59.400 --> 00:08:01.910
+So, this works.
+
+141
+00:08:01.910 --> 00:08:05.391
+No error, or at least none I can see.
+
+142
+00:08:05.391 --> 00:08:06.990
+Let's have a look on the server side though.
+
+143
+00:08:06.990 --> 00:08:07.890
+Let's hit refresh.
+
+144
+00:08:09.260 --> 00:08:11.550
+Alright, this is breaking.
+
+145
+00:08:11.550 --> 00:08:13.760
+This is breaking because
+
+146
+00:08:16.020 --> 00:08:18.930
+it's sending credentials on the server side it doesn't have.
+
+147
+00:08:18.930 --> 00:08:22.730
+There are no credentials on the server side.
+
+148
+00:08:22.730 --> 00:08:25.500
+So this credentials include, it's saying
+
+149
+00:08:25.500 --> 00:08:27.120
+it's trying to send some cookies with it.
+
+150
+00:08:27.120 --> 00:08:28.820
+But it doesn't work, right?
+
+151
+00:08:28.820 --> 00:08:31.883
+That's the same as me doing a cold window,
+
+152
+00:08:33.495 --> 00:08:37.400
+an incognito window to the user.
+
+153
+00:08:37.400 --> 00:08:39.190
+This is what the server is seeing.
+
+154
+00:08:39.190 --> 00:08:40.790
+Because no cookies are being sent,
+
+155
+00:08:40.790 --> 00:08:44.008
+it can't make the request.
+
+156
+00:08:44.008 --> 00:08:46.160
+So the whole thing fails, right?
+
+157
+00:08:46.160 --> 00:08:48.010
+And because it's on a different origin,
+
+158
+00:08:48.010 --> 00:08:50.230
+we can't just reuse the cookies that we have.
+
+159
+00:08:50.230 --> 00:08:55.230
+So we need to somehow get a session token into there.
+
+160
+00:08:56.930 --> 00:08:59.890
+A session token, no but a bearer token
+
+161
+00:08:59.890 --> 00:09:01.350
+in the request that we can share
+
+162
+00:09:01.350 --> 00:09:04.050
+between the client side and the server side.
+
+163
+00:09:04.050 --> 00:09:06.740
+So, when I complete the auth,
+
+164
+00:09:06.740 --> 00:09:09.420
+the auth process actually gives me a bearer token back.
+
+165
+00:09:09.420 --> 00:09:11.070
+What I need to do is capture that,
+
+166
+00:09:11.070 --> 00:09:12.330
+stick it in a cookie,
+
+167
+00:09:12.330 --> 00:09:17.167
+and then let the client and the server use that cookie
+
+168
+00:09:17.167 --> 00:09:20.560
+to send off to the third party server.
+
+169
+00:09:20.560 --> 00:09:21.870
+The API server.
+
+170
+00:09:21.870 --> 00:09:22.970
+And this is important.
+
+171
+00:09:23.920 --> 00:09:25.430
+The only thing that's shared between
+
+172
+00:09:25.430 --> 00:09:27.920
+the client side and the server side are cookies.
+
+173
+00:09:27.920 --> 00:09:29.619
+If I store something in local storage,
+
+174
+00:09:29.619 --> 00:09:32.571
+or I have HTTP only cookies,
+
+175
+00:09:32.571 --> 00:09:34.900
+that means that one side can't see it.
+
+176
+00:09:34.900 --> 00:09:36.740
+Local storage, only the clients can see it,
+
+177
+00:09:36.740 --> 00:09:38.090
+but the server can't.
+
+178
+00:09:38.090 --> 00:09:40.750
+And HTTP cookies, only the server can see it,
+
+179
+00:09:40.750 --> 00:09:41.980
+but the client can't.
+
+180
+00:09:41.980 --> 00:09:43.150
+So, in the next video,
+
+181
+00:09:43.150 --> 00:09:46.160
+we're gonna look at actually capturing a token,
+
+182
+00:09:46.160 --> 00:09:47.370
+setting that to a cookie,
+
+183
+00:09:47.370 --> 00:09:49.350
+so that both sides can read it.
+
+184
+00:09:49.350 --> 00:09:51.610
+And then using that in this request,
+
+185
+00:09:51.610 --> 00:09:53.500
+so that it's able to make the API call
+
+186
+00:09:53.500 --> 00:09:56.123
+both on the server side and on the client side.
+

@@ -1,0 +1,806 @@
+﻿WEBVTT
+
+1
+00:00:06.380 --> 00:00:09.410
+<v ->Okay, so now that we've got the slug</v>
+
+2
+00:00:09.410 --> 00:00:12.489
+being read from the query or from the query string
+
+3
+00:00:12.489 --> 00:00:14.309
+and we're able to kinda fetch
+
+4
+00:00:14.309 --> 00:00:17.033
+the specific data for that page,
+
+5
+00:00:17.033 --> 00:00:19.390
+the next thing we wanna do is actually make the URLs
+
+6
+00:00:19.390 --> 00:00:20.500
+really nice and clean,
+
+7
+00:00:20.500 --> 00:00:24.170
+so it means going from this,
+
+8
+00:00:24.170 --> 00:00:26.460
+session question mark slug equals memory,
+
+9
+00:00:26.460 --> 00:00:28.820
+to just session slash memory,
+
+10
+00:00:28.820 --> 00:00:31.150
+or whatever the actual slug is.
+
+11
+00:00:31.150 --> 00:00:33.291
+Now, this certainly isn't prerequisite,
+
+12
+00:00:33.291 --> 00:00:34.560
+it's not required,
+
+13
+00:00:34.560 --> 00:00:36.360
+but it does make the URLs look nice,
+
+14
+00:00:36.360 --> 00:00:37.490
+and they're kind of,
+
+15
+00:00:37.490 --> 00:00:39.430
+they're more easy to kind of guess
+
+16
+00:00:39.430 --> 00:00:44.040
+and manually enter if I was visiting this website.
+
+17
+00:00:44.040 --> 00:00:47.697
+So the way that we do this is,
+
+18
+00:00:47.697 --> 00:00:49.910
+oh, actually, the slide is there.
+
+19
+00:00:49.910 --> 00:00:54.230
+We add this as property to the link element.
+
+20
+00:00:54.230 --> 00:00:58.640
+So the next link element supports this natively.
+
+21
+00:00:58.640 --> 00:01:00.130
+You add the as property
+
+22
+00:01:00.130 --> 00:01:03.960
+with the nice clean URL you want to work,
+
+23
+00:01:03.960 --> 00:01:05.270
+and it should just work.
+
+24
+00:01:05.270 --> 00:01:07.270
+So let's give that a try.
+
+25
+00:01:07.270 --> 00:01:11.387
+I'm gonna do as equals session
+
+26
+00:01:13.520 --> 00:01:15.070
+and then slug,
+
+27
+00:01:15.070 --> 00:01:15.963
+hit save,
+
+28
+00:01:17.013 --> 00:01:18.470
+get onto the home page,
+
+29
+00:01:18.470 --> 00:01:19.810
+and I'm just gonna browse.
+
+30
+00:01:19.810 --> 00:01:21.590
+So you can't quite see it,
+
+31
+00:01:21.590 --> 00:01:23.140
+down at the bottom of the page,
+
+32
+00:01:24.190 --> 00:01:27.760
+it does actually have this clean URL,
+
+33
+00:01:27.760 --> 00:01:28.710
+and there we go,
+
+34
+00:01:28.710 --> 00:01:31.603
+session slash my password doesn't work.
+
+35
+00:01:32.460 --> 00:01:35.880
+And that's all we need to do
+
+36
+00:01:35.880 --> 00:01:37.870
+to get it working on the client side.
+
+37
+00:01:37.870 --> 00:01:40.765
+The problem is when we hit refresh,
+
+38
+00:01:40.765 --> 00:01:42.320
+we get a 404.
+
+39
+00:01:42.320 --> 00:01:45.193
+Now, the reason for this is because on the server side,
+
+40
+00:01:45.193 --> 00:01:48.673
+the server is parsing this URL,
+
+41
+00:01:48.673 --> 00:01:50.480
+and to do that,
+
+42
+00:01:50.480 --> 00:01:51.870
+it's looking for a page,
+
+43
+00:01:51.870 --> 00:01:53.239
+or a directory called session
+
+44
+00:01:53.239 --> 00:01:56.180
+and a page, .js file,
+
+45
+00:01:56.180 --> 00:01:57.980
+called my password doesn't work.
+
+46
+00:01:57.980 --> 00:02:00.820
+It doesn't have any mapping that says that actually
+
+47
+00:02:00.820 --> 00:02:04.640
+we need to map session colon
+
+48
+00:02:04.640 --> 00:02:07.810
+to a particular kind of a page.
+
+49
+00:02:07.810 --> 00:02:10.360
+So we wanna map it to this page, right?
+
+50
+00:02:10.360 --> 00:02:12.280
+So that's why it works in the browser
+
+51
+00:02:12.280 --> 00:02:14.212
+because it has it locally already,
+
+52
+00:02:14.212 --> 00:02:16.770
+but when it comes to the server side,
+
+53
+00:02:16.770 --> 00:02:17.696
+it doesn't have it.
+
+54
+00:02:17.696 --> 00:02:18.830
+It doesn't have any mapping.
+
+55
+00:02:18.830 --> 00:02:20.060
+So we need to fix that,
+
+56
+00:02:20.060 --> 00:02:21.289
+and the way that we fix that
+
+57
+00:02:21.289 --> 00:02:26.289
+is that we are going to introduce our own next server, okay?
+
+58
+00:02:27.700 --> 00:02:30.500
+So this is when we start kind of unbuckling
+
+59
+00:02:30.500 --> 00:02:33.100
+from all the default config that next provides.
+
+60
+00:02:33.100 --> 00:02:33.933
+So...
+
+61
+00:02:37.360 --> 00:02:39.360
+I have a link in the slides
+
+62
+00:02:39.360 --> 00:02:43.860
+to a Minimal server that will serve up your next project.
+
+63
+00:02:43.860 --> 00:02:47.459
+So it uses Express for the kind of regular routing
+
+64
+00:02:47.459 --> 00:02:50.410
+and you can copy and paste the whole thing
+
+65
+00:02:50.410 --> 00:02:52.890
+and it should just work.
+
+66
+00:02:52.890 --> 00:02:54.733
+So I'm gonna grab this.
+
+67
+00:02:57.620 --> 00:02:59.780
+Oops, all the way down to the bottom.
+
+68
+00:02:59.780 --> 00:03:01.470
+And there's a script change to be made, as well.
+
+69
+00:03:01.470 --> 00:03:06.220
+But I'm gonna pop this into server.js
+
+70
+00:03:06.220 --> 00:03:07.570
+in the root of the project.
+
+71
+00:03:10.120 --> 00:03:11.550
+Okay?
+
+72
+00:03:11.550 --> 00:03:14.630
+And these are squiggle words
+
+73
+00:03:14.630 --> 00:03:18.998
+because I've set it up as a next project rather than node.
+
+74
+00:03:18.998 --> 00:03:21.223
+And I'm gonna stop my dev server,
+
+75
+00:03:22.730 --> 00:03:24.170
+and in package,
+
+76
+00:03:24.170 --> 00:03:26.900
+instead of dev being next,
+
+77
+00:03:26.900 --> 00:03:30.493
+it's actually gonna be node server.js,
+
+78
+00:03:32.043 --> 00:03:35.293
+and I've got the same thing here, node server.js.
+
+79
+00:03:41.640 --> 00:03:43.605
+So I've added the node env production
+
+80
+00:03:43.605 --> 00:03:46.010
+just so that when the server runs,
+
+81
+00:03:46.010 --> 00:03:47.110
+this dev flag is false.
+
+82
+00:03:47.110 --> 00:03:50.410
+So when we run our own server,
+
+83
+00:03:50.410 --> 00:03:51.981
+when we call the next function
+
+84
+00:03:51.981 --> 00:03:54.560
+and pass in dev true or false,
+
+85
+00:03:54.560 --> 00:03:58.470
+it means that the hot module reload is all there,
+
+86
+00:03:58.470 --> 00:04:01.620
+the website, it does all that work if dev is true,
+
+87
+00:04:01.620 --> 00:04:03.250
+and if dev is false, it won't be there.
+
+88
+00:04:03.250 --> 00:04:07.030
+We'll just use the compiled next project.
+
+89
+00:04:07.030 --> 00:04:09.663
+So let's do npm run dev.
+
+90
+00:04:16.300 --> 00:04:17.870
+Check the server looks okay.
+
+91
+00:04:17.870 --> 00:04:19.280
+Pretty straightforward.
+
+92
+00:04:19.280 --> 00:04:21.200
+So just a few bits here.
+
+93
+00:04:21.200 --> 00:04:23.902
+Regular express server, okay?
+
+94
+00:04:23.902 --> 00:04:27.520
+The, this is the next app handler
+
+95
+00:04:28.890 --> 00:04:32.720
+and this is the routing handler for next.
+
+96
+00:04:32.720 --> 00:04:33.910
+We do app .prepare,
+
+97
+00:04:33.910 --> 00:04:35.950
+and prepare has to do with the dev mode.
+
+98
+00:04:35.950 --> 00:04:39.527
+If dev is false, then it doesn't do this at all.
+
+99
+00:04:39.527 --> 00:04:41.080
+And then once it's ready,
+
+100
+00:04:41.080 --> 00:04:42.620
+we start our express server
+
+101
+00:04:44.350 --> 00:04:46.970
+and we basically say all requests,
+
+102
+00:04:46.970 --> 00:04:51.390
+all get requests are sent to this handler here,
+
+103
+00:04:51.390 --> 00:04:53.320
+which is the next handler,
+
+104
+00:04:53.320 --> 00:04:55.930
+and then we listen for port 2000,
+
+105
+00:04:55.930 --> 00:04:58.080
+and once that is in place,
+
+106
+00:04:58.080 --> 00:04:59.230
+we're able to,
+
+107
+00:04:59.230 --> 00:05:03.120
+we'll then add our own router
+
+108
+00:05:03.120 --> 00:05:06.820
+to deal with these URLs, okay?
+
+109
+00:05:06.820 --> 00:05:08.150
+So just hit refresh.
+
+110
+00:05:08.150 --> 00:05:09.210
+We get the same error,
+
+111
+00:05:09.210 --> 00:05:10.760
+but this is the part we're gonna fix, okay?
+
+112
+00:05:10.760 --> 00:05:12.640
+So then off to the server,
+
+113
+00:05:12.640 --> 00:05:14.573
+and we're gonna do server.get,
+
+114
+00:05:16.266 --> 00:05:20.380
+and we do session slug, okay?
+
+115
+00:05:20.380 --> 00:05:21.543
+Request res.
+
+116
+00:05:23.730 --> 00:05:25.700
+And then we are going to do
+
+117
+00:05:30.560 --> 00:05:32.533
+pass into res.handle.
+
+118
+00:05:35.460 --> 00:05:37.480
+Excuse me, not into res.handle.
+
+119
+00:05:37.480 --> 00:05:40.150
+We're going to do app.render.
+
+120
+00:05:40.150 --> 00:05:42.220
+So we actually need this code.
+
+121
+00:05:42.220 --> 00:05:43.970
+So we're gonna grab,
+
+122
+00:05:43.970 --> 00:05:46.640
+express has this property called params
+
+123
+00:05:46.640 --> 00:05:48.780
+which it kind of maps each one of these into,
+
+124
+00:05:48.780 --> 00:05:51.430
+so .slug should be in there,
+
+125
+00:05:51.430 --> 00:05:53.620
+and we're going to pass,
+
+126
+00:05:53.620 --> 00:05:54.460
+we'll do app.render,
+
+127
+00:05:54.460 --> 00:05:56.033
+which is part of next,
+
+128
+00:05:57.079 --> 00:05:58.990
+we'll pass in the original request response
+
+129
+00:05:58.990 --> 00:06:00.740
+and we give it the URL
+
+130
+00:06:00.740 --> 00:06:02.300
+and this is the query string here.
+
+131
+00:06:02.300 --> 00:06:04.083
+So if we hit save now,
+
+132
+00:06:04.950 --> 00:06:07.300
+we need to go off to our server and restart it,
+
+133
+00:06:08.170 --> 00:06:10.670
+and I'll come onto kind of restarting in a moment.
+
+134
+00:06:12.410 --> 00:06:14.193
+And go home.
+
+135
+00:06:16.740 --> 00:06:17.840
+Let's try one of these
+
+136
+00:06:17.840 --> 00:06:19.113
+and hit refresh.
+
+137
+00:06:20.560 --> 00:06:21.780
+Fetch has not fired.
+
+138
+00:06:21.780 --> 00:06:22.613
+So we got
+
+139
+00:06:27.052 --> 00:06:27.920
+an error.
+
+140
+00:06:27.920 --> 00:06:29.040
+Sessions...
+
+141
+00:06:33.660 --> 00:06:35.230
+Of course,
+
+142
+00:06:35.230 --> 00:06:38.500
+because it wasn't on the server side.
+
+143
+00:06:38.500 --> 00:06:42.717
+So I'll do import fetch from isomorphic-unfetch,
+
+144
+00:06:43.890 --> 00:06:46.780
+save, stop, start, load.
+
+145
+00:06:46.780 --> 00:06:48.630
+That might have recompiled, actually.
+
+146
+00:06:50.600 --> 00:06:52.550
+I think it recompiles.
+
+147
+00:06:52.550 --> 00:06:53.383
+Refresh.
+
+148
+00:06:55.011 --> 00:06:55.844
+There we go.
+
+149
+00:06:55.844 --> 00:06:59.443
+So that was a full server request to that URL.
+
+150
+00:07:01.210 --> 00:07:02.043
+Okay?
+
+151
+00:07:02.043 --> 00:07:05.950
+So we now have nice URLs working,
+
+152
+00:07:05.950 --> 00:07:08.070
+so you can see the network requests here,
+
+153
+00:07:08.070 --> 00:07:12.280
+so a real document request with the content,
+
+154
+00:07:12.280 --> 00:07:17.280
+and that is due to us running a custom server.
+
+155
+00:07:17.470 --> 00:07:19.550
+And this is where we have to start adding
+
+156
+00:07:19.550 --> 00:07:22.053
+kind of our extra routes to make this work.
+
+157
+00:07:23.730 --> 00:07:27.610
+And there is a whole bunch of extra things
+
+158
+00:07:27.610 --> 00:07:28.443
+that kind of happen,
+
+159
+00:07:28.443 --> 00:07:30.080
+that can happen inside of the route,
+
+160
+00:07:30.080 --> 00:07:34.010
+so I'm gonna look at those in the next videos,
+
+161
+00:07:34.010 --> 00:07:34.910
+things like,
+
+162
+00:07:34.910 --> 00:07:36.490
+there are some libraries that help routing
+
+163
+00:07:36.490 --> 00:07:37.323
+to make it a lot easier
+
+164
+00:07:37.323 --> 00:07:39.360
+so you don't have to manage it here.
+
+165
+00:07:39.360 --> 00:07:43.563
+There are techniques that I have come to use
+
+166
+00:07:43.563 --> 00:07:47.980
+during development when I need the server side
+
+167
+00:07:47.980 --> 00:07:49.480
+to kinda keep fresh,
+
+168
+00:07:49.480 --> 00:07:51.930
+keep fresh and kinda keep it running, restarting.
+
+169
+00:07:53.331 --> 00:07:55.700
+And there's some gotchas in this, as well.
+
+170
+00:07:55.700 --> 00:07:57.570
+But at the very minimum,
+
+171
+00:07:57.570 --> 00:08:02.100
+that gist will give you a basic express server,
+
+172
+00:08:02.100 --> 00:08:03.610
+and then you just have to add in
+
+173
+00:08:03.610 --> 00:08:05.550
+your individual request handlers.
+
+174
+00:08:05.550 --> 00:08:07.680
+And obviously from here,
+
+175
+00:08:07.680 --> 00:08:10.640
+you could start adding post handlers, put handlers,
+
+176
+00:08:10.640 --> 00:08:12.737
+and so on inside of your server,
+
+177
+00:08:12.737 --> 00:08:16.770
+and now you have a fully dynamic back end server.
+
+178
+00:08:16.770 --> 00:08:19.899
+Now, literally express, sorry,
+
+179
+00:08:19.899 --> 00:08:22.820
+next is virtually exactly the same
+
+180
+00:08:22.820 --> 00:08:25.560
+except for this line we've added.
+
+181
+00:08:25.560 --> 00:08:26.470
+So we've just gone ahead
+
+182
+00:08:26.470 --> 00:08:28.880
+and constructed the server ourselves
+
+183
+00:08:28.880 --> 00:08:31.727
+and then just added one piece of kind of middleware
+
+184
+00:08:31.727 --> 00:08:35.130
+to kind of handle the mapping URLs.
+
+185
+00:08:35.130 --> 00:08:38.250
+Otherwise it is exactly the same as it was before.
+
+186
+00:08:38.250 --> 00:08:39.913
+You did actually see me,
+
+187
+00:08:40.749 --> 00:08:41.670
+as the server's running at the moment,
+
+188
+00:08:41.670 --> 00:08:43.380
+I will just make a small change to this
+
+189
+00:08:43.380 --> 00:08:46.610
+to say h1 session.title.
+
+190
+00:08:50.890 --> 00:08:51.960
+I guess it's in here twice.
+
+191
+00:08:51.960 --> 00:08:53.057
+But I'll hit save
+
+192
+00:08:53.057 --> 00:08:55.632
+and you can see it's doing a recompile
+
+193
+00:08:55.632 --> 00:08:57.910
+and you can see that h1 has happened there.
+
+194
+00:08:57.910 --> 00:09:02.910
+So any of your react components will be recompiled
+
+195
+00:09:04.795 --> 00:09:07.580
+and live injected back into the page.
+
+196
+00:09:07.580 --> 00:09:09.620
+The only thing that won't be recompiled
+
+197
+00:09:09.620 --> 00:09:12.790
+or refreshed is this back end here
+
+198
+00:09:13.820 --> 00:09:15.330
+because the server is running,
+
+199
+00:09:15.330 --> 00:09:18.040
+and you'll need to look at tools like nodemon
+
+200
+00:09:18.040 --> 00:09:19.900
+or kinda some of the other tools
+
+201
+00:09:19.900 --> 00:09:21.653
+that I'll show you later on, okay?
+

@@ -1,0 +1,578 @@
+﻿WEBVTT
+
+1
+00:00:00.380 --> 00:00:03.080
+<v ->So this is a really nice feature of Next,</v>
+
+2
+00:00:03.080 --> 00:00:07.288
+the ability to take your entire kind of React application
+
+3
+00:00:07.288 --> 00:00:12.288
+and just spit out static files.
+
+4
+00:00:12.320 --> 00:00:13.760
+And the reason I like this is because
+
+5
+00:00:13.760 --> 00:00:16.990
+it means I can deploy something like S3 or Netlify.
+
+6
+00:00:16.990 --> 00:00:19.050
+And I'm gonna show you that in a moment.
+
+7
+00:00:19.050 --> 00:00:21.880
+But first, we need to configure Next
+
+8
+00:00:21.880 --> 00:00:24.660
+so that we can do an export.
+
+9
+00:00:24.660 --> 00:00:26.710
+And what we need is this special property
+
+10
+00:00:26.710 --> 00:00:28.629
+inside of the next.config.
+
+11
+00:00:28.629 --> 00:00:33.629
+So what you need to return to this exportPathMap
+
+12
+00:00:36.251 --> 00:00:41.163
+is an object mapping of URLs to pages.
+
+13
+00:00:42.650 --> 00:00:46.500
+So let me just grab that and pop it into my
+
+14
+00:00:46.500 --> 00:00:51.500
+kind of growing config over here, just there.
+
+15
+00:00:52.540 --> 00:00:55.690
+And so we've got the about page, index page.
+
+16
+00:00:55.690 --> 00:01:00.690
+We're gonna have a contact, that points to the contact page.
+
+17
+00:01:00.960 --> 00:01:03.620
+But then we have sessions.
+
+18
+00:01:03.620 --> 00:01:04.883
+So you've got session.
+
+19
+00:01:06.550 --> 00:01:08.310
+And what we need to do is go through
+
+20
+00:01:08.310 --> 00:01:13.240
+each one of these URLs, still not running, npm run dev.
+
+21
+00:01:13.240 --> 00:01:15.666
+Go through each one of those URLs, the slugs,
+
+22
+00:01:15.666 --> 00:01:20.330
+and point that to session and then query
+
+23
+00:01:20.330 --> 00:01:24.933
+at slug is, I think memory is one of them.
+
+24
+00:01:26.400 --> 00:01:27.930
+And I can programme this, as well.
+
+25
+00:01:27.930 --> 00:01:32.053
+So I could dynamically generate this object.
+
+26
+00:01:33.391 --> 00:01:35.460
+And so I'm just gonna do a few of these,
+
+27
+00:01:35.460 --> 00:01:36.723
+copy the URLs.
+
+28
+00:01:39.050 --> 00:01:41.311
+I'm not gonna bother doing them all,
+
+29
+00:01:41.311 --> 00:01:43.023
+just so you get an idea of how it works.
+
+30
+00:01:44.120 --> 00:01:48.470
+So session, page, oops, slash there.
+
+31
+00:01:48.470 --> 00:01:53.470
+Page equals session, query, slug, rethinking.
+
+32
+00:01:56.060 --> 00:02:01.060
+Let's get password, memory and this one.
+
+33
+00:02:13.960 --> 00:02:18.960
+Session, query, slug is password.
+
+34
+00:02:21.180 --> 00:02:24.910
+And one last one, art, which should be easy,
+
+35
+00:02:24.910 --> 00:02:28.363
+just cut and paste that, oops.
+
+36
+00:02:32.230 --> 00:02:33.330
+Password or passwords.
+
+37
+00:02:33.330 --> 00:02:35.820
+Oh, now I'm gonna break it, aren't I?
+
+38
+00:02:35.820 --> 00:02:38.647
+Passwords, get art.
+
+39
+00:02:43.640 --> 00:02:45.460
+Okay, oops, arts.
+
+40
+00:02:45.460 --> 00:02:47.720
+So now in our package,
+
+41
+00:02:47.720 --> 00:02:49.640
+instead of build just being build,
+
+42
+00:02:49.640 --> 00:02:53.010
+we want to do &amp;&amp; next export, okay.
+
+43
+00:02:53.010 --> 00:02:56.760
+And what that's gonna do is create a directory called out.
+
+44
+00:02:56.760 --> 00:03:00.023
+So if I run this, npm run build,
+
+45
+00:03:01.000 --> 00:03:04.280
+it's going to build the next files it needs,
+
+46
+00:03:04.280 --> 00:03:06.880
+and it's gonna export and generate all those files,
+
+47
+00:03:06.880 --> 00:03:07.990
+or it should do.
+
+48
+00:03:07.990 --> 00:03:10.143
+And it'll create a directory called out.
+
+49
+00:03:12.656 --> 00:03:13.656
+Oh, blew up.
+
+50
+00:03:17.000 --> 00:03:18.880
+Oh, because the API is missing.
+
+51
+00:03:18.880 --> 00:03:20.230
+I'll just put that back in.
+
+52
+00:03:24.340 --> 00:03:26.790
+So I made some changes so that an API would work.
+
+53
+00:03:37.600 --> 00:03:38.910
+Nope, it's still failing.
+
+54
+00:03:38.910 --> 00:03:40.939
+So node-fetch is failing.
+
+55
+00:03:40.939 --> 00:03:42.480
+So I'm looking at statueries here
+
+56
+00:03:42.480 --> 00:03:44.583
+to understand what has gone wrong.
+
+57
+00:03:47.350 --> 00:03:48.863
+Not super useful.
+
+58
+00:03:51.240 --> 00:03:53.380
+So it means somewhere along these lines
+
+59
+00:03:53.380 --> 00:03:55.490
+when it's doing the export,
+
+60
+00:03:55.490 --> 00:03:56.730
+it's going through each page
+
+61
+00:03:56.730 --> 00:04:00.630
+and it doesn't have the API.
+
+62
+00:04:00.630 --> 00:04:04.890
+So I'm guessing it's for the individual session pages.
+
+63
+00:04:04.890 --> 00:04:06.190
+So we can get rid of that.
+
+64
+00:04:07.400 --> 00:04:10.293
+And this API value is this thing.
+
+65
+00:04:11.720 --> 00:04:15.903
+So I've got a feeling that it is inside of
+
+66
+00:04:26.010 --> 00:04:26.850
+the environment variable.
+
+67
+00:04:26.850 --> 00:04:31.850
+So we need to do API equals http://localhost:3001.
+
+68
+00:04:39.015 --> 00:04:39.848
+Let's try that one more time.
+
+69
+00:04:39.848 --> 00:04:40.940
+It should give us a build.
+
+70
+00:04:49.180 --> 00:04:50.810
+Okay, so these are the files it has generated.
+
+71
+00:04:50.810 --> 00:04:53.630
+Let's go and have a look at the out directory.
+
+72
+00:04:53.630 --> 00:04:55.910
+So if we go into the directory,
+
+73
+00:04:55.910 --> 00:04:59.061
+and have a look, we've got the next directory,
+
+74
+00:04:59.061 --> 00:05:01.490
+a whole bunch of stuff that I don't care about,
+
+75
+00:05:01.490 --> 00:05:03.604
+but this is what we do care about.
+
+76
+00:05:03.604 --> 00:05:05.453
+Let's just open this up.
+
+77
+00:05:06.360 --> 00:05:08.880
+You can see we have individual directories
+
+78
+00:05:08.880 --> 00:05:13.080
+for every one of those sessions.
+
+79
+00:05:13.080 --> 00:05:13.940
+You see how that's gonna work.
+
+80
+00:05:13.940 --> 00:05:15.823
+And if we run something like serve,
+
+81
+00:05:17.990 --> 00:05:20.625
+you'll be able to see, looks the same.
+
+82
+00:05:20.625 --> 00:05:24.113
+It's using the same kind of local navigation, right.
+
+83
+00:05:25.420 --> 00:05:27.097
+Not all the URLs are there,
+
+84
+00:05:27.097 --> 00:05:28.870
+because I didn't put them all in.
+
+85
+00:05:28.870 --> 00:05:30.480
+Oh, this is now hitting an API,
+
+86
+00:05:30.480 --> 00:05:32.560
+so it's kind of faking it.
+
+87
+00:05:32.560 --> 00:05:34.500
+But what I want to do now is actually
+
+88
+00:05:35.750 --> 00:05:37.810
+push that into GitHub.
+
+89
+00:05:37.810 --> 00:05:40.663
+So, git add -p.
+
+90
+00:05:42.003 --> 00:05:44.173
+I'm gonna commit those changes.
+
+91
+00:05:52.100 --> 00:05:54.940
+Trying to deploy to netlify.
+
+92
+00:05:57.075 --> 00:05:58.710
+Okay, I'm gonna push to GitHub,
+
+93
+00:05:58.710 --> 00:05:59.793
+so it's going online.
+
+94
+00:06:01.002 --> 00:06:03.600
+And now in Netlify, I'm going to add a new repo.
+
+95
+00:06:09.770 --> 00:06:11.593
+And I'm gonna search for next.
+
+96
+00:06:13.380 --> 00:06:16.053
+So this one's the one I just created.
+
+97
+00:06:17.210 --> 00:06:20.430
+Okay, so the build command is npm run build,
+
+98
+00:06:20.430 --> 00:06:22.080
+and the publish directory is out.
+
+99
+00:06:24.306 --> 00:06:27.510
+And I'm gonna make sure that the API is pointing
+
+100
+00:06:27.510 --> 00:06:31.950
+to my Now website, because I know that that will work
+
+101
+00:06:31.950 --> 00:06:33.203
+for the time being.
+
+102
+00:06:35.255 --> 00:06:38.833
+I think we'll do show_speaker, one.
+
+103
+00:06:42.119 --> 00:06:44.563
+Just deploy that site, and let's see how that goes.
+
+104
+00:06:46.230 --> 00:06:47.550
+And here we go, it's finished.
+
+105
+00:06:47.550 --> 00:06:48.780
+It says site is live.
+
+106
+00:06:48.780 --> 00:06:52.887
+And I go off and I go to the preview URL, there we go.
+
+107
+00:06:56.850 --> 00:07:00.823
+Working, oh, failed to fetch from client.
+
+108
+00:07:02.030 --> 00:07:04.490
+So there is, I mean,
+
+109
+00:07:04.490 --> 00:07:05.990
+for a couple of minute's work,
+
+110
+00:07:09.290 --> 00:07:11.129
+it doesn't seem to like that.
+
+111
+00:07:11.129 --> 00:07:12.693
+I think it might be the question marks it doesn't like.
+
+112
+00:07:14.150 --> 00:07:18.070
+So I'm pretty sure that art was in there.
+
+113
+00:07:18.070 --> 00:07:19.520
+Get rid of the question mark.
+
+114
+00:07:20.400 --> 00:07:22.750
+Yes, so it's the question mark it doesn't like.
+
+115
+00:07:23.860 --> 00:07:25.440
+Pretty close, though.
+
+116
+00:07:25.440 --> 00:07:27.740
+So I'll make a follow-up video
+
+117
+00:07:27.740 --> 00:07:29.390
+just to make these small changes,
+
+118
+00:07:29.390 --> 00:07:32.540
+but that's to show you that really,
+
+119
+00:07:32.540 --> 00:07:35.090
+if you want to build out that static site,
+
+120
+00:07:35.090 --> 00:07:40.090
+it's really just a case of adding this export map,
+
+121
+00:07:40.750 --> 00:07:42.250
+that returns an object,
+
+122
+00:07:42.250 --> 00:07:46.750
+and making sure that all of your query arguments go in.
+
+123
+00:07:46.750 --> 00:07:49.920
+Now, this could be constructed from an API code.
+
+124
+00:07:49.920 --> 00:07:51.670
+So I could actually build this out,
+
+125
+00:07:52.817 --> 00:07:55.292
+since this is a function I could do,
+
+126
+00:07:55.292 --> 00:08:00.292
+async and then await, fetch and grab that API,
+
+127
+00:08:01.145 --> 00:08:04.120
+I can't remember what the URL is,
+
+128
+00:08:04.120 --> 00:08:08.630
+but I could go to schedule and then loop over,
+
+129
+00:08:10.030 --> 00:08:13.100
+Json equals, loop over each one of those
+
+130
+00:08:13.100 --> 00:08:17.612
+schedule items and generate up this block of the pages
+
+131
+00:08:17.612 --> 00:08:20.480
+when it went to building,
+
+132
+00:08:20.480 --> 00:08:22.620
+when it actually went to exporting all the pages,
+
+133
+00:08:22.620 --> 00:08:24.730
+and just do it dynamically,
+
+134
+00:08:24.730 --> 00:08:26.083
+so that it grows over time.
+
+135
+00:08:26.950 --> 00:08:31.950
+But that's how to do static generation with Next.
+
+136
+00:08:32.350 --> 00:08:34.330
+I will do a follow-up video to show you
+
+137
+00:08:34.330 --> 00:08:35.793
+how to fix that back end.
+
+138
+00:08:36.640 --> 00:08:39.800
+And I will also post a follow-up video
+
+139
+00:08:39.800 --> 00:08:44.800
+to show you how to mix using a CDN, like Netlify,
+
+140
+00:08:45.760 --> 00:08:49.720
+as static content with something like the Now
+
+141
+00:08:49.720 --> 00:08:52.320
+as the front end with dynamic content,
+
+142
+00:08:52.320 --> 00:08:54.560
+so that you're gonna get the benefit of
+
+143
+00:08:54.560 --> 00:08:58.100
+CDN for static files and dynamic back end
+
+144
+00:08:59.708 --> 00:09:00.608
+for your back end.
+

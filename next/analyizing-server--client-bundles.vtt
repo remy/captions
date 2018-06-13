@@ -1,0 +1,642 @@
+﻿WEBVTT
+
+1
+00:00:02.730 --> 00:00:06.530
+<v ->So now that we've got some dynamic module loading</v>
+
+2
+00:00:06.530 --> 00:00:08.680
+and code splitting working in our favour,
+
+3
+00:00:08.680 --> 00:00:11.740
+we need to consider actually what we're bundling up
+
+4
+00:00:11.740 --> 00:00:15.680
+in our payloads that are going over the wire.
+
+5
+00:00:15.680 --> 00:00:19.860
+And there's a really good article from almost a year ago now
+
+6
+00:00:19.860 --> 00:00:20.693
+published.
+
+7
+00:00:20.693 --> 00:00:25.260
+I believe he is one of the primary contributors to Next.js.
+
+8
+00:00:25.260 --> 00:00:28.370
+He's talking about working out
+
+9
+00:00:28.370 --> 00:00:33.010
+when a module is actually being included into your bundle,
+
+10
+00:00:33.010 --> 00:00:35.080
+and he goes on to kind of explain
+
+11
+00:00:35.080 --> 00:00:39.030
+that in this example of code,
+
+12
+00:00:39.030 --> 00:00:43.700
+where the individual has used get initial props,
+
+13
+00:00:43.700 --> 00:00:46.520
+and they are saying if it's on the server side,
+
+14
+00:00:46.520 --> 00:00:49.090
+then require this fake module.
+
+15
+00:00:49.090 --> 00:00:53.780
+The problem is when webpack runs, it's pausing all the code,
+
+16
+00:00:53.780 --> 00:00:56.040
+and it sees that faker is needed
+
+17
+00:00:56.040 --> 00:00:58.690
+both on the server side bundle and the client side,
+
+18
+00:00:58.690 --> 00:01:02.040
+so faker comes down over the wire in both cases.
+
+19
+00:01:02.040 --> 00:01:04.820
+And so he proposes a few solutions,
+
+20
+00:01:04.820 --> 00:01:07.060
+and it's not so much the solutions
+
+21
+00:01:07.060 --> 00:01:07.893
+that I want to talk about.
+
+22
+00:01:07.893 --> 00:01:10.870
+I want to talk about how to identify this problem.
+
+23
+00:01:10.870 --> 00:01:14.130
+So you can use this webpack analyzer.
+
+24
+00:01:14.130 --> 00:01:15.600
+There's a few examples here.
+
+25
+00:01:15.600 --> 00:01:18.164
+This is an older example of how to get to it,
+
+26
+00:01:18.164 --> 00:01:22.450
+but there's now a plugin just like the CSS plugins
+
+27
+00:01:22.450 --> 00:01:24.030
+for the webpack analyzer.
+
+28
+00:01:24.030 --> 00:01:28.403
+So you have to instal this extra bundle, a bundle analyzer,
+
+29
+00:01:30.320 --> 00:01:34.070
+and then what you need to do is grab this code,
+
+30
+00:01:34.070 --> 00:01:37.740
+and I'm gonna mix it with my CSS plugin as well.
+
+31
+00:01:37.740 --> 00:01:39.470
+So I have to make a few adjustments.
+
+32
+00:01:39.470 --> 00:01:42.230
+So I'm just gonna grab this, copy and paste it
+
+33
+00:01:42.230 --> 00:01:45.170
+into my next dotcom fig.
+
+34
+00:01:45.170 --> 00:01:46.003
+Okay?
+
+35
+00:01:46.003 --> 00:01:48.120
+And this doesn't seem to be needed,
+
+36
+00:01:48.120 --> 00:01:50.650
+so I'm just going to get rid of it entirely.
+
+37
+00:01:50.650 --> 00:01:54.150
+And notice now I've obviously got two module.exports.
+
+38
+00:01:54.150 --> 00:01:56.090
+Now, that's not what we really want.
+
+39
+00:01:56.090 --> 00:02:01.090
+What I need to do is take this section very carefully
+
+40
+00:02:02.810 --> 00:02:07.810
+and then put it into the inside of this bracket, I believe.
+
+41
+00:02:09.200 --> 00:02:10.890
+So...
+
+42
+00:02:10.890 --> 00:02:14.460
+basically what get passed into withCSS
+
+43
+00:02:14.460 --> 00:02:17.160
+is the output of withBundleAnalyzer,
+
+44
+00:02:17.160 --> 00:02:19.440
+and in withBundleAnalyzer,
+
+45
+00:02:19.440 --> 00:02:23.470
+I need to pass in the entire object.
+
+46
+00:02:23.470 --> 00:02:24.757
+I think that's wrong.
+
+47
+00:02:24.757 --> 00:02:26.338
+Something like that.
+
+48
+00:02:26.338 --> 00:02:27.870
+Nope, that's still not quite right.
+
+49
+00:02:27.870 --> 00:02:30.260
+I've got an extra bracket, I think maybe.
+
+50
+00:02:30.260 --> 00:02:31.300
+Okay.
+
+51
+00:02:31.300 --> 00:02:32.610
+So I'm just gonna check if that works.
+
+52
+00:02:32.610 --> 00:02:35.130
+I'm gonna do npm...
+
+53
+00:02:36.040 --> 00:02:37.573
+Npm run dev.
+
+54
+00:02:40.580 --> 00:02:43.000
+Just to check if my server actually still runs
+
+55
+00:02:43.000 --> 00:02:44.513
+and it renders the CSS.
+
+56
+00:02:48.640 --> 00:02:50.993
+Course that looks good.
+
+57
+00:02:52.110 --> 00:02:55.550
+Then the example that she goes on to say, you can use yarn.
+
+58
+00:02:55.550 --> 00:02:58.210
+I'm using npm in my example.
+
+59
+00:02:58.210 --> 00:03:00.930
+If yarn works for you, then use this.
+
+60
+00:03:00.930 --> 00:03:03.740
+I'm gonna run a bundle analyzer for both,
+
+61
+00:03:03.740 --> 00:03:08.740
+but the other change I'm gonna make is in the config,
+
+62
+00:03:09.320 --> 00:03:10.830
+and I'm gonna say...
+
+63
+00:03:14.517 --> 00:03:16.630
+openAnalyzer equals true.
+
+64
+00:03:16.630 --> 00:03:18.730
+Just gonna launch the analyzer right away,
+
+65
+00:03:20.580 --> 00:03:22.960
+and I want to launch into this browser,
+
+66
+00:03:22.960 --> 00:03:26.350
+so I'm gonna run npm analyse both,
+
+67
+00:03:26.350 --> 00:03:29.310
+and it will launch the server first in the browser,
+
+68
+00:03:29.310 --> 00:03:32.483
+and then it will pull up the client as well.
+
+69
+00:03:34.850 --> 00:03:36.160
+There you go.
+
+70
+00:03:36.160 --> 00:03:38.980
+So, what we have here is
+
+71
+00:03:40.410 --> 00:03:44.530
+visualised all the packages that webpack is gonna bundle up.
+
+72
+00:03:44.530 --> 00:03:47.130
+So looking at my client side, 'cause that's the one
+
+73
+00:03:47.130 --> 00:03:49.210
+that's most important to me at the moment,
+
+74
+00:03:49.210 --> 00:03:52.300
+this is what I'll be looking at when the page loads.
+
+75
+00:03:52.300 --> 00:03:57.210
+Now, the largest package here is this bundle.
+
+76
+00:03:57.210 --> 00:04:00.440
+It's this one, the Notes bundle, 604 K.
+
+77
+00:04:00.440 --> 00:04:03.780
+So, geez, at 200 K, it's still fairly large,
+
+78
+00:04:03.780 --> 00:04:05.070
+but it's because we're including
+
+79
+00:04:05.070 --> 00:04:07.513
+all of our codemirror down here.
+
+80
+00:04:09.390 --> 00:04:12.110
+Now, we've already identified that in our code
+
+81
+00:04:12.110 --> 00:04:15.450
+or in the code, and we're lazy loading this separately.
+
+82
+00:04:15.450 --> 00:04:17.730
+Otherwise it would be loaded as the main bundle
+
+83
+00:04:17.730 --> 00:04:21.810
+every time someone comes to this for the first time.
+
+84
+00:04:21.810 --> 00:04:23.390
+I've killed the server by accident.
+
+85
+00:04:23.390 --> 00:04:24.840
+Maybe they just want to look at the overview.
+
+86
+00:04:24.840 --> 00:04:26.580
+Maybe they want to look at how to contact,
+
+87
+00:04:26.580 --> 00:04:27.760
+and they don't want to download
+
+88
+00:04:27.760 --> 00:04:32.760
+this 600 K decompressed codemirror bundle.
+
+89
+00:04:32.760 --> 00:04:37.290
+And if they don't load the Notes at all,
+
+90
+00:04:37.290 --> 00:04:39.740
+say they logged out, they don't load the Notes at all,
+
+91
+00:04:39.740 --> 00:04:42.590
+they never have to download this payload.
+
+92
+00:04:42.590 --> 00:04:45.380
+So they'll be downloading this much smaller payload,
+
+93
+00:04:45.380 --> 00:04:47.270
+32 K compressed,
+
+94
+00:04:47.270 --> 00:04:51.130
+and this common bundle will go with every request as well,
+
+95
+00:04:51.130 --> 00:04:52.560
+and then you can see the other pages.
+
+96
+00:04:52.560 --> 00:04:54.910
+So this is the session page down here,
+
+97
+00:04:54.910 --> 00:04:59.480
+so like three K for the individual sessions.
+
+98
+00:04:59.480 --> 00:05:01.050
+What have we got here?
+
+99
+00:05:01.050 --> 00:05:04.610
+This is the index page, another three K.
+
+100
+00:05:04.610 --> 00:05:06.890
+Some very small pages here.
+
+101
+00:05:06.890 --> 00:05:08.713
+This is the CSS that's used.
+
+102
+00:05:10.860 --> 00:05:15.300
+I think we might be able to see somewhere the About page,
+
+103
+00:05:15.300 --> 00:05:16.133
+maybe.
+
+104
+00:05:19.650 --> 00:05:22.830
+Yep, the About page is way down there in the corner.
+
+105
+00:05:22.830 --> 00:05:23.663
+Super small.
+
+106
+00:05:24.810 --> 00:05:26.980
+So, oh, going the wrong way.
+
+107
+00:05:26.980 --> 00:05:29.080
+That looks pretty good to me.
+
+108
+00:05:29.080 --> 00:05:31.880
+The one thing that does kind of pop out is the fact that
+
+109
+00:05:33.240 --> 00:05:36.090
+react-dom appears twice.
+
+110
+00:05:36.090 --> 00:05:37.910
+Now, there's no way that I can load this
+
+111
+00:05:37.910 --> 00:05:40.090
+without this being in here,
+
+112
+00:05:40.090 --> 00:05:43.730
+so I might want to kind of manually tweak this.
+
+113
+00:05:43.730 --> 00:05:46.660
+I don't know quite how to do that at the moment.
+
+114
+00:05:46.660 --> 00:05:49.510
+I think it takes an extra bit of knowledge of webpack
+
+115
+00:05:49.510 --> 00:05:52.020
+to understand how to take this out.
+
+116
+00:05:52.020 --> 00:05:54.950
+But that's the only thing that kind of jumps out at me.
+
+117
+00:05:54.950 --> 00:05:59.223
+I don't think anything else has got that being used.
+
+118
+00:06:01.300 --> 00:06:03.365
+No, it doesn't seem like it.
+
+119
+00:06:03.365 --> 00:06:06.060
+Okay, so let's go look at server.
+
+120
+00:06:06.060 --> 00:06:09.810
+So one thing I would expect this not to be in the server.
+
+121
+00:06:09.810 --> 00:06:12.260
+So I'm not sure what that means.
+
+122
+00:06:12.260 --> 00:06:15.370
+Plus one module, I think this is a module it can't name.
+
+123
+00:06:15.370 --> 00:06:16.203
+Is that right?
+
+124
+00:06:18.281 --> 00:06:20.980
+So we've got nine K, 11 K.
+
+125
+00:06:20.980 --> 00:06:23.410
+Huh, frustratingly, on the server side,
+
+126
+00:06:23.410 --> 00:06:24.760
+everything's a lot smaller.
+
+127
+00:06:25.760 --> 00:06:27.930
+As it goes, I guess.
+
+128
+00:06:27.930 --> 00:06:29.560
+We've got some CSS being paused there,
+
+129
+00:06:29.560 --> 00:06:31.563
+and I guess nothing's happening to it.
+
+130
+00:06:33.730 --> 00:06:35.993
+But they look all pretty small.
+
+131
+00:06:37.330 --> 00:06:39.230
+I think really the focus for me
+
+132
+00:06:39.230 --> 00:06:41.030
+is considering the client's side
+
+133
+00:06:41.030 --> 00:06:42.230
+and making sure that the client's side
+
+134
+00:06:42.230 --> 00:06:43.683
+only has what it needs.
+
+135
+00:06:44.560 --> 00:06:46.150
+For instance...
+
+136
+00:06:47.820 --> 00:06:50.343
+Can I search all chunks?
+
+137
+00:06:52.039 --> 00:06:55.540
+I'm guessing that inside of common is
+
+138
+00:06:57.940 --> 00:07:01.545
+the fetch function that I gave it.
+
+139
+00:07:01.545 --> 00:07:03.695
+It must be in here somewhere, pretty small.
+
+140
+00:07:05.087 --> 00:07:07.920
+(mumbles to self)
+
+141
+00:07:09.530 --> 00:07:10.363
+Maybe not.
+
+142
+00:07:14.750 --> 00:07:16.200
+But on the server side,
+
+143
+00:07:16.200 --> 00:07:20.160
+I would expect to see somewhere in here the
+
+144
+00:07:25.870 --> 00:07:28.007
+Universal isomorphic on fetch.
+
+145
+00:07:28.007 --> 00:07:30.900
+Module suspect, this may be one of these,
+
+146
+00:07:30.900 --> 00:07:32.800
+kind of tucked away in here somewhere.
+
+147
+00:07:33.750 --> 00:07:37.920
+Yeah, so that is how to get analysis of your bundles
+
+148
+00:07:37.920 --> 00:07:39.970
+into Next.
+
+149
+00:07:39.970 --> 00:07:44.050
+This is starting to look like a bit of a mess in my opinion.
+
+150
+00:07:44.050 --> 00:07:47.550
+It might be worth kind of breaking it into separate files.
+
+151
+00:07:47.550 --> 00:07:49.840
+As long as you know you can compose these functions together
+
+152
+00:07:49.840 --> 00:07:54.840
+so the idea being you take the output of withBundleAnalyzer
+
+153
+00:07:54.970 --> 00:07:57.342
+and you just pass it into withCSS,
+
+154
+00:07:57.342 --> 00:08:01.560
+and you should be able to compose those options together.
+
+155
+00:08:01.560 --> 00:08:05.640
+As long as this is that kind of webpack-like option,
+
+156
+00:08:05.640 --> 00:08:06.473
+you're all good.
+
+157
+00:08:08.312 --> 00:08:09.940
+And has the webpack function.
+
+158
+00:08:09.940 --> 00:08:12.790
+So that is how to analyse what's going over the wire.
+
+159
+00:08:12.790 --> 00:08:15.670
+And next, let's get it actually going over the wire
+
+160
+00:08:15.670 --> 00:08:16.653
+onto the Internet.
+

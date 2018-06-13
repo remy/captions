@@ -1,0 +1,294 @@
+﻿WEBVTT
+
+1
+00:00:04.285 --> 00:00:06.040
+<v ->So if you're following the previous video,</v>
+
+2
+00:00:06.040 --> 00:00:09.270
+we deployed to Netlify and we have a static backend,
+
+3
+00:00:09.270 --> 00:00:12.890
+or a static build of this website.
+
+4
+00:00:12.890 --> 00:00:15.130
+Which still employs JavaScript in the client side
+
+5
+00:00:15.130 --> 00:00:16.660
+to do some of the navigation.
+
+6
+00:00:16.660 --> 00:00:19.560
+And when we click through to some of the talks,
+
+7
+00:00:19.560 --> 00:00:22.100
+we're getting an error, and actually I'd already put
+
+8
+00:00:22.100 --> 00:00:24.440
+the description of the bug in the text,
+
+9
+00:00:24.440 --> 00:00:26.350
+it failed to fetch on the client side.
+
+10
+00:00:26.350 --> 00:00:28.870
+If we open up the dev tools, and have a look at the errors
+
+11
+00:00:28.870 --> 00:00:32.380
+that were in the console, I can actually see,
+
+12
+00:00:32.380 --> 00:00:36.420
+there's the problem, no access control headers,
+
+13
+00:00:36.420 --> 00:00:39.995
+and it's because the request was not a cors request.
+
+14
+00:00:39.995 --> 00:00:42.590
+The real URLs worked,
+
+15
+00:00:42.590 --> 00:00:46.563
+but navigating using the fetch API was failing.
+
+16
+00:00:47.550 --> 00:00:51.750
+So I have to update the server to support cors headers,
+
+17
+00:00:53.820 --> 00:00:56.560
+but also in the fetch request I need to add the part
+
+18
+00:00:56.560 --> 00:01:00.423
+that makes a request with the origin,
+
+19
+00:01:03.750 --> 00:01:06.810
+and we need to add in mode to the fetch request,
+
+20
+00:01:06.810 --> 00:01:09.330
+if it's on the same origin, not a problem.
+
+21
+00:01:09.330 --> 00:01:11.460
+In this particular example, I'm deploying to Netlify,
+
+22
+00:01:11.460 --> 00:01:14.280
+and I'm pointing the API to a different endpoint.
+
+23
+00:01:14.280 --> 00:01:16.410
+Netlify have things like cloud function,
+
+24
+00:01:16.410 --> 00:01:19.960
+so you could technically, include, deploy those,
+
+25
+00:01:19.960 --> 00:01:21.960
+and have those as kind of your endpoint,
+
+26
+00:01:23.330 --> 00:01:25.330
+and you wouldn't need to use cors.
+
+27
+00:01:25.330 --> 00:01:27.470
+In this instance I'm pointing to
+
+28
+00:01:27.470 --> 00:01:29.600
+a environment var called API,
+
+29
+00:01:29.600 --> 00:01:34.600
+if I cap my env, e-n-v file, the API is now,
+
+30
+00:01:34.750 --> 00:01:38.010
+next workshop, dash, now, which is basically a copy
+
+31
+00:01:38.010 --> 00:01:40.270
+of this entire website, it's just to show you
+
+32
+00:01:40.270 --> 00:01:42.290
+if I put the API somewhere else it will work.
+
+33
+00:01:42.290 --> 00:01:44.333
+So I'm just gonna add that change,
+
+34
+00:01:53.410 --> 00:01:56.903
+I'm gonna push that to GitHub, which then hits Netlify,
+
+35
+00:01:57.948 --> 00:01:59.200
+and Netlify should pick up
+
+36
+00:01:59.200 --> 00:02:01.000
+that there's a new deploy coming in,
+
+37
+00:02:02.110 --> 00:02:04.500
+and now it's doing the export and it should generate
+
+38
+00:02:04.500 --> 00:02:07.620
+those list of exports that we defined.
+
+39
+00:02:07.620 --> 00:02:08.650
+And remember we didn't actually
+
+40
+00:02:08.650 --> 00:02:10.343
+do all of them at this point,
+
+41
+00:02:12.570 --> 00:02:16.940
+and now it's ready, so just go over and grab that URL,
+
+42
+00:02:16.940 --> 00:02:20.720
+take a look, now it should work as we expect,
+
+43
+00:02:20.720 --> 00:02:22.973
+so let's go back to Jenn's talk,
+
+44
+00:02:29.360 --> 00:02:30.620
+Oh, you know what?
+
+45
+00:02:30.620 --> 00:02:32.120
+The environment var was wrong.
+
+46
+00:02:33.390 --> 00:02:34.630
+So it's currently building and I had to
+
+47
+00:02:34.630 --> 00:02:35.940
+change this environment variable
+
+48
+00:02:35.940 --> 00:02:38.910
+that I had coded straight into the project
+
+49
+00:02:38.910 --> 00:02:40.340
+and the build settings.
+
+50
+00:02:40.340 --> 00:02:42.190
+So it's currently building right now.
+
+51
+00:02:43.938 --> 00:02:45.260
+It's doing NPM instal.
+
+52
+00:02:45.260 --> 00:02:49.390
+And once the build is complete it should be
+
+53
+00:02:49.390 --> 00:02:51.183
+back up on that URL.
+
+54
+00:02:52.660 --> 00:02:53.710
+Let's give it a look.
+
+55
+00:02:55.180 --> 00:02:56.013
+Refresh.
+
+56
+00:02:57.620 --> 00:02:58.603
+Final test.
+
+57
+00:02:59.860 --> 00:03:01.750
+There you go, works.
+
+58
+00:03:01.750 --> 00:03:04.543
+And that was the loading in.
+
+59
+00:03:05.410 --> 00:03:06.243
+Nice.
+
+60
+00:03:10.740 --> 00:03:11.650
+Cool.
+
+61
+00:03:11.650 --> 00:03:14.610
+So that is Netlify with
+
+62
+00:03:14.610 --> 00:03:17.233
+a kind of static, partial backend.
+
+63
+00:03:18.430 --> 00:03:20.140
+In theory if you really wanted to make
+
+64
+00:03:20.140 --> 00:03:22.130
+this pure static website you could
+
+65
+00:03:22.130 --> 00:03:25.820
+kind of strip out all the JavaScript,
+
+66
+00:03:25.820 --> 00:03:27.940
+but kind of, that's pretty bad at all
+
+67
+00:03:27.940 --> 00:03:29.550
+to be building static websites,
+
+68
+00:03:29.550 --> 00:03:31.430
+but you could theoretically
+
+69
+00:03:31.430 --> 00:03:33.877
+strip out all the JavaScript and deploy Netlify
+
+70
+00:03:33.877 --> 00:03:35.840
+and the whole thing would just be static.
+
+71
+00:03:35.840 --> 00:03:37.023
+No JavaScript enabled.
+
+72
+00:03:37.898 --> 00:03:40.889
+So that is deployment.
+
+73
+00:03:40.889 --> 00:03:44.723
+And we will look at a few other options in future videos.
+

@@ -1,0 +1,530 @@
+﻿WEBVTT
+
+1
+00:00:00.880 --> 00:00:02.567
+<v ->In this next group of videos,</v>
+
+2
+00:00:02.567 --> 00:00:05.929
+I wanna show you how to do authentication.
+
+3
+00:00:05.929 --> 00:00:09.795
+Now, what I want for this schedule browser
+
+4
+00:00:09.795 --> 00:00:12.117
+is to have a little log in link here,
+
+5
+00:00:12.117 --> 00:00:15.407
+and when you authenticate, it'll show you your avatar,
+
+6
+00:00:15.407 --> 00:00:17.870
+and as I mentioned before, it'll have these notes,
+
+7
+00:00:17.870 --> 00:00:22.762
+and those notes will be tied to that individual user.
+
+8
+00:00:22.762 --> 00:00:27.482
+Now, authentication, there's no one way of doing it.
+
+9
+00:00:27.482 --> 00:00:31.382
+You might have your own authentication provider,
+
+10
+00:00:31.382 --> 00:00:34.252
+you might want to use Google as a third party,
+
+11
+00:00:34.252 --> 00:00:37.170
+you might want to use GitHub, there's a lot of choices.
+
+12
+00:00:37.170 --> 00:00:41.466
+How you manage that data in a database is up to you,
+
+13
+00:00:41.466 --> 00:00:43.866
+there's different ways of doing it.
+
+14
+00:00:43.866 --> 00:00:46.066
+The thing that I'm kind of quite used to
+
+15
+00:00:46.066 --> 00:00:50.442
+for smaller projects is Express, Passport and Bongo.
+
+16
+00:00:50.442 --> 00:00:52.100
+It's entirely possible that
+
+17
+00:00:52.100 --> 00:00:54.642
+those words just mean nothing to you.
+
+18
+00:00:54.642 --> 00:00:56.215
+But there are lots of different ways of doing it.
+
+19
+00:00:56.215 --> 00:00:59.458
+I can't solve every way in these videos.
+
+20
+00:00:59.458 --> 00:01:03.733
+But what I can do, is show you how I would do this
+
+21
+00:01:03.733 --> 00:01:05.220
+on the client's side.
+
+22
+00:01:05.220 --> 00:01:09.632
+I've configured a back end which is all in GitHub,
+
+23
+00:01:09.632 --> 00:01:12.428
+which kind of creates, allows for authentication,
+
+24
+00:01:12.428 --> 00:01:17.345
+again it's GitHub, and we're gonna implement authentication
+
+25
+00:01:19.124 --> 00:01:23.916
+both in the client's side and the server's side.
+
+26
+00:01:23.916 --> 00:01:26.956
+Now non-client side application is something
+
+27
+00:01:26.956 --> 00:01:29.743
+that's purely rendered server side,
+
+28
+00:01:29.743 --> 00:01:32.662
+the authentication happens on the server side,
+
+29
+00:01:32.662 --> 00:01:36.270
+a session is set, and a session ID is passed back and forth
+
+30
+00:01:36.270 --> 00:01:38.683
+between the browser, the client,
+
+31
+00:01:38.683 --> 00:01:41.716
+and the server via an HTTP only cookie.
+
+32
+00:01:41.716 --> 00:01:45.367
+So it means that the client itself has no access to that,
+
+33
+00:01:45.367 --> 00:01:47.661
+and it knows nothing about the session,
+
+34
+00:01:47.661 --> 00:01:49.613
+knows nothing about the logged in state,
+
+35
+00:01:49.613 --> 00:01:50.705
+but when it makes a request,
+
+36
+00:01:50.705 --> 00:01:54.688
+because the cookie has that session ID,
+
+37
+00:01:54.688 --> 00:01:56.162
+it's able to authenticate the user,
+
+38
+00:01:56.162 --> 00:02:00.701
+and render kind of protected content to that request.
+
+39
+00:02:00.701 --> 00:02:03.498
+Because we've got client side and server side,
+
+40
+00:02:03.498 --> 00:02:08.463
+the client's side needs to know what the user is signed in.
+
+41
+00:02:08.463 --> 00:02:11.123
+So that's the challenge that we have to solve now,
+
+42
+00:02:11.123 --> 00:02:15.290
+without exposing any secret keys into the browser.
+
+43
+00:02:16.347 --> 00:02:17.936
+So that's what we're gonna try and solve
+
+44
+00:02:17.936 --> 00:02:19.392
+throughout these videos.
+
+45
+00:02:19.392 --> 00:02:24.392
+But the very starting point is to get a user into this view.
+
+46
+00:02:25.431 --> 00:02:27.448
+So I want to get the user all the way down to the layout,
+
+47
+00:02:27.448 --> 00:02:32.216
+to the header to say they're logged in or not logged in.
+
+48
+00:02:32.216 --> 00:02:35.250
+Okay so, the starting point,
+
+49
+00:02:35.250 --> 00:02:36.892
+or one of the ways to solve this
+
+50
+00:02:36.892 --> 00:02:38.891
+is to use a higher auto component.
+
+51
+00:02:38.891 --> 00:02:40.866
+So the idea of the higher auto component
+
+52
+00:02:40.866 --> 00:02:42.945
+is that it wraps my component
+
+53
+00:02:42.945 --> 00:02:46.069
+and it's able to make a request to check
+
+54
+00:02:46.069 --> 00:02:49.881
+if the user is authenticated and it will pass that down
+
+55
+00:02:49.881 --> 00:02:53.548
+into my component here and give me the user.
+
+56
+00:02:55.365 --> 00:02:58.865
+So, this is not an uncommon pass in React,
+
+57
+00:02:59.865 --> 00:03:04.865
+but there are some particular aspects you have to get right,
+
+58
+00:03:06.266 --> 00:03:08.797
+for it to work with Next.
+
+59
+00:03:08.797 --> 00:03:12.687
+So I've created a directory called HOCs,
+
+60
+00:03:12.687 --> 00:03:15.109
+okay and I have a file called withuser,
+
+61
+00:03:15.109 --> 00:03:18.158
+and that's gonna be my higher auto component.
+
+62
+00:03:18.158 --> 00:03:21.325
+So I'm gonna import withuser from HOCs
+
+63
+00:03:23.580 --> 00:03:27.757
+and then withuser, so there's not much in there right now,
+
+64
+00:03:27.757 --> 00:03:29.383
+but we'll have a look at it in a moment.
+
+65
+00:03:29.383 --> 00:03:30.421
+And what we're gonna do is
+
+66
+00:03:30.421 --> 00:03:33.935
+instead of exporting our index component,
+
+67
+00:03:33.935 --> 00:03:37.894
+we're going to export a wrapped component.
+
+68
+00:03:37.894 --> 00:03:41.289
+So this is our wrapped component around the index.
+
+69
+00:03:41.289 --> 00:03:46.039
+And withuser is going to provide the user down into this.
+
+70
+00:03:46.958 --> 00:03:49.708
+So hit save and open up withuser,
+
+71
+00:03:50.646 --> 00:03:52.765
+okay so there's not much in here at the moment,
+
+72
+00:03:52.765 --> 00:03:55.332
+I am exporting a function that takes
+
+73
+00:03:55.332 --> 00:03:57.329
+a component as an argument
+
+74
+00:03:57.329 --> 00:04:01.029
+and I'm returning a new React class
+
+75
+00:04:01.029 --> 00:04:04.279
+which is going to render the component.
+
+76
+00:04:06.598 --> 00:04:11.431
+Component, and I'm going to spread it across and hit save.
+
+77
+00:04:14.647 --> 00:04:16.381
+Now just hit refresh,
+
+78
+00:04:16.381 --> 00:04:18.425
+kind of get this out of the messed up state.
+
+79
+00:04:18.425 --> 00:04:20.241
+Already there is a problem.
+
+80
+00:04:20.241 --> 00:04:22.391
+Okay so even though this higher auto component
+
+81
+00:04:22.391 --> 00:04:24.162
+shouldn't be doing anything
+
+82
+00:04:24.162 --> 00:04:27.188
+except for rendering the component, the problem is this.
+
+83
+00:04:27.188 --> 00:04:30.474
+It can't read map undefined, it's trying to read schedule.
+
+84
+00:04:30.474 --> 00:04:31.990
+Schedule is undefined.
+
+85
+00:04:31.990 --> 00:04:36.490
+Okay so the reason that's undefined is that the index,
+
+86
+00:04:37.657 --> 00:04:39.528
+get initial props was never called.
+
+87
+00:04:39.528 --> 00:04:41.111
+This was never run.
+
+88
+00:04:42.734 --> 00:04:46.882
+Okay so if I put console log in here, and hit save,
+
+89
+00:04:46.882 --> 00:04:50.549
+go to my server, we can see that console log
+
+90
+00:04:51.805 --> 00:04:54.194
+is never called at all.
+
+91
+00:04:54.194 --> 00:04:55.916
+So just to get around this for a moment,
+
+92
+00:04:55.916 --> 00:04:59.666
+I'm just gonna fix this so that the brackets,
+
+93
+00:05:00.918 --> 00:05:03.776
+I'm just gonna default to an empty ray.
+
+94
+00:05:03.776 --> 00:05:06.443
+I should be able to do it there.
+
+95
+00:05:07.798 --> 00:05:10.675
+(mumbles)
+
+96
+00:05:10.675 --> 00:05:13.638
+Okay so the page is rendering again, that's what we need.
+
+97
+00:05:13.638 --> 00:05:16.171
+And the problem that we face now is that
+
+98
+00:05:16.171 --> 00:05:17.143
+the higher auto component
+
+99
+00:05:17.143 --> 00:05:19.369
+isn't calling this get initial props.
+
+100
+00:05:19.369 --> 00:05:24.286
+So that's what's special about Next higher auto components.
+
+101
+00:05:25.747 --> 00:05:30.414
+We need to add this in static, async, get initial props.
+
+102
+00:05:32.105 --> 00:05:33.931
+Okay so the context is passed in.
+
+103
+00:05:33.931 --> 00:05:35.883
+Remember this contains things like the query,
+
+104
+00:05:35.883 --> 00:05:39.636
+the request, the response, and so on.
+
+105
+00:05:39.636 --> 00:05:42.687
+And we can just return that back out.
+
+106
+00:05:42.687 --> 00:05:44.538
+Okay, it's still going to be empty,
+
+107
+00:05:44.538 --> 00:05:47.371
+we're not gonna have the schedule.
+
+108
+00:05:49.557 --> 00:05:51.583
+But what we're gonna do is say,
+
+109
+00:05:51.583 --> 00:05:53.333
+if type of component,
+
+110
+00:05:59.947 --> 00:06:03.041
+get initial props equals function,
+
+111
+00:06:03.041 --> 00:06:04.266
+then we're going to call it.
+
+112
+00:06:04.266 --> 00:06:07.663
+So we're going to do let props equal empty,
+
+113
+00:06:07.663 --> 00:06:10.757
+and I've had to return props like that.
+
+114
+00:06:10.757 --> 00:06:14.090
+And I'm gonna do props equals await CTX.
+
+115
+00:06:20.406 --> 00:06:23.623
+So when I say this, this should,
+
+116
+00:06:23.623 --> 00:06:25.956
+in theory, get our schedule.
+
+117
+00:06:28.521 --> 00:06:29.521
+There we go.
+
+118
+00:06:32.666 --> 00:06:35.205
+And then the client side as well.
+
+119
+00:06:35.205 --> 00:06:38.296
+Okay, so that looks like it's working again, that's good.
+
+120
+00:06:38.296 --> 00:06:40.400
+So whenever we make a higher auto component,
+
+121
+00:06:40.400 --> 00:06:45.309
+we must include this call to make sure that we're
+
+122
+00:06:45.309 --> 00:06:49.142
+being a good citizen of our wrapped component.
+
+123
+00:06:50.208 --> 00:06:55.208
+So, now that that's done, the next video I'm gonna do
+
+124
+00:06:55.233 --> 00:06:58.625
+will do kind of, the authentication and then
+
+125
+00:06:58.625 --> 00:07:02.375
+pulling in the user that we've authenticated.
+
+126
+00:07:04.859 --> 00:07:07.896
+Now the authentication process is going to be happening
+
+127
+00:07:07.896 --> 00:07:11.716
+all on the server side, via GitHub third party auth.
+
+128
+00:07:11.716 --> 00:07:13.978
+I'm not going to go through the details of that
+
+129
+00:07:13.978 --> 00:07:16.056
+because it's kind of way beyond the scope
+
+130
+00:07:16.056 --> 00:07:19.475
+and it's server side logic, and like I said,
+
+131
+00:07:19.475 --> 00:07:21.361
+that'll be bespoke for you.
+
+132
+00:07:21.361 --> 00:07:22.393
+So we'll look at that next.
+

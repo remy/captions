@@ -1,0 +1,962 @@
+﻿WEBVTT
+
+1
+00:00:00.610 --> 00:00:03.060
+<v ->The next step now is to add,</v>
+
+2
+00:00:03.060 --> 00:00:04.260
+well I'm going to add another
+
+3
+00:00:04.260 --> 00:00:06.540
+higher order component that's going to check
+
+4
+00:00:06.540 --> 00:00:09.840
+if there's a query stream that includes token,
+
+5
+00:00:09.840 --> 00:00:12.540
+and that the readers can set that token
+
+6
+00:00:12.540 --> 00:00:13.510
+into a cookie that can be read
+
+7
+00:00:13.510 --> 00:00:15.900
+both on a client side and a server side.
+
+8
+00:00:15.900 --> 00:00:18.120
+That token is the bearer token
+
+9
+00:00:18.120 --> 00:00:20.351
+that will allow me to do the APR request
+
+10
+00:00:20.351 --> 00:00:23.300
+on both client side and server side.
+
+11
+00:00:23.300 --> 00:00:26.960
+So I'm just going to duplicate this file.
+
+12
+00:00:26.960 --> 00:00:29.470
+And I'm gonna call it with token.
+
+13
+00:00:29.470 --> 00:00:33.760
+And I'm just gonna get rid of these bits.
+
+14
+00:00:33.760 --> 00:00:35.230
+That,
+
+15
+00:00:35.230 --> 00:00:36.163
+and that.
+
+16
+00:00:38.640 --> 00:00:41.540
+So I just have a basic higher order component.
+
+17
+00:00:41.540 --> 00:00:45.943
+I'm going to do import at with token from HOC
+
+18
+00:00:47.240 --> 00:00:51.313
+with token, oops not user, token.
+
+19
+00:00:52.690 --> 00:00:55.333
+And we're gonna wrap that around with user.
+
+20
+00:00:57.430 --> 00:01:00.340
+Now there's obviously more than one way to do this
+
+21
+00:01:00.340 --> 00:01:03.640
+so do the way it works best for you,
+
+22
+00:01:03.640 --> 00:01:04.830
+but this is how I'm doing it.
+
+23
+00:01:04.830 --> 00:01:07.268
+So I'm going to include a,
+
+24
+00:01:07.268 --> 00:01:08.810
+what I'm going to say is if...
+
+25
+00:01:10.360 --> 00:01:15.360
+Let's put in const, query, and request.
+
+26
+00:01:15.360 --> 00:01:20.360
+Equals CTX, and if request, i.e. on the server,
+
+27
+00:01:20.740 --> 00:01:23.490
+and query.token,
+
+28
+00:01:23.490 --> 00:01:27.063
+we're going to do a set token CTX.
+
+29
+00:01:28.140 --> 00:01:31.780
+And I have a function ready.
+
+30
+00:01:31.780 --> 00:01:33.060
+So I'm going to do a set, cut token.
+
+31
+00:01:33.060 --> 00:01:36.820
+It's going to receive the response in the query.
+
+32
+00:01:36.820 --> 00:01:39.520
+I'm going to do a lazy kind of require for the cookie.
+
+33
+00:01:40.590 --> 00:01:41.760
+This is just a cookie library,
+
+34
+00:01:41.760 --> 00:01:44.150
+it works on the server side only.
+
+35
+00:01:44.150 --> 00:01:45.900
+So it looks at the request headers,
+
+36
+00:01:47.210 --> 00:01:48.810
+I think.
+
+37
+00:01:48.810 --> 00:01:49.773
+Yep.
+
+38
+00:01:53.637 --> 00:01:57.030
+It is going to set the headers on the request,
+
+39
+00:01:57.030 --> 00:02:01.260
+set cookie, and I'm going to serialise this token
+
+40
+00:02:04.140 --> 00:02:06.393
+and get one week worth of age,
+
+41
+00:02:07.292 --> 00:02:08.600
+and that should be it.
+
+42
+00:02:08.600 --> 00:02:10.850
+So because I've reused the higher order component
+
+43
+00:02:10.850 --> 00:02:12.020
+from the with user,
+
+44
+00:02:12.020 --> 00:02:13.750
+it should kind of propagate down
+
+45
+00:02:13.750 --> 00:02:17.070
+all of this should just propagate down absolutely fine.
+
+46
+00:02:17.070 --> 00:02:20.503
+So, let's give that a try.
+
+47
+00:02:21.680 --> 00:02:24.900
+Just to also add, I cancelled out the throw
+
+48
+00:02:24.900 --> 00:02:26.450
+just so I could get it to work.
+
+49
+00:02:27.480 --> 00:02:29.520
+So I'm gonna hit refresh,
+
+50
+00:02:29.520 --> 00:02:31.370
+and nothing's gonna happen,
+
+51
+00:02:31.370 --> 00:02:34.350
+and what I'm gonna do is look at the application,
+
+52
+00:02:34.350 --> 00:02:36.000
+look at the cookies.
+
+53
+00:02:36.000 --> 00:02:37.410
+Then I'm gonna do the auth process.
+
+54
+00:02:37.410 --> 00:02:40.230
+So remember the auth is on a different URL,
+
+55
+00:02:40.230 --> 00:02:43.760
+just because I'm trying to do like a cross-origin auth.
+
+56
+00:02:45.470 --> 00:02:46.753
+So that is our bearer token,
+
+57
+00:02:46.753 --> 00:02:47.903
+it's just landed there.
+
+58
+00:02:49.240 --> 00:02:51.490
+So I'm gonna use that bearer token
+
+59
+00:02:52.460 --> 00:02:54.820
+to make our APR request.
+
+60
+00:02:54.820 --> 00:02:59.240
+So with user, is going to do
+
+61
+00:02:59.240 --> 00:03:01.803
+at function, get token.
+
+62
+00:03:02.690 --> 00:03:04.100
+And I'm going to try and read the token
+
+63
+00:03:04.100 --> 00:03:05.890
+out of the cookie.
+
+64
+00:03:05.890 --> 00:03:09.900
+So we're gonna read in request.
+
+65
+00:03:09.900 --> 00:03:12.750
+And we'll say if request there on the server side,
+
+66
+00:03:12.750 --> 00:03:13.713
+so we're gonna do,
+
+67
+00:03:14.970 --> 00:03:17.593
+we're gonna borrow this require.
+
+68
+00:03:18.440 --> 00:03:20.153
+Else here on the client side.
+
+69
+00:03:22.070 --> 00:03:24.797
+And what we're gonna do is cookie.,
+
+70
+00:03:25.968 --> 00:03:28.763
+in fact I need to look at the notation for this.
+
+71
+00:03:30.580 --> 00:03:32.273
+NPM cookie.
+
+72
+00:03:34.877 --> 00:03:36.343
+I believe we just have to do just .parse.
+
+73
+00:03:42.110 --> 00:03:43.590
+So that's what we want to do.
+
+74
+00:03:43.590 --> 00:03:45.220
+It means you have to read the actually cookie value out,
+
+75
+00:03:45.220 --> 00:03:46.830
+the request header.
+
+76
+00:03:46.830 --> 00:03:50.253
+So this would be, let's say,
+
+77
+00:03:52.440 --> 00:03:55.420
+request, .headers, .cookie.
+
+78
+00:03:55.420 --> 00:03:59.340
+And we need to say if there are no request headers
+
+79
+00:04:01.500 --> 00:04:05.730
+or no request headers .cookie.
+
+80
+00:04:05.730 --> 00:04:09.840
+Then we're just gonna return, straight out.
+
+81
+00:04:09.840 --> 00:04:11.900
+Null is fine.
+
+82
+00:04:11.900 --> 00:04:13.500
+And then we do the cookie.parse.
+
+83
+00:04:16.030 --> 00:04:20.653
+Then we'll do const token equals that
+
+84
+00:04:20.653 --> 00:04:21.753
+and then return token.
+
+85
+00:04:22.610 --> 00:04:24.570
+So that should be the server side.
+
+86
+00:04:24.570 --> 00:04:28.010
+And the client side, we're gonna use js-cookie,
+
+87
+00:04:28.010 --> 00:04:29.800
+which is a little bit simpler.
+
+88
+00:04:29.800 --> 00:04:32.500
+But obviously, because JavaScript cookies
+
+89
+00:04:32.500 --> 00:04:34.610
+live inside the document,
+
+90
+00:04:34.610 --> 00:04:35.443
+the navigator,
+
+91
+00:04:36.670 --> 00:04:37.970
+document.cookies, I think.
+
+92
+00:04:38.930 --> 00:04:40.840
+So it's slightly different parsing process,
+
+93
+00:04:40.840 --> 00:04:43.530
+but a little easier just, .get.
+
+94
+00:04:43.530 --> 00:04:46.963
+So I'm gonna do const, cookie=require
+
+95
+00:04:49.060 --> 00:04:52.230
+js-cookie, I've already installed these locally.
+
+96
+00:04:52.230 --> 00:04:54.823
+I'm gonna do return,
+
+97
+00:04:56.540 --> 00:05:00.430
+return cookie.get
+
+98
+00:05:00.430 --> 00:05:01.263
+token.
+
+99
+00:05:02.330 --> 00:05:05.240
+So that should get us the token.
+
+100
+00:05:05.240 --> 00:05:07.970
+We're just gonna add that here.
+
+101
+00:05:07.970 --> 00:05:12.110
+And at const token=get token CTX.
+
+102
+00:05:12.110 --> 00:05:15.120
+And then we're gonna parse our token in to here.
+
+103
+00:05:15.120 --> 00:05:17.683
+If that actually, yeah.
+
+104
+00:05:19.100 --> 00:05:20.163
+Get user.
+
+105
+00:05:21.520 --> 00:05:22.470
+I'm gonna log this out
+
+106
+00:05:22.470 --> 00:05:24.320
+just so I can double check it worked.
+
+107
+00:05:26.170 --> 00:05:30.948
+And at get user, we're gonna add that token,
+
+108
+00:05:30.948 --> 00:05:34.060
+and we're gonna do headers at authorization,
+
+109
+00:05:38.760 --> 00:05:43.393
+and then bearer token.
+
+110
+00:05:45.610 --> 00:05:47.977
+Okay, so that's what I'm gonna try and do.
+
+111
+00:05:50.398 --> 00:05:51.840
+So I'm gonna log out the user as well
+
+112
+00:05:51.840 --> 00:05:54.030
+so we can see it, log user.
+
+113
+00:05:54.030 --> 00:05:56.623
+First thing I'm gonna do is try on the client side.
+
+114
+00:05:59.910 --> 00:06:01.177
+So I'm gonna clear all this.
+
+115
+00:06:01.177 --> 00:06:02.260
+And I'm just gonna navigate
+
+116
+00:06:02.260 --> 00:06:03.610
+from one page to the other.
+
+117
+00:06:06.450 --> 00:06:08.723
+Okay, so there's our token.
+
+118
+00:06:10.248 --> 00:06:11.700
+But this doesn't like our
+
+119
+00:06:14.570 --> 00:06:16.453
+access allow origin.
+
+120
+00:06:19.910 --> 00:06:21.400
+So it's doing a cause header,
+
+121
+00:06:21.400 --> 00:06:24.070
+cause request to, let's try...
+
+122
+00:06:26.948 --> 00:06:29.148
+Let's have a quick look at network requests.
+
+123
+00:06:30.300 --> 00:06:31.710
+There are a lot.
+
+124
+00:06:31.710 --> 00:06:36.160
+So you got on demand, like spewing into our requests here.
+
+125
+00:06:36.160 --> 00:06:37.850
+What we can do is hide this,
+
+126
+00:06:37.850 --> 00:06:41.600
+what we can do is a negative search,
+
+127
+00:06:41.600 --> 00:06:43.523
+to remove on demand.
+
+128
+00:06:44.490 --> 00:06:45.610
+Make it a little easier.
+
+129
+00:06:45.610 --> 00:06:48.340
+And there's that options request that failed.
+
+130
+00:06:48.340 --> 00:06:50.463
+Okay, so that was a 204,
+
+131
+00:06:51.410 --> 00:06:55.210
+and it's asking for the authorization header,
+
+132
+00:06:55.210 --> 00:06:59.730
+but the response was, so response headers,
+
+133
+00:06:59.730 --> 00:07:02.170
+this can't be start, I need to fix that.
+
+134
+00:07:02.170 --> 00:07:05.143
+So I'm just gonna fix my server and come back.
+
+135
+00:07:06.040 --> 00:07:08.100
+Okay, so after a bit of poking around,
+
+136
+00:07:08.100 --> 00:07:09.340
+or quite of a lot of poking around,
+
+137
+00:07:09.340 --> 00:07:10.880
+I realised that one of my dependencies
+
+138
+00:07:10.880 --> 00:07:12.960
+was just a little bit out of date.
+
+139
+00:07:12.960 --> 00:07:14.790
+And I fixed that.
+
+140
+00:07:14.790 --> 00:07:17.460
+So, if we just clear this,
+
+141
+00:07:17.460 --> 00:07:19.343
+and navigate backwards and forwards,
+
+142
+00:07:20.280 --> 00:07:23.620
+we should see that the request is working.
+
+143
+00:07:23.620 --> 00:07:25.090
+Look at the network request down here,
+
+144
+00:07:25.090 --> 00:07:27.250
+we've got the options request running,
+
+145
+00:07:27.250 --> 00:07:31.910
+and the response, and we have that user coming back.
+
+146
+00:07:31.910 --> 00:07:34.000
+I still need to remove that API key.
+
+147
+00:07:34.000 --> 00:07:35.690
+But still, it's coming back.
+
+148
+00:07:35.690 --> 00:07:37.650
+And now the test on the server.
+
+149
+00:07:37.650 --> 00:07:40.380
+So if we jump across to the server,
+
+150
+00:07:40.380 --> 00:07:42.403
+and do a hard refresh,
+
+151
+00:07:45.170 --> 00:07:46.083
+there it is.
+
+152
+00:07:47.070 --> 00:07:49.843
+The user was in the original source.
+
+153
+00:07:50.860 --> 00:07:52.053
+So we can see,
+
+154
+00:07:54.320 --> 00:07:55.380
+yeah, there it was,
+
+155
+00:07:55.380 --> 00:07:56.750
+my toothy grin.
+
+156
+00:07:56.750 --> 00:07:59.290
+So, it's actually working on the server side,
+
+157
+00:07:59.290 --> 00:08:00.910
+and on the client side.
+
+158
+00:08:00.910 --> 00:08:03.550
+So this means that what we could do is start saying,
+
+159
+00:08:03.550 --> 00:08:05.750
+okay well the user signed in,
+
+160
+00:08:05.750 --> 00:08:07.383
+let's show them the notes box.
+
+161
+00:08:09.040 --> 00:08:11.483
+So, what that would look like is,
+
+162
+00:08:14.500 --> 00:08:16.453
+where is it, notes,
+
+163
+00:08:18.200 --> 00:08:22.290
+we'd have to add the with user
+
+164
+00:08:22.290 --> 00:08:23.860
+to our session page.
+
+165
+00:08:23.860 --> 00:08:26.800
+So if we go down to here,
+
+166
+00:08:26.800 --> 00:08:28.563
+we show notes by default.
+
+167
+00:08:29.930 --> 00:08:32.240
+Let's change it so that session
+
+168
+00:08:32.240 --> 00:08:33.660
+does not show notes by default
+
+169
+00:08:33.660 --> 00:08:36.730
+and checks if we have a user being parsed in.
+
+170
+00:08:36.730 --> 00:08:38.883
+So here we've got user,
+
+171
+00:08:40.685 --> 00:08:45.685
+and if we have a user that we want to share the notes,
+
+172
+00:08:46.190 --> 00:08:49.340
+so user and notes.
+
+173
+00:08:49.340 --> 00:08:50.173
+There we go.
+
+174
+00:08:51.170 --> 00:08:54.760
+So this will vanish, because it doesn't work at the moment.
+
+175
+00:08:54.760 --> 00:08:59.700
+Because the session page needs to include the with sessions.
+
+176
+00:08:59.700 --> 00:09:04.083
+So import, sorry with user, from hocs with user,
+
+177
+00:09:07.100 --> 00:09:10.043
+and we're just gonna export it with user.
+
+178
+00:09:14.330 --> 00:09:15.163
+Refresh.
+
+179
+00:09:19.430 --> 00:09:20.380
+Why didn't it work?
+
+180
+00:09:24.890 --> 00:09:26.310
+We don't know.
+
+181
+00:09:26.310 --> 00:09:27.210
+Let's have a look.
+
+182
+00:09:29.660 --> 00:09:30.990
+Oh, it's because our session page
+
+183
+00:09:30.990 --> 00:09:33.460
+isn't passing down the rest of the props.
+
+184
+00:09:33.460 --> 00:09:36.773
+So it was a mistake made earlier.
+
+185
+00:09:36.773 --> 00:09:37.623
+Props.
+
+186
+00:09:41.360 --> 00:09:43.273
+Okay ready, refresh.
+
+187
+00:09:44.850 --> 00:09:47.190
+Still there, cool.
+
+188
+00:09:47.190 --> 00:09:50.473
+And I guess the extra bit is,
+
+189
+00:09:52.640 --> 00:09:53.840
+let's do it on this one,
+
+190
+00:09:54.950 --> 00:09:56.573
+on the session itself.
+
+191
+00:09:57.890 --> 00:09:59.980
+That should be getting the user.
+
+192
+00:09:59.980 --> 00:10:04.220
+If the user is here, it should be showing.
+
+193
+00:10:04.220 --> 00:10:05.750
+So that's not showing at the moment,
+
+194
+00:10:05.750 --> 00:10:08.200
+so look at the dev tools for react.
+
+195
+00:10:08.200 --> 00:10:10.040
+Let's inspect that.
+
+196
+00:10:10.040 --> 00:10:12.840
+See, if we just forgot to
+
+197
+00:10:13.840 --> 00:10:15.573
+somehow we're using a user so,
+
+198
+00:10:22.950 --> 00:10:24.473
+that's the rating thing.
+
+199
+00:10:25.630 --> 00:10:26.723
+Feeling.
+
+200
+00:10:33.560 --> 00:10:35.193
+Export default props.
+
+201
+00:10:38.720 --> 00:10:39.823
+There's the user.
+
+202
+00:10:42.300 --> 00:10:43.133
+Oh no, hang on.
+
+203
+00:10:43.133 --> 00:10:45.603
+I think we are, I'm losing.
+
+204
+00:10:46.780 --> 00:10:49.033
+Yeah I'm not parsing in, that's why.
+
+205
+00:10:54.750 --> 00:10:55.583
+Yeah.
+
+206
+00:10:57.510 --> 00:10:59.010
+There we go.
+
+207
+00:10:59.010 --> 00:11:03.480
+And now, from here, I could kind of join up to
+
+208
+00:11:05.890 --> 00:11:07.260
+this particular user instant.
+
+209
+00:11:07.260 --> 00:11:09.710
+So in this example, in the notes,
+
+210
+00:11:09.710 --> 00:11:11.640
+I would say okay so,
+
+211
+00:11:11.640 --> 00:11:15.760
+Jenn's talk was amazing.
+
+212
+00:11:15.760 --> 00:11:18.593
+And when I kind of, on input it could,
+
+213
+00:11:21.190 --> 00:11:23.133
+I don't know, the notes component?
+
+214
+00:11:24.940 --> 00:11:29.940
+We could say, when this changes, on change,
+
+215
+00:11:30.030 --> 00:11:33.360
+then we could do kind of a behind the scenes save,
+
+216
+00:11:33.360 --> 00:11:35.163
+using that authenticated user.
+
+217
+00:11:36.740 --> 00:11:41.480
+So that is how I get a user into the page.
+
+218
+00:11:41.480 --> 00:11:42.313
+That's how I get it working
+
+219
+00:11:42.313 --> 00:11:43.633
+on the server side as well.
+
+220
+00:11:45.607 --> 00:11:47.430
+Like I said, there are lots of different ways of doing this,
+
+221
+00:11:47.430 --> 00:11:49.060
+this is one way.
+
+222
+00:11:49.060 --> 00:11:50.810
+If there are future articles,
+
+223
+00:11:50.810 --> 00:11:55.810
+or anything useful, I will post it to the course.
+
+224
+00:11:56.540 --> 00:11:59.700
+Otherwise, that is how I am doing
+
+225
+00:12:00.700 --> 00:12:05.700
+server side and client side user auth.
+
+226
+00:12:06.150 --> 00:12:07.560
+And it's a little bit different,
+
+227
+00:12:07.560 --> 00:12:11.610
+just because I've got my API on a different origin.
+
+228
+00:12:11.610 --> 00:12:13.630
+If it were all on the same origin,
+
+229
+00:12:13.630 --> 00:12:15.630
+I wouldn't have to do this extra kind of
+
+230
+00:12:17.350 --> 00:12:19.633
+validation where I'm saying,
+
+231
+00:12:22.896 --> 00:12:23.729
+go and get that bearer token
+
+232
+00:12:23.729 --> 00:12:24.562
+so we can make the request,
+
+233
+00:12:24.562 --> 00:12:25.395
+because on the server side,
+
+234
+00:12:25.395 --> 00:12:27.790
+they'll always be authenticated,
+
+235
+00:12:27.790 --> 00:12:29.040
+and they'll be on the same origin.
+
+236
+00:12:29.040 --> 00:12:31.980
+If it were all on the same origin, but in this instance,
+
+237
+00:12:31.980 --> 00:12:34.480
+I'm imagining that maybe we have
+
+238
+00:12:34.480 --> 00:12:37.310
+the scheduled browser on one origin domain,
+
+239
+00:12:37.310 --> 00:12:39.890
+and maybe like, API dot scheduled browser
+
+240
+00:12:39.890 --> 00:12:40.990
+on a different domain.
+

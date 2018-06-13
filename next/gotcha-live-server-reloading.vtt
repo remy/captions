@@ -1,0 +1,470 @@
+﻿WEBVTT
+
+1
+00:00:00.830 --> 00:00:03.033
+<v ->Okay, so got past the first gotcha.</v>
+
+2
+00:00:03.950 --> 00:00:07.940
+Here is another gotcha for you on the server side of things.
+
+3
+00:00:07.940 --> 00:00:10.390
+I've added in a custom set of roots,
+
+4
+00:00:10.390 --> 00:00:14.600
+so I've added in server dot use and require roots,
+
+5
+00:00:14.600 --> 00:00:19.600
+okay, and the roots file is an express router,
+
+6
+00:00:19.760 --> 00:00:23.150
+so I require express, create a router,
+
+7
+00:00:23.150 --> 00:00:26.234
+pulling in some data, and I'm responding
+
+8
+00:00:26.234 --> 00:00:30.130
+to an adjacent format against these URLs,
+
+9
+00:00:30.130 --> 00:00:35.130
+okay, so this would be the URLs
+
+10
+00:00:35.570 --> 00:00:37.832
+that I've made requested against, right,
+
+11
+00:00:37.832 --> 00:00:39.923
+so here instead of local hosts.
+
+12
+00:00:42.637 --> 00:00:46.911
+3,001, it could be 3,000,
+
+13
+00:00:46.911 --> 00:00:48.979
+what's the URL look like, slug right there,
+
+14
+00:00:48.979 --> 00:00:51.880
+so we can do this, this is the idea, okay?
+
+15
+00:00:51.880 --> 00:00:54.070
+So you're with me so far, hopefully,
+
+16
+00:00:54.070 --> 00:00:57.779
+I guess video is one way, but still.
+
+17
+00:00:57.779 --> 00:01:02.779
+And when I click on a link, it goes a bit doolally.
+
+18
+00:01:04.640 --> 00:01:07.683
+So let's try and go to the root.
+
+19
+00:01:10.755 --> 00:01:13.033
+Let's fix that, oops, pages, index.
+
+20
+00:01:15.116 --> 00:01:16.877
+And what I want to show you is really
+
+21
+00:01:16.877 --> 00:01:20.163
+just a kind of bad pattern, rather.
+
+22
+00:01:24.070 --> 00:01:28.950
+Oh gosh, let's put, let's just hog credit for the moment,
+
+23
+00:01:28.950 --> 00:01:32.880
+local host 3,000, so the reason we're seeing,
+
+24
+00:01:32.880 --> 00:01:34.680
+actually let me just go back to that
+
+25
+00:01:35.699 --> 00:01:37.310
+to explain what you're seeing there.
+
+26
+00:01:37.310 --> 00:01:39.310
+The reason you're seeing this
+
+27
+00:01:40.216 --> 00:01:41.680
+only absolute URLs are supported,
+
+28
+00:01:41.680 --> 00:01:44.020
+is because in the browser it understands
+
+29
+00:01:44.020 --> 00:01:47.700
+that your own is relative to the URL here,
+
+30
+00:01:47.700 --> 00:01:49.970
+but on the server side it does not know,
+
+31
+00:01:49.970 --> 00:01:52.490
+it has no frame of reference so when you do a request
+
+32
+00:01:52.490 --> 00:01:56.616
+for schedule it doesn't know what the URL to schedule is.
+
+33
+00:01:56.616 --> 00:02:00.303
+So, you know, we need to add this in fully,
+
+34
+00:02:02.560 --> 00:02:04.360
+that one just instantly works.
+
+35
+00:02:04.360 --> 00:02:08.030
+So the schedule works but the individual page doesn't work.
+
+36
+00:02:08.030 --> 00:02:11.610
+And there's actually a bug in my server routing,
+
+37
+00:02:11.610 --> 00:02:14.350
+right, so this is, this bit of code is wrong.
+
+38
+00:02:14.350 --> 00:02:16.413
+So, if I was developing me router,
+
+39
+00:02:17.391 --> 00:02:19.500
+what I would normally do with an express application
+
+40
+00:02:19.500 --> 00:02:22.730
+is run nodemon, so instead of npm run dev,
+
+41
+00:02:22.730 --> 00:02:27.283
+I would do nodemon dash X, npm run dev.
+
+42
+00:02:28.540 --> 00:02:31.340
+Okay, so the problem with this,
+
+43
+00:02:31.340 --> 00:02:34.700
+is that the whole process is pretty slow.
+
+44
+00:02:34.700 --> 00:02:37.950
+So you can see it kind of refreshing in the background,
+
+45
+00:02:37.950 --> 00:02:39.913
+if I just move this over to the side,
+
+46
+00:02:41.197 --> 00:02:43.223
+and just do console dot log.
+
+47
+00:02:46.714 --> 00:02:49.570
+You can see it going a bit bommy here,
+
+48
+00:02:49.570 --> 00:02:52.173
+I think actually it's because it's watching
+
+49
+00:02:52.173 --> 00:02:53.973
+the next directory, ignore dot next.
+
+50
+00:02:59.970 --> 00:03:02.363
+So it's ready, pings.
+
+51
+00:03:04.320 --> 00:03:05.330
+Gosh.
+
+52
+00:03:05.330 --> 00:03:08.732
+Anyway, it's nodemon doesn't work well with,
+
+53
+00:03:08.732 --> 00:03:12.390
+with next because this here, this is the amount of time
+
+54
+00:03:12.390 --> 00:03:15.013
+it's taking to boot the server back up,
+
+55
+00:03:15.013 --> 00:03:16.531
+and only at that point is it ready.
+
+56
+00:03:16.531 --> 00:03:18.573
+And the whole point of something like nodemon,
+
+57
+00:03:18.573 --> 00:03:20.410
+is that as soon as you make the change it just,
+
+58
+00:03:20.410 --> 00:03:21.803
+it restarts really quickly.
+
+59
+00:03:22.680 --> 00:03:24.740
+And because next takes a little time to boot,
+
+60
+00:03:24.740 --> 00:03:27.357
+and it's not really helping us,
+
+61
+00:03:27.357 --> 00:03:30.440
+so what I do instead is...
+
+62
+00:03:30.440 --> 00:03:35.440
+I use node to run my server, okay,
+
+63
+00:03:36.720 --> 00:03:41.450
+so my wherever it is, server, okay.
+
+64
+00:03:41.450 --> 00:03:44.515
+And I actually use a different process
+
+65
+00:03:44.515 --> 00:03:49.515
+to run these roots and develop these roots,
+
+66
+00:03:49.840 --> 00:03:54.840
+so I have a command line tool called express router cli
+
+67
+00:03:56.210 --> 00:03:59.670
+which gives you like an executable called router,
+
+68
+00:03:59.670 --> 00:04:01.120
+so it's a bit easier to type,
+
+69
+00:04:02.648 --> 00:04:05.433
+and you just point that router to your,
+
+70
+00:04:06.270 --> 00:04:09.180
+route your express route, and it will mount those routes
+
+71
+00:04:10.856 --> 00:04:12.240
+and watch them for changes.
+
+72
+00:04:12.240 --> 00:04:14.653
+The only thing is we now need to point
+
+73
+00:04:14.653 --> 00:04:19.653
+to different ports again, so we're going to run
+
+74
+00:04:19.715 --> 00:04:22.820
+on port 3,001 but it is going to be running,
+
+75
+00:04:22.820 --> 00:04:27.820
+from this code so router, it's a bit confusing,
+
+76
+00:04:29.340 --> 00:04:31.230
+port is the port that we're going to run on,
+
+77
+00:04:31.230 --> 00:04:36.230
+router is the, this thing, express router cli,
+
+78
+00:04:37.720 --> 00:04:42.333
+and then this is the file that has my routes in it,
+
+79
+00:04:43.251 --> 00:04:44.084
+so I'm going to run that.
+
+80
+00:04:45.448 --> 00:04:47.674
+It's mounted on port 3,001 as requested,
+
+81
+00:04:47.674 --> 00:04:49.736
+if that particular port is busy,
+
+82
+00:04:49.736 --> 00:04:51.033
+it will mount on the next port available,
+
+83
+00:04:52.317 --> 00:04:55.317
+it adds CORS support by default and it gives me kind of like
+
+84
+00:04:56.260 --> 00:04:57.940
+it just watches over those files,
+
+85
+00:04:57.940 --> 00:04:59.955
+and watches all the dependencies,
+
+86
+00:04:59.955 --> 00:05:01.990
+and reloads the entire website,
+
+87
+00:05:01.990 --> 00:05:06.150
+kind of similar to nodemon, but only for express routes.
+
+88
+00:05:06.150 --> 00:05:09.736
+So, let's put these back in,
+
+89
+00:05:09.736 --> 00:05:13.343
+and if we have a look at the server,
+
+90
+00:05:14.435 --> 00:05:16.835
+where is it, it's here, so we've still got an error.
+
+91
+00:05:16.835 --> 00:05:21.000
+Okay, so if we, excuse me, if we take that code,
+
+92
+00:05:23.875 --> 00:05:26.333
+and where was the arrow, this was the arrow right?
+
+93
+00:05:26.333 --> 00:05:29.660
+So, it's supposed to be session, session dot slug,
+
+94
+00:05:29.660 --> 00:05:33.010
+I'm just going to hit save, and if we go back to my terminal
+
+95
+00:05:33.010 --> 00:05:38.010
+just see that it, yeah, reload due to change in index routes
+
+96
+00:05:38.800 --> 00:05:41.963
+and I if I just hit refresh here, it's fixed.
+
+97
+00:05:42.973 --> 00:05:46.490
+Although, oh, it's fixed but I remember,
+
+98
+00:05:46.490 --> 00:05:48.630
+here we go, session...
+
+99
+00:05:52.950 --> 00:05:55.483
+We're returning an actual object instead of the,
+
+100
+00:05:58.200 --> 00:05:59.973
+that array there we go.
+
+101
+00:06:01.050 --> 00:06:06.050
+So, really the two things are nodemon is not the right tool
+
+102
+00:06:06.740 --> 00:06:09.880
+for restarting next because next takes so long
+
+103
+00:06:09.880 --> 00:06:12.333
+to get going, to get kind of prepared.
+
+104
+00:06:13.256 --> 00:06:15.170
+It's not that next is particularly slow,
+
+105
+00:06:15.170 --> 00:06:17.963
+it's just that rebooting it over and over again is slow.
+
+106
+00:06:18.890 --> 00:06:22.670
+So what I use instead is I put my routes into one place,
+
+107
+00:06:22.670 --> 00:06:25.100
+and these can be in sub directories,
+
+108
+00:06:25.100 --> 00:06:29.490
+and I use this tool, okay, so this router tool,
+
+109
+00:06:29.490 --> 00:06:34.490
+to just watch those routes and basically request these,
+
+110
+00:06:34.610 --> 00:06:37.210
+during development and then when I get into production,
+
+111
+00:06:37.210 --> 00:06:40.530
+it switches it into using the routes
+
+112
+00:06:40.530 --> 00:06:41.720
+that hang off the actual server
+
+113
+00:06:41.720 --> 00:06:44.950
+instead of hitting 3,001, it will hit 3,000,
+
+114
+00:06:44.950 --> 00:06:46.820
+or whatever the actual port is,
+
+115
+00:06:46.820 --> 00:06:50.590
+which segues nicely into how do we make this
+
+116
+00:06:50.590 --> 00:06:53.853
+an environment variable, so yeah,
+
+117
+00:06:53.853 --> 00:06:55.743
+let's have a look at that next.
+

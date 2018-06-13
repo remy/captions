@@ -1,0 +1,478 @@
+﻿WEBVTT
+
+1
+00:00:02.100 --> 00:00:06.200
+<v ->Let's look at how to import CSS, using the import</v>
+
+2
+00:00:06.200 --> 00:00:10.750
+statement, so if you're like me, and a bit familiar
+
+3
+00:00:10.750 --> 00:00:15.750
+with create-react-app, then you will use things like this,
+
+4
+00:00:17.880 --> 00:00:22.590
+or maybe just the CSS file, but I want to use SCSS,
+
+5
+00:00:22.590 --> 00:00:26.130
+now, I already have this file, Session.scss,
+
+6
+00:00:26.130 --> 00:00:29.547
+okay, so I've got it set up to say I want the speaker's link
+
+7
+00:00:31.151 --> 00:00:36.151
+to be bold, and next is importing the CSS file,
+
+8
+00:00:37.950 --> 00:00:39.230
+but it's complaining;
+
+9
+00:00:39.230 --> 00:00:44.230
+that it doesn't understand how to parse this text,
+
+10
+00:00:45.340 --> 00:00:50.340
+understandably, and at this point, I would bust open Google,
+
+11
+00:00:50.410 --> 00:00:55.410
+start searching babel-loaders, web pack loaders,
+
+12
+00:00:55.500 --> 00:00:58.640
+and just get awfully confused, copy and past until I find
+
+13
+00:00:58.640 --> 00:01:02.193
+the right combination of inclinations, incantations,
+
+14
+00:01:03.030 --> 00:01:05.110
+and hopefully, it will eventually work, and I don't lose
+
+15
+00:01:05.110 --> 00:01:07.070
+a whole day just trying to do it.
+
+16
+00:01:07.070 --> 00:01:12.070
+Now, the developers working on Next had issues raised
+
+17
+00:01:13.880 --> 00:01:16.620
+about this kind of thing; how do you do it?
+
+18
+00:01:16.620 --> 00:01:19.700
+And they've basically come up with some plugins
+
+19
+00:01:19.700 --> 00:01:24.700
+that make this easy for us, so we're going to use
+
+20
+00:01:24.740 --> 00:01:29.203
+those plugins, and it'll give us support for SCSS files,
+
+21
+00:01:30.930 --> 00:01:34.680
+so these are the plugins that are currently available;
+
+22
+00:01:34.680 --> 00:01:38.770
+these are pretty new, as of recording this video,
+
+23
+00:01:38.770 --> 00:01:43.770
+but they are in use already; this list, I expect to grow,
+
+24
+00:01:44.030 --> 00:01:47.060
+and we're gonna be using the Next Sass plugin,
+
+25
+00:01:47.060 --> 00:01:50.740
+it's this one, and there are also some community ones,
+
+26
+00:01:50.740 --> 00:01:52.810
+I expect, yeah, kind of optimise images, seems like
+
+27
+00:01:52.810 --> 00:01:56.910
+a sensible one, and I expect these to kind of grow
+
+28
+00:01:56.910 --> 00:01:59.550
+over time, as people refine their work flows,
+
+29
+00:01:59.550 --> 00:02:03.030
+so we're gonna use this project, it's gonna go ahead
+
+30
+00:02:03.030 --> 00:02:08.030
+and npm instal Next Sass, now, whilst that's installing,
+
+31
+00:02:08.180 --> 00:02:10.380
+let's go and have a look at the documentation for this.
+
+32
+00:02:10.380 --> 00:02:12.750
+There are two, key parts that we need to do,
+
+33
+00:02:12.750 --> 00:02:17.750
+to get a CSS loader to work; the first one is to include
+
+34
+00:02:19.230 --> 00:02:21.460
+this style sheet, okay?
+
+35
+00:02:21.460 --> 00:02:25.310
+This style sheet is key, and it's really easy to overlook;
+
+36
+00:02:25.310 --> 00:02:27.390
+you have to include this style sheet, because this is what
+
+37
+00:02:27.390 --> 00:02:32.390
+Next will compile inside of its server, and when it imports
+
+38
+00:02:32.970 --> 00:02:37.970
+your Sass file, it'll turn it into CSS, and it will inject
+
+39
+00:02:38.980 --> 00:02:43.290
+it into this underscore next static style.css file,
+
+40
+00:02:43.290 --> 00:02:46.130
+so we have to include this in our document;
+
+41
+00:02:46.130 --> 00:02:49.040
+now, if you watched the earlier videos, you will have seen
+
+42
+00:02:50.640 --> 00:02:54.620
+how to use a document for a common template;
+
+43
+00:02:54.620 --> 00:02:57.763
+if not, have a look at the examples, here.
+
+44
+00:02:58.850 --> 00:03:01.120
+Otherwise, that's the first step we have to do;
+
+45
+00:03:01.120 --> 00:03:06.120
+the next step is to include the withSass next conflict,
+
+46
+00:03:08.320 --> 00:03:11.230
+okay, so we're gonna go off to our next conflict,
+
+47
+00:03:11.230 --> 00:03:15.690
+and we're gonna import the withSass, and all we're gonna do
+
+48
+00:03:15.690 --> 00:03:20.330
+is just wrap our configuration, withSass, withSass,
+
+49
+00:03:22.620 --> 00:03:27.620
+and that is it, okay, in theory,
+
+50
+00:03:29.050 --> 00:03:30.520
+in theory, so we're gonna stop
+
+51
+00:03:30.520 --> 00:03:33.480
+and start our server, okay?
+
+52
+00:03:33.480 --> 00:03:38.480
+And this should now have the withSass built in,
+
+53
+00:03:39.020 --> 00:03:44.020
+and it's now spewing out errors, and for the sharp eyed
+
+54
+00:03:44.170 --> 00:03:46.920
+developer out there, you would have spotted, below,
+
+55
+00:03:46.920 --> 00:03:49.460
+we have warnings, okay?
+
+56
+00:03:49.460 --> 00:03:53.900
+So when I installed node next sass, it was throwing
+
+57
+00:03:53.900 --> 00:03:56.700
+warnings; the problem is, I have warnings that happen
+
+58
+00:03:56.700 --> 00:03:58.780
+every time, when I instal, okay?
+
+59
+00:03:58.780 --> 00:04:02.300
+So a warning about no description in my package,
+
+60
+00:04:02.300 --> 00:04:06.550
+no repository in my package, and I've become rather blind
+
+61
+00:04:06.550 --> 00:04:11.550
+to npm warnings, and this is where I basically missed
+
+62
+00:04:11.950 --> 00:04:15.720
+important messages, and here, we're being told
+
+63
+00:04:15.720 --> 00:04:19.670
+we need to instal the peer dependency of node sass,
+
+64
+00:04:19.670 --> 00:04:23.280
+okay, so it's two warnings; one says next sass requires
+
+65
+00:04:23.280 --> 00:04:27.160
+node sass, and the sass loader requires no sass,
+
+66
+00:04:27.160 --> 00:04:29.970
+so we need to instal that dependency, as well,
+
+67
+00:04:29.970 --> 00:04:31.533
+okay, so let's get that going.
+
+68
+00:04:32.680 --> 00:04:35.760
+I'm going to stop our server whilst that instals,
+
+69
+00:04:35.760 --> 00:04:39.183
+and once that's done, we will start the server again,
+
+70
+00:04:41.640 --> 00:04:42.960
+okay, so we're starting the server again,
+
+71
+00:04:42.960 --> 00:04:47.490
+now we have node sass fully installed, and hopefully,
+
+72
+00:04:47.490 --> 00:04:51.220
+if we look at our work page, let's give it a wait, maybe,
+
+73
+00:04:51.220 --> 00:04:55.193
+it should auto refresh, there you go, it auto refreshed,
+
+74
+00:04:56.610 --> 00:05:01.270
+so it built, but we don't have any styles;
+
+75
+00:05:01.270 --> 00:05:05.100
+I think that's because I was missing a class name,
+
+76
+00:05:05.100 --> 00:05:10.100
+here, Speaker, and there you go, bold,
+
+77
+00:05:12.320 --> 00:05:15.530
+and it's a lot of work for a bold tag, but hopefully,
+
+78
+00:05:15.530 --> 00:05:20.530
+you get the concept, so this is now being compiled
+
+79
+00:05:20.880 --> 00:05:23.480
+in real time; you can see that the font weight, there,
+
+80
+00:05:23.480 --> 00:05:28.480
+is changing from family monospace, and that's all happening,
+
+81
+00:05:30.470 --> 00:05:34.933
+look at that; this is potentially why I am not a designer.
+
+82
+00:05:37.340 --> 00:05:41.970
+Making fonts bigger, cool, so this works,
+
+83
+00:05:41.970 --> 00:05:43.890
+but there's one extension I'm going to show you,
+
+84
+00:05:43.890 --> 00:05:48.820
+to this; we can actually turn these into CSS modules,
+
+85
+00:05:48.820 --> 00:05:51.250
+and I quite like this, because it keeps the CSS or the Sass
+
+86
+00:05:52.354 --> 00:05:57.354
+files separate, whilst having the benefits of scoped CSS,
+
+87
+00:06:00.697 --> 00:06:05.697
+and if we add just the property CSS modules, true;
+
+88
+00:06:08.030 --> 00:06:11.900
+we will be able to import the CSS from here,
+
+89
+00:06:11.900 --> 00:06:16.663
+we just console log that out, just check it works, whoops,
+
+90
+00:06:18.750 --> 00:06:23.043
+so I think, yeah, I need to do a restyle, here,
+
+91
+00:06:25.350 --> 00:06:29.140
+because of the conflict change at next level,
+
+92
+00:06:29.140 --> 00:06:32.710
+rather than in our code that's being executed.
+
+93
+00:06:32.710 --> 00:06:34.977
+So just refresh that, that's good,
+
+94
+00:06:36.560 --> 00:06:40.400
+so I was logging out the CSS, and we can see, we now have
+
+95
+00:06:40.400 --> 00:06:45.400
+kind of a unique ID for, well, scoped value for
+
+96
+00:06:45.720 --> 00:06:48.920
+our speaker class, and instead of using className
+
+97
+00:06:48.920 --> 00:06:52.670
+equals Speaker, we'll change that to css.Speaker,
+
+98
+00:06:52.670 --> 00:06:56.093
+and now, it should continue to work as we expect,
+
+99
+00:06:57.340 --> 00:07:00.610
+and let's get rid of that; let's get rid of the font family,
+
+100
+00:07:00.610 --> 00:07:04.720
+and what it means that our CSS is scoped,
+
+101
+00:07:04.720 --> 00:07:09.720
+we inspect that link, nope, not that one, okay, here.
+
+102
+00:07:17.660 --> 00:07:18.583
+Where has it gone?
+
+103
+00:07:23.347 --> 00:07:25.597
+(mumbling)
+
+104
+00:07:33.690 --> 00:07:36.930
+Okay, so these are just being loaded, one off the other,
+
+105
+00:07:36.930 --> 00:07:40.690
+but there, you can see, this is the unique identifier
+
+106
+00:07:40.690 --> 00:07:43.483
+for that class, so we have scoped, effectually,
+
+107
+00:07:44.350 --> 00:07:48.973
+scoped CSS, which means if I have a, let me see,
+
+108
+00:07:50.350 --> 00:07:54.350
+we have a speaker somewhere else, and it won't make it bold,
+
+109
+00:07:54.350 --> 00:07:57.835
+and I don't know, let's do it here,
+
+110
+00:07:57.835 --> 00:08:00.683
+className equals Speaker,
+
+111
+00:08:03.410 --> 00:08:08.169
+so that won't be bold; cool, and effectually,
+
+112
+00:08:08.169 --> 00:08:11.233
+we can then make that whole thing a component,
+
+113
+00:08:12.240 --> 00:08:15.860
+with the styles in one directory, tests in one directory,
+
+114
+00:08:15.860 --> 00:08:20.483
+JavaScript in one directory, and one nice unit of code,
+
+115
+00:08:21.470 --> 00:08:24.223
+so that is how to do importing,
+
+116
+00:08:25.550 --> 00:08:30.550
+well, CSS, but also SCSS, same applies for less,
+
+117
+00:08:30.840 --> 00:08:34.650
+exactly the same process, just don't forget this one line;
+
+118
+00:08:34.650 --> 00:08:36.650
+that will be the gotcha; if you forget this line,
+
+119
+00:08:36.650 --> 00:08:38.623
+it doesn't work at all, cool.
+

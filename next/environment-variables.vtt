@@ -1,0 +1,486 @@
+﻿WEBVTT
+
+1
+00:00:01.770 --> 00:00:04.550
+<v ->So with a lot of my projects, I use environment variables</v>
+
+2
+00:00:04.550 --> 00:00:09.550
+to configure things like API endpoints,
+
+3
+00:00:09.610 --> 00:00:11.900
+maybe ports that certain things connect to,
+
+4
+00:00:11.900 --> 00:00:15.810
+and sometimes, also certain things that are shown,
+
+5
+00:00:15.810 --> 00:00:18.090
+and I just want to show you, in a more practical example,
+
+6
+00:00:18.090 --> 00:00:23.090
+in this conference schedule thing, how we can use
+
+7
+00:00:23.365 --> 00:00:26.170
+environment variables to configure, or get the environment
+
+8
+00:00:26.170 --> 00:00:30.680
+variables into our React App, so what I'm gonna do
+
+9
+00:00:30.680 --> 00:00:33.940
+is say if we have show speakers that's true,
+
+10
+00:00:33.940 --> 00:00:37.250
+I'm gonna show you the speakers, and it's only gonna be true
+
+11
+00:00:37.250 --> 00:00:39.390
+during development, and it's gonna be false when
+
+12
+00:00:39.390 --> 00:00:41.270
+it's in production, so that we can hide the speakers
+
+13
+00:00:41.270 --> 00:00:43.540
+until the day of the event.
+
+14
+00:00:43.540 --> 00:00:48.070
+So I have this new, very mini React component,
+
+15
+00:00:48.070 --> 00:00:50.570
+called Speaker, it receives the speaker's name
+
+16
+00:00:50.570 --> 00:00:53.290
+and their Twitter handle, and if we have the speaker's
+
+17
+00:00:53.290 --> 00:00:57.380
+name, then we parse back a p tag, otherwise it's null,
+
+18
+00:00:57.380 --> 00:01:02.160
+and then we need to add it down into our session,
+
+19
+00:01:02.160 --> 00:01:06.020
+so I'm just gonna do Speaker, and I'm gonna add in;
+
+20
+00:01:06.020 --> 00:01:07.920
+I'm just gonna parse in all the props that I have left over
+
+21
+00:01:07.920 --> 00:01:09.173
+that I have not used;
+
+22
+00:01:11.546 --> 00:01:13.163
+I'm just gonna do props, okay?
+
+23
+00:01:15.260 --> 00:01:18.800
+And I've updated, you can see it's already kind of jumped
+
+24
+00:01:18.800 --> 00:01:22.310
+in, there, let's grab another one, just have a look,
+
+25
+00:01:22.310 --> 00:01:25.150
+so you can see it's already updated, and we can see,
+
+26
+00:01:25.150 --> 00:01:29.890
+the other thing I've done, is I've updated
+
+27
+00:01:29.890 --> 00:01:32.573
+the data structure that I'm working from,
+
+28
+00:01:34.020 --> 00:01:37.950
+just so you can see, it's returning the speaker names
+
+29
+00:01:39.870 --> 00:01:41.480
+and the Twitter handles.
+
+30
+00:01:41.480 --> 00:01:45.910
+So that's now visible, and that's great for development,
+
+31
+00:01:45.910 --> 00:01:48.340
+but no good for production; we don't want that to go live,
+
+32
+00:01:48.340 --> 00:01:52.367
+so we're gonna say process.env.SHOWSPEAKER and,
+
+33
+00:01:57.910 --> 00:01:59.960
+there we go, nope, need to to close that,
+
+34
+00:02:01.190 --> 00:02:05.330
+okay, so hidden, cool, so we hit refresh, still hidden,
+
+35
+00:02:05.330 --> 00:02:09.400
+so next task, now, is to set this environment variable
+
+36
+00:02:09.400 --> 00:02:12.430
+to true, okay, so let's go ahead and just drop that
+
+37
+00:02:12.430 --> 00:02:16.433
+into the package, so do equals one, cool,
+
+38
+00:02:17.430 --> 00:02:19.320
+and we're gonna have to restart this server manually,
+
+39
+00:02:19.320 --> 00:02:21.663
+because that was right at the top layer.
+
+40
+00:02:23.933 --> 00:02:26.034
+And let's have a look, just waiting for
+
+41
+00:02:26.034 --> 00:02:27.134
+the server to restart,
+
+42
+00:02:32.400 --> 00:02:36.350
+right, so for the sharp eyed ones of you, you might have
+
+43
+00:02:36.350 --> 00:02:39.590
+spotted Blaine's name appeared and then disappeared,
+
+44
+00:02:39.590 --> 00:02:41.050
+and in fact, actually, there's a warning here,
+
+45
+00:02:41.050 --> 00:02:44.640
+to say there was a difference between what was hydrated,
+
+46
+00:02:44.640 --> 00:02:46.910
+and actually what was rendered in client side,
+
+47
+00:02:46.910 --> 00:02:48.946
+expected something else to be there.
+
+48
+00:02:48.946 --> 00:02:52.840
+And if I had to say, with JavaScript, hit refresh;
+
+49
+00:02:52.840 --> 00:02:55.410
+we've got the speaker's name, but if I put
+
+50
+00:02:55.410 --> 00:02:56.453
+JavaScript back in,
+
+51
+00:03:00.208 --> 00:03:01.930
+we can see the name vanishes, and the reason for that,
+
+52
+00:03:01.930 --> 00:03:06.580
+is because in the client side, we don't have this value,
+
+53
+00:03:06.580 --> 00:03:09.970
+and that's where we have to break open the shell
+
+54
+00:03:09.970 --> 00:03:14.060
+of zero config, like true zero config, and add a little bit
+
+55
+00:03:14.060 --> 00:03:17.940
+of webpack configuration, now, the upshot of this,
+
+56
+00:03:17.940 --> 00:03:20.810
+is actually what we're doing, is we're taking the existing
+
+57
+00:03:20.810 --> 00:03:23.160
+webpack configuration that Next provide us,
+
+58
+00:03:23.160 --> 00:03:25.670
+and we're adding an extra piece, on top of that,
+
+59
+00:03:25.670 --> 00:03:30.320
+so I'm gonna create a file called next.config.js,
+
+60
+00:03:30.320 --> 00:03:34.650
+so next.config.js, and this is where our customizations
+
+61
+00:03:34.650 --> 00:03:38.660
+live, and we're gonna do module.exports equals,
+
+62
+00:03:38.660 --> 00:03:43.660
+and we have this webpack property, which takes a config.
+
+63
+00:03:43.890 --> 00:03:48.360
+Blah, I can't spell; config and returns the config,
+
+64
+00:03:48.360 --> 00:03:50.790
+okay, and we're gonna modify the config, here,
+
+65
+00:03:50.790 --> 00:03:55.790
+by pushing plugins, push and we're gonna parse in a new
+
+66
+00:03:58.720 --> 00:04:01.520
+webpack plugin, here, so I'm just gonna do const webpack
+
+67
+00:04:02.610 --> 00:04:07.470
+equals require webpack, okay, and webpack comes as part
+
+68
+00:04:07.470 --> 00:04:11.210
+of Next, so we can just require it,
+
+69
+00:04:11.210 --> 00:04:16.210
+and we're gonna do new webpack.Env, environment plugin,
+
+70
+00:04:17.830 --> 00:04:21.910
+and here, we can parse in, or we can actually parse in
+
+71
+00:04:21.910 --> 00:04:26.910
+the string, I think; SHOW SPEAKERS, I believe that's valid;
+
+72
+00:04:27.870 --> 00:04:30.840
+returning the conflict back, just need to stop
+
+73
+00:04:30.840 --> 00:04:31.923
+and start our server.
+
+74
+00:04:34.260 --> 00:04:38.203
+Oh, that's singular, just gonna restart that again,
+
+75
+00:04:43.160 --> 00:04:46.400
+in fact, actually, it caught, you can see there's a warning,
+
+76
+00:04:46.400 --> 00:04:51.400
+there, anyway, so let's hit refresh, okay, cool;
+
+77
+00:04:53.600 --> 00:04:55.660
+it's staying, there, let's just check,
+
+78
+00:04:55.660 --> 00:05:00.660
+let's go home, go to Lessons; cool, that looks like
+
+79
+00:05:00.700 --> 00:05:04.080
+it is working, so now, I'm just gonna upgrade this,
+
+80
+00:05:04.080 --> 00:05:08.150
+just a little bit more; what I've got is two files
+
+81
+00:05:08.150 --> 00:05:11.603
+in my root directory, I got env and env development.
+
+82
+00:05:12.660 --> 00:05:14.700
+Dot env is the one that will go into production,
+
+83
+00:05:14.700 --> 00:05:18.260
+where Speakers are set to zero, and env development
+
+84
+00:05:18.260 --> 00:05:20.890
+is the one that has Speakers equal to one,
+
+85
+00:05:20.890 --> 00:05:23.800
+I'm gonna go off to my package file; get rid of this,
+
+86
+00:05:23.800 --> 00:05:28.090
+okay, and I'm gonna include a new module,
+
+87
+00:05:28.090 --> 00:05:33.090
+require at remy env, envy, okay, this is a module
+
+88
+00:05:34.650 --> 00:05:36.690
+that I've written, that kind of extracts some of the logic
+
+89
+00:05:36.690 --> 00:05:39.570
+that's in Create React App, that automatically works out
+
+90
+00:05:39.570 --> 00:05:43.920
+which environment env file to load,
+
+91
+00:05:43.920 --> 00:05:47.253
+so it goes through a whole cycle of different env files.
+
+92
+00:05:49.300 --> 00:05:54.300
+So npm envy, it lists the order in which it does things,
+
+93
+00:05:55.388 --> 00:05:59.240
+and I'm finding I'm using it in almost every project
+
+94
+00:05:59.240 --> 00:06:03.390
+I use, these days, so you can see, the full order,
+
+95
+00:06:03.390 --> 00:06:07.890
+down here, so it looks for the .env by default,
+
+96
+00:06:07.890 --> 00:06:12.480
+otherwise, it will change the order and take priority
+
+97
+00:06:12.480 --> 00:06:16.233
+for .local files and then .development files and so on,
+
+98
+00:06:17.500 --> 00:06:22.500
+so what that means, is this will load in the right
+
+99
+00:06:22.980 --> 00:06:24.930
+environment variable into show speakers,
+
+100
+00:06:24.930 --> 00:06:29.423
+and if we run it in production, the idea is npm run build.
+
+101
+00:06:31.240 --> 00:06:33.760
+If we run it in production, then the show speaker
+
+102
+00:06:33.760 --> 00:06:34.753
+should be zero,
+
+103
+00:06:41.021 --> 00:06:43.188
+but let's check, shall we?
+
+104
+00:06:45.310 --> 00:06:48.633
+Looking good, cool,
+
+105
+00:06:54.074 --> 00:06:58.991
+and there we go, and that is because when it runs the start
+
+106
+00:07:03.194 --> 00:07:07.120
+script, we use NODE EV equals production,
+
+107
+00:07:07.120 --> 00:07:12.120
+and that is loading node env drives, which environment file
+
+108
+00:07:17.260 --> 00:07:19.870
+is loaded, and let's just have a quick look over here,
+
+109
+00:07:19.870 --> 00:07:24.220
+like I said, two environment files, this one is hiding
+
+110
+00:07:24.220 --> 00:07:26.970
+the speakers, and this one shows speakers,
+
+111
+00:07:26.970 --> 00:07:31.970
+so there we go; that was the extent of our webpack config
+
+112
+00:07:34.060 --> 00:07:34.910
+that we need to do.
+
+113
+00:07:34.910 --> 00:07:37.690
+And we can do more inside of this, and we can configure
+
+114
+00:07:37.690 --> 00:07:40.490
+webpack any way we want to, but this is how I get
+
+115
+00:07:40.490 --> 00:07:44.070
+environment variables in, and if you wanted,
+
+116
+00:07:44.070 --> 00:07:46.963
+you could actually drop in the whole of process.env;
+
+117
+00:07:49.070 --> 00:07:51.310
+I think, maybe it makes sense, sometimes,
+
+118
+00:07:51.310 --> 00:07:53.810
+to be a bit specific about what you're parsing in,
+
+119
+00:07:55.150 --> 00:07:58.480
+but it depends on your gradual needs, so that is how
+
+120
+00:07:58.480 --> 00:08:01.080
+to get your environment variables, both into your server
+
+121
+00:08:01.080 --> 00:08:02.743
+side, and to your client side.
+

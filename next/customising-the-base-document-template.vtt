@@ -1,0 +1,246 @@
+﻿WEBVTT
+
+1
+00:00:00.518 --> 00:00:04.563
+<v ->So in the previous video, we added a link element,</v>
+
+2
+00:00:04.563 --> 00:00:06.249
+and the thing is about that is it's
+
+3
+00:00:06.249 --> 00:00:08.210
+always going to be there.
+
+4
+00:00:08.210 --> 00:00:12.154
+And there's gonna be some other meta tags that we always,
+
+5
+00:00:12.154 --> 00:00:15.574
+like the viewport meta tag, it's the kinda thing that's
+
+6
+00:00:15.574 --> 00:00:18.274
+always going to be in our document, and not something
+
+7
+00:00:18.274 --> 00:00:20.215
+that we have to manually add every time,
+
+8
+00:00:20.215 --> 00:00:22.715
+or manually import every time.
+
+9
+00:00:23.746 --> 00:00:27.005
+So there is a way, you can customise
+
+10
+00:00:27.005 --> 00:00:29.034
+the entire document template.
+
+11
+00:00:29.034 --> 00:00:32.445
+So if you create a new file called document.js
+
+12
+00:00:32.445 --> 00:00:35.474
+in your project, so in the pages directory
+
+13
+00:00:35.474 --> 00:00:37.925
+you create a document.js file,
+
+14
+00:00:37.925 --> 00:00:40.758
+and you need to render this block.
+
+15
+00:00:42.205 --> 00:00:46.224
+So it's important that the Main element is rendered,
+
+16
+00:00:46.224 --> 00:00:49.886
+Main component rather, and NextScript component is rendered,
+
+17
+00:00:49.886 --> 00:00:53.487
+because that's what Next uses to put everything together.
+
+18
+00:00:53.487 --> 00:00:55.681
+There's an important note in here as well,
+
+19
+00:00:55.681 --> 00:00:58.332
+that the document.js is only rendered
+
+20
+00:00:58.332 --> 00:01:00.612
+on the server side and not on the client side.
+
+21
+00:01:00.612 --> 00:01:03.892
+Things like onClick handlers, any kind of interactivity,
+
+22
+00:01:03.892 --> 00:01:06.391
+cannot be added at this point.
+
+23
+00:01:06.391 --> 00:01:08.623
+We're gonna come across getInitialProps later on,
+
+24
+00:01:08.623 --> 00:01:11.823
+so don't worry about that for the time being.
+
+25
+00:01:11.823 --> 00:01:14.372
+Here they're using JSX as well.
+
+26
+00:01:14.372 --> 00:01:17.273
+I'm not using that just at this moment, but what I will do
+
+27
+00:01:17.273 --> 00:01:19.190
+is just grab this code,
+
+28
+00:01:21.422 --> 00:01:26.393
+strip out what I don't need, and drop it into our project.
+
+29
+00:01:26.393 --> 00:01:29.393
+Let's just touch pages, document JS.
+
+30
+00:01:34.343 --> 00:01:35.731
+Let's get rid of that because we don't want it
+
+31
+00:01:35.731 --> 00:01:38.888
+at the moment; we'll come onto that later.
+
+32
+00:01:38.888 --> 00:01:40.721
+And flush, and in here
+
+33
+00:01:42.542 --> 00:01:46.209
+we're going to put our own, this stylesheet.
+
+34
+00:01:48.171 --> 00:01:51.321
+There's not a huge benefit to me doing this right now,
+
+35
+00:01:51.321 --> 00:01:54.862
+in this particular project, but it's to show you
+
+36
+00:01:54.862 --> 00:01:57.891
+that you can add your own custom template.
+
+37
+00:01:57.891 --> 00:02:00.016
+In fact, actually I'm gonna do a
+
+38
+00:02:00.016 --> 00:02:02.433
+meta content equals viewport,
+
+39
+00:02:05.399 --> 00:02:07.399
+and then value equals...
+
+40
+00:02:08.886 --> 00:02:10.238
+Oops, sorry.
+
+41
+00:02:10.238 --> 00:02:14.405
+Name equals viewport. Content equals device-width.
+
+42
+00:02:18.431 --> 00:02:21.381
+So this kinda thing that I would have in my index pages
+
+43
+00:02:21.381 --> 00:02:24.964
+by default, and we should see this loading.
+
+44
+00:02:25.981 --> 00:02:30.730
+So you view source on this, you can see viewport
+
+45
+00:02:30.730 --> 00:02:33.563
+just in there, tucked away, right?
+
+46
+00:02:35.021 --> 00:02:37.771
+And it means that it should be...
+
+47
+00:02:39.887 --> 00:02:41.762
+I should be able to see it in kind of mobile view.
+
+48
+00:02:41.762 --> 00:02:46.168
+But this is how you add any kind of template content
+
+49
+00:02:46.168 --> 00:02:49.460
+to your document that you will never have any
+
+50
+00:02:49.460 --> 00:02:54.293
+interactivity for, or need to change in your next project.
+
+51
+00:02:55.989 --> 00:03:00.041
+So, the next thing I wanna show you, now that we've
+
+52
+00:03:00.041 --> 00:03:03.461
+got kinda nice styles in place, is maybe hooking
+
+53
+00:03:03.461 --> 00:03:07.970
+into Next's rooting system so we can have a nice
+
+54
+00:03:07.970 --> 00:03:10.471
+transition effect between clicking on pages.
+
+55
+00:03:10.471 --> 00:03:15.388
+So if you look at the Github website, or even Zeit website,
+
+56
+00:03:16.301 --> 00:03:18.471
+when you're clicking around the links, there's
+
+57
+00:03:18.471 --> 00:03:22.221
+a nice kind of, maybe not there, there we go.
+
+58
+00:03:23.111 --> 00:03:24.930
+Nope, none of them have them anymore.
+
+59
+00:03:24.930 --> 00:03:28.271
+But they used to have transition loaders.
+
+60
+00:03:28.271 --> 00:03:31.688
+So some may have seen them in Github; we're gonna add
+
+61
+00:03:31.688 --> 00:03:33.871
+a transition loader to our project as well.
+

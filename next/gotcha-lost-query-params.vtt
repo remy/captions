@@ -1,0 +1,238 @@
+﻿WEBVTT
+
+1
+00:00:00.261 --> 00:00:04.083
+<v ->Okay, so this is the first gotcha I wanna show you.</v>
+
+2
+00:00:04.083 --> 00:00:06.661
+I've added a new component to the sessions page,
+
+3
+00:00:06.661 --> 00:00:07.994
+where a attendee
+
+4
+00:00:10.404 --> 00:00:12.153
+can add their own private rating
+
+5
+00:00:12.153 --> 00:00:15.485
+to the talk, and add any notes.
+
+6
+00:00:15.485 --> 00:00:19.592
+And the way that it will work, or sorry, not so much
+
+7
+00:00:19.592 --> 00:00:23.574
+the way it works, is that to demonstrate the issue,
+
+8
+00:00:23.574 --> 00:00:25.824
+I'm reading the rating as a
+
+9
+00:00:27.599 --> 00:00:29.574
+prop type into the session.
+
+10
+00:00:29.574 --> 00:00:31.152
+So at the moment you can see that the value is four,
+
+11
+00:00:31.152 --> 00:00:33.454
+so whenever I refresh, it'll always be four.
+
+12
+00:00:33.454 --> 00:00:36.273
+I'm gonna set it to false for the time being,
+
+13
+00:00:36.273 --> 00:00:37.722
+so it should disappear.
+
+14
+00:00:37.722 --> 00:00:41.219
+And what I'm gonna do is change the session page
+
+15
+00:00:41.219 --> 00:00:44.292
+to read a query string parameter,
+
+16
+00:00:44.292 --> 00:00:46.875
+and pass that into the session.
+
+17
+00:00:47.763 --> 00:00:52.752
+Okay, so we're just gonna do rating equals query.rating,
+
+18
+00:00:52.752 --> 00:00:56.992
+so you can just do question mark rating equals three.
+
+19
+00:00:56.992 --> 00:01:01.242
+And we're gonna pass it into the session component.
+
+20
+00:01:04.723 --> 00:01:07.824
+And one thing I'm gonna do is, just to make it work,
+
+21
+00:01:07.824 --> 00:01:10.344
+is in this href, I'm just gonna stick
+
+22
+00:01:10.344 --> 00:01:13.203
+and rating equals four, three.
+
+23
+00:01:13.203 --> 00:01:15.472
+Just so that you can see how it works.
+
+24
+00:01:15.472 --> 00:01:19.305
+So when I click on the link, we have a rating.
+
+25
+00:01:20.323 --> 00:01:23.240
+It's not on this query string here,
+
+26
+00:01:26.083 --> 00:01:28.662
+because we have this "as," but I can add that as well.
+
+27
+00:01:28.662 --> 00:01:31.162
+Rating equals four. All right.
+
+28
+00:01:32.403 --> 00:01:36.632
+So you click on that, you can see, excuse me,
+
+29
+00:01:36.632 --> 00:01:39.651
+we click on the page, you can see it there.
+
+30
+00:01:39.651 --> 00:01:42.369
+And when I hit refresh now, it vanishes.
+
+31
+00:01:42.369 --> 00:01:44.215
+And the reason it vanishes is due
+
+32
+00:01:44.215 --> 00:01:46.603
+to a bug in our server code.
+
+33
+00:01:46.603 --> 00:01:50.702
+In our server code, the way this works, app.render,
+
+34
+00:01:50.702 --> 00:01:54.552
+we pass it the request, the response,
+
+35
+00:01:54.552 --> 00:01:57.976
+the path to the page that we wanna render,
+
+36
+00:01:57.976 --> 00:02:00.926
+so that's session.js, and this is the query.
+
+37
+00:02:00.926 --> 00:02:03.775
+And the query here, we've gone ahead and lost
+
+38
+00:02:03.775 --> 00:02:06.784
+the original query, so what we're gonna do
+
+39
+00:02:06.784 --> 00:02:08.617
+is we're gonna spread.
+
+40
+00:02:10.224 --> 00:02:13.391
+We're gonna do ...request.query, slug.
+
+41
+00:02:18.075 --> 00:02:20.914
+Okay, so we're spreading the query object
+
+42
+00:02:20.914 --> 00:02:24.104
+so that we end up with the full object
+
+43
+00:02:24.104 --> 00:02:27.354
+and adding in the slug into our render.
+
+44
+00:02:28.635 --> 00:02:30.616
+So we're gonna have to restart the server here,
+
+45
+00:02:30.616 --> 00:02:33.616
+because the server side are changed.
+
+46
+00:02:35.995 --> 00:02:37.662
+And now, we refresh.
+
+47
+00:02:43.334 --> 00:02:45.764
+Fetch is undefined, is that still undefined?
+
+48
+00:02:45.764 --> 00:02:47.597
+Oh, let's have a look.
+
+49
+00:02:50.496 --> 00:02:53.736
+Session, yes we missed that, hold on.
+
+50
+00:02:53.736 --> 00:02:56.819
+Import fetch from isomorphic-unfetch.
+
+51
+00:02:57.924 --> 00:03:00.027
+The reason that we never caught that is
+
+52
+00:03:00.027 --> 00:03:02.736
+because I don't think I hard-refreshed the page.
+
+53
+00:03:02.736 --> 00:03:06.403
+But now you can see that rating, that works.
+
+54
+00:03:07.827 --> 00:03:09.966
+So if I do it to five, it renders
+
+55
+00:03:09.966 --> 00:03:13.117
+on the server side correctly as we would intend.
+
+56
+00:03:13.117 --> 00:03:17.867
+So that is one of the gotchas in this boilerplate server.
+
+57
+00:03:19.347 --> 00:03:21.930
+So just remember to destructure
+
+58
+00:03:26.516 --> 00:03:29.547
+your request.query if you wanna get them.
+
+59
+00:03:29.547 --> 00:03:30.380
+Cool.
+

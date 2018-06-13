@@ -1,0 +1,674 @@
+﻿WEBVTT
+
+1
+00:00:02.370 --> 00:00:06.110
+<v ->Okay, so we've seen some of the special directories</v>
+
+2
+00:00:06.110 --> 00:00:08.510
+that Next has and uses.
+
+3
+00:00:08.510 --> 00:00:11.620
+We've seen the _document directory,
+
+4
+00:00:11.620 --> 00:00:16.230
+and to handle custom error pages,
+
+5
+00:00:16.230 --> 00:00:18.472
+we have to add a special document, as well.
+
+6
+00:00:18.472 --> 00:00:20.670
+So what happens if we get a 404 today?
+
+7
+00:00:20.670 --> 00:00:22.620
+So if I just put in some junk here,
+
+8
+00:00:22.620 --> 00:00:26.503
+we get, Next will render its own 404 page,
+
+9
+00:00:28.010 --> 00:00:29.883
+and this one looks like,
+
+10
+00:00:29.883 --> 00:00:32.837
+it's not terrible, to be fair, it's pretty good.
+
+11
+00:00:32.837 --> 00:00:35.040
+And if you go to production,
+
+12
+00:00:35.040 --> 00:00:37.270
+this is what it will show if you have a 404.
+
+13
+00:00:37.270 --> 00:00:39.360
+And also, you can see over here,
+
+14
+00:00:39.360 --> 00:00:41.093
+just as an aside, a side note,
+
+15
+00:00:42.920 --> 00:00:47.330
+Next is pinging the server to see if that page exists.
+
+16
+00:00:47.330 --> 00:00:48.700
+So that if you're coding away
+
+17
+00:00:48.700 --> 00:00:52.080
+and you actually make a page, it'll render in the browser.
+
+18
+00:00:52.080 --> 00:00:53.150
+But in this case, it's not,
+
+19
+00:00:53.150 --> 00:00:56.760
+and we want to render our own error page here.
+
+20
+00:00:56.760 --> 00:01:01.760
+So the way we do that is we create a page, a file,
+
+21
+00:01:01.810 --> 00:01:03.660
+or a component in the pages directory
+
+22
+00:01:04.703 --> 00:01:06.790
+called _error, okay.
+
+23
+00:01:06.790 --> 00:01:09.641
+And that _error looks in here,
+
+24
+00:01:09.641 --> 00:01:10.680
+so let's just put some content in.
+
+25
+00:01:10.680 --> 00:01:15.680
+I'm gonna do export default and we're gonna do p,
+
+26
+00:01:16.280 --> 00:01:20.963
+oh no - it broke, okay.
+
+27
+00:01:22.010 --> 00:01:24.200
+Now, I've got a feeling,
+
+28
+00:01:24.200 --> 00:01:26.560
+because this is like a system file,
+
+29
+00:01:26.560 --> 00:01:28.350
+we have to restart Next.
+
+30
+00:01:28.350 --> 00:01:30.360
+But I'm just gonna do a refresh,
+
+31
+00:01:30.360 --> 00:01:31.440
+just to see if that's the case or not.
+
+32
+00:01:31.440 --> 00:01:34.283
+So, going to the About page and up there.
+
+33
+00:01:35.477 --> 00:01:36.698
+Oh no, there we go.
+
+34
+00:01:36.698 --> 00:01:37.950
+So it picks it up.
+
+35
+00:01:37.950 --> 00:01:40.020
+So we can see we're rendering our own page here,
+
+36
+00:01:40.020 --> 00:01:42.831
+and we can render that in our own layout,
+
+37
+00:01:42.831 --> 00:01:43.837
+if you want, as well.
+
+38
+00:01:43.837 --> 00:01:47.870
+So import Layout from ../components/Layout.
+
+39
+00:01:47.870 --> 00:01:52.850
+And I'm just gonna stick that in around our page.
+
+40
+00:01:55.690 --> 00:02:00.690
+And our error page is not being hot reloaded,
+
+41
+00:02:01.100 --> 00:02:04.356
+but certainly looks better already.
+
+42
+00:02:04.356 --> 00:02:08.180
+What about non-404 pages?
+
+43
+00:02:08.180 --> 00:02:10.020
+What about exceptions?
+
+44
+00:02:10.020 --> 00:02:12.240
+So I made this page called explode, okay.
+
+45
+00:02:12.240 --> 00:02:17.240
+So explode will render this p tag, the cause a function,
+
+46
+00:02:17.900 --> 00:02:19.650
+which throws an error.
+
+47
+00:02:19.650 --> 00:02:22.933
+So let's have a look at what happens if we render explode.
+
+48
+00:02:24.430 --> 00:02:28.001
+Okay, so what we see here is the,
+
+49
+00:02:28.001 --> 00:02:29.640
+I should make this bigger.
+
+50
+00:02:29.640 --> 00:02:33.140
+Next is giving us a stack trace in the browser,
+
+51
+00:02:33.140 --> 00:02:34.973
+we can see what's going on.
+
+52
+00:02:34.973 --> 00:02:37.310
+And this is not uncommon with React type apps
+
+53
+00:02:38.271 --> 00:02:40.210
+to have, you know, the errors that are shown here.
+
+54
+00:02:40.210 --> 00:02:42.510
+Now I think Next actually has like a mix of errors,
+
+55
+00:02:42.510 --> 00:02:44.263
+but it's not too bad.
+
+56
+00:02:45.222 --> 00:02:48.590
+However, in production this won't show.
+
+57
+00:02:48.590 --> 00:02:50.530
+So let me show you what will happen in production.
+
+58
+00:02:50.530 --> 00:02:53.450
+So let's stop our npm run dev,
+
+59
+00:02:53.450 --> 00:02:56.683
+and instead we're gonna run npm run build,
+
+60
+00:02:57.693 --> 00:03:01.480
+which would be kind of a pre-process, or deploys production.
+
+61
+00:03:01.480 --> 00:03:03.830
+And then when we run in production, it's actually
+
+62
+00:03:03.830 --> 00:03:06.240
+an npm start, okay.
+
+63
+00:03:06.240 --> 00:03:08.290
+So just runs Next start.
+
+64
+00:03:08.290 --> 00:03:11.070
+If we go over to this page,
+
+65
+00:03:11.070 --> 00:03:15.056
+and I go to About, okay,
+
+66
+00:03:15.056 --> 00:03:18.430
+we're looking at a 404 page, okay,
+
+67
+00:03:18.430 --> 00:03:19.630
+that's what we expected.
+
+68
+00:03:19.630 --> 00:03:21.080
+If we go to the explode page,
+
+69
+00:03:21.970 --> 00:03:24.260
+we also get the same error page.
+
+70
+00:03:24.260 --> 00:03:28.109
+Okay, it's logging out some extra errors here,
+
+71
+00:03:28.109 --> 00:03:31.450
+but it is rendering our custom error message.
+
+72
+00:03:31.450 --> 00:03:35.740
+It's just not using it when we're in development mode,
+
+73
+00:03:35.740 --> 00:03:37.210
+because we won't be to able to see the stack trace.
+
+74
+00:03:37.210 --> 00:03:39.800
+All right, and actually in the error,
+
+75
+00:03:39.800 --> 00:03:43.480
+we have a bit more, there's a bit more detail
+
+76
+00:03:43.480 --> 00:03:45.137
+we can get into this.
+
+77
+00:03:45.137 --> 00:03:45.970
+So it broke is one thing,
+
+78
+00:03:45.970 --> 00:03:48.796
+but like showing one error for a 404
+
+79
+00:03:48.796 --> 00:03:51.546
+and a different error for a 500, is pretty more useful.
+
+80
+00:03:53.109 --> 00:03:55.313
+So if we go over to GitHub next,
+
+81
+00:04:01.780 --> 00:04:06.690
+there is, I believe, an example error page.
+
+82
+00:04:08.790 --> 00:04:09.623
+There you go.
+
+83
+00:04:09.623 --> 00:04:13.224
+So I'm just gonna copy and paste this, okay.
+
+84
+00:04:13.224 --> 00:04:18.073
+And I promise we will go on to getInitialProps
+
+85
+00:04:18.950 --> 00:04:21.490
+in the next video.
+
+86
+00:04:21.490 --> 00:04:23.520
+So I'm gonna import react.
+
+87
+00:04:23.520 --> 00:04:25.320
+In fact, I'm not gonna import react,
+
+88
+00:04:26.299 --> 00:04:27.663
+I'm gonna import Component from react.
+
+89
+00:04:29.510 --> 00:04:33.080
+And we're gonna export this error class.
+
+90
+00:04:33.080 --> 00:04:38.080
+I'm just gonna reuse my here, oh, layout.
+
+91
+00:04:46.550 --> 00:04:47.934
+Where are we?
+
+92
+00:04:47.934 --> 00:04:48.950
+Let's go over here.
+
+93
+00:04:48.950 --> 00:04:51.480
+Because this is being built,
+
+94
+00:04:51.480 --> 00:04:54.640
+we're running from start, not npm dev,
+
+95
+00:04:54.640 --> 00:04:57.360
+then this won't update.
+
+96
+00:04:57.360 --> 00:05:00.045
+So I'm just gonna do npm run build
+
+97
+00:05:00.045 --> 00:05:00.878
+and npm start, again,
+
+98
+00:05:01.754 --> 00:05:04.073
+so we can see how this affects things.
+
+99
+00:05:05.185 --> 00:05:06.183
+So I'm just waiting for it to build.
+
+100
+00:05:07.164 --> 00:05:09.010
+So the difference here is that
+
+101
+00:05:09.010 --> 00:05:12.070
+actually we're using this getInitialProps.
+
+102
+00:05:12.070 --> 00:05:15.000
+And if there is an error in the page,
+
+103
+00:05:15.000 --> 00:05:18.566
+it'll pass in an error object into this InitialProps.
+
+104
+00:05:18.566 --> 00:05:20.781
+And this is useful for our error page.
+
+105
+00:05:20.781 --> 00:05:22.090
+Right, so if we run this now,
+
+106
+00:05:22.090 --> 00:05:25.761
+and you kind of see a couple of flickers of things
+
+107
+00:05:25.761 --> 00:05:26.898
+going on there.
+
+108
+00:05:26.898 --> 00:05:28.620
+So let's do a 404.
+
+109
+00:05:28.620 --> 00:05:30.300
+Okay, so it's printing two things here.
+
+110
+00:05:30.300 --> 00:05:34.450
+I think it's, oh, yeah, sorry.
+
+111
+00:05:34.450 --> 00:05:37.165
+It's printing the status code,
+
+112
+00:05:37.165 --> 00:05:40.285
+and then when we have a local exception,
+
+113
+00:05:40.285 --> 00:05:45.249
+there is a server side error and a client side error.
+
+114
+00:05:45.249 --> 00:05:47.570
+So the server side also broke,
+
+115
+00:05:47.570 --> 00:05:49.960
+but the client side, broke, as well,
+
+116
+00:05:49.960 --> 00:05:51.543
+yeah, because both rendered.
+
+117
+00:05:53.600 --> 00:05:55.993
+So we're seeing, with JavaScript disabled,
+
+118
+00:05:56.980 --> 00:05:58.090
+so let's disable JavaScript,
+
+119
+00:05:58.090 --> 00:06:01.290
+we can see that the server is dealing up this error
+
+120
+00:06:02.524 --> 00:06:05.190
+and saying there was a 500 in the response.
+
+121
+00:06:05.190 --> 00:06:08.300
+And in the client side, this object doesn't exist.
+
+122
+00:06:08.300 --> 00:06:10.046
+I'll go into the details of getInitialProps
+
+123
+00:06:10.046 --> 00:06:12.881
+in the next video, but for the moment,
+
+124
+00:06:12.881 --> 00:06:15.340
+basically there is no statusCode in a client side,
+
+125
+00:06:15.340 --> 00:06:17.691
+which kind of makes sense, right?
+
+126
+00:06:17.691 --> 00:06:18.970
+There's no statusCode.
+
+127
+00:06:18.970 --> 00:06:21.903
+So, enable JavaScript.
+
+128
+00:06:22.760 --> 00:06:25.000
+When we refresh, two things are being rendered,
+
+129
+00:06:25.000 --> 00:06:26.500
+we get the server side render,
+
+130
+00:06:27.681 --> 00:06:31.479
+which is we have the 500 and then an error occurred here.
+
+131
+00:06:31.479 --> 00:06:34.176
+And actually what we could do is pass down
+
+132
+00:06:34.176 --> 00:06:38.080
+the error message itself by doing something like
+
+133
+00:06:39.673 --> 00:06:41.256
+err.message, blank.
+
+134
+00:06:46.120 --> 00:06:51.120
+And we could put, let's say this.props.err,
+
+135
+00:06:53.849 --> 00:06:54.733
+and then do a colon.
+
+136
+00:06:55.632 --> 00:06:58.920
+I'm just gonna stop and start the whole thing again.
+
+137
+00:06:58.920 --> 00:07:00.230
+Again, I'm doing this so that
+
+138
+00:07:00.230 --> 00:07:02.540
+we don't have the stack trace.
+
+139
+00:07:02.540 --> 00:07:05.050
+We would see this if we were doing 404 testing,
+
+140
+00:07:05.050 --> 00:07:08.260
+but because of the dev mode gives a stat trace,
+
+141
+00:07:08.260 --> 00:07:10.750
+we're not able to kind of look at what's going on here.
+
+142
+00:07:10.750 --> 00:07:12.373
+Right, so here we go.
+
+143
+00:07:12.373 --> 00:07:15.250
+We can see this is the message in the error object,
+
+144
+00:07:15.250 --> 00:07:18.350
+and then this was the client side task.
+
+145
+00:07:18.350 --> 00:07:22.107
+So we could actually just use props.err.
+
+146
+00:07:24.150 --> 00:07:27.480
+I think it shows us, you briefly see that.
+
+147
+00:07:27.480 --> 00:07:31.670
+Let's go again to disable JavaScript.
+
+148
+00:07:31.670 --> 00:07:34.180
+You can see explode.
+
+149
+00:07:34.180 --> 00:07:37.513
+That's actually this.
+
+150
+00:07:40.570 --> 00:07:43.830
+So that's first of all how you create
+
+151
+00:07:43.830 --> 00:07:46.223
+your own bespoke error page.
+
+152
+00:07:47.300 --> 00:07:48.720
+Because this is a class, you could actually
+
+153
+00:07:48.720 --> 00:07:51.760
+make it a component in unto itself.
+
+154
+00:07:51.760 --> 00:07:54.780
+So you could reuse this component and pass in
+
+155
+00:07:54.780 --> 00:07:56.453
+different errors into it.
+
+156
+00:07:57.636 --> 00:08:00.950
+And you have to bear in mind that the error
+
+157
+00:08:00.950 --> 00:08:03.760
+on the server side may not be the same as the error
+
+158
+00:08:03.760 --> 00:08:04.940
+on the client side.
+
+159
+00:08:04.940 --> 00:08:08.900
+And, you know, it might be that you use tools like Century
+
+160
+00:08:08.900 --> 00:08:12.350
+or Loglia, something like that,
+
+161
+00:08:12.350 --> 00:08:13.460
+to store all your logs.
+
+162
+00:08:13.460 --> 00:08:16.800
+And you could do it in this get initial props.
+
+163
+00:08:16.800 --> 00:08:18.910
+You could fire off a request,
+
+164
+00:08:18.910 --> 00:08:22.732
+like post a request off to your Century
+
+165
+00:08:22.732 --> 00:08:26.617
+with the actual error that is occurring at this point.
+
+166
+00:08:26.617 --> 00:08:30.680
+And that's how to do a custom error page.
+
+167
+00:08:30.680 --> 00:08:32.650
+And in the next video,
+
+168
+00:08:32.650 --> 00:08:35.533
+I am gonna finally talk about getInitialProps.
+

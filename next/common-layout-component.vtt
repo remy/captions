@@ -1,0 +1,486 @@
+﻿WEBVTT
+
+1
+00:00:02.201 --> 00:00:04.390
+<v ->Okay, so now that I have a few more pages,</v>
+
+2
+00:00:04.390 --> 00:00:07.550
+I have have some clean code edited up,
+
+3
+00:00:07.550 --> 00:00:08.710
+I need to address the fact that
+
+4
+00:00:08.710 --> 00:00:11.550
+my actual webpage looks ugly,
+
+5
+00:00:11.550 --> 00:00:14.510
+or well, I'm not a big fan of Times New Roman.
+
+6
+00:00:14.510 --> 00:00:18.600
+So I want to add a stylesheet to this.
+
+7
+00:00:18.600 --> 00:00:20.600
+But the thing is at the moment
+
+8
+00:00:20.600 --> 00:00:22.100
+I can add a stylesheet to each page
+
+9
+00:00:22.100 --> 00:00:25.397
+but each page is a separate component by itself.
+
+10
+00:00:25.397 --> 00:00:28.930
+The about component is its own thing.
+
+11
+00:00:28.930 --> 00:00:32.410
+The contact component is its own separate component,
+
+12
+00:00:32.410 --> 00:00:33.983
+the same thing as the index,
+
+13
+00:00:35.020 --> 00:00:37.960
+it's completely isolated, they don't share anything.
+
+14
+00:00:37.960 --> 00:00:39.990
+So what I want to do here
+
+15
+00:00:39.990 --> 00:00:43.720
+is create a shared layout component
+
+16
+00:00:43.720 --> 00:00:45.930
+that I would use to add in a common header,
+
+17
+00:00:45.930 --> 00:00:48.820
+a common footer, and maybe later on
+
+18
+00:00:48.820 --> 00:00:51.370
+if we have a user that's signed in perhaps
+
+19
+00:00:51.370 --> 00:00:52.930
+it'll show they're signed in.
+
+20
+00:00:52.930 --> 00:00:55.340
+And also more importantly to this project
+
+21
+00:00:56.210 --> 00:00:58.970
+it'll pull in the stylesheet
+
+22
+00:00:58.970 --> 00:01:00.690
+to get some nice fonts going on.
+
+23
+00:01:00.690 --> 00:01:03.360
+So I've one and created a directory
+
+24
+00:01:03.360 --> 00:01:06.770
+called components in the root of my project.
+
+25
+00:01:06.770 --> 00:01:07.810
+And I've added another directory
+
+26
+00:01:07.810 --> 00:01:09.500
+inside of that called layout
+
+27
+00:01:09.500 --> 00:01:12.510
+that has header, footer and index.js.
+
+28
+00:01:12.510 --> 00:01:13.760
+So now in some projects
+
+29
+00:01:13.760 --> 00:01:17.060
+I've just had components, layout.js,
+
+30
+00:01:17.060 --> 00:01:19.300
+and header.js and footer.js
+
+31
+00:01:19.300 --> 00:01:20.810
+all in the root of components.
+
+32
+00:01:20.810 --> 00:01:22.690
+For this particular one I decided to
+
+33
+00:01:24.040 --> 00:01:26.410
+where logical components live together,
+
+34
+00:01:26.410 --> 00:01:27.860
+put it in its own directory.
+
+35
+00:01:27.860 --> 00:01:30.370
+So this is what it looks like.
+
+36
+00:01:30.370 --> 00:01:35.370
+The header has a nav element with a bunch of links.
+
+37
+00:01:35.860 --> 00:01:37.020
+Nothing special.
+
+38
+00:01:37.020 --> 00:01:39.807
+The footer is just a text saying,
+
+39
+00:01:39.807 --> 00:01:42.427
+"This is copyright material,"
+
+40
+00:01:42.427 --> 00:01:44.860
+"don't steal it or share it with friends"
+
+41
+00:01:44.860 --> 00:01:47.540
+And the layout index page
+
+42
+00:01:48.810 --> 00:01:52.750
+just pulls in those two components and renders them.
+
+43
+00:01:52.750 --> 00:01:56.380
+And this here if you're not familiar with react
+
+44
+00:01:57.570 --> 00:01:58.810
+there's a couple of things happening here.
+
+45
+00:01:58.810 --> 00:02:03.290
+First of all, we have the children special property
+
+46
+00:02:03.290 --> 00:02:06.980
+which when I come to use this layout component
+
+47
+00:02:06.980 --> 00:02:08.890
+I'll use it like this.
+
+48
+00:02:08.890 --> 00:02:13.890
+Layout, then I'll put my content in here like this.
+
+49
+00:02:14.300 --> 00:02:18.260
+Children refers to this kind of subtree basically,
+
+50
+00:02:18.260 --> 00:02:20.300
+so it's putting the children
+
+51
+00:02:20.300 --> 00:02:22.410
+between the header and the footer.
+
+52
+00:02:22.410 --> 00:02:24.300
+And the second thing to note here is
+
+53
+00:02:24.300 --> 00:02:26.750
+I'm using object destructuring.
+
+54
+00:02:26.750 --> 00:02:30.624
+So when these components are called
+
+55
+00:02:30.624 --> 00:02:35.624
+an object called props, generally props is passed in,
+
+56
+00:02:36.900 --> 00:02:39.510
+and that props will contain children
+
+57
+00:02:39.510 --> 00:02:42.140
+and then anything else I add.
+
+58
+00:02:42.140 --> 00:02:45.183
+So class name is a prop.
+
+59
+00:02:46.295 --> 00:02:49.473
+Alt is a prop, and so on.
+
+60
+00:02:49.473 --> 00:02:52.467
+So, I'm using destructing to just say,
+
+61
+00:02:52.467 --> 00:02:54.497
+"I just want this property"
+
+62
+00:02:54.497 --> 00:02:59.130
+"out of that object and I don't care about anything else."
+
+63
+00:02:59.130 --> 00:03:02.480
+I could capture the rest using this syntax.
+
+64
+00:03:02.480 --> 00:03:07.463
+This is all ES6, 7, new syntax.
+
+65
+00:03:09.220 --> 00:03:10.630
+Just sugar to make things
+
+66
+00:03:10.630 --> 00:03:12.150
+a little bit easier to work with.
+
+67
+00:03:12.150 --> 00:03:13.890
+So now I have my common component,
+
+68
+00:03:13.890 --> 00:03:16.480
+let's go ahead and use this so that it works.
+
+69
+00:03:16.480 --> 00:03:18.110
+On this page we can see the header and footer
+
+70
+00:03:18.110 --> 00:03:20.380
+and I can add something about stylesheet.
+
+71
+00:03:20.380 --> 00:03:22.650
+So at the top of my contact let me do
+
+72
+00:03:22.650 --> 00:03:27.650
+import layout from components/Layout,
+
+73
+00:03:29.560 --> 00:03:30.730
+I think I need to do index,
+
+74
+00:03:30.730 --> 00:03:33.700
+I'm gonna try it without, see what happens.
+
+75
+00:03:33.700 --> 00:03:36.443
+And instead of this div I'm just gonna use Layout.
+
+76
+00:03:38.930 --> 00:03:40.823
+Let's head over to the contact page.
+
+77
+00:03:43.023 --> 00:03:45.160
+And there we go, yeah, it's working, perfect.
+
+78
+00:03:45.160 --> 00:03:49.383
+And so let's just apply this to these two as well.
+
+79
+00:03:51.370 --> 00:03:53.880
+And to the index page as well.
+
+80
+00:03:53.880 --> 00:03:54.713
+Pageindex.
+
+81
+00:04:49.870 --> 00:04:51.350
+So what's interesting here is
+
+82
+00:04:51.350 --> 00:04:53.883
+I've come up against a small bug.
+
+83
+00:04:55.180 --> 00:04:58.643
+I added the layout to the index page, okay.
+
+84
+00:05:00.500 --> 00:05:03.753
+Nothing looks wrong here on initial kind of viewing.
+
+85
+00:05:05.880 --> 00:05:10.023
+But the layout doesn't appear in my header and footer.
+
+86
+00:05:11.070 --> 00:05:12.123
+It's not there.
+
+87
+00:05:14.281 --> 00:05:18.427
+Now it could be that next has compiled page
+
+88
+00:05:19.350 --> 00:05:22.370
+and somehow forgotten to clear out this cache.
+
+89
+00:05:22.370 --> 00:05:26.800
+So just for my own kind of well being
+
+90
+00:05:26.800 --> 00:05:30.253
+I'm just gonna stop the server and start again.
+
+91
+00:05:31.650 --> 00:05:33.000
+I'm gonna head on over to the web page.
+
+92
+00:05:33.000 --> 00:05:37.130
+It should actually refresh by itself, might not.
+
+93
+00:05:37.130 --> 00:05:38.170
+It should get a notification
+
+94
+00:05:38.170 --> 00:05:41.813
+that the page was rebuilt.
+
+95
+00:05:44.080 --> 00:05:44.913
+There we go.
+
+96
+00:05:44.913 --> 00:05:46.550
+So there was something wrong with the cache.
+
+97
+00:05:46.550 --> 00:05:49.268
+Now, these things happen.
+
+98
+00:05:49.268 --> 00:05:51.700
+If it's not quite doing what I expected it to do
+
+99
+00:05:51.700 --> 00:05:53.430
+the first thing I might look at doing
+
+100
+00:05:53.430 --> 00:05:55.550
+is just restarting the server.
+
+101
+00:05:55.550 --> 00:05:57.150
+But now we have a common component,
+
+102
+00:05:57.150 --> 00:06:01.013
+we are ready to start adding some CSS.
+
+103
+00:06:03.125 --> 00:06:08.125
+I'm not an advocate of using,
+
+104
+00:06:08.370 --> 00:06:13.370
+I'm not bored yet with putting my CSS in my JavaScript,
+
+105
+00:06:13.790 --> 00:06:15.040
+we can certainly do that.
+
+106
+00:06:16.391 --> 00:06:17.980
+There's nothing stopping you from doing it,
+
+107
+00:06:17.980 --> 00:06:19.550
+you could include it up here,
+
+108
+00:06:19.550 --> 00:06:21.680
+you could do it on individual components
+
+109
+00:06:21.680 --> 00:06:23.287
+if that's how you're working.
+
+110
+00:06:23.287 --> 00:06:25.490
+I'm still of the thinking
+
+111
+00:06:25.490 --> 00:06:30.440
+that I'm going to add a separate, static CSS file,
+
+112
+00:06:30.440 --> 00:06:32.280
+and that's how I'm going to approach this project.
+
+113
+00:06:32.280 --> 00:06:34.400
+I will kind of show you a little bit
+
+114
+00:06:34.400 --> 00:06:36.900
+of CSS in JavaScript later on
+
+115
+00:06:36.900 --> 00:06:39.270
+just kind of for a few tweaks,
+
+116
+00:06:39.270 --> 00:06:41.660
+but that's how I'm gonna work for the time being.
+
+117
+00:06:41.660 --> 00:06:43.510
+So what I need to do
+
+118
+00:06:44.530 --> 00:06:48.070
+is somehow include a static file.
+
+119
+00:06:48.070 --> 00:06:51.160
+So in the next video I'm gonna show you
+
+120
+00:06:52.530 --> 00:06:54.510
+where static content lives
+
+121
+00:06:54.510 --> 00:06:58.483
+and how to get it in the markup properly.
+

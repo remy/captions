@@ -1,0 +1,822 @@
+﻿WEBVTT
+
+1
+00:00:06.320 --> 00:00:09.040
+<v ->Okay, so now things get interesting.</v>
+
+2
+00:00:09.040 --> 00:00:12.880
+What we wanna do is make
+
+3
+00:00:12.880 --> 00:00:16.140
+an XHR request, or a fetch,
+
+4
+00:00:16.140 --> 00:00:18.600
+to go and get some data from the third-party API
+
+5
+00:00:18.600 --> 00:00:20.610
+and inject it into our web page.
+
+6
+00:00:20.610 --> 00:00:23.320
+Now, we can do that on the client side
+
+7
+00:00:23.320 --> 00:00:24.850
+and if you're familiar enough with React
+
+8
+00:00:24.850 --> 00:00:29.850
+you might do it on a componented mount,
+
+9
+00:00:30.320 --> 00:00:34.050
+go into your fetch, data's loaded, and update.
+
+10
+00:00:34.050 --> 00:00:37.890
+But Next offers us
+
+11
+00:00:37.890 --> 00:00:40.817
+a method called getInitialProps.
+
+12
+00:00:41.720 --> 00:00:43.450
+Now, getInitialProps is called,
+
+13
+00:00:43.450 --> 00:00:46.440
+both on the server side and on the client side,
+
+14
+00:00:46.440 --> 00:00:50.440
+to prepare the properties to go into the component itself,
+
+15
+00:00:50.440 --> 00:00:51.743
+and what this means is,
+
+16
+00:00:52.720 --> 00:00:57.720
+inside of this function we can make our XHR request
+
+17
+00:00:57.960 --> 00:00:59.730
+to make our API call
+
+18
+00:00:59.730 --> 00:01:03.380
+to pre-populate the data that our component needs
+
+19
+00:01:03.380 --> 00:01:04.940
+to be able to render.
+
+20
+00:01:04.940 --> 00:01:08.140
+So, there's two different ways of doing this.
+
+21
+00:01:08.140 --> 00:01:11.970
+At the moment, what we wanna do is
+
+22
+00:01:11.970 --> 00:01:12.860
+I'm gonna add
+
+23
+00:01:14.470 --> 00:01:18.380
+a list of scheduled items to this page,
+
+24
+00:01:18.380 --> 00:01:21.160
+and this is a pure component moment,
+
+25
+00:01:21.160 --> 00:01:24.430
+so unlike our Error component,
+
+26
+00:01:24.430 --> 00:01:28.160
+which is extends the React component class,
+
+27
+00:01:28.160 --> 00:01:29.460
+this is pure component.
+
+28
+00:01:29.460 --> 00:01:34.310
+So to be able to do getInitialProps on a pure component,
+
+29
+00:01:34.310 --> 00:01:35.410
+first of all, we need a name for it.
+
+30
+00:01:35.410 --> 00:01:38.980
+So, we're gonna do const Index equals,
+
+31
+00:01:38.980 --> 00:01:40.720
+and then I'm gonna export the Index page.
+
+32
+00:01:40.720 --> 00:01:43.090
+We have a variable called Index,
+
+33
+00:01:43.090 --> 00:01:47.033
+and then we're gonna do getInitialProps equals,
+
+34
+00:01:47.920 --> 00:01:49.990
+and then we have a function, okay?
+
+35
+00:01:49.990 --> 00:01:54.920
+And this function is gonna do our request.
+
+36
+00:01:54.920 --> 00:01:59.490
+So to do the request, I'm gonna use fetch.
+
+37
+00:01:59.490 --> 00:02:03.800
+Now, if I do fetch the URL, so we've got
+
+38
+00:02:03.800 --> 00:02:07.673
+I've set up a local server, a JSON server.
+
+39
+00:02:08.990 --> 00:02:10.890
+Here's the full schedule down here,
+
+40
+00:02:10.890 --> 00:02:14.510
+and just gonna iterate over this complete list.
+
+41
+00:02:14.510 --> 00:02:19.510
+So I'm gonna do a request to this URL, okay?
+
+42
+00:02:20.040 --> 00:02:23.870
+And dot then res
+
+43
+00:02:23.870 --> 00:02:26.100
+and then we do res dot json,
+
+44
+00:02:26.100 --> 00:02:29.210
+and then then, and then we're gonna do something.
+
+45
+00:02:29.210 --> 00:02:31.220
+Not too sure what, but we're gonna console it log out.
+
+46
+00:02:31.220 --> 00:02:34.413
+Console log out in the first instance, okay?
+
+47
+00:02:35.490 --> 00:02:37.170
+Now, this isn't gonna work.
+
+48
+00:02:37.170 --> 00:02:39.120
+I like to start code that doesn't work.
+
+49
+00:02:40.160 --> 00:02:41.940
+If we look at what's going on.
+
+50
+00:02:41.940 --> 00:02:43.940
+Ooh, I seem to have JavaScript disabled.
+
+51
+00:02:46.690 --> 00:02:47.730
+There we go, right.
+
+52
+00:02:47.730 --> 00:02:51.283
+So here's the first problem: fetch is not defined, right?
+
+53
+00:02:54.160 --> 00:02:55.560
+Fetch is defined.
+
+54
+00:02:55.560 --> 00:02:56.590
+It's in the browser.
+
+55
+00:02:56.590 --> 00:02:59.650
+The problem is, actually it broke on the server side,
+
+56
+00:02:59.650 --> 00:03:02.050
+because when we request this page,
+
+57
+00:03:02.050 --> 00:03:03.820
+it's running on the server first,
+
+58
+00:03:03.820 --> 00:03:07.590
+and the server knows nothing about the fetch function.
+
+59
+00:03:07.590 --> 00:03:10.563
+Now, if we go over to Contact,
+
+60
+00:03:11.850 --> 00:03:13.713
+and we navigate to the Home page,
+
+61
+00:03:16.110 --> 00:03:18.703
+this breaks.
+
+62
+00:03:19.850 --> 00:03:21.860
+Okay, so this breaks for different reasons.
+
+63
+00:03:21.860 --> 00:03:23.340
+This is because we've not returned a value
+
+64
+00:03:23.340 --> 00:03:24.340
+from getInitialProps.
+
+65
+00:03:24.340 --> 00:03:29.080
+If I do return empty object, this should refresh.
+
+66
+00:03:29.080 --> 00:03:30.660
+It's doing a server call.
+
+67
+00:03:30.660 --> 00:03:32.473
+Let's just do that on the client.
+
+68
+00:03:33.400 --> 00:03:34.500
+You see, it loads,
+
+69
+00:03:34.500 --> 00:03:37.342
+and that's because the page is rendering in the client side,
+
+70
+00:03:37.342 --> 00:03:40.080
+but when we hit refresh, it entirely breaks,
+
+71
+00:03:40.080 --> 00:03:41.560
+because there is no fetch function.
+
+72
+00:03:41.560 --> 00:03:42.393
+So we're gonna solve this
+
+73
+00:03:42.393 --> 00:03:46.330
+by adding fetch as a dependency to our project.
+
+74
+00:03:46.330 --> 00:03:49.503
+Now, there's a bunch of different fetch modules.
+
+75
+00:03:50.340 --> 00:03:52.940
+From what I understand, one of the lightest ones is
+
+76
+00:03:56.854 --> 00:04:00.047
+well, I'm gonna use isomorphic-unfetch,
+
+77
+00:04:00.047 --> 00:04:01.860
+but there are a few different projects,
+
+78
+00:04:01.860 --> 00:04:05.126
+but the one I'm gonna use is isomorphic-unfetch,
+
+79
+00:04:05.126 --> 00:04:07.927
+so npm instal
+
+80
+00:04:07.927 --> 00:04:12.643
+isomorphic-unfetch, there we go,
+
+81
+00:04:19.220 --> 00:04:22.690
+and what isomorphic-unfetch will do
+
+82
+00:04:22.690 --> 00:04:27.690
+is introduce the fetch object,
+
+83
+00:04:27.900 --> 00:04:30.600
+but if fetch is already there in the client side,
+
+84
+00:04:30.600 --> 00:04:31.970
+then it won't do anything.
+
+85
+00:04:31.970 --> 00:04:35.410
+It'll just give the client-side library back,
+
+86
+00:04:35.410 --> 00:04:37.240
+and if it's not there, it'll polyfill it,
+
+87
+00:04:37.240 --> 00:04:41.430
+and on the server side it will make it work, basically.
+
+88
+00:04:41.430 --> 00:04:46.430
+So now when we run this code, okay, hit refresh,
+
+89
+00:04:47.894 --> 00:04:51.160
+it works, but nothing's happening, right?
+
+90
+00:04:51.160 --> 00:04:54.450
+Nothing's changed, because we need to get this content
+
+91
+00:04:54.450 --> 00:04:57.020
+back out into the client.
+
+92
+00:04:57.020 --> 00:04:58.750
+So let's have a look at actually what's happening.
+
+93
+00:04:58.750 --> 00:04:59.960
+So there's no console log here,
+
+94
+00:04:59.960 --> 00:05:02.680
+so let's just do a local navigation.
+
+95
+00:05:02.680 --> 00:05:04.960
+All right, so console dot log is showing us
+
+96
+00:05:04.960 --> 00:05:07.150
+that we have our schedule, which is good,
+
+97
+00:05:07.150 --> 00:05:11.970
+and on the server side, if I hit refresh,
+
+98
+00:05:11.970 --> 00:05:13.730
+we can see it's logging out in the server side as well,
+
+99
+00:05:13.730 --> 00:05:15.630
+which means that we're getting the data.
+
+100
+00:05:15.630 --> 00:05:20.630
+This is a good thing, but we need to get this JSON out
+
+101
+00:05:20.820 --> 00:05:23.280
+to be the response to the getInitialProps,
+
+102
+00:05:23.280 --> 00:05:26.220
+and getInitialProps actually needs to be
+
+103
+00:05:27.356 --> 00:05:29.330
+a async function.
+
+104
+00:05:29.330 --> 00:05:31.400
+Okay, so then we can do
+
+105
+00:05:33.160 --> 00:05:36.683
+we can do const res equals await, okay?
+
+106
+00:05:37.760 --> 00:05:38.910
+And then we're gonna do
+
+107
+00:05:40.501 --> 00:05:45.387
+const json equals await res dot json,
+
+108
+00:05:47.330 --> 00:05:50.038
+and then we're gonna return
+
+109
+00:05:50.038 --> 00:05:51.560
+let's call schedule.
+
+110
+00:05:51.560 --> 00:05:53.300
+Let's just pass in the JSON.
+
+111
+00:05:53.300 --> 00:05:55.790
+In fact, let's just rename that variable,
+
+112
+00:05:55.790 --> 00:06:00.270
+just so it looks nice, okay?
+
+113
+00:06:00.270 --> 00:06:01.230
+So
+
+114
+00:06:01.230 --> 00:06:02.480
+Oh, it doesn't like that.
+
+115
+00:06:03.470 --> 00:06:04.323
+The props.
+
+116
+00:06:05.860 --> 00:06:07.260
+What have I done wrong here?
+
+117
+00:06:15.620 --> 00:06:17.623
+I'm gonna leave that where it is, I think.
+
+118
+00:06:18.780 --> 00:06:19.673
+That works.
+
+119
+00:06:21.800 --> 00:06:22.633
+Okay.
+
+120
+00:06:24.361 --> 00:06:26.070
+Now, we're not logging anything out.
+
+121
+00:06:26.070 --> 00:06:29.000
+Here is actually when I'll turn to react-devtools,
+
+122
+00:06:29.000 --> 00:06:34.000
+so if you haven't installed it before, react-devtools.
+
+123
+00:06:35.500 --> 00:06:36.930
+I'm using it for Chrome.
+
+124
+00:06:36.930 --> 00:06:39.613
+Believe Firefox has parity on this tooling,
+
+125
+00:06:41.520 --> 00:06:43.920
+and I've got it over here, React.
+
+126
+00:06:43.920 --> 00:06:46.610
+So I would inspect
+
+127
+00:06:46.610 --> 00:06:48.000
+yeah, in fact you can see it right there,
+
+128
+00:06:48.000 --> 00:06:51.630
+the props, schedule, and there's the schedule.
+
+129
+00:06:51.630 --> 00:06:54.140
+So if I dig into the actual Index page,
+
+130
+00:06:54.140 --> 00:06:57.470
+you can see schedule has an array of eight items.
+
+131
+00:06:57.470 --> 00:07:01.530
+So I'm gonna go ahead and
+
+132
+00:07:01.530 --> 00:07:02.853
+get rid of this list.
+
+133
+00:07:04.332 --> 00:07:05.182
+I'm gonna call it
+
+134
+00:07:07.085 --> 00:07:09.853
+NextConf Schedule Browser,
+
+135
+00:07:11.040 --> 00:07:14.253
+and I'm gonna pull in schedule,
+
+136
+00:07:15.750 --> 00:07:19.380
+and I'm gonna do schedule dot map,
+
+137
+00:07:19.380 --> 00:07:21.166
+and then we're gonna map over
+
+138
+00:07:21.166 --> 00:07:23.277
+(growls) I don't know, let's call it s,
+
+139
+00:07:23.277 --> 00:07:26.390
+and i'm gonna map it over an element called Session, okay?
+
+140
+00:07:26.390 --> 00:07:29.510
+So I've created a new component in the components directory
+
+141
+00:07:29.510 --> 00:07:30.343
+called Session,
+
+142
+00:07:30.343 --> 00:07:32.640
+which just prints title and description, okay?
+
+143
+00:07:32.640 --> 00:07:33.940
+Nothing special right now.
+
+144
+00:07:35.970 --> 00:07:39.370
+So import Session
+
+145
+00:07:39.370 --> 00:07:42.453
+from components Session,
+
+146
+00:07:45.800 --> 00:07:48.143
+and I'm just gonna spread all of the
+
+147
+00:07:50.520 --> 00:07:51.980
+Session
+
+148
+00:07:51.980 --> 00:07:55.090
+onto the properties, and I'll give it a key as well.
+
+149
+00:07:55.090 --> 00:07:57.763
+Key equals s dot slug.
+
+150
+00:07:58.920 --> 00:08:00.963
+This should update, and there we go.
+
+151
+00:08:02.140 --> 00:08:05.210
+Now we have our schedule.
+
+152
+00:08:05.210 --> 00:08:07.560
+Now, I have no idea if this is in order or not.
+
+153
+00:08:08.420 --> 00:08:10.570
+None of this is clickable, but we'll get there,
+
+154
+00:08:10.570 --> 00:08:14.030
+and if I hit refresh, loads in the server side.
+
+155
+00:08:14.030 --> 00:08:15.083
+Navigate About.
+
+156
+00:08:16.420 --> 00:08:18.573
+Yeah, it's all nice and fast.
+
+157
+00:08:19.660 --> 00:08:22.400
+That pink contrast is really not good, is it?
+
+158
+00:08:22.400 --> 00:08:23.900
+But there we go.
+
+159
+00:08:23.900 --> 00:08:26.590
+That is how we use getInitialProps.
+
+160
+00:08:26.590 --> 00:08:29.730
+I'll find out what the ESLint issue is here,
+
+161
+00:08:29.730 --> 00:08:32.043
+and I'll fix it, and update my ESLint
+
+162
+00:08:34.900 --> 00:08:35.770
+config,
+
+163
+00:08:35.770 --> 00:08:37.580
+but I also wanna show you how to do this
+
+164
+00:08:37.580 --> 00:08:40.340
+if this were not a pure component.
+
+165
+00:08:40.340 --> 00:08:45.190
+So let's just rewrite this into...
+
+166
+00:08:45.190 --> 00:08:46.640
+Let's duplicate this.
+
+167
+00:08:46.640 --> 00:08:50.420
+Duplicate, and we're gonna rename it as class, okay?
+
+168
+00:08:50.420 --> 00:08:53.083
+So if we go to index-class,
+
+169
+00:08:55.180 --> 00:08:56.980
+should look exactly the same.
+
+170
+00:08:56.980 --> 00:09:01.530
+We're gonna do import from React,
+
+171
+00:09:01.530 --> 00:09:05.720
+and then we're gonna do Component, okay?
+
+172
+00:09:05.720 --> 00:09:10.510
+And here, we're gonna do class Index extends
+
+173
+00:09:11.850 --> 00:09:13.040
+oops
+
+174
+00:09:13.040 --> 00:09:18.040
+extends Component, and this is our render function.
+
+175
+00:09:34.410 --> 00:09:36.223
+Let's just get rid of this for a second.
+
+176
+00:09:39.283 --> 00:09:40.820
+That.
+
+177
+00:09:40.820 --> 00:09:43.250
+Oh, missing that one.
+
+178
+00:09:43.250 --> 00:09:45.820
+Okay, oh, that.
+
+179
+00:09:45.820 --> 00:09:49.380
+Right, so we can't just...
+
+180
+00:09:49.380 --> 00:09:50.790
+Well, I'm not gonna just pottle it down.
+
+181
+00:09:50.790 --> 00:09:52.250
+Really, what we need to do is just
+
+182
+00:09:52.250 --> 00:09:54.927
+static async getInitialProps,
+
+183
+00:09:57.570 --> 00:09:59.150
+static getInitialProps.
+
+184
+00:09:59.150 --> 00:10:00.503
+Oh my gosh, async.
+
+185
+00:10:10.890 --> 00:10:11.723
+There we go.
+
+186
+00:10:11.723 --> 00:10:13.920
+That works, and...
+
+187
+00:10:15.760 --> 00:10:17.830
+Think you can also do...
+
+188
+00:10:24.102 --> 00:10:25.935
+No, it's static async.
+
+189
+00:10:29.767 --> 00:10:31.110
+Is that right?
+
+190
+00:10:31.110 --> 00:10:31.943
+Yeah,
+
+191
+00:10:35.880 --> 00:10:37.750
+but I've got something up with my
+
+192
+00:10:41.720 --> 00:10:42.553
+parser.
+
+193
+00:10:44.620 --> 00:10:48.480
+Yes, so that's how you would do it
+
+194
+00:10:48.480 --> 00:10:52.130
+as a React component,
+
+195
+00:10:52.130 --> 00:10:54.440
+class component, whatever they're called.
+
+196
+00:10:54.440 --> 00:10:57.660
+So that is how we fetch data on the server side.
+
+197
+00:10:57.660 --> 00:10:59.910
+Now, what I wanna do from here
+
+198
+00:10:59.910 --> 00:11:02.810
+is actually upgrade this app and make it
+
+199
+00:11:02.810 --> 00:11:06.170
+so that you can click on each individual session,
+
+200
+00:11:06.170 --> 00:11:10.010
+and then we're gonna go ahead and make a fetch request
+
+201
+00:11:10.010 --> 00:11:12.870
+for that individual session,
+
+202
+00:11:12.870 --> 00:11:16.223
+and render that on the page using getInitialProps again,
+
+203
+00:11:18.100 --> 00:11:19.740
+and then, once we've done that,
+
+204
+00:11:19.740 --> 00:11:24.500
+we'll look at how to make some nice URLs
+
+205
+00:11:24.500 --> 00:11:28.743
+work with our next application.
+

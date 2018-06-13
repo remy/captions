@@ -1,0 +1,474 @@
+﻿WEBVTT
+
+1
+00:00:00.200 --> 00:00:02.190
+<v ->Okay, so, the next task now is</v>
+
+2
+00:00:02.190 --> 00:00:05.523
+to get these schedule items to be individually linkable,
+
+3
+00:00:07.070 --> 00:00:09.113
+so I'm gonna create a new page,
+
+4
+00:00:10.170 --> 00:00:12.600
+and it's gonna be export default
+
+5
+00:00:14.170 --> 00:00:16.680
+and we're gonna render the session, okay,
+
+6
+00:00:16.680 --> 00:00:20.610
+so import session from, oops
+
+7
+00:00:21.680 --> 00:00:23.200
+What should we call it?
+
+8
+00:00:23.200 --> 00:00:25.920
+Session seems obvious.
+
+9
+00:00:25.920 --> 00:00:30.920
+Import session from components session, okay.
+
+10
+00:00:31.190 --> 00:00:34.050
+And we are going to expect the session
+
+11
+00:00:34.050 --> 00:00:36.630
+to appear somehow on our props,
+
+12
+00:00:36.630 --> 00:00:40.720
+and we're gonna just return out the session component,
+
+13
+00:00:40.720 --> 00:00:42.207
+or we need the layout rather.
+
+14
+00:00:43.230 --> 00:00:48.230
+Layout and then session and we're gonna spread session.
+
+15
+00:00:51.310 --> 00:00:52.143
+There we go.
+
+16
+00:00:53.940 --> 00:00:58.787
+And let's import, import, import layout.
+
+17
+00:01:06.260 --> 00:01:10.400
+Okay, so we need to somehow get
+
+18
+00:01:10.400 --> 00:01:12.920
+these individual items into our page.
+
+19
+00:01:12.920 --> 00:01:17.310
+So let's have a look at our index,
+
+20
+00:01:17.310 --> 00:01:19.100
+and let's log out the schedule,
+
+21
+00:01:19.100 --> 00:01:23.610
+because inside of here, these schedule items is a slug.
+
+22
+00:01:25.760 --> 00:01:27.853
+So if we just bring out the console.
+
+23
+00:01:31.970 --> 00:01:35.390
+Oops. Oh, didn't like that.
+
+24
+00:01:35.390 --> 00:01:38.027
+Oh, I'm not running my server.
+
+25
+00:01:41.340 --> 00:01:43.570
+Let's go off to, back to the server
+
+26
+00:01:43.570 --> 00:01:44.873
+and get it running again.
+
+27
+00:01:49.390 --> 00:01:53.743
+Training npm run mock api.
+
+28
+00:01:56.560 --> 00:01:58.020
+Okay, so it's back and up and running.
+
+29
+00:01:58.020 --> 00:02:00.570
+And I just wanted to look at the console,
+
+30
+00:02:00.570 --> 00:02:03.190
+and if we look at these logs, we can see slug
+
+31
+00:02:03.190 --> 00:02:07.120
+and that's what we're gonna use to load the session.
+
+32
+00:02:07.120 --> 00:02:12.120
+So we're gonna do session question mark slug equals, bosh
+
+33
+00:02:12.520 --> 00:02:14.500
+Okay, so nothing happens here
+
+34
+00:02:14.500 --> 00:02:17.820
+because our session page doesn't do anything.
+
+35
+00:02:17.820 --> 00:02:19.280
+It doesn't complain because it's an empty object
+
+36
+00:02:19.280 --> 00:02:21.830
+that's being spread, good deal.
+
+37
+00:02:21.830 --> 00:02:23.670
+But what we need to do is somehow
+
+38
+00:02:23.670 --> 00:02:26.863
+get the individual schedule,
+
+39
+00:02:29.790 --> 00:02:34.790
+so this local host 3001 has a schedule object
+
+40
+00:02:35.742 --> 00:02:37.940
+and I can do slug equals, slug like that,
+
+41
+00:02:37.940 --> 00:02:42.050
+and it'll give me an array with the response.
+
+42
+00:02:42.050 --> 00:02:44.730
+Really I want the, if it was a proper api,
+
+43
+00:02:44.730 --> 00:02:46.990
+then it would return that single object,
+
+44
+00:02:46.990 --> 00:02:49.350
+but it will do for the time being.
+
+45
+00:02:49.350 --> 00:02:51.820
+Well, though, I actually think it's doing a filter.
+
+46
+00:02:51.820 --> 00:02:55.970
+Anyway, so, what we're gonna do is add
+
+47
+00:02:55.970 --> 00:02:58.100
+get initial props to our session,
+
+48
+00:02:58.100 --> 00:02:58.933
+and we're gonna change this
+
+49
+00:02:58.933 --> 00:03:03.377
+to be called const session page equals,
+
+50
+00:03:05.090 --> 00:03:08.820
+and export default session page,
+
+51
+00:03:08.820 --> 00:03:10.720
+and we're gonna put this in here
+
+52
+00:03:10.720 --> 00:03:14.070
+session page, and we're gonna do
+
+53
+00:03:14.070 --> 00:03:18.750
+just question mark slug equals and then that slug.
+
+54
+00:03:19.620 --> 00:03:24.620
+And I'm gonna do session schedule, oh my gosh,
+
+55
+00:03:29.090 --> 00:03:31.133
+auto complete is doing me in.
+
+56
+00:03:32.013 --> 00:03:33.200
+There we go.
+
+57
+00:03:33.200 --> 00:03:34.460
+Right, so let's have a look at that.
+
+58
+00:03:34.460 --> 00:03:38.250
+Does that work for our needs?
+
+59
+00:03:38.250 --> 00:03:43.020
+Okay, kind of working, alright. Sort of working.
+
+60
+00:03:43.020 --> 00:03:44.940
+Except, you know, it doesn't go to any other,
+
+61
+00:03:44.940 --> 00:03:47.910
+it's hard coded, but we'll come back to that in a moment.
+
+62
+00:03:47.910 --> 00:03:52.910
+Let's make all of these, let's make them linkable, okay?
+
+63
+00:03:53.070 --> 00:03:57.680
+So, h2 link href equals slug.
+
+64
+00:04:04.090 --> 00:04:07.353
+Make that an anchor. There we go.
+
+65
+00:04:10.270 --> 00:04:14.083
+Let's import our link from next.
+
+66
+00:04:18.270 --> 00:04:20.633
+And let's capture this slug as well.
+
+67
+00:04:24.770 --> 00:04:27.450
+Okay, so these are all now clickable,
+
+68
+00:04:27.450 --> 00:04:29.570
+but they don't work because we're going to the wrong place.
+
+69
+00:04:29.570 --> 00:04:31.580
+That was the wrong location.
+
+70
+00:04:31.580 --> 00:04:36.580
+You'll want it to go to session slug equals slug, okay?
+
+71
+00:04:40.800 --> 00:04:41.783
+So fix that.
+
+72
+00:04:44.610 --> 00:04:46.610
+Okay, so we're getting there sort of.
+
+73
+00:04:46.610 --> 00:04:49.960
+Now this is where we look at get initial props
+
+74
+00:04:49.960 --> 00:04:51.300
+and the arguments that go in.
+
+75
+00:04:51.300 --> 00:04:52.793
+So if we have a look.
+
+76
+00:05:10.316 --> 00:05:12.770
+So this is all documented in next documentation,
+
+77
+00:05:12.770 --> 00:05:16.090
+but these are, there's a single object that gets passed in,
+
+78
+00:05:16.090 --> 00:05:18.470
+and these are all the properties inside of that object,
+
+79
+00:05:18.470 --> 00:05:21.270
+and the one that we're interested in is query, okay?
+
+80
+00:05:21.270 --> 00:05:24.083
+So query is gonna be in here.
+
+81
+00:05:25.210 --> 00:05:28.333
+Query and I'm just gonna log it out for the time being.
+
+82
+00:05:29.770 --> 00:05:30.603
+Okay.
+
+83
+00:05:32.390 --> 00:05:37.390
+And let's go back home. Right over there.
+
+84
+00:05:37.873 --> 00:05:39.900
+Let's see, slug equals,
+
+85
+00:05:39.900 --> 00:05:43.620
+if you're going to wear standards in your hair.
+
+86
+00:05:43.620 --> 00:05:46.383
+So, we're going to swap this bit out.
+
+87
+00:05:47.430 --> 00:05:49.590
+We're going to use a string template.
+
+88
+00:05:49.590 --> 00:05:52.103
+And then we're gonna pass in query.slug.
+
+89
+00:05:53.080 --> 00:05:56.003
+And hit site. So let's go back.
+
+90
+00:05:58.500 --> 00:05:59.333
+There we go.
+
+91
+00:06:00.800 --> 00:06:02.710
+So now, let's just get rid
+
+92
+00:06:02.710 --> 00:06:05.290
+of those console logs that we don't need.
+
+93
+00:06:05.290 --> 00:06:09.310
+So now we are capturing the query on the page
+
+94
+00:06:09.310 --> 00:06:11.850
+and let's just check this works on the service side as well.
+
+95
+00:06:11.850 --> 00:06:14.850
+Yep, so a hard refresh is service-side rendering
+
+96
+00:06:16.570 --> 00:06:18.090
+that schedule item.
+
+97
+00:06:18.090 --> 00:06:22.190
+Okay, and when the component is being rendered,
+
+98
+00:06:22.190 --> 00:06:24.580
+it's calling the get initial props,
+
+99
+00:06:24.580 --> 00:06:26.490
+both on service side and client side.
+
+100
+00:06:26.490 --> 00:06:29.090
+The query is being passed on the URL,
+
+101
+00:06:29.090 --> 00:06:31.350
+and we're using the slug property
+
+102
+00:06:31.350 --> 00:06:36.350
+that is in that query to be part of our APR request,
+
+103
+00:06:39.020 --> 00:06:40.950
+and then we're returning that individual session
+
+104
+00:06:40.950 --> 00:06:42.140
+that we're interested in.
+
+105
+00:06:42.140 --> 00:06:44.730
+Now, this detail session page would include things
+
+106
+00:06:44.730 --> 00:06:48.000
+like the speaker, the buyer, and so on.
+
+107
+00:06:48.000 --> 00:06:48.900
+But we can also see that
+
+108
+00:06:48.900 --> 00:06:53.280
+that same URL again is service-side rendered.
+
+109
+00:06:53.280 --> 00:06:55.043
+We do lynx dump.
+
+110
+00:06:56.150 --> 00:07:01.150
+We can see that real content, real kinda spiderable content.
+
+111
+00:07:01.570 --> 00:07:06.470
+That's a word. But very cool, basically.
+
+112
+00:07:06.470 --> 00:07:11.277
+So, we have URLs working, right?
+
+113
+00:07:14.870 --> 00:07:18.070
+We have it working on a service side and a client side.
+
+114
+00:07:18.070 --> 00:07:22.340
+What about if we wanted it to be session slash,
+
+115
+00:07:22.340 --> 00:07:24.400
+'cause you know, it's not,
+
+116
+00:07:24.400 --> 00:07:27.752
+this URL is not the end of the world,
+
+117
+00:07:27.752 --> 00:07:31.530
+but it'd be nice if it were slash and it could parse that.
+
+118
+00:07:31.530 --> 00:07:34.380
+We can do that, and we'll look at that in the next video.
+

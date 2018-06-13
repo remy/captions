@@ -1,0 +1,322 @@
+﻿WEBVTT
+
+1
+00:00:00.970 --> 00:00:05.200
+<v ->Okay, so hooking into more of next components,</v>
+
+2
+00:00:05.200 --> 00:00:06.790
+we want to hook into the routing component
+
+3
+00:00:06.790 --> 00:00:10.363
+to make use of loading transition,
+
+4
+00:00:11.260 --> 00:00:15.493
+and a really nice little package for that is NProgress.
+
+5
+00:00:17.800 --> 00:00:20.250
+This is what it looks like, it's loading across the top,
+
+6
+00:00:20.250 --> 00:00:21.497
+and then we can (mumbles).
+
+7
+00:00:24.520 --> 00:00:27.480
+It comes with two things, the bar across the top
+
+8
+00:00:27.480 --> 00:00:29.780
+and this loading spinner here,
+
+9
+00:00:29.780 --> 00:00:32.200
+and you can change colours and so on.
+
+10
+00:00:32.200 --> 00:00:34.693
+I'm gonna do an NPM instal for NProgress,
+
+11
+00:00:36.407 --> 00:00:40.730
+and we're also gonna have to go and grab the CSS.
+
+12
+00:00:40.730 --> 00:00:44.623
+So we'll do NPM instal NProgress.
+
+13
+00:00:46.220 --> 00:00:49.010
+I'm also gonna copy this
+
+14
+00:00:56.060 --> 00:01:01.060
+into the static directory, so static and wget that one,
+
+15
+00:01:06.420 --> 00:01:08.070
+probably should get compressed version,
+
+16
+00:01:08.070 --> 00:01:10.130
+but I'll deal with that later.
+
+17
+00:01:10.130 --> 00:01:13.233
+Then to get it to work on this page,
+
+18
+00:01:14.350 --> 00:01:16.514
+what we need to do is in my layout,
+
+19
+00:01:16.514 --> 00:01:18.570
+I need to listen to
+
+20
+00:01:20.610 --> 00:01:22.460
+the route transitions.
+
+21
+00:01:22.460 --> 00:01:27.460
+I'm gonna import router from next router, I think it is.
+
+22
+00:01:31.010 --> 00:01:33.733
+There's actually an example on how to do this already.
+
+23
+00:01:38.990 --> 00:01:41.440
+In the example's directory, the next author
+
+24
+00:01:42.390 --> 00:01:45.570
+and you can see all we have to do
+
+25
+00:01:45.570 --> 00:01:48.500
+is just grab this bit of code, so we're saying,
+
+26
+00:01:48.500 --> 00:01:50.360
+let's just talk through what we're looking at here,
+
+27
+00:01:50.360 --> 00:01:55.130
+so we're saying when the router starts,
+
+28
+00:01:55.130 --> 00:01:57.650
+starts transition and start NProgress and do,
+
+29
+00:01:57.650 --> 00:02:00.113
+I actually forgot to import it, NProgress,
+
+30
+00:02:05.060 --> 00:02:07.830
+and when it's complete, the marker is done,
+
+31
+00:02:07.830 --> 00:02:09.430
+but also there's any errors,
+
+32
+00:02:09.430 --> 00:02:14.430
+also call the done handler on NProgress.
+
+33
+00:02:15.450 --> 00:02:16.850
+Let's give that a quick try.
+
+34
+00:02:22.450 --> 00:02:26.520
+Just do a hard refresh, nothing happening.
+
+35
+00:02:26.520 --> 00:02:28.570
+Let's check the console to see if
+
+36
+00:02:28.570 --> 00:02:30.823
+we are doing the loading, we are.
+
+37
+00:02:32.980 --> 00:02:36.340
+Ah, we've forgotten the CSS, I've forgotten the CSS.
+
+38
+00:02:37.270 --> 00:02:40.713
+I'm just gonna add it into here for the time being.
+
+39
+00:02:42.735 --> 00:02:45.733
+Rel equals style sheet,
+
+40
+00:02:47.460 --> 00:02:50.237
+href equals static NProgress.
+
+41
+00:03:02.363 --> 00:03:05.450
+So could be that this is all cached already.
+
+42
+00:03:05.450 --> 00:03:08.813
+Let's look, we've got the style sheet there,
+
+43
+00:03:11.764 --> 00:03:13.150
+and no we don't.
+
+44
+00:03:13.150 --> 00:03:17.563
+Let's just do hard refresh just to be sure.
+
+45
+00:03:34.090 --> 00:03:36.020
+I think it is showing it,
+
+46
+00:03:36.020 --> 00:03:39.603
+but I think our colours are completely the wrong colour.
+
+47
+00:03:40.820 --> 00:03:43.000
+Let's have a quick look at the documentation
+
+48
+00:03:43.000 --> 00:03:45.533
+on how to change the colour.
+
+49
+00:03:50.720 --> 00:03:52.940
+Think maybe just NProgress CSS,
+
+50
+00:03:54.220 --> 00:03:57.563
+the background, let's make that hot pink,
+
+51
+00:03:59.446 --> 00:04:02.650
+like that, hot pink, yeah.
+
+52
+00:04:02.650 --> 00:04:04.733
+Let's change these to hot pink.
+
+53
+00:04:08.760 --> 00:04:11.087
+And then let's give that a try.
+
+54
+00:04:12.890 --> 00:04:14.650
+There we go, yeah, it was literally
+
+55
+00:04:14.650 --> 00:04:16.930
+the same colour as my background.
+
+56
+00:04:16.930 --> 00:04:19.540
+So if any of these pages take a little longer to load,
+
+57
+00:04:19.540 --> 00:04:20.610
+when these are running in the client side,
+
+58
+00:04:20.610 --> 00:04:23.170
+but if there's any loading process
+
+59
+00:04:25.026 --> 00:04:27.270
+and a backend request is happening,
+
+60
+00:04:27.270 --> 00:04:28.620
+this loading spinner will indicate
+
+61
+00:04:28.620 --> 00:04:30.610
+that something's actually happening.
+
+62
+00:04:30.610 --> 00:04:32.990
+These are kind of a big deal, really, because
+
+63
+00:04:32.990 --> 00:04:37.020
+the more we push rendering into the client side
+
+64
+00:04:37.020 --> 00:04:40.010
+and there's some API request happening in the background,
+
+65
+00:04:40.010 --> 00:04:42.520
+if there's no indication that something's happened,
+
+66
+00:04:42.520 --> 00:04:45.270
+it's very easy to just assume that it's broken.
+
+67
+00:04:45.270 --> 00:04:49.590
+I literally a week ago put out a bit of software
+
+68
+00:04:49.590 --> 00:04:53.940
+for one of my customers, and there was no UX to say
+
+69
+00:04:53.940 --> 00:04:55.960
+something was happening when they were doing things.
+
+70
+00:04:55.960 --> 00:04:57.560
+It was just taking two or three seconds
+
+71
+00:04:57.560 --> 00:05:00.110
+to complete a big batch transaction.
+
+72
+00:05:00.110 --> 00:05:02.820
+They clicked on a button, not submit,
+
+73
+00:05:02.820 --> 00:05:04.760
+but a button, and nothing was happening,
+
+74
+00:05:04.760 --> 00:05:07.693
+but by just adding that one progress loader,
+
+75
+00:05:08.770 --> 00:05:13.070
+showed them that at least my software had acknowledged
+
+76
+00:05:13.070 --> 00:05:17.520
+the action the user made, and it was doing something,
+
+77
+00:05:17.520 --> 00:05:22.520
+so that small change allowed the user
+
+78
+00:05:22.740 --> 00:05:24.820
+to actually get an idea that something was happening,
+
+79
+00:05:24.820 --> 00:05:27.400
+and all of a sudden they feel a lot more confident
+
+80
+00:05:27.400 --> 00:05:29.033
+in what they're looking at.
+

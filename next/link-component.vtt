@@ -1,0 +1,466 @@
+﻿WEBVTT
+
+1
+00:00:00.800 --> 00:00:02.800
+<v ->Okay, so I've added just a little bit more</v>
+
+2
+00:00:02.800 --> 00:00:05.430
+markup to my pages,
+
+3
+00:00:05.430 --> 00:00:07.180
+in particular, I've added a link
+
+4
+00:00:07.180 --> 00:00:09.533
+to my contact page, when I click on it,
+
+5
+00:00:09.533 --> 00:00:11.210
+it goes to the contact page,
+
+6
+00:00:11.210 --> 00:00:12.470
+I go backwards and forwards.
+
+7
+00:00:12.470 --> 00:00:14.181
+And I can actually disable JavaScript
+
+8
+00:00:14.181 --> 00:00:17.610
+using the dev tools, to just test that that does work.
+
+9
+00:00:17.610 --> 00:00:19.260
+So when I go back and forth,
+
+10
+00:00:19.260 --> 00:00:21.690
+it really does render, the links work,
+
+11
+00:00:21.690 --> 00:00:23.590
+kind of wires up correctly.
+
+12
+00:00:23.590 --> 00:00:25.620
+Which is great for things like SEO,
+
+13
+00:00:25.620 --> 00:00:28.290
+and proving the server-side renderings is working,
+
+14
+00:00:28.290 --> 00:00:30.330
+but in our case, we do actually
+
+15
+00:00:30.330 --> 00:00:32.113
+want to do a client-side render,
+
+16
+00:00:33.580 --> 00:00:35.450
+and when I click on get in touch,
+
+17
+00:00:35.450 --> 00:00:39.639
+I want to do a local history,
+
+18
+00:00:39.639 --> 00:00:41.160
+push state, and so on.
+
+19
+00:00:41.160 --> 00:00:44.760
+So, Next provides a few,
+
+20
+00:00:44.760 --> 00:00:47.270
+like a handful of components
+
+21
+00:00:47.270 --> 00:00:49.200
+that you can use within your projects,
+
+22
+00:00:49.200 --> 00:00:50.860
+and one of them is the link component.
+
+23
+00:00:50.860 --> 00:00:52.269
+So I'm going to do import,
+
+24
+00:00:52.269 --> 00:00:56.088
+link from Next at link,
+
+25
+00:00:56.088 --> 00:00:59.270
+and then here, I'm just gonna wrap
+
+26
+00:00:59.270 --> 00:01:03.550
+my anchor in the link element,
+
+27
+00:01:03.550 --> 00:01:06.250
+or link component rather, to use the right words.
+
+28
+00:01:06.250 --> 00:01:07.800
+It's saved,
+
+29
+00:01:07.800 --> 00:01:10.683
+and oh, got an error here, what do we have.
+
+30
+00:01:11.800 --> 00:01:13.952
+Href is marked.
+
+31
+00:01:13.952 --> 00:01:17.800
+Okay, so the thing that's it's complaining about,
+
+32
+00:01:17.800 --> 00:01:21.140
+is that the href needs to be on the link element
+
+33
+00:01:21.140 --> 00:01:22.990
+and not on the anchor,
+
+34
+00:01:22.990 --> 00:01:24.640
+so I'm just gonna move that up.
+
+35
+00:01:24.640 --> 00:01:26.390
+Okay, hit save again,
+
+36
+00:01:26.390 --> 00:01:28.170
+and this will reload.
+
+37
+00:01:28.170 --> 00:01:29.400
+Good, no errors.
+
+38
+00:01:29.400 --> 00:01:31.230
+If I click on get in touch,
+
+39
+00:01:31.230 --> 00:01:33.610
+and we're navigating directly inside of the browser,
+
+40
+00:01:33.610 --> 00:01:38.610
+we can see that, by me clearing my devtools.
+
+41
+00:01:38.920 --> 00:01:43.150
+If I go back, click, okay.
+
+42
+00:01:43.150 --> 00:01:45.150
+So there was no request.
+
+43
+00:01:45.150 --> 00:01:47.550
+The on demand entries, that's the Next
+
+44
+00:01:47.550 --> 00:01:49.770
+kind of hot module reloading,
+
+45
+00:01:49.770 --> 00:01:51.110
+and I can hide that
+
+46
+00:01:52.300 --> 00:01:55.363
+by doing kind of a negative filter.
+
+47
+00:01:57.258 --> 00:01:59.512
+And there is no request going on there
+
+48
+00:01:59.512 --> 00:02:01.300
+because that has already cached locally.
+
+49
+00:02:01.300 --> 00:02:03.543
+If I hit refresh here, okay,
+
+50
+00:02:03.543 --> 00:02:06.310
+and click on get in touch,
+
+51
+00:02:06.310 --> 00:02:07.980
+you can see it's only requesting
+
+52
+00:02:07.980 --> 00:02:11.760
+the JavaScript file to do the contacts page,
+
+53
+00:02:11.760 --> 00:02:14.500
+which is where our cosplitting comes into play.
+
+54
+00:02:14.500 --> 00:02:16.900
+So you can see cosplitting already taking effect.
+
+55
+00:02:16.900 --> 00:02:20.410
+And in addition, we can do prefetch,
+
+56
+00:02:20.410 --> 00:02:22.460
+now we won't see this working in development,
+
+57
+00:02:22.460 --> 00:02:27.350
+but prefetch says when Next takes its markup
+
+58
+00:02:27.350 --> 00:02:29.364
+and it sees this prefetch attribute,
+
+59
+00:02:29.364 --> 00:02:30.960
+it will go ahead and do
+
+60
+00:02:30.960 --> 00:02:33.630
+a request for that contact page,
+
+61
+00:02:33.630 --> 00:02:35.370
+so that it's already warm,
+
+62
+00:02:35.370 --> 00:02:37.130
+when I click on it, it'll be kind of
+
+63
+00:02:37.130 --> 00:02:38.690
+warm in the browser, and it'll be
+
+64
+00:02:38.690 --> 00:02:41.113
+an instant bit of navigation, so.
+
+65
+00:02:41.950 --> 00:02:43.701
+It still makes use of the cosplitting,
+
+66
+00:02:43.701 --> 00:02:47.270
+but it does it,
+
+67
+00:02:47.270 --> 00:02:48.880
+it basically just requests it,
+
+68
+00:02:48.880 --> 00:02:50.680
+once the page is down,
+
+69
+00:02:50.680 --> 00:02:51.906
+and it just means that navigating
+
+70
+00:02:51.906 --> 00:02:54.403
+feels really really responsive.
+
+71
+00:02:56.040 --> 00:02:58.120
+Now, you might notice
+
+72
+00:02:58.120 --> 00:03:00.320
+I've left the A tag inside there,
+
+73
+00:03:00.320 --> 00:03:01.430
+if I get rid of this,
+
+74
+00:03:01.430 --> 00:03:03.530
+it's actually deprecated.
+
+75
+00:03:03.530 --> 00:03:05.270
+Or it's marked as not supported anymore.
+
+76
+00:03:05.270 --> 00:03:07.740
+So it still does work,
+
+77
+00:03:07.740 --> 00:03:09.410
+but what Next wants you to do
+
+78
+00:03:09.410 --> 00:03:11.570
+is actually wrap it in an A tag,
+
+79
+00:03:11.570 --> 00:03:14.130
+so you see this down here is an error.
+
+80
+00:03:14.130 --> 00:03:16.260
+Now, I can do
+
+81
+00:03:17.290 --> 00:03:19.055
+naughty things like this,
+
+82
+00:03:19.055 --> 00:03:21.260
+where the
+
+83
+00:03:23.500 --> 00:03:25.190
+clickable bit, the link,
+
+84
+00:03:25.190 --> 00:03:26.900
+isn't actually a link,
+
+85
+00:03:26.900 --> 00:03:28.223
+and it does work.
+
+86
+00:03:29.240 --> 00:03:31.760
+But don't do that, because, you know,
+
+87
+00:03:33.218 --> 00:03:35.420
+any crawler that comes to the website,
+
+88
+00:03:35.420 --> 00:03:36.730
+it can't follow an em tag,
+
+89
+00:03:36.730 --> 00:03:38.493
+over to the contact page.
+
+90
+00:03:38.493 --> 00:03:40.320
+And, you know, you'll get any
+
+91
+00:03:40.320 --> 00:03:42.920
+of the automatic accessibility of the browser,
+
+92
+00:03:42.920 --> 00:03:43.860
+or anything like that.
+
+93
+00:03:43.860 --> 00:03:45.720
+So even though you can put different types
+
+94
+00:03:45.720 --> 00:03:47.003
+of elements inside of here,
+
+95
+00:03:47.003 --> 00:03:50.110
+don't put, you know, non clickable elements.
+
+96
+00:03:50.110 --> 00:03:51.340
+But you can put a button in here,
+
+97
+00:03:51.340 --> 00:03:52.173
+for instance.
+
+98
+00:03:55.090 --> 00:03:57.240
+Okay, and that
+
+99
+00:03:58.320 --> 00:03:59.820
+I think that would work,
+
+100
+00:03:59.820 --> 00:04:01.840
+but what makes more sense
+
+101
+00:04:01.840 --> 00:04:03.610
+is adding kind of an on click.
+
+102
+00:04:03.610 --> 00:04:05.210
+I'm slightly getting ahead of myself,
+
+103
+00:04:05.210 --> 00:04:07.100
+but that is how links work,
+
+104
+00:04:07.100 --> 00:04:09.642
+and again, pretty simple,
+
+105
+00:04:09.642 --> 00:04:11.510
+automatically takes advantage
+
+106
+00:04:11.510 --> 00:04:15.900
+of Next cosplitting, prerendering,
+
+107
+00:04:15.900 --> 00:04:18.420
+and you'll only see prefetch working
+
+108
+00:04:18.420 --> 00:04:20.253
+when you do your production build,
+
+109
+00:04:21.637 --> 00:04:23.507
+and you release to production,
+
+110
+00:04:23.507 --> 00:04:26.093
+but otherwise, that is how it works.
+
+111
+00:04:27.010 --> 00:04:29.720
+And we will look at
+
+112
+00:04:31.160 --> 00:04:33.483
+like nice URLs shortly,
+
+113
+00:04:36.418 --> 00:04:37.650
+which we use the link element
+
+114
+00:04:37.650 --> 00:04:41.339
+to kind of hide the URL it's using to navigate,
+
+115
+00:04:41.339 --> 00:04:43.570
+and we can pass query strings and so on.
+
+116
+00:04:43.570 --> 00:04:45.983
+So we'll see that in an upcoming video.
+

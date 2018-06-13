@@ -1,0 +1,378 @@
+﻿WEBVTT
+
+1
+00:00:01.990 --> 00:00:05.020
+<v ->So once our application is fully written</v>
+
+2
+00:00:05.020 --> 00:00:07.350
+or even we wanna start sharing it with
+
+3
+00:00:07.350 --> 00:00:10.041
+maybe a client or something like that,
+
+4
+00:00:10.041 --> 00:00:11.608
+there's a few options in which
+
+5
+00:00:11.608 --> 00:00:14.240
+we can deploy a Next application.
+
+6
+00:00:14.240 --> 00:00:17.070
+So, it needs, in its current state it needs
+
+7
+00:00:17.070 --> 00:00:18.470
+a dynamic backend, so it needs something
+
+8
+00:00:18.470 --> 00:00:22.010
+to run node to run our server and ZEIT have an offering
+
+9
+00:00:22.010 --> 00:00:26.090
+called Now, which is pretty good, it's,
+
+10
+00:00:26.090 --> 00:00:30.350
+I think it's free for 50 deploys a month
+
+11
+00:00:30.350 --> 00:00:31.273
+or something like that.
+
+12
+00:00:32.270 --> 00:00:34.430
+I have a paid account, I use it quite often
+
+13
+00:00:34.430 --> 00:00:38.880
+for prototyping, mini side projects,
+
+14
+00:00:38.880 --> 00:00:41.570
+little experiments I wanna pop on the web, bots,
+
+15
+00:00:41.570 --> 00:00:43.610
+a whole bunch of things.
+
+16
+00:00:43.610 --> 00:00:47.920
+Currently it's hosted out of the West Coast of the U.S.,
+
+17
+00:00:47.920 --> 00:00:51.610
+so you need to think about that with respect to latency.
+
+18
+00:00:51.610 --> 00:00:54.220
+But I understand they're hoping or planning
+
+19
+00:00:54.220 --> 00:00:58.850
+to release to Europe soon, it's been on the cards
+
+20
+00:00:58.850 --> 00:01:01.740
+for a while now, but it's certainly something
+
+21
+00:01:01.740 --> 00:01:03.540
+they want to do so they'll have better
+
+22
+00:01:03.540 --> 00:01:05.203
+latency across the world.
+
+23
+00:01:06.280 --> 00:01:10.688
+There's two ways of doing this, there is a desktop app
+
+24
+00:01:10.688 --> 00:01:14.233
+which I think you can instal from this page somewhere.
+
+25
+00:01:17.150 --> 00:01:18.083
+Gosh, somewhere.
+
+26
+00:01:21.280 --> 00:01:24.260
+And the command line app.
+
+27
+00:01:24.260 --> 00:01:28.600
+So I prefer the command line app, wow,
+
+28
+00:01:28.600 --> 00:01:30.300
+it really didn't say where get it.
+
+29
+00:01:32.984 --> 00:01:35.410
+And the desktop app is like a little icon
+
+30
+00:01:35.410 --> 00:01:37.840
+at the top that you drag your files into.
+
+31
+00:01:37.840 --> 00:01:40.230
+So, the way that the command line app works,
+
+32
+00:01:40.230 --> 00:01:44.090
+you just type now, hit enter and it takes
+
+33
+00:01:44.090 --> 00:01:48.447
+all of your files, it excludes node modules,
+
+34
+00:01:50.020 --> 00:01:54.400
+directories and anything that's in get ignore
+
+35
+00:01:54.400 --> 00:01:57.310
+and it will zip it up and upload it,
+
+36
+00:01:57.310 --> 00:01:59.270
+I think it will try and also work out the delta
+
+37
+00:01:59.270 --> 00:02:01.440
+between last upload as well.
+
+38
+00:02:01.440 --> 00:02:06.440
+And it will give you a immutable URL.
+
+39
+00:02:06.710 --> 00:02:10.320
+So each deploy you do is completely immutable,
+
+40
+00:02:10.320 --> 00:02:13.310
+so you can deploy five times and make small
+
+41
+00:02:13.310 --> 00:02:15.850
+incremental changes and look at each of those.
+
+42
+00:02:15.850 --> 00:02:19.810
+And it gives you a unique URL for each immutable instance.
+
+43
+00:02:19.810 --> 00:02:21.940
+So, this has been copied to my clipboard,
+
+44
+00:02:21.940 --> 00:02:25.240
+I can go ahead and just pop that into the browser
+
+45
+00:02:25.240 --> 00:02:30.240
+and there is our online, I shut down this server,
+
+46
+00:02:31.978 --> 00:02:34.523
+online version of the app here.
+
+47
+00:02:34.523 --> 00:02:36.960
+So, it all works as we'd expect.
+
+48
+00:02:36.960 --> 00:02:39.843
+We had the syntax highlighting that we mentioned before.
+
+49
+00:02:41.221 --> 00:02:46.221
+Noice, what else do we have, we have the about,
+
+50
+00:02:46.310 --> 00:02:50.870
+contact pages, it is hitting the API
+
+51
+00:02:50.870 --> 00:02:52.720
+to get all that content.
+
+52
+00:02:52.720 --> 00:02:57.150
+If we look at Dev Tools and just refresh
+
+53
+00:02:59.580 --> 00:03:01.493
+you can see the requests being made.
+
+54
+00:03:02.376 --> 00:03:05.083
+And you can see a bit of the latency
+
+55
+00:03:05.083 --> 00:03:09.420
+that's going on for me in the U.K. hitting U.S.
+
+56
+00:03:10.810 --> 00:03:12.810
+I have my cache disabled as well
+
+57
+00:03:12.810 --> 00:03:15.564
+so it's a little bit slower as well.
+
+58
+00:03:15.564 --> 00:03:18.990
+But now you can see with, sorry, not empty cache,
+
+59
+00:03:18.990 --> 00:03:23.202
+a hot cache everything's pretty fast and nice and slick.
+
+60
+00:03:23.202 --> 00:03:25.650
+So yeah, pretty good experience.
+
+61
+00:03:25.650 --> 00:03:27.500
+One thing I do wanna show you as well
+
+62
+00:03:28.340 --> 00:03:30.500
+is the prefetch which I'll show you separately
+
+63
+00:03:30.500 --> 00:03:33.830
+in a separate video, but that is deploying to Now.
+
+64
+00:03:33.830 --> 00:03:35.190
+And there's a few different options
+
+65
+00:03:35.190 --> 00:03:36.990
+and I'm gonna look at those as well.
+
+66
+00:03:37.970 --> 00:03:40.010
+But anything that can run a dynamic backend
+
+67
+00:03:40.010 --> 00:03:41.910
+will be able to do this as well.
+
+68
+00:03:41.910 --> 00:03:44.960
+Things like Heroku you'll be able to push
+
+69
+00:03:44.960 --> 00:03:48.560
+and as long as you run the NPM build
+
+70
+00:03:48.560 --> 00:03:50.164
+before it deploys.
+
+71
+00:03:50.164 --> 00:03:52.957
+So if you look at this there was a step
+
+72
+00:03:54.870 --> 00:03:56.560
+that's tucked away here because I think actually
+
+73
+00:03:56.560 --> 00:03:58.463
+I had already uploaded this version.
+
+74
+00:03:59.410 --> 00:04:03.620
+In package it needs to run NPM run build
+
+75
+00:04:03.620 --> 00:04:05.500
+before it actually starts the service.
+
+76
+00:04:05.500 --> 00:04:08.700
+So when it deploys to now it's using build
+
+77
+00:04:08.700 --> 00:04:12.380
+and then start, if you wanna have a different start script
+
+78
+00:04:12.380 --> 00:04:14.340
+for now you could do now start
+
+79
+00:04:14.340 --> 00:04:18.510
+and then something else API equals X.
+
+80
+00:04:18.510 --> 00:04:20.210
+I think same is true with Heroku,
+
+81
+00:04:20.210 --> 00:04:22.270
+I think you can do things like Heroku
+
+82
+00:04:22.270 --> 00:04:25.940
+but you'll need to check the individual service
+
+83
+00:04:25.940 --> 00:04:27.290
+that you wanna deploy with.
+
+84
+00:04:29.170 --> 00:04:30.890
+Yeah, so anything that can run load int backend
+
+85
+00:04:30.890 --> 00:04:34.700
+can run this Next application.
+
+86
+00:04:34.700 --> 00:04:39.700
+So, the next question is what about services
+
+87
+00:04:39.750 --> 00:04:44.750
+that can't run node on the backend?
+
+88
+00:04:46.080 --> 00:04:47.730
+What about services like Netlify?
+
+89
+00:04:48.580 --> 00:04:53.235
+We can deploy our Next application to Netlify
+
+90
+00:04:53.235 --> 00:04:56.420
+and I'm gonna show you that in the next video
+
+91
+00:04:56.420 --> 00:04:58.430
+and that's where there is no dynamic backend
+
+92
+00:04:58.430 --> 00:05:01.299
+and it is all entirely static content,
+
+93
+00:05:01.299 --> 00:05:05.210
+entirely pre-generated and deployed
+
+94
+00:05:05.210 --> 00:05:07.683
+and running client side and from static files.
+

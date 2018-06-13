@@ -1,0 +1,614 @@
+﻿WEBVTT
+
+1
+00:00:03.100 --> 00:00:06.960
+<v ->So this session is about what what runs where.</v>
+
+2
+00:00:06.960 --> 00:00:11.960
+So with next we have the server side and client side,
+
+3
+00:00:12.870 --> 00:00:17.210
+and in most situations it runs both
+
+4
+00:00:17.210 --> 00:00:18.880
+on the server side and client side
+
+5
+00:00:18.880 --> 00:00:22.090
+and if React is fully hydrated
+
+6
+00:00:22.090 --> 00:00:26.678
+then the client side is like a no op, no operation,
+
+7
+00:00:26.678 --> 00:00:28.380
+but it still runs.
+
+8
+00:00:28.380 --> 00:00:30.970
+But there are some situations where
+
+9
+00:00:30.970 --> 00:00:33.550
+you don't want code to run on one or the other,
+
+10
+00:00:33.550 --> 00:00:36.730
+so it's useful to know where those edges are.
+
+11
+00:00:36.730 --> 00:00:38.290
+So I had this problem where
+
+12
+00:00:39.720 --> 00:00:44.720
+I was adding a notes block to the app we're building.
+
+13
+00:00:45.710 --> 00:00:48.960
+And I wanted to show dynamic modules,
+
+14
+00:00:48.960 --> 00:00:51.150
+which I'll show you in the next video.
+
+15
+00:00:51.150 --> 00:00:54.570
+But for the time being we have a text area here,
+
+16
+00:00:54.570 --> 00:00:55.603
+or what appears to be a text area,
+
+17
+00:00:55.603 --> 00:00:57.460
+it's actually CodeMirror.
+
+18
+00:00:57.460 --> 00:01:00.480
+And the intention is it supports markdown,
+
+19
+00:01:00.480 --> 00:01:03.031
+it'll have markdown syntax highlighted.
+
+20
+00:01:03.031 --> 00:01:06.863
+So not so complicated, but.
+
+21
+00:01:08.080 --> 00:01:12.830
+It requires that we include the react-codemirror component
+
+22
+00:01:12.830 --> 00:01:16.180
+and to load in the CSS
+
+23
+00:01:16.180 --> 00:01:18.930
+just the word to note compared to the other videos
+
+24
+00:01:18.930 --> 00:01:22.030
+I've switched over to using the CSS loader
+
+25
+00:01:22.030 --> 00:01:25.797
+instead of the SECS, I've just changed everything to CSS.
+
+26
+00:01:27.446 --> 00:01:29.810
+And this new notes component is included
+
+27
+00:01:29.810 --> 00:01:32.830
+in the session component which I've just
+
+28
+00:01:32.830 --> 00:01:34.120
+rearranged a little bit here.
+
+29
+00:01:34.120 --> 00:01:38.310
+So notes has a URL, just popping it straight down there.
+
+30
+00:01:38.310 --> 00:01:41.880
+Okay, so, this isn't syntax highlighted
+
+31
+00:01:41.880 --> 00:01:46.280
+because it is not importing the markdown mode.
+
+32
+00:01:48.230 --> 00:01:51.180
+So, I'm adding the markdown mode.
+
+33
+00:01:51.180 --> 00:01:52.480
+I'm just gonna click away.
+
+34
+00:01:53.790 --> 00:01:55.690
+And we'll just go back to Jenn's talk.
+
+35
+00:01:56.910 --> 00:02:00.743
+And, oh, that's gotta be markdown here.
+
+36
+00:02:03.430 --> 00:02:05.603
+Let's just go back and come back again.
+
+37
+00:02:07.180 --> 00:02:09.873
+So nothing is happening there, it's a great start.
+
+38
+00:02:12.810 --> 00:02:14.773
+Let's just try that again.
+
+39
+00:02:18.380 --> 00:02:19.363
+Put that back in.
+
+40
+00:02:24.420 --> 00:02:25.253
+Okay.
+
+41
+00:02:25.253 --> 00:02:27.670
+So there we've got syntax highlighting, so it does.
+
+42
+00:02:30.150 --> 00:02:34.223
+M, strong, and so on.
+
+43
+00:02:37.110 --> 00:02:40.670
+The reason I was kind of doing like this
+
+44
+00:02:40.670 --> 00:02:44.010
+is that this import statement actually causes a problem.
+
+45
+00:02:44.010 --> 00:02:46.550
+So we've got the code saved and hit refresh,
+
+46
+00:02:46.550 --> 00:02:48.390
+now all the code blows up.
+
+47
+00:02:48.390 --> 00:02:53.390
+The reason for this is this particular JavaScript file
+
+48
+00:02:54.310 --> 00:02:56.840
+is trying to access the navigator object.
+
+49
+00:02:56.840 --> 00:02:58.950
+And the navigator object doesn't exist,
+
+50
+00:02:58.950 --> 00:03:03.250
+and so this error actually originates from server side
+
+51
+00:03:03.250 --> 00:03:05.560
+and is being propagated out to the client side.
+
+52
+00:03:05.560 --> 00:03:07.760
+The reason it worked when I navigated around
+
+53
+00:03:09.780 --> 00:03:13.240
+is because when I navigate to
+
+54
+00:03:13.240 --> 00:03:14.890
+one of these pages in the browser
+
+55
+00:03:16.470 --> 00:03:19.030
+it's running inside of the browser.
+
+56
+00:03:19.030 --> 00:03:20.297
+Now the reason it's still saying,
+
+57
+00:03:20.297 --> 00:03:23.230
+"Navigator not defined," is because it cached the error
+
+58
+00:03:23.230 --> 00:03:25.920
+and it's trying, the paged cached.
+
+59
+00:03:25.920 --> 00:03:30.310
+Restart, it'll flush that cache,
+
+60
+00:03:30.310 --> 00:03:33.730
+and it'll load, and it won't load a session page
+
+61
+00:03:33.730 --> 00:03:36.220
+because session is used all over the place.
+
+62
+00:03:36.220 --> 00:03:39.163
+Okay, the point is navigator's not there, okay.
+
+63
+00:03:42.540 --> 00:03:44.680
+This is happening client side, that's why this works,
+
+64
+00:03:44.680 --> 00:03:46.798
+but it doesn't work on the server side.
+
+65
+00:03:46.798 --> 00:03:48.310
+So we need to somehow work out
+
+66
+00:03:48.310 --> 00:03:51.913
+when we can run on the client side.
+
+67
+00:03:53.708 --> 00:03:58.708
+So, when the react component
+
+68
+00:03:58.720 --> 00:04:00.310
+is rendered on the server side
+
+69
+00:04:01.370 --> 00:04:05.160
+everything in the life cycle of a react component is run
+
+70
+00:04:05.160 --> 00:04:08.170
+except for componentDidMount.
+
+71
+00:04:08.170 --> 00:04:12.374
+So, componentDidMount, where are we here?
+
+72
+00:04:12.374 --> 00:04:14.233
+Only runs in the client side.
+
+73
+00:04:19.010 --> 00:04:21.080
+All right, but everything else is run on server side,
+
+74
+00:04:21.080 --> 00:04:24.390
+so if I did componentWillMount you'll see
+
+75
+00:04:26.290 --> 00:04:27.890
+it's on the server side as well.
+
+76
+00:04:35.130 --> 00:04:35.963
+Okay.
+
+77
+00:04:35.963 --> 00:04:40.520
+So if we hit refresh, yep, refresh.
+
+78
+00:04:40.520 --> 00:04:43.000
+So you see componentWillMount, and then render,
+
+79
+00:04:43.000 --> 00:04:46.360
+and on the client side, oops,
+
+80
+00:04:46.360 --> 00:04:51.360
+we will see componentWillMount, render, componentDidMount.
+
+81
+00:04:51.590 --> 00:04:55.290
+So this is the only place in the component
+
+82
+00:04:55.290 --> 00:04:56.620
+that runs client side.
+
+83
+00:04:56.620 --> 00:04:59.143
+So we could put our request.
+
+84
+00:05:01.880 --> 00:05:02.713
+Where is it?
+
+85
+00:05:03.640 --> 00:05:06.503
+So we give that a try, so let's just refresh that.
+
+86
+00:05:07.840 --> 00:05:09.923
+And it's not working there.
+
+87
+00:05:11.110 --> 00:05:14.190
+I'm gonna get another try, just do a local navigation.
+
+88
+00:05:14.190 --> 00:05:16.277
+Kind of works there, but it doesn't work on load.
+
+89
+00:05:16.277 --> 00:05:18.830
+And the reason it doesn't work on load is because
+
+90
+00:05:20.100 --> 00:05:24.260
+the component mounts, and then we require this module
+
+91
+00:05:24.260 --> 00:05:26.683
+which just loads some stuff into memory,
+
+92
+00:05:27.700 --> 00:05:30.560
+but it doesn't trigger another update or render.
+
+93
+00:05:30.560 --> 00:05:33.250
+And nothing changes anyway,
+
+94
+00:05:33.250 --> 00:05:35.840
+so we could do this.forceUpdate,
+
+95
+00:05:35.840 --> 00:05:37.430
+which is not a very healthy thing to do
+
+96
+00:05:37.430 --> 00:05:38.730
+but we can do that anyway.
+
+97
+00:05:39.650 --> 00:05:40.520
+But that doesn't do anything
+
+98
+00:05:40.520 --> 00:05:43.083
+because nothing changed here.
+
+99
+00:05:44.014 --> 00:05:46.190
+And actually what I need to do
+
+100
+00:05:46.190 --> 00:05:49.810
+is just change something inside of this plugin.
+
+101
+00:05:49.810 --> 00:05:54.190
+So what I can do is make the default mode text.
+
+102
+00:05:54.190 --> 00:05:59.190
+Here I can do this.setState mode markdown.
+
+103
+00:06:01.860 --> 00:06:05.240
+And because I'm changing the state at this point,
+
+104
+00:06:05.240 --> 00:06:08.520
+this will trigger the render function again
+
+105
+00:06:08.520 --> 00:06:10.620
+and inside of the codemirror component
+
+106
+00:06:10.620 --> 00:06:12.800
+it will see that the state has changed
+
+107
+00:06:12.800 --> 00:06:15.520
+and it will cause it to basically
+
+108
+00:06:15.520 --> 00:06:19.130
+rerun the tokenizer which does all the syntax highlighting.
+
+109
+00:06:19.130 --> 00:06:19.963
+So.
+
+110
+00:06:21.330 --> 00:06:26.090
+It works locally and refresh works locally,
+
+111
+00:06:26.090 --> 00:06:28.756
+server side as well, so it doesn't blow up on the server.
+
+112
+00:06:28.756 --> 00:06:33.756
+And just whilst we're on what runs where,
+
+113
+00:06:34.140 --> 00:06:36.910
+we also should note that
+
+114
+00:06:39.710 --> 00:06:42.990
+this getInitialProps, this is a really good place to
+
+115
+00:06:43.840 --> 00:06:46.180
+kind of decide what to run
+
+116
+00:06:46.180 --> 00:06:49.300
+and detect what's running when.
+
+117
+00:06:49.300 --> 00:06:51.640
+Because along with query we can get
+
+118
+00:06:51.640 --> 00:06:53.660
+the request and the response,
+
+119
+00:06:53.660 --> 00:06:56.443
+and the request is actually a useful one to know.
+
+120
+00:06:57.580 --> 00:07:00.950
+If request, then we run on the server side,
+
+121
+00:07:00.950 --> 00:07:02.193
+and if no request,
+
+122
+00:07:06.160 --> 00:07:07.160
+we're on the client.
+
+123
+00:07:12.760 --> 00:07:15.093
+Okay so if I go over to here.
+
+124
+00:07:16.210 --> 00:07:17.363
+Hit refresh.
+
+125
+00:07:19.350 --> 00:07:22.450
+So that will run once on the server side.
+
+126
+00:07:22.450 --> 00:07:25.380
+And because the getInitialProps only ran
+
+127
+00:07:25.380 --> 00:07:26.820
+on the server side for this page
+
+128
+00:07:26.820 --> 00:07:30.743
+it will run again if we go into one of these pages.
+
+129
+00:07:32.470 --> 00:07:36.567
+So we can use getInitialProps to detect
+
+130
+00:07:38.160 --> 00:07:39.140
+when we're on the server
+
+131
+00:07:39.140 --> 00:07:40.460
+or when we're on a client side.
+
+132
+00:07:40.460 --> 00:07:44.520
+And in fact in next 5.1,
+
+133
+00:07:44.520 --> 00:07:48.090
+there's a module that's been exposed,
+
+134
+00:07:48.090 --> 00:07:50.780
+you'll be able to do import config from
+
+135
+00:07:50.780 --> 00:07:55.733
+next/config, and inside of that there should be,
+
+136
+00:07:57.250 --> 00:07:58.770
+you might be able to set flag
+
+137
+00:07:58.770 --> 00:08:00.995
+saying whether or not you're in the
+
+138
+00:08:00.995 --> 00:08:01.950
+server side or in a client side.
+
+139
+00:08:01.950 --> 00:08:04.080
+So that might be another way of doing things.
+
+140
+00:08:04.080 --> 00:08:08.000
+So that is what runs where.
+
+141
+00:08:08.000 --> 00:08:10.890
+If you just wanna run some code in a client side
+
+142
+00:08:12.260 --> 00:08:16.980
+for a component you want to put it into componentDidMount,
+
+143
+00:08:16.980 --> 00:08:19.908
+and then do something to kind of trigger a rerender.
+
+144
+00:08:19.908 --> 00:08:23.370
+And next you should look at dynamic loading
+
+145
+00:08:23.370 --> 00:08:25.860
+and how we can move all of this actually into the client,
+
+146
+00:08:25.860 --> 00:08:30.720
+because arguably if we're gonna retokenize
+
+147
+00:08:30.720 --> 00:08:33.480
+all of this CodeMirror view,
+
+148
+00:08:33.480 --> 00:08:34.770
+this CodeMirror stuff's gonna rerun
+
+149
+00:08:34.770 --> 00:08:36.510
+the entire thing in a client side,
+
+150
+00:08:36.510 --> 00:08:38.503
+why bother even running on it server side?
+
+151
+00:08:38.503 --> 00:08:40.860
+Okay so we're gonna move it all into the client side
+
+152
+00:08:40.860 --> 00:08:45.860
+and make its own small code splitted,
+
+153
+00:08:47.310 --> 00:08:48.710
+bit of JavaScript basically.
+

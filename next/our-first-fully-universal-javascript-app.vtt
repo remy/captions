@@ -1,0 +1,442 @@
+﻿WEBVTT
+
+1
+00:00:01.400 --> 00:00:03.672
+<v ->Right so, let's go ahead and actually</v>
+
+2
+00:00:03.672 --> 00:00:05.592
+create our first next application.
+
+3
+00:00:05.592 --> 00:00:09.912
+Now throughout this workshop I am referring
+
+4
+00:00:09.912 --> 00:00:14.061
+to these slides, you'll have it in the workshop material.
+
+5
+00:00:14.061 --> 00:00:18.541
+And along with the slides, there are notes tucked away.
+
+6
+00:00:18.541 --> 00:00:22.840
+But also there's a git repo that you can check out
+
+7
+00:00:22.840 --> 00:00:27.523
+that are tagged which has kinda this code already in place
+
+8
+00:00:27.523 --> 00:00:29.080
+and you can check out the tags
+
+9
+00:00:29.080 --> 00:00:31.384
+throughout the whole of the workshop.
+
+10
+00:00:31.384 --> 00:00:35.448
+There are links up in the top of the corner of the slides
+
+11
+00:00:35.448 --> 00:00:37.069
+so you can follow like that, or you can just
+
+12
+00:00:37.069 --> 00:00:40.077
+you know, copy and paste as you go along,
+
+13
+00:00:40.077 --> 00:00:43.405
+but hopefully that source is useful.
+
+14
+00:00:43.405 --> 00:00:46.605
+So, before we actually even do an npm in it
+
+15
+00:00:46.605 --> 00:00:50.851
+we need to, like step zero is actually Node.
+
+16
+00:00:50.851 --> 00:00:53.080
+So make sure that you have the latest version
+
+17
+00:00:53.080 --> 00:00:57.080
+LTS version of Node, today it's currently eight.
+
+18
+00:00:59.164 --> 00:01:04.164
+One day it's gonna be 10, but get the latest version of Node
+
+19
+00:01:04.995 --> 00:01:07.830
+and when you've downloaded that or however you instal Node
+
+20
+00:01:07.830 --> 00:01:09.739
+you'll also have a copy of npm.
+
+21
+00:01:09.739 --> 00:01:13.899
+Which then means that we can do these commands.
+
+22
+00:01:13.899 --> 00:01:16.832
+So I'm using npn in it dash F which will create
+
+23
+00:01:16.832 --> 00:01:20.214
+an empty package dot json file for me
+
+24
+00:01:20.214 --> 00:01:22.219
+with a bunch of defaults.
+
+25
+00:01:22.219 --> 00:01:24.950
+So you can do npn in it without the F
+
+26
+00:01:24.950 --> 00:01:28.054
+it will prompt for you things like the project name,
+
+27
+00:01:28.054 --> 00:01:29.846
+description, that kind of thing,
+
+28
+00:01:29.846 --> 00:01:33.096
+dash F just force does that for us, and
+
+29
+00:01:34.791 --> 00:01:37.642
+now the next step is to instal the dependency.
+
+30
+00:01:37.642 --> 00:01:42.142
+So we're gonna go ahead and instal the latest version
+
+31
+00:01:43.210 --> 00:01:45.717
+of next, react, and react-dom.
+
+32
+00:01:45.717 --> 00:01:48.682
+Those three things are required to get this project to run.
+
+33
+00:01:48.682 --> 00:01:52.932
+Now, the site team put out a canary version of next
+
+34
+00:01:56.319 --> 00:01:58.815
+which is kinda the upcoming features,
+
+35
+00:01:58.815 --> 00:02:02.111
+under the @canary tag. So if you want to try out
+
+36
+00:02:02.111 --> 00:02:06.751
+some new features you could do npm instal next @cancary
+
+37
+00:02:06.751 --> 00:02:09.418
+and that will give you the latest version.
+
+38
+00:02:09.418 --> 00:02:12.668
+Today, this is installing version five.
+
+39
+00:02:14.416 --> 00:02:16.957
+I believe version 5.1 is right 'round the corner
+
+40
+00:02:16.957 --> 00:02:19.464
+some really cool stuff in there, including something
+
+41
+00:02:19.464 --> 00:02:22.248
+their referring to as universal config
+
+42
+00:02:22.248 --> 00:02:25.416
+which we will look at later on in this workshop.
+
+43
+00:02:25.416 --> 00:02:28.094
+But it's quite possible in the time you're watching this,
+
+44
+00:02:28.094 --> 00:02:30.677
+5.1 will be the staple release.
+
+45
+00:02:32.030 --> 00:02:36.264
+So, now that's installed, I have all my packages
+
+46
+00:02:36.264 --> 00:02:37.896
+but I'm not quite ready to go yet.
+
+47
+00:02:37.896 --> 00:02:41.479
+I need to, I need to add the start scripts.
+
+48
+00:02:43.592 --> 00:02:46.509
+So I'm gonna open up my code editor
+
+49
+00:02:48.179 --> 00:02:51.614
+okay, and I need to insert some scripts here
+
+50
+00:02:51.614 --> 00:02:55.774
+so I go over here, I just copy and paste just these bits
+
+51
+00:02:55.774 --> 00:02:57.992
+And so I have three commands I'm gonna use:
+
+52
+00:02:57.992 --> 00:03:00.542
+dev, build, and start.
+
+53
+00:03:00.542 --> 00:03:03.358
+Dev is what we use for logo development
+
+54
+00:03:03.358 --> 00:03:07.358
+includes hot module reloading, it invokes errors
+
+55
+00:03:08.254 --> 00:03:11.070
+all that kinda good stuff that we need to debug with.
+
+56
+00:03:11.070 --> 00:03:14.163
+Build is like a precommand that Next would use
+
+57
+00:03:14.163 --> 00:03:16.648
+when it moves to production, to repair all of
+
+58
+00:03:16.648 --> 00:03:19.112
+the Next assets and all the jobs
+
+59
+00:03:19.112 --> 00:03:20.830
+that actually makes it work.
+
+60
+00:03:20.830 --> 00:03:23.368
+And then start is for production.
+
+61
+00:03:23.368 --> 00:03:25.047
+So we will look at releasing into
+
+62
+00:03:25.047 --> 00:03:27.309
+production later on in this series.
+
+63
+00:03:27.309 --> 00:03:30.626
+So, let's go back to the command line npm run dev
+
+64
+00:03:30.626 --> 00:03:32.194
+it's gonna fail because we don't
+
+65
+00:03:32.194 --> 00:03:33.965
+have any code to run, right?
+
+66
+00:03:33.965 --> 00:03:35.522
+All we've done is put a package file there
+
+67
+00:03:35.522 --> 00:03:37.005
+there's none in the outcode place
+
+68
+00:03:37.005 --> 00:03:39.234
+so we're gonna do that next.
+
+69
+00:03:39.234 --> 00:03:44.234
+Okay, so the Setup step one is get the packages in place
+
+70
+00:03:44.333 --> 00:03:48.301
+Setup step 2 is actually put a file in place.
+
+71
+00:03:48.301 --> 00:03:50.114
+So we need to have a pages directory
+
+72
+00:03:50.114 --> 00:03:52.269
+and I'll come on to explaining what that means
+
+73
+00:03:52.269 --> 00:03:54.615
+and we are gonna add a file called index.js
+
+74
+00:03:54.615 --> 00:03:58.850
+and it's just gonna contain this, so let's do that now.
+
+75
+00:03:58.850 --> 00:04:02.350
+Mkdir pages, okay and in here I'm gonna do
+
+76
+00:04:05.677 --> 00:04:09.344
+new file, index.js, pop that in there, save.
+
+77
+00:04:12.566 --> 00:04:15.149
+And I'm gonna do npm, run, dev.
+
+78
+00:04:16.225 --> 00:04:21.225
+And that's gonna compile and prepare the next server.
+
+79
+00:04:21.452 --> 00:04:24.406
+So let's pull over to side, let's have a look,
+
+80
+00:04:24.406 --> 00:04:25.953
+so welcome!
+
+81
+00:04:25.953 --> 00:04:27.980
+And if you go back to the server we can see,
+
+82
+00:04:27.980 --> 00:04:29.249
+just scroll up a little bit,
+
+83
+00:04:29.249 --> 00:04:30.796
+it sees that there was a request for that
+
+84
+00:04:30.796 --> 00:04:35.105
+index page, and compile that and serve it into the browser.
+
+85
+00:04:35.105 --> 00:04:37.605
+So that is a next app running.
+
+86
+00:04:39.617 --> 00:04:42.034
+And like I said, zero config,
+
+87
+00:04:43.254 --> 00:04:48.254
+this has got a hot reload built in so welcome to my workshop
+
+88
+00:04:48.865 --> 00:04:51.244
+okay, so didn't have to hit refresh
+
+89
+00:04:51.244 --> 00:04:53.075
+just injects that straight onto the page
+
+90
+00:04:53.075 --> 00:04:54.693
+If I had multiple components it would
+
+91
+00:04:54.693 --> 00:04:57.105
+inject just that component.
+
+92
+00:04:57.105 --> 00:04:58.599
+The other thing I want to show you is
+
+93
+00:04:58.599 --> 00:05:00.743
+that this is actually service I've rendered first,
+
+94
+00:05:00.743 --> 00:05:03.697
+and then rendered in the browser if required,
+
+95
+00:05:03.697 --> 00:05:07.280
+we just bring up another terminal down here
+
+96
+00:05:11.728 --> 00:05:15.977
+ponies, I'm just gonna do a curl, oops not that one
+
+97
+00:05:15.977 --> 00:05:18.409
+lynx, there we go, lynx dump is just
+
+98
+00:05:18.409 --> 00:05:22.654
+giving me a text dump of what's on that URL
+
+99
+00:05:22.654 --> 00:05:25.300
+you can see, that's this text being delivered from
+
+100
+00:05:25.300 --> 00:05:29.396
+the server you can see it in the network requests as well,
+
+101
+00:05:29.396 --> 00:05:34.396
+over here, network, preview relational coming over the wire
+
+102
+00:05:34.622 --> 00:05:37.065
+if you dig through this you should be able to see it
+
+103
+00:05:37.065 --> 00:05:41.598
+if you go, welcome to my workshop, fully hydrated
+
+104
+00:05:41.598 --> 00:05:44.015
+react application. That's it!
+
+105
+00:05:45.498 --> 00:05:48.724
+So, you know, if your entire website is just
+
+106
+00:05:48.724 --> 00:05:53.097
+a single paged plain text app that's all you have to do
+
+107
+00:05:53.097 --> 00:05:54.660
+you don't have to watch anymore videos!
+
+108
+00:05:54.660 --> 00:05:58.043
+However, if you want to learn about URLs, debugging,
+
+109
+00:05:58.043 --> 00:06:00.400
+you know making, this a lot more interesting,
+
+110
+00:06:00.400 --> 00:06:02.799
+then, you know, keep watching.
+

@@ -1,0 +1,274 @@
+﻿WEBVTT
+
+1
+00:00:00.480 --> 00:00:03.380
+<v ->Okay, so now we have our very basic Next application,</v>
+
+2
+00:00:03.380 --> 00:00:06.234
+we want to add some more content to it,
+
+3
+00:00:06.234 --> 00:00:08.295
+some more pages, and actually start seeing
+
+4
+00:00:08.295 --> 00:00:10.950
+some of the benefits that Next will give us,
+
+5
+00:00:10.950 --> 00:00:15.950
+things like client-side rendering, navigation, and so on.
+
+6
+00:00:18.633 --> 00:00:20.720
+But the first thing to look at,
+
+7
+00:00:20.720 --> 00:00:22.170
+is actually the pages directory.
+
+8
+00:00:22.170 --> 00:00:25.150
+The pages directory is our routing system.
+
+9
+00:00:25.150 --> 00:00:28.233
+So there is no need for a react router
+
+10
+00:00:28.233 --> 00:00:32.340
+or defining all the routs or any of that.
+
+11
+00:00:32.340 --> 00:00:37.340
+The pages directory declares what routs
+
+12
+00:00:37.570 --> 00:00:38.530
+are available in the first place.
+
+13
+00:00:38.530 --> 00:00:42.600
+So in this case, we have index.js which maps
+
+14
+00:00:42.600 --> 00:00:44.216
+directly to the rout of the application.
+
+15
+00:00:44.216 --> 00:00:47.430
+But we can have other directories as well.
+
+16
+00:00:47.430 --> 00:00:48.720
+So if we--
+
+17
+00:00:48.720 --> 00:00:49.950
+Directories or files.
+
+18
+00:00:49.950 --> 00:00:52.140
+Here I've got an about.js and I can
+
+19
+00:00:52.140 --> 00:00:54.300
+navigate to it using slash about.
+
+20
+00:00:54.300 --> 00:00:55.472
+I can have subdirectories.
+
+21
+00:00:55.472 --> 00:00:59.807
+Again, I can use index.js and it'll sow up this path,
+
+22
+00:01:01.633 --> 00:01:04.878
+the user path, individual files underneath that.
+
+23
+00:01:04.878 --> 00:01:06.817
+And I can navigate to those directly.
+
+24
+00:01:06.817 --> 00:01:09.630
+So here I've got user and a username
+
+25
+00:01:09.630 --> 00:01:13.130
+that will render the rem page, or page component.
+
+26
+00:01:13.130 --> 00:01:17.230
+And we can also do placeholders in the URLs.
+
+27
+00:01:17.230 --> 00:01:18.777
+Cause it's unlikely you're gonna say,
+
+28
+00:01:18.777 --> 00:01:22.848
+"I want to do a single user for every one of these pages."
+
+29
+00:01:22.848 --> 00:01:25.599
+We can use placeholders and we'll look at that later on,
+
+30
+00:01:25.599 --> 00:01:29.968
+dynamic routing with nice URLs as well.
+
+31
+00:01:29.968 --> 00:01:34.017
+So let's add another page into our project.
+
+32
+00:01:34.017 --> 00:01:36.560
+Very straightforward to do.
+
+33
+00:01:36.560 --> 00:01:40.272
+We're just going to touch pages about.
+
+34
+00:01:40.272 --> 00:01:45.272
+And in here, I'm going to add another page, about.
+
+35
+00:01:47.990 --> 00:01:52.990
+Okay, about my project, about this project.
+
+36
+00:01:53.610 --> 00:01:57.133
+And I'm just gonna wrap that in a div.
+
+37
+00:01:59.800 --> 00:02:04.800
+P tag, it uses Next; okay, hit save.
+
+38
+00:02:06.175 --> 00:02:10.030
+And I'm just gonna navigate to about.
+
+39
+00:02:10.030 --> 00:02:11.940
+There it is, ready for me to use.
+
+40
+00:02:11.940 --> 00:02:16.479
+Okay, so that is the routing system;
+
+41
+00:02:16.479 --> 00:02:18.271
+incredibly simple to work with.
+
+42
+00:02:18.271 --> 00:02:21.110
+One thing, before I kind of shoot off
+
+43
+00:02:21.110 --> 00:02:24.610
+onto how to link these together, you may have noticed
+
+44
+00:02:24.610 --> 00:02:27.201
+that my React components, they don't import
+
+45
+00:02:27.201 --> 00:02:29.087
+React at the top; they don't need to.
+
+46
+00:02:29.087 --> 00:02:31.440
+Next is doing that for me, so I don't have
+
+47
+00:02:31.440 --> 00:02:34.894
+to do import React from react.
+
+48
+00:02:34.894 --> 00:02:37.744
+So if you're writing regular React code,
+
+49
+00:02:37.744 --> 00:02:41.180
+you would have this at the top of every single page.
+
+50
+00:02:41.180 --> 00:02:45.240
+And then your build process would turn this JSX
+
+51
+00:02:45.240 --> 00:02:46.785
+into Javascript, but we don't need that.
+
+52
+00:02:46.785 --> 00:02:50.736
+Next provides its own presets and just discards
+
+53
+00:02:50.736 --> 00:02:54.640
+that unused variable or invisible variable.
+
+54
+00:02:54.640 --> 00:02:57.183
+So, the next thing we're gonna look at is
+
+55
+00:02:57.183 --> 00:02:59.470
+how to link these pages together, because at the moment,
+
+56
+00:02:59.470 --> 00:03:01.744
+when I'm navigating back and forth between them,
+
+57
+00:03:01.744 --> 00:03:04.530
+it's doing a full server render.
+
+58
+00:03:04.530 --> 00:03:09.530
+So if I add a link to this page and I click on that link,
+
+59
+00:03:09.825 --> 00:03:13.419
+that's doing a full server render, which we can see
+
+60
+00:03:13.419 --> 00:03:17.131
+in our network requests, if I just show you that now.
+
+61
+00:03:17.131 --> 00:03:19.054
+It's down a little bit.
+
+62
+00:03:19.054 --> 00:03:24.054
+So clear this log, click on about, and see here.
+
+63
+00:03:24.770 --> 00:03:26.495
+This was a document request.
+
+64
+00:03:26.495 --> 00:03:30.701
+What we wanna do is make use of the history API
+
+65
+00:03:30.701 --> 00:03:34.340
+and load that within the browser so that we don't have
+
+66
+00:03:34.340 --> 00:03:37.470
+that extra trip off to the server and extra content.
+
+67
+00:03:37.470 --> 00:03:38.760
+So that's what we're gonna look at next,
+
+68
+00:03:38.760 --> 00:03:43.760
+how to use Next's implementation of the link component.
+
